@@ -28,6 +28,12 @@ alias diff="kitty +kitten diff"
 ##################
 alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
+k3ddd () {
+  # requires net-tools
+  name=$1
+  IP=$(ifconfig wlp0s20f3 | grep inet | grep -v inet6 | awk '{print $2}')
+  k3d cluster create $name -a 2 --api-port $IP:6550 -p 443:443@loadbalancer -p 80:80@loadbalancer
+}
 
 ##################
 # PGP 

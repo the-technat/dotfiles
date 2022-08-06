@@ -1,0 +1,89 @@
+# Solarized color values
+# https://ethanschoonover.com/solarized/#the-values
+base03: &base03 "#002b36"
+base02: &base02 "#073642"
+base01: &base01 "#586e75"
+base00: &base00 "#657b83"
+base0: &base0 "#839496"
+base1: &base1 "#93a1a1"
+base2: &base2 "#eee8d5"
+base3: &base3 "#fdf6e3"
+yellow: &yellow "#b58900"
+orange: &orange "#cb4b16"
+red: &red "#dc322f"
+magenta: &magenta "#d33682"
+violet: &violet "#6c71c4"
+blue: &blue "#268bd2"
+cyan: &cyan "#2aa198"
+green: &green "#859900"
+
+
+# k9s Skin
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *base0
+    bgColor: *base03
+    logoColor: *magenta
+  # ClusterInfoView styles.
+  info:
+    fgColor: *blue
+    sectionColor: *cyan
+  frame:
+    # Borders styles.
+    border:
+      fgColor: *base0
+      focusColor: *base02
+    menu:
+      fgColor: *base1
+      keyColor: *violet
+      # Used for favorite namespaces
+      numKeyColor: *green
+    # CrumbView attributes for history navigation.
+    crumbs:
+      fgColor: *base03
+      bgColor: *base0
+      activeColor: *cyan
+    # Resource status and update styles
+    status:
+      newColor: *blue
+      modifyColor: *magenta
+      addColor: *green
+      errorColor: *red
+      highlightcolor: *orange
+      killColor: *yellow
+      completedColor: *base01
+    # Border title styles.
+    title:
+      fgColor: *cyan
+      bgColor: *base03
+      highlightColor: *magenta
+      counterColor: *green
+      filterColor: *magenta
+  # TableView attributes.
+  table:
+    fgColor: *base0
+    bgColor: *base03
+    cursorColor: *base02
+    # Header row styles.
+    header:
+      fgColor: *cyan
+      bgColor: *base02
+      sorterColor: *green
+  # Xray view attributes.
+  xray:
+    fgColor: *base0
+    bgColor: *base03
+    cursorColor: *base02
+    graphicColor: *violet
+    showIcons: true
+  views:
+    # YAML info styles.
+    yaml:
+      keyColor: *blue
+      colonColor: *red
+      valueColor: *base0
+    # Logs styles.
+    logs:
+      fgColor: *base0
+      bgColor: *base03
