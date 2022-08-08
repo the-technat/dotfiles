@@ -50,6 +50,7 @@ exec mako
 # Requires: wf-recorder, wshowkeys
 ###########################
 bindsym Ctrl+$mod+Alt+s exec ~/.config/sway/start-record.sh
+bindsym Ctrl+$mod+Shift+S exec ~/.config/sway/start-record.sh --no-keys
 bindsym Ctrl+$mod+Alt+e exec ~/.config/sway/end-record.sh
 
 ###########################
