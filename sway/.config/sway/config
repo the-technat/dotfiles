@@ -43,6 +43,15 @@ exec udiskie -Nt &
 # Launch mako with sway session
 exec mako
 
+
+###########################
+# Screen Recording
+# Docs:
+# Requires: wf-recorder, wshowkeys
+###########################
+bindsym Ctrl+$mod+Alt+s exec ~/.config/sway/start-record.sh
+bindsym Ctrl+$mod+Alt+e exec ~/.config/sway/end-record.sh
+
 ###########################
 # Screenshot
 # Docs: 
