@@ -219,14 +219,15 @@ bindsym $mod+Return exec $term
 ###########################
 # Configure displays
 # Internal monitor
-output eDP-1 pos 0 1080 res 1920x1080 
+output eDP-1 pos 0 1440 res 1920x1080 
 # Dell 27"
 output DP-1 pos 0 0 res 2560x1440 
 # Dell 21"
 output DP-2 pos 2560 0 res 1920x1080 
 
 # Wallpaper
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg #002b36 solid_color 
 
 default_border none
 default_floating_border none
