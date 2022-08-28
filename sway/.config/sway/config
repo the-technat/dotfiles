@@ -226,8 +226,8 @@ output DP-1 pos 0 0 res 2560x1440
 output DP-2 pos 2560 0 res 1920x1080 
 
 # Wallpaper
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg #002b36 solid_color 
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg #002b36 solid_color 
 
 default_border none
 default_floating_border none
@@ -282,7 +282,7 @@ exec swayidle -w \
 # Clamshell Mode
 # Docs: https://github.com/swaywm/sway/wiki#clamshell-mode
 ###########################
-#set $laptop eDP-1
+set $laptop eDP-1
 bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/clamshell.sh

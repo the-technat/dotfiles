@@ -3,7 +3,7 @@
 	name = Nathanael Liechti
 	signingkey = 22391B207DAD6969
 [commit]
-	gpgsign = false
+	gpgsign = true
 [pull]
 	rebase = true
 [diff]
