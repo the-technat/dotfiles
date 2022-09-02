@@ -68,7 +68,7 @@ ZSH_CUSTOM=/home/technat/.zsh-custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gpg-agent sudo helm kubectl cp extract terraform)
+plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd)
 
 source $ZSH/oh-my-zsh.sh
 
