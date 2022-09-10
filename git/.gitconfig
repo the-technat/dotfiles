@@ -3,7 +3,7 @@
 	name = Nathanael Liechti
 	signingkey = 22391B207DAD6969
 [commit]
-	gpgsign = true
+	gpgsign = false
 [pull]
 	rebase = true
 [diff]
@@ -16,3 +16,5 @@
     cmd = kitty +kitten diff $LOCAL $REMOTE
 [difftool "kitty.gui"]
     cmd = kitty kitty +kitten diff $LOCAL $REMOTE
+[gpg]
+	program = okc-gpg

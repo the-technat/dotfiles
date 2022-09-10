@@ -1,0 +1,1 @@
+eval $(okc-ssh-agent)

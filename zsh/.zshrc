@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/technat/.oh-my-zsh"
+export ZSH="/data/data/com.termux/files/home/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -61,7 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=/home/technat/.zsh-custom/
+ZSH_CUSTOM=/data/data/com.termux/files/home/.zsh-custom/
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -105,3 +105,4 @@ fi
 # https://github.com/ranger/ranger/wiki/Common-Changes#ranger-shell-prompt-indicator
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
 
+eval $(okc-ssh-agent)
