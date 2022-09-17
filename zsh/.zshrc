@@ -74,7 +74,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 # Agnoster Theme
-export DEFAULT_USER="technat" 
 # redefine prompt_context for hiding user@hostname
 prompt_context () { }
 
@@ -104,4 +103,3 @@ fi
 
 # https://github.com/ranger/ranger/wiki/Common-Changes#ranger-shell-prompt-indicator
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
-
