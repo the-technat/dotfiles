@@ -1,10 +1,10 @@
 k9s:
   refreshRate: 2
   maxConnRetry: 5
-  enableMouse: false
-  headless: false
-  logoless: false
-  crumbsless: false
+  enableMouse: true
+  headless: true
+  logoless: true
+  crumbsless: true
   readOnly: false
   noExitOnCtrlC: false
   noIcons: false
@@ -45,4 +45,4 @@ k9s:
     memory:
       critical: 90
       warn: 70
-  screenDumpDir: /tmp/k9s-screens-technat
+  screenDumpDir: /home/technat/Pictures/screenshots
