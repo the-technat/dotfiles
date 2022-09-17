@@ -21,8 +21,10 @@ set number
 set title
 set wildmenu
 set cursorline
-colorscheme torte
+set background=dark
+set termguicolors
 syntax enable
+colorscheme solarized
 
 " Search
 set hlsearch
@@ -37,3 +39,32 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set smarttab
+
+" ALE
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_save=1
+let g:ale_completion_enabled = 1
+let g:ale_default_navigation="vsplit"
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_set_balloons=1
+let g:ale_hover_cursor=1
+set omnifunc=ale#completion#OmniFunc " trigger completion using <C-x><C-o>
+let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'go': ['gofmt'],
+\  'terraform': ['terraformfmt'],
+\  'sh': ['shfmt'],
+\}
+
+" Other plugins
+let g:system_copy_silent = 1
+
+" Autocmd Magic
+autocmd FocusLost,WinLeave * :silent! w
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" For Plugins
+packloadall
+silent! helptags ALL
