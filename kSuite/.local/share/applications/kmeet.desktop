@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=kmeet
+Type=Application
+Icon=/home/technat/.local/icon/kmeet.png
+Exec=/home/technat/.local/bin/kmeet
+Comment=Infomaniak kmeet

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Icon=/home/technat/.local/icon/kdrive.png
+Exec=/home/technat/.local/bin/kdrive
+Name=kDrive
+Comment=Infomaniak file sync

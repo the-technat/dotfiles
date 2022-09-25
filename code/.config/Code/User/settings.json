@@ -1,0 +1,8 @@
+{
+    "workbench.sideBar.location": "right",
+    "window.menuBarVisibility": "toggle",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.startupEditor": "none",
+    "editor.fontFamily": "'FiraCode Nerd Font'",
+    "redhat.telemetry.enabled": false,
+}
