@@ -68,7 +68,7 @@ ZSH_CUSTOM=/home/technat/.zsh-custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd)
+plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd aws kubectx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -76,6 +76,8 @@ source $ZSH/oh-my-zsh.sh
 # Agnoster Theme
 # redefine prompt_context for hiding user@hostname
 prompt_context () { }
+# kubectx plugin
+RPS1='$(kubectx_prompt_info)'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -83,11 +85,11 @@ prompt_context () { }
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export EDITOR='vim'
+#else
+#  export EDITOR='vim'
+#fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
