@@ -8,7 +8,7 @@ set encoding=utf-8
 set history=1000
 set mouse=a
 set shell=/usr/bin/zsh
-set autoread 
+set autoread
 
 " Behaviour
 set confirm
@@ -32,9 +32,9 @@ set ignorecase
 set incsearch
 set smartcase
 
-" Editor  
+" Editor
 set smartindent
-set expandtab 
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set shiftround
@@ -54,7 +54,7 @@ set omnifunc=ale#completion#OmniFunc " trigger completion using <C-x><C-o>
 let g:ale_fixers = {
 \  '*': ['remove_trailing_lines', 'trim_whitespace'],
 \  'go': ['gofmt'],
-\  'terraform': ['terraformfmt'],
+\  'terraform': ['terraform'],
 \  'sh': ['shfmt'],
 \}
 

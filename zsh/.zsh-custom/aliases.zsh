@@ -2,7 +2,7 @@
 # General
 ##################
 alias ll="ranger"
-alias l="ls -lahF --hyperlink=auto --color=auto" 
+alias l="ls -lahF --hyperlink=auto --color=auto"
 
 ##################
 # Editing
@@ -12,7 +12,7 @@ alias -s yaml=vim
 alias -s go=vim
 alias -s json=vim
 alias -s md=vim
-alias -g tfgen="terraform-docs md ./ --output-file README.md"
+alias -g tfgen="terraform-docs md --output-file README.md"
 alias -g gss="git status -s"
 
 ##################
@@ -28,9 +28,10 @@ alias diff="kitty +kitten diff"
 ##################
 alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
+alias kk="kubectl --kubeconfig ~/.kube/cucumber.kubeconfig"
 
 ##################
-# PGP 
+# PGP
 ##################
 encrypt () {
   output="${1}".$(date +%s).enc
