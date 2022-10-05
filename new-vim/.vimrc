@@ -62,8 +62,25 @@ let g:ale_fixers = {
 let g:system_copy_silent = 1
 
 " Autocmd Magic
+" Save the file if we switch to another window
 autocmd FocusLost,WinLeave * :silent! w
+" Jump back to previous position in file when you reopen a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" Start NERDTree automatically and switch back to main window
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Keybindings
+" Window focus
+nnoremap <silent> <C-j> <C-W>j
+nnoremap <silent> <C-k> <C-W>k
+nnoremap <silent> <C-l> <C-W>l
+nnoremap <silent> <C-h> <C-W>h
+" Scroll the window next to the current one
+" (especially useful for two-window splits)
+nnoremap <silent> <leader>jj <c-w>w<c-d><c-w>W
+nnoremap <silent> <leader>kk <c-w>w<c-u><c-w>W
 
 " For Plugins
 packloadall

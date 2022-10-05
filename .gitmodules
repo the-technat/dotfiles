@@ -10,3 +10,6 @@
 [submodule "new-vim/.vim/pack/editor/start/vim-system-copy"]
 	path = new-vim/.vim/pack/editor/start/vim-system-copy
 	url = https://github.com/christoomey/vim-system-copy.git
+[submodule "new-vim/.vim/pack/editor/start/nerdtree"]
+	path = new-vim/.vim/pack/editor/start/nerdtree
+	url = https://github.com/preservim/nerdtree.git
