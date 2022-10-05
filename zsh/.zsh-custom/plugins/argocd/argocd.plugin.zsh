@@ -1,4 +1,5 @@
 localArgoEnv() {
+  sudo systemctl start docker
   echo "Provisioning a local argocd dev environment..."
   # activeInterface=$(nmcli -g DEVICE connection show --active)
   # IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}')
@@ -12,7 +13,7 @@ localArgoEnv() {
   else
     echo "Not in argo-cd git repo, installing from master branch..."
     kubectl create ns argocd 2>&1 >&- > /dev/null
-    kubectl apply -n argocd --force -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml 2>&1 >&- > /dev/null 
+    kubectl apply -n argocd --force -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml 2>&1 >&- > /dev/null
   fi
   echo "Waiting for Argo CD server to become available..."
   sleep 2
@@ -45,7 +46,7 @@ localArgoEnv() {
 }
 
 function exposeArgoLB() {
-  cat <<EOF | kubectl apply -n argocd -f -  
+  cat <<EOF | kubectl apply -n argocd -f -
 apiVersion: v1
 kind: Service
 metadata:
