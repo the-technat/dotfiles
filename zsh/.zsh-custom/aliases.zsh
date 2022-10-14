@@ -16,14 +16,6 @@ alias -g tfgen="terraform-docs md ./ --output-file README.md"
 alias -g gss="git status -s"
 
 ##################
-# Kitty related
-##################
-alias ssh="kitty +kitten ssh"
-alias icat="kitty +kitten icat"
-alias hg="kitty +kitten hyperlinked_grep"
-alias diff="kitty +kitten diff"
-
-##################
 # Kubernetes
 ##################
 alias kak="kubectl apply -k"
