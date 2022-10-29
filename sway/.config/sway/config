@@ -3,7 +3,7 @@
 ## Sway configuration (https://github.com/the-technat/wall-e)
 ##
 ## Configuration reference: `man 5 sway`
-## Configuration docs: https://wiki.technat.ch/en/Linux/sway-de 
+## Configuration docs: https://wiki.technat.ch/en/Linux/sway-de
 ##
 ## =============================================================================
 
@@ -55,7 +55,7 @@ bindsym Ctrl+$mod+Alt+e exec ~/.config/sway/end-record.sh
 
 ###########################
 # Screenshot
-# Docs: 
+# Docs:
 # Requires: grim, grimshot, swappy
 ###########################
 
@@ -153,7 +153,7 @@ bindsym $mod+y exec cliphist list | \
     --fn "font pango:rubik 11" \
     "$@" -m "$(swayfocused)" -p ">" | \
     cliphist decode | \
-    wl-copy 
+    wl-copy
 
 # Solarized Light
 #bindsym Shift+Ctrl+h exec cliphist list | \
@@ -175,7 +175,7 @@ bindsym $mod+y exec cliphist list | \
 #    --fn "font pango:rubik 11" \
 #    "$@" -m "$(swayfocused)" -p ">" | \
 #    cliphist decode | \
-#    wl-copy 
+#    wl-copy
 
 
 ###########################
@@ -189,7 +189,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5% | sed -En 's/.*\(([0-9]+)
 
 ###########################
 # Sound Controls
-# Docs: 
+# Docs:
 ###########################
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -198,8 +198,8 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Volume Control
 bindsym XF86AudioRaiseVolume exec volumectl up
-bindsym XF86AudioLowerVolume exec volumectl down 
-bindsym XF86AudioMute exec volumectl toggle 
+bindsym XF86AudioLowerVolume exec volumectl down
+bindsym XF86AudioMute exec volumectl toggle
 
 # Input control
 bindsym $mod+Alt+Ctrl+Space exec ~/.config/sway/mic-mute.sh
@@ -219,15 +219,16 @@ bindsym $mod+Return exec $term
 ###########################
 # Configure displays
 # Internal monitor
-output eDP-1 pos 0 0 res 1920x1080 
+output eDP-1 pos 0 0 res 1920x1080
 # Dell 27"
-output DP-1 pos 1920 0 res 2560x1440 
+output DP-1 pos 1920 0 res 2560x1440
 # Dell 21"
-output DP-2 pos 4480 0 res 1920x1080 
+output DP-2 transform 90
+output DP-2 pos 4480 0 res 1920x1080
 
 # Wallpaper
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-# output * bg #002b36 solid_color 
+# output * bg #002b36 solid_color
 
 default_border none
 default_floating_border none
@@ -439,4 +440,3 @@ bindsym $mod+r mode "resize"
 
 # for sway stuff coming with the package
 include /etc/sway/config.d/*
-
