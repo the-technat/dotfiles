@@ -1,15 +1,15 @@
 [submodule "alacritty/.config/alacritty/alacritty-themes"]
 	path = alacritty/.config/alacritty/alacritty-themes
 	url = https://github.com/rajasegar/alacritty-themes.git
-[submodule "new-vim/.vim/pack/styling/start/vim-solarized"]
-	path = vim/.vim/pack/styling/start/vim-solarized
-	url = https://github.com/ericbn/vim-solarized.git
 [submodule "new-vim/.vim/pack/ide/start/ale"]
 	path = vim/.vim/pack/ide/start/ale
 	url = https://github.com/dense-analysis/ale.git
-[submodule "new-vim/.vim/pack/editor/start/vim-system-copy"]
+[submodule "vim/.vim/pack/editor/start/vim-system-copy"]
 	path = vim/.vim/pack/editor/start/vim-system-copy
 	url = https://github.com/christoomey/vim-system-copy.git
-[submodule "new-vim/.vim/pack/editor/start/nerdtree"]
+[submodule "vim/.vim/pack/styling/start/vim-solarized"]
+	path = vim/.vim/pack/styling/start/vim-solarized
+	url = https://github.com/ericbn/vim-solarized.git
+[submodule "vim/.vim/pack/editor/start/nerdtree"]
 	path = vim/.vim/pack/editor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git

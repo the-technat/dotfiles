@@ -1,5 +1,3 @@
-vim/.vim/
-!vim/.vim/coc-settings.json
 gpg/.gnupg/
 !gpg/.gnupg/gpg.conf
 !gpg/.gnupg/gpg-agent.conf
