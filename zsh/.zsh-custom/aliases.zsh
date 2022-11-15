@@ -46,3 +46,32 @@ decrypt () {
         output=$(echo "${1}" | rev | cut -c16- | rev)
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
 }
+
+
+##################
+# AWS
+##################
+nukeAccount () {
+  name="$(date +%s)config.yaml"
+  cat > /tmp/$name << EOF
+    regions:
+    - sa-east-1
+    - eu-central-2
+    - global
+
+    account-blocklist:
+    - "999999999999" # production
+
+    accounts:
+      "298410952490":
+        filters:
+          IAMUser:
+          - "banana"
+          IAMUserPolicyAttachment:
+          - "banana -> AdministratorAccess"
+          IAMUserAccessKey:
+          - "banana -> AKIAUK6VNY4VLQ2EIAAW"
+EOF
+  aws-nuke --config /tmp/$name --no-dry-run
+  rm /tmp/$name
+}
