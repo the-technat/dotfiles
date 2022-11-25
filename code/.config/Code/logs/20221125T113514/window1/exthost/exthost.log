@@ -1,0 +1,25 @@
+2022-11-25 11:35:15.537 [info] Extension host with pid 79406 started
+2022-11-25 11:35:15.605 [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication, startup: false, activationEvent: 'onAuthenticationRequest:microsoft'
+2022-11-25 11:35:15.605 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2022-11-25 11:35:15.605 [info] ExtensionService#_doActivateExtension andilutten92.pop-theme-switcher, startup: true, activationEvent: '*'
+2022-11-25 11:35:15.605 [info] ExtensionService#_doActivateExtension GitHub.codespaces, startup: true, activationEvent: '*'
+2022-11-25 11:35:15.606 [info] ExtensionService#_doActivateExtension vscodevim.vim, startup: true, activationEvent: '*'
+2022-11-25 11:35:15.856 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2022-11-25 11:35:15.856 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2022-11-25 11:35:15.873 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'api', root cause: GitHub.codespaces
+2022-11-25 11:35:16.457 [info] Eager extensions activated
+2022-11-25 11:35:16.461 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.461 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.462 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.462 [info] ExtensionService#_doActivateExtension equinusocio.vsc-material-theme-icons, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.462 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-containers, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.462 [info] ExtensionService#_doActivateExtension ms-vscode-remote.remote-wsl, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.462 [info] ExtensionService#_doActivateExtension zhuangtongfa.material-theme, startup: false, activationEvent: 'onStartupFinished'
+2022-11-25 11:35:16.512 [warning] DiagnosticCollection with name 'devcontainer' does already exist.
+2022-11-25 11:35:16.840 [error] Error: ENOENT: no such file or directory, open '/home/technat/.config/Code/User/globalStorage/vscodevim.vim/.registers'
+2022-11-25 11:35:32.652 [info] ExtensionService#_doActivateExtension vscode.configuration-editing, startup: false, activationEvent: 'onLanguage:jsonc'
+2022-11-25 11:35:32.652 [info] ExtensionService#_doActivateExtension vscode.json-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2022-11-25 11:35:32.652 [info] ExtensionService#_doActivateExtension vscode.typescript-language-features, startup: false, activationEvent: 'onLanguage:jsonc'
+2022-11-25 11:36:31.692 [info] Extension host terminating: received terminate message from renderer
+2022-11-25 11:36:31.719 [error] Error: ENOENT: no such file or directory, open '/home/technat/.config/Code/User/globalStorage/vscodevim.vim/.registers'
+2022-11-25 11:36:31.721 [info] Extension host with pid 79406 exiting with code 0

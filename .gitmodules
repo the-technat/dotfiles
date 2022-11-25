@@ -13,3 +13,9 @@
 [submodule "vim/.vim/pack/editor/start/nerdtree"]
 	path = vim/.vim/pack/editor/start/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/.vim/pack/editor/start/vim-markdown-toc"]
+	path = vim/.vim/pack/editor/start/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc.git
+[submodule "vim/.vim/pack/editor/start/vim-commentary"]
+	path = vim/.vim/pack/editor/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git

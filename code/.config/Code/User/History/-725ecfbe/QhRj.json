@@ -1,0 +1,78 @@
+{
+    "workbench.preferredDarkColorTheme": "Solarized Dark",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "none",
+    "go.toolsManagement.autoUpdate": true,
+    "editor.tabSize": 2,
+    "editor.cursorStyle": "underline",
+    "workbench.tips.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "window.menuBarVisibility": "toggle",
+    "explorer.confirmDelete": false,
+    "redhat.telemetry.enabled": false,
+    "[terraform]": {
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true
+    },
+    "terraform.languageServer": {
+        "[terraform]": {
+            "editor.formatOnSave": true
+        },
+        "external": true,
+        "pathToBinary": "",
+        "args": [
+            "serve"
+        ],
+        "maxNumberOfProblems": 100,
+        "trace.server": "off"
+    },
+    "window.titleBarStyle": "native",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorStyle": "underline",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+    "editor.fontFamily": "FiraCode Nerd Font,Consolas, 'Courier New', monospace",
+    "yaml.schemas": {
+        "file:///home/liechtinat/.vscode-server/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "vs-kubernetes": {
+        "vs-kubernetes.namespace": "",
+        "vs-kubernetes.kubectl-path": "/usr/bin/kubectl",
+        "vs-kubernetes.helm-path": "/usr/local/bin/helm",
+        "vs-kubernetes.minikube-path": "",
+        "vs-kubernetes.kubectlVersioning": "user-provided",
+        "vs-kubernetes.outputFormat": "yaml",
+        "vs-kubernetes.kubeconfig": "",
+        "vs-kubernetes.knownKubeconfigs": [],
+        "vs-kubernetes.autoCleanupOnDebugTerminate": false,
+        "vs-kubernetes.nodejs-autodetect-remote-root": true,
+        "vs-kubernetes.nodejs-remote-root": "",
+        "vs-kubernetes.nodejs-debug-port": 9229,
+        "vs-kubernetes.dotnet-vsdbg-path": "~/vsdbg/vsdbg",
+        "vs-kubernetes.local-tunnel-debug-provider": "",
+        "checkForMinikubeUpgrade": true,
+        "imageBuildTool": "Docker"
+    },
+    "vscode-kubernetes.log-viewer.follow": true,
+    "vsdocker.imageUser": "docker.tools.post.ch",
+    "vscode-kubernetes.log-viewer.autorun": true,
+    "terraform.codelens.referenceCount": true,
+    "vim.useSystemClipboard": true,
+    "files.autoSave": "onFocusChange",
+    "terraform.languageServer.enable": true,
+    "jenkins.pipeline.linter.connector.crumbUrl": "https://jenkinsk8s.tools.pnet.ch/crumbIssuer/api/xml",
+    "jenkins.pipeline.linter.connector.url": "https://jenkinsk8s.tools.pnet.ch/pipeline-model-converter/validate",
+    "jenkins.pipeline.linter.connector.strictssl": false,
+    "jenkins.pipeline.linter.connector.token": "11af4964ea66b5f160658bd7bc30b39481",
+    "jenkins.pipeline.linter.connector.user": "liechtinat",
+    "terminal.integrated.shellIntegration.history": 99999,
+    "git.autofetch": true,
+    "editor.formatOnSave": true,
+    "terraform.languageServer.ignoreSingleFileWarning": true,
+    "terraform.experimentalFeatures.validateOnSave": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Solarized Light",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "git.enableSmartCommit": true,
+    "terminal.integrated.defaultProfile.linux": "zsh",
+}

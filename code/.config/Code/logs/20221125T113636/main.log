@@ -1,0 +1,6 @@
+2022-11-25 11:36:36.441 [info] update#setState idle
+2022-11-25 11:36:36.993 [info] Starting extension host with pid 79862 (fork() took 8 ms).
+2022-11-25 11:37:06.461 [info] update#setState checking for updates
+2022-11-25 11:37:06.500 [info] update#setState idle
+2022-11-25 11:37:42.680 [info] Extension host with pid 79862 exited with code: 0, signal: null.
+2022-11-25 11:37:43.173 [info] Starting extension host with pid 80652 (fork() took 5 ms).

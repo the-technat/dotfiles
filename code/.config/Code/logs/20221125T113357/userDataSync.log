@@ -1,0 +1,52 @@
+2022-11-25 11:33:58.576 [info] Using settings sync service https://vscode-sync.trafficmanager.net/
+2022-11-25 11:33:58.576 [info] Auto Sync is disabled.
+2022-11-25 11:34:27.377 [info] Sync started.
+2022-11-25 11:34:27.853 [info] Did reset the local sync state.
+2022-11-25 11:34:27.866 [info] Settings: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:27.966 [info] Settings: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.113 [info] GlobalState: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.140 [info] Keybindings: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.242 [info] Snippets: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.401 [info] Tasks: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.526 [info] GlobalState: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.597 [info] GlobalState: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:28.728 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:31.845 [info] Settings: Updated local settings
+2022-11-25 11:34:31.856 [info] Settings: Updated last synchronized settings
+2022-11-25 11:34:31.859 [info] Keybindings: No changes found during synchronizing keybindings.
+2022-11-25 11:34:31.872 [info] Keybindings: Updated last synchronized keybindings
+2022-11-25 11:34:31.874 [info] Snippets: No changes found during synchronizing snippets.
+2022-11-25 11:34:31.889 [info] Snippets: Updated last synchronized snippets
+2022-11-25 11:34:31.891 [info] Tasks: No changes found during synchronizing tasks.
+2022-11-25 11:34:31.907 [info] Tasks: Updated last synchronized tasks
+2022-11-25 11:34:31.922 [info] GlobalState: Updated global state ["workbench.panel.pinnedPanels","cpp.1.lastSessionDate","cpp.1.sessionCount","java.2.lastSessionDate","java.2.sessionCount","javascript.1.lastSessionDate","javascript.1.sessionCount","typescript.1.lastSessionDate","typescript.1.sessionCount","workbench.panel.repl.hidden","workbench.welcomePage.hiddenCategories","workbench.view.extensions.state.hidden","workbench.view.remote.state.hidden","workbench.view.extension.dockerView.state.hidden","workbench.panel.alignment","workbench.view.extension.test.state.hidden","ces/skipSurvey","terminal.integrated.showTerminalConfigPrompt","fileBasedRecommendations/promptedRecommendations","extensionTips/promptedExecutableTips","nps/isCandidate","nps/skipVersion","commandPalette.mru.cache","commandPalette.mru.counter","workbench.view.extension.terraform.state.hidden","workbench.view.extension.kubernetesView.state.hidden","http.linkProtectionTrustedDomains","remote.tunnels.toRestore.wsl+debian.1842411303","github-the-technat","~remote.forwardedPortsContainer.hidden","workbench.view.extension.github-pull-requests.state.hidden","workbench.view.extension.github-pull-request.state.hidden","workbench.view.extension.makefile__viewContainer.state.hidden","workbench.explorer.views.state.hidden","workbench.scm.views.state.hidden","workbench.activity.pinnedViewlets2","nps/lastSessionDate","nps/sessionCount","workbench.statusbar.hidden","colorThemeData","memento/gettingStartedService"]
+2022-11-25 11:34:31.923 [info] GlobalState: Updated local ui state
+2022-11-25 11:34:31.932 [info] GlobalState: Updated last synchronized ui state
+2022-11-25 11:34:33.796 [info] Extensions: Installed extension. zhuangtongfa.material-theme 3.15.6
+2022-11-25 11:34:33.847 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:35.531 [info] Extensions: Installed extension. vscodevim.vim 1.24.3
+2022-11-25 11:34:35.547 [info] Extensions: Installed extension. 4ops.terraform 0.2.5
+2022-11-25 11:34:35.598 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:35.950 [info] Extensions: Installed extension. davidanson.vscode-markdownlint 0.48.1
+2022-11-25 11:34:36.002 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:36.780 [info] Extensions: Installed extension. ms-azuretools.vscode-docker 1.22.2
+2022-11-25 11:34:36.831 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:36.985 [info] Extensions: Installed extension. asant930.pop 0.0.1
+2022-11-25 11:34:37.037 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:37.226 [info] Extensions: Installed extension. andilutten92.pop-theme-switcher 1.0.2
+2022-11-25 11:34:37.286 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:37.312 [info] Extensions: Installed extension. golang.go 0.36.0
+2022-11-25 11:34:37.341 [info] Extensions: Installed extension. artisanbytecrafter.poptheme 1.0.4
+2022-11-25 11:34:37.396 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:38.302 [info] Extensions: Installed extension. ms-vscode-remote.remote-wsl 0.72.0
+2022-11-25 11:34:38.342 [info] Extensions: Installed extension. redhat.vscode-yaml 1.10.1
+2022-11-25 11:34:38.393 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:40.415 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:41.354 [info] Extensions: Installed extension. ms-vscode-remote.remote-containers 0.262.3
+2022-11-25 11:34:41.405 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:41.650 [info] Extensions: Installed extension. equinusocio.vsc-material-theme-icons 2.4.0
+2022-11-25 11:34:41.701 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:43.079 [info] Extensions: Not synced yet. Last sync resource does not exist.
+2022-11-25 11:34:45.514 [info] Extensions: Installed extension. github.codespaces 1.13.1
+2022-11-25 11:34:45.522 [info] Extensions: Updated last synchronized extensions.
+2022-11-25 11:34:45.524 [info] Sync done. Took 18149ms

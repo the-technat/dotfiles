@@ -1,0 +1,2605 @@
+[Info  - 11:37:44 AM] 2022/11/25 11:37:44 go env for /home/technat/code/argo-cd
+(root /home/technat/code/argo-cd)
+(go version go version go1.19.3 linux/amd64)
+(valid build configuration = true)
+(build flags: [])
+GOPROXY=https://proxy.golang.org,direct
+GO111MODULE=
+GOINSECURE=
+GOPRIVATE=
+GOSUMDB=sum.golang.org
+GONOSUMDB=
+GOMODCACHE=/home/technat/go/pkg/mod
+GOMOD=/home/technat/code/argo-cd/go.mod
+GOPATH=/home/technat/go
+GONOPROXY=
+GOWORK=
+GOCACHE=/home/technat/.cache/go-build
+GOFLAGS=
+GOROOT=/usr/lib/go
+
+
+[Info  - 11:37:45 AM] 2022/11/25 11:37:45 go/packages.Load #1
+	snapshot=0
+	directory=/home/technat/code/argo-cd
+	query=[builtin github.com/argoproj/argo-cd/v2/...]
+	packages=384
+
+[Info  - 11:37:45 AM] 2022/11/25 11:37:45 go/packages.Load #1: updating metadata for 1858 packages
+
+[Error - 11:37:49 AM] 2022/11/25 11:37:49 tidy: diagnosing file:///home/technat/code/argo-cd/go.mod: err: exit status 1: stderr: go: downloading github.com/inconshreveable/mousetrap v1.0.1
+go: downloading k8s.io/code-generator v0.24.2
+go: downloading github.com/onsi/gomega v1.19.0
+go: downloading github.com/onsi/ginkgo/v2 v2.1.4
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/client-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/deepcopy-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/defaulter-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf/protoc-gen-gogo: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/informer-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/lister-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd imports
+	github.com/spf13/cobra imports
+	github.com/inconshreveable/mousetrap: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client tested by
+	sigs.k8s.io/controller-runtime/pkg/client.test imports
+	github.com/onsi/gomega: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime imports
+	sigs.k8s.io/controller-runtime/pkg/scheme tested by
+	sigs.k8s.io/controller-runtime/pkg/scheme.test imports
+	github.com/onsi/gomega/gstruct: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/format: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/types: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd/argocd/commands imports
+	github.com/argoproj/gitops-engine/pkg/utils/kube imports
+	k8s.io/kube-openapi/pkg/util/proto tested by
+	k8s.io/kube-openapi/pkg/util/proto.test imports
+	github.com/onsi/ginkgo/v2: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack/k8s imports
+	sigs.k8s.io/controller-runtime/pkg/envtest imports
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process tested by
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process.test imports
+	github.com/onsi/gomega/ghttp: module lookup disabled by GOPROXY=off
+
+
+[Error - 11:37:49 AM] 2022/11/25 11:37:49 tidy: diagnosing file:///home/technat/code/argo-cd/go.mod: err: exit status 1: stderr: go: downloading github.com/inconshreveable/mousetrap v1.0.1
+go: downloading k8s.io/code-generator v0.24.2
+go: downloading github.com/onsi/gomega v1.19.0
+go: downloading github.com/onsi/ginkgo/v2 v2.1.4
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/client-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/deepcopy-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/defaulter-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf/protoc-gen-gogo: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/informer-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/lister-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd imports
+	github.com/spf13/cobra imports
+	github.com/inconshreveable/mousetrap: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client tested by
+	sigs.k8s.io/controller-runtime/pkg/client.test imports
+	github.com/onsi/gomega: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime imports
+	sigs.k8s.io/controller-runtime/pkg/scheme tested by
+	sigs.k8s.io/controller-runtime/pkg/scheme.test imports
+	github.com/onsi/gomega/gstruct: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/format: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/types: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd/argocd/commands imports
+	github.com/argoproj/gitops-engine/pkg/utils/kube imports
+	k8s.io/kube-openapi/pkg/util/proto tested by
+	k8s.io/kube-openapi/pkg/util/proto.test imports
+	github.com/onsi/ginkgo/v2: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack/k8s imports
+	sigs.k8s.io/controller-runtime/pkg/envtest imports
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process tested by
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process.test imports
+	github.com/onsi/gomega/ghttp: module lookup disabled by GOPROXY=off
+
+
+[Error - 11:37:49 AM] 2022/11/25 11:37:49 tidy: diagnosing file:///home/technat/code/argo-cd/go.mod: err: exit status 1: stderr: go: downloading github.com/inconshreveable/mousetrap v1.0.1
+go: downloading k8s.io/code-generator v0.24.2
+go: downloading github.com/onsi/gomega v1.19.0
+go: downloading github.com/onsi/ginkgo/v2 v2.1.4
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/client-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/deepcopy-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/defaulter-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf/protoc-gen-gogo: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/informer-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/lister-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd imports
+	github.com/spf13/cobra imports
+	github.com/inconshreveable/mousetrap: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client tested by
+	sigs.k8s.io/controller-runtime/pkg/client.test imports
+	github.com/onsi/gomega: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime imports
+	sigs.k8s.io/controller-runtime/pkg/scheme tested by
+	sigs.k8s.io/controller-runtime/pkg/scheme.test imports
+	github.com/onsi/gomega/gstruct: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/format: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/types: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd/argocd/commands imports
+	github.com/argoproj/gitops-engine/pkg/utils/kube imports
+	k8s.io/kube-openapi/pkg/util/proto tested by
+	k8s.io/kube-openapi/pkg/util/proto.test imports
+	github.com/onsi/ginkgo/v2: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack/k8s imports
+	sigs.k8s.io/controller-runtime/pkg/envtest imports
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process tested by
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process.test imports
+	github.com/onsi/gomega/ghttp: module lookup disabled by GOPROXY=off
+
+
+[Error - 11:40:50 AM] 2022/11/25 11:40:50 tidy: diagnosing file:///home/technat/code/argo-cd/go.mod: err: exit status 1: stderr: go: downloading k8s.io/code-generator v0.24.2
+go: downloading github.com/inconshreveable/mousetrap v1.0.1
+go: downloading github.com/onsi/gomega v1.19.0
+go: downloading github.com/onsi/ginkgo/v2 v2.1.4
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/client-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/deepcopy-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/defaulter-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf/protoc-gen-gogo: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/informer-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/lister-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd imports
+	github.com/spf13/cobra imports
+	github.com/inconshreveable/mousetrap: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client tested by
+	sigs.k8s.io/controller-runtime/pkg/client.test imports
+	github.com/onsi/gomega: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime imports
+	sigs.k8s.io/controller-runtime/pkg/scheme tested by
+	sigs.k8s.io/controller-runtime/pkg/scheme.test imports
+	github.com/onsi/gomega/gstruct: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/format: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/types: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd/argocd/commands imports
+	github.com/argoproj/gitops-engine/pkg/utils/kube imports
+	k8s.io/kube-openapi/pkg/util/proto tested by
+	k8s.io/kube-openapi/pkg/util/proto.test imports
+	github.com/onsi/ginkgo/v2: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack/k8s imports
+	sigs.k8s.io/controller-runtime/pkg/envtest imports
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process tested by
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process.test imports
+	github.com/onsi/gomega/ghttp: module lookup disabled by GOPROXY=off
+
+
+[Error - 11:43:22 AM] 2022/11/25 11:43:22 tidy: diagnosing file:///home/technat/code/argo-cd/go.mod: err: exit status 1: stderr: go: downloading k8s.io/code-generator v0.24.2
+go: downloading github.com/inconshreveable/mousetrap v1.0.1
+go: downloading github.com/onsi/gomega v1.19.0
+go: downloading github.com/onsi/ginkgo/v2 v2.1.4
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/client-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/deepcopy-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/defaulter-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/go-to-protobuf/protoc-gen-gogo: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/informer-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack imports
+	k8s.io/code-generator/cmd/lister-gen: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd imports
+	github.com/spf13/cobra imports
+	github.com/inconshreveable/mousetrap: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client tested by
+	sigs.k8s.io/controller-runtime/pkg/client.test imports
+	github.com/onsi/gomega: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime imports
+	sigs.k8s.io/controller-runtime/pkg/scheme tested by
+	sigs.k8s.io/controller-runtime/pkg/scheme.test imports
+	github.com/onsi/gomega/gstruct: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/format: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/applicationset/controllers imports
+	sigs.k8s.io/controller-runtime/pkg/client imports
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil tested by
+	sigs.k8s.io/controller-runtime/pkg/client/apiutil.test imports
+	github.com/onsi/gomega/types: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/cmd/argocd/commands imports
+	github.com/argoproj/gitops-engine/pkg/utils/kube imports
+	k8s.io/kube-openapi/pkg/util/proto tested by
+	k8s.io/kube-openapi/pkg/util/proto.test imports
+	github.com/onsi/ginkgo/v2: module lookup disabled by GOPROXY=off
+github.com/argoproj/argo-cd/v2/hack/k8s imports
+	sigs.k8s.io/controller-runtime/pkg/envtest imports
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process tested by
+	sigs.k8s.io/controller-runtime/pkg/internal/testing/process.test imports
+	github.com/onsi/gomega/ghttp: module lookup disabled by GOPROXY=off
+
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	directory=/home/technat/code/argo-cd
+	query=[github.com/argoproj/argo-cd/v2/applicationset/controllers github.com/argoproj/argo-cd/v2/applicationset/generators github.com/argoproj/argo-cd/v2/applicationset/services github.com/argoproj/argo-cd/v2/applicationset/services/pull_request github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider github.com/argoproj/argo-cd/v2/applicationset/utils github.com/argoproj/argo-cd/v2/applicationset/webhook github.com/argoproj/argo-cd/v2/cmd github.com/argoproj/argo-cd/v2/cmd/argocd-application-controller/commands github.com/argoproj/argo-cd/v2/cmd/argocd-applicationset-controller/commands github.com/argoproj/argo-cd/v2/cmd/argocd-cmp-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd-dex/commands github.com/argoproj/argo-cd/v2/cmd/argocd-notification/commands github.com/argoproj/argo-cd/v2/cmd/argocd-repo-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd/commands github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin github.com/argoproj/argo-cd/v2/cmd/argocd/commands/headless github.com/argoproj/argo-cd/v2/cmd/util github.com/argoproj/argo-cd/v2/cmpserver github.com/argoproj/argo-cd/v2/cmpserver/plugin github.com/argoproj/argo-cd/v2/controller github.com/argoproj/argo-cd/v2/controller/cache github.com/argoproj/argo-cd/v2/controller/cache/mocks github.com/argoproj/argo-cd/v2/controller/metrics github.com/argoproj/argo-cd/v2/controller/sharding github.com/argoproj/argo-cd/v2/hack/gen-catalog github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd/commands github.com/argoproj/argo-cd/v2/hack/gen-resources/generators github.com/argoproj/argo-cd/v2/hack/gen-resources/util github.com/argoproj/argo-cd/v2/notification_controller/controller github.com/argoproj/argo-cd/v2/pkg/apiclient github.com/argoproj/argo-cd/v2/pkg/apiclient/application github.com/argoproj/argo-cd/v2/pkg/apiclient/applicationset github.com/argoproj/argo-cd/v2/pkg/apiclient/certificate github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster/mocks github.com/argoproj/argo-cd/v2/pkg/apiclient/gpgkey github.com/argoproj/argo-cd/v2/pkg/apiclient/project github.com/argoproj/argo-cd/v2/pkg/apiclient/repocreds github.com/argoproj/argo-cd/v2/pkg/apiclient/repository github.com/argoproj/argo-cd/v2/pkg/apiclient/settings github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/fake github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/scheme github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1/fake github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/internalinterfaces github.com/argoproj/argo-cd/v2/pkg/client/listers/application/v1alpha1 github.com/argoproj/argo-cd/v2/reposerver github.com/argoproj/argo-cd/v2/reposerver/apiclient github.com/argoproj/argo-cd/v2/reposerver/apiclient/mocks github.com/argoproj/argo-cd/v2/reposerver/cache github.com/argoproj/argo-cd/v2/reposerver/repository github.com/argoproj/argo-cd/v2/server github.com/argoproj/argo-cd/v2/server/account github.com/argoproj/argo-cd/v2/server/application github.com/argoproj/argo-cd/v2/server/applicationset github.com/argoproj/argo-cd/v2/server/badge github.com/argoproj/argo-cd/v2/server/cache github.com/argoproj/argo-cd/v2/server/certificate github.com/argoproj/argo-cd/v2/server/cluster github.com/argoproj/argo-cd/v2/server/gpgkey github.com/argoproj/argo-cd/v2/server/logout github.com/argoproj/argo-cd/v2/server/notification github.com/argoproj/argo-cd/v2/server/project github.com/argoproj/argo-cd/v2/server/rbacpolicy github.com/argoproj/argo-cd/v2/server/repocreds github.com/argoproj/argo-cd/v2/server/repository github.com/argoproj/argo-cd/v2/server/session github.com/argoproj/argo-cd/v2/server/settings github.com/argoproj/argo-cd/v2/server/version github.com/argoproj/argo-cd/v2/test github.com/argoproj/argo-cd/v2/test/e2e github.com/argoproj/argo-cd/v2/test/e2e/fixture github.com/argoproj/argo-cd/v2/test/e2e/fixture/account github.com/argoproj/argo-cd/v2/test/e2e/fixture/app github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets/utils github.com/argoproj/argo-cd/v2/test/e2e/fixture/certs github.com/argoproj/argo-cd/v2/test/e2e/fixture/cluster github.com/argoproj/argo-cd/v2/test/e2e/fixture/gpgkeys github.com/argoproj/argo-cd/v2/test/e2e/fixture/notification github.com/argoproj/argo-cd/v2/test/e2e/fixture/project github.com/argoproj/argo-cd/v2/test/e2e/fixture/repos github.com/argoproj/argo-cd/v2/tools/cmd-docs github.com/argoproj/argo-cd/v2/util/app/discovery github.com/argoproj/argo-cd/v2/util/appset github.com/argoproj/argo-cd/v2/util/argo github.com/argoproj/argo-cd/v2/util/argo/diff github.com/argoproj/argo-cd/v2/util/argo/diff_test github.com/argoproj/argo-cd/v2/util/argo/normalizers github.com/argoproj/argo-cd/v2/util/cache/appstate github.com/argoproj/argo-cd/v2/util/cmp github.com/argoproj/argo-cd/v2/util/cmp_test github.com/argoproj/argo-cd/v2/util/db github.com/argoproj/argo-cd/v2/util/db/mocks github.com/argoproj/argo-cd/v2/util/dex github.com/argoproj/argo-cd/v2/util/github_app github.com/argoproj/argo-cd/v2/util/gpg github.com/argoproj/argo-cd/v2/util/io/files github.com/argoproj/argo-cd/v2/util/io/files_test github.com/argoproj/argo-cd/v2/util/kustomize github.com/argoproj/argo-cd/v2/util/lua github.com/argoproj/argo-cd/v2/util/manifeststream github.com/argoproj/argo-cd/v2/util/manifeststream_test github.com/argoproj/argo-cd/v2/util/notification/argocd github.com/argoproj/argo-cd/v2/util/notification/expression github.com/argoproj/argo-cd/v2/util/notification/expression/repo github.com/argoproj/argo-cd/v2/util/notification/expression/shared github.com/argoproj/argo-cd/v2/util/notification/settings github.com/argoproj/argo-cd/v2/util/oidc github.com/argoproj/argo-cd/v2/util/resource github.com/argoproj/argo-cd/v2/util/session github.com/argoproj/argo-cd/v2/util/settings github.com/argoproj/argo-cd/v2/util/webhook]
+	packages=229
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/io/files"
+	files=[/home/technat/code/argo-cd/util/io/files/tar.go /home/technat/code/argo-cd/util/io/files/util.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/apis/application/v1alpha1/app_project_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_annotations.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_defaults.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/cluster_constants.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/hack.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/openapi_generated.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/register.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/repository_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/zz_generated.deepcopy.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/gpg"
+	files=[/home/technat/code/argo-cd/util/gpg/gpg.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/settings"
+	files=[/home/technat/code/argo-cd/util/settings/accounts.go /home/technat/code/argo-cd/util/settings/filtered_resource.go /home/technat/code/argo-cd/util/settings/resources_filter.go /home/technat/code/argo-cd/util/settings/settings.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services"
+	files=[/home/technat/code/argo-cd/applicationset/services/repo_service.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils"
+	files=[/home/technat/code/argo-cd/applicationset/utils/clusterUtils.go /home/technat/code/argo-cd/applicationset/utils/createOrUpdate.go /home/technat/code/argo-cd/applicationset/utils/map.go /home/technat/code/argo-cd/applicationset/utils/policy.go /home/technat/code/argo-cd/applicationset/utils/utils.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/db"
+	files=[/home/technat/code/argo-cd/util/db/certificate.go /home/technat/code/argo-cd/util/db/cluster.go /home/technat/code/argo-cd/util/db/db.go /home/technat/code/argo-cd/util/db/gpgkeys.go /home/technat/code/argo-cd/util/db/helmrepository.go /home/technat/code/argo-cd/util/db/repo_creds.go /home/technat/code/argo-cd/util/db/repository.go /home/technat/code/argo-cd/util/db/repository_legacy.go /home/technat/code/argo-cd/util/db/repository_secrets.go /home/technat/code/argo-cd/util/db/secrets.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request"
+	files=[/home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/pull_request/fake.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea.go /home/technat/code/argo-cd/applicationset/services/pull_request/github.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_app.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab.go /home/technat/code/argo-cd/applicationset/services/pull_request/interface.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider"
+	files=[/home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_app.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab.go /home/technat/code/argo-cd/applicationset/services/scm_provider/mock.go /home/technat/code/argo-cd/applicationset/services/scm_provider/types.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators"
+	files=[/home/technat/code/argo-cd/applicationset/generators/cluster.go /home/technat/code/argo-cd/applicationset/generators/duck_type.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor.go /home/technat/code/argo-cd/applicationset/generators/git.go /home/technat/code/argo-cd/applicationset/generators/interface.go /home/technat/code/argo-cd/applicationset/generators/list.go /home/technat/code/argo-cd/applicationset/generators/matrix.go /home/technat/code/argo-cd/applicationset/generators/merge.go /home/technat/code/argo-cd/applicationset/generators/pull_request.go /home/technat/code/argo-cd/applicationset/generators/scm_provider.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/listers/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/expansion_generated.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/clientset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/doc.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/apiclient"
+	files=[/home/technat/code/argo-cd/reposerver/apiclient/clientset.go /home/technat/code/argo-cd/reposerver/apiclient/repository.go /home/technat/code/argo-cd/reposerver/apiclient/repository.pb.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/scheme"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/scheme/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/scheme/register.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/application_client.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/generated_expansion.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo"
+	files=[/home/technat/code/argo-cd/util/argo/argo.go /home/technat/code/argo-cd/util/argo/audit_logger.go /home/technat/code/argo-cd/util/argo/resource_tracking.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers"
+	files=[/home/technat/code/argo-cd/applicationset/controllers/applicationset_controller.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook"
+	files=[/home/technat/code/argo-cd/applicationset/webhook/webhook.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/metrics"
+	files=[/home/technat/code/argo-cd/controller/metrics/clustercollector.go /home/technat/code/argo-cd/controller/metrics/metrics.go /home/technat/code/argo-cd/controller/metrics/transportwrapper.go /home/technat/code/argo-cd/controller/metrics/workqueue.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/util"
+	files=[/home/technat/code/argo-cd/cmd/util/app.go /home/technat/code/argo-cd/cmd/util/applicationset.go /home/technat/code/argo-cd/cmd/util/cluster.go /home/technat/code/argo-cd/cmd/util/common.go /home/technat/code/argo-cd/cmd/util/project.go /home/technat/code/argo-cd/cmd/util/repo.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/interface.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers"
+	files=[/home/technat/code/argo-cd/util/argo/normalizers/corev1_known_types.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/util.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff"
+	files=[/home/technat/code/argo-cd/util/argo/diff/diff.go /home/technat/code/argo-cd/util/argo/diff/ignore.go /home/technat/code/argo-cd/util/argo/diff/normalize.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller"
+	files=[/home/technat/code/argo-cd/controller/appcontroller.go /home/technat/code/argo-cd/controller/clusterinfoupdater.go /home/technat/code/argo-cd/controller/health.go /home/technat/code/argo-cd/controller/sort_delete.go /home/technat/code/argo-cd/controller/state.go /home/technat/code/argo-cd/controller/sync.go /home/technat/code/argo-cd/controller/sync_namespace.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate"
+	files=[/home/technat/code/argo-cd/util/cache/appstate/cache.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/sharding"
+	files=[/home/technat/code/argo-cd/controller/sharding/sharding.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/lua"
+	files=[/home/technat/code/argo-cd/util/lua/lua.go /home/technat/code/argo-cd/util/lua/oslib_safe.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/cache"
+	files=[/home/technat/code/argo-cd/controller/cache/cache.go /home/technat/code/argo-cd/controller/cache/info.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/resource"
+	files=[/home/technat/code/argo-cd/util/resource/revision.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin"
+	files=[/home/technat/code/argo-cd/cmpserver/plugin/config.go /home/technat/code/argo-cd/cmpserver/plugin/plugin.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_unix.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/settings"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/settings/settings.pb.go /home/technat/code/argo-cd/pkg/apiclient/settings/settings.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/internalinterfaces"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/internalinterfaces/factory_interfaces.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-application-controller/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-application-controller/commands/argocd_application_controller.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/oidc"
+	files=[/home/technat/code/argo-cd/util/oidc/oidc.go /home/technat/code/argo-cd/util/oidc/provider.go /home/technat/code/argo-cd/util/oidc/templates.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/settings"
+	files=[/home/technat/code/argo-cd/server/settings/settings.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/kustomize"
+	files=[/home/technat/code/argo-cd/util/kustomize/kustomize.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/version"
+	files=[/home/technat/code/argo-cd/server/version/version.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-cmp-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-cmp-server/commands/argocd_cmp_server.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-dex/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-dex/commands/argocd_dex.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cmp"
+	files=[/home/technat/code/argo-cd/util/cmp/stream.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings"
+	files=[/home/technat/code/argo-cd/util/notification/settings/legacy.go /home/technat/code/argo-cd/util/notification/settings/settings.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmpserver"
+	files=[/home/technat/code/argo-cd/cmpserver/server.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-applicationset-controller/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-applicationset-controller/commands/applicationset_controller.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/github_app"
+	files=[/home/technat/code/argo-cd/util/github_app/repos.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy"
+	files=[/home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery"
+	files=[/home/technat/code/argo-cd/util/app/discovery/discovery.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-notification/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-notification/commands/controller.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/dex"
+	files=[/home/technat/code/argo-cd/util/dex/config.go /home/technat/code/argo-cd/util/dex/dex.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/application"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/application/application.pb.go /home/technat/code/argo-cd/pkg/apiclient/application/application.pb.gw.go /home/technat/code/argo-cd/pkg/apiclient/application/forwarder_overwrite.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream"
+	files=[/home/technat/code/argo-cd/util/manifeststream/stream.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository"
+	files=[/home/technat/code/argo-cd/reposerver/repository/lock.go /home/technat/code/argo-cd/reposerver/repository/repository.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver"
+	files=[/home/technat/code/argo-cd/reposerver/gpgwatcher.go /home/technat/code/argo-cd/reposerver/server.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-repo-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-repo-server/commands/argocd_repo_server.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/applicationset"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/applicationset/applicationset.pb.go /home/technat/code/argo-cd/pkg/apiclient/applicationset/applicationset.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/gpgkey"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/gpgkey/gpgkey.pb.go /home/technat/code/argo-cd/pkg/apiclient/gpgkey/gpgkey.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/notification_controller/controller"
+	files=[/home/technat/code/argo-cd/notification_controller/controller/controller.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/project"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/project/forwarder_overwrite.go /home/technat/code/argo-cd/pkg/apiclient/project/project.pb.go /home/technat/code/argo-cd/pkg/apiclient/project/project.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/repository"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/repository/repository.pb.go /home/technat/code/argo-cd/pkg/apiclient/repository/repository.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/cluster/cluster.pb.go /home/technat/code/argo-cd/pkg/apiclient/cluster/cluster.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/application/interface.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/account"
+	files=[/home/technat/code/argo-cd/server/account/account.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cache"
+	files=[/home/technat/code/argo-cd/server/cache/cache.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/appset"
+	files=[/home/technat/code/argo-cd/util/appset/appset.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/badge"
+	files=[/home/technat/code/argo-cd/server/badge/badge.go /home/technat/code/argo-cd/server/badge/color.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/certificate"
+	files=[/home/technat/code/argo-cd/server/certificate/certificate.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cluster"
+	files=[/home/technat/code/argo-cd/server/cluster/cluster.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/project"
+	files=[/home/technat/code/argo-cd/server/project/project.go /home/technat/code/argo-cd/server/project/util.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/repocreds"
+	files=[/home/technat/code/argo-cd/server/repocreds/repocreds.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/repository"
+	files=[/home/technat/code/argo-cd/server/repository/repository.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/apiclient.go /home/technat/code/argo-cd/pkg/apiclient/grpcproxy.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server"
+	files=[/home/technat/code/argo-cd/server/server.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/repocreds"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/repocreds/repocreds.pb.go /home/technat/code/argo-cd/pkg/apiclient/repocreds/repocreds.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/session"
+	files=[/home/technat/code/argo-cd/util/session/sessionmanager.go /home/technat/code/argo-cd/util/session/state.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression/shared"
+	files=[/home/technat/code/argo-cd/util/notification/expression/shared/appdetail.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/argocd"
+	files=[/home/technat/code/argo-cd/util/notification/argocd/service.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression/repo"
+	files=[/home/technat/code/argo-cd/util/notification/expression/repo/repo.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression"
+	files=[/home/technat/code/argo-cd/util/notification/expression/expr.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache"
+	files=[/home/technat/code/argo-cd/reposerver/cache/cache.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-server/commands/argocd_server.go /home/technat/code/argo-cd/cmd/argocd-server/commands/common.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/certificate"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/certificate/certificate.pb.go /home/technat/code/argo-cd/pkg/apiclient/certificate/certificate.pb.gw.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/factory.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/generic.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/gpgkey"
+	files=[/home/technat/code/argo-cd/server/gpgkey/gpgkey.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/applicationset"
+	files=[/home/technat/code/argo-cd/server/applicationset/applicationset.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/application"
+	files=[/home/technat/code/argo-cd/server/application/application.go /home/technat/code/argo-cd/server/application/broadcaster.go /home/technat/code/argo-cd/server/application/logs.go /home/technat/code/argo-cd/server/application/terminal.go /home/technat/code/argo-cd/server/application/websocket.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/notification"
+	files=[/home/technat/code/argo-cd/server/notification/notification.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/session"
+	files=[/home/technat/code/argo-cd/server/session/ratelimiter.go /home/technat/code/argo-cd/server/session/session.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/webhook"
+	files=[/home/technat/code/argo-cd/util/webhook/webhook.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/headless"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/headless/headless.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/logout"
+	files=[/home/technat/code/argo-cd/server/logout/logout.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/admin/admin.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/backup.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/dashboard.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/initial_password.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/notifications.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/account.go /home/technat/code/argo-cd/cmd/argocd/commands/app.go /home/technat/code/argo-cd/cmd/argocd/commands/app_actions.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resources.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt.go /home/technat/code/argo-cd/cmd/argocd/commands/cert.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/common.go /home/technat/code/argo-cd/cmd/argocd/commands/completion.go /home/technat/code/argo-cd/cmd/argocd/commands/context.go /home/technat/code/argo-cd/cmd/argocd/commands/gpg.go /home/technat/code/argo-cd/cmd/argocd/commands/login.go /home/technat/code/argo-cd/cmd/argocd/commands/logout.go /home/technat/code/argo-cd/cmd/argocd/commands/project.go /home/technat/code/argo-cd/cmd/argocd/commands/project_role.go /home/technat/code/argo-cd/cmd/argocd/commands/projectwindows.go /home/technat/code/argo-cd/cmd/argocd/commands/relogin.go /home/technat/code/argo-cd/cmd/argocd/commands/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/repocreds.go /home/technat/code/argo-cd/cmd/argocd/commands/root.go /home/technat/code/argo-cd/cmd/argocd/commands/version.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd"
+	files=[/home/technat/code/argo-cd/cmd/main.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/cache/mocks"
+	files=[/home/technat/code/argo-cd/controller/cache/mocks/LiveStateCache.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/hack/gen-catalog"
+	files=[/home/technat/code/argo-cd/hack/gen-catalog/main.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/util"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/util/gen_options_parser.go /home/technat/code/argo-cd/hack/gen-resources/util/kube.go /home/technat/code/argo-cd/hack/gen-resources/util/progress_bar.go /home/technat/code/argo-cd/hack/gen-resources/util/util.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/generators"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/generators/application_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/cluster_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/project_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/repo_generator.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster/mocks"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/cluster/mocks/ClusterServiceServer.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/cmd/main.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd/commands"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/cmd/commands/cmd.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1/fake"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_application.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_application_client.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_applicationset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_appproject.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e"
+	files=[]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/apiclient/mocks"
+	files=[/home/technat/code/argo-cd/reposerver/apiclient/mocks/Clientset.go /home/technat/code/argo-cd/reposerver/apiclient/mocks/RepoServerServiceClient.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/account"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/account/actions.go /home/technat/code/argo-cd/test/e2e/fixture/account/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/account/context.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/repos"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/repos/actions.go /home/technat/code/argo-cd/test/e2e/fixture/repos/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/repos/context.go /home/technat/code/argo-cd/test/e2e/fixture/repos/repos.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test"
+	files=[/home/technat/code/argo-cd/test/testdata.go /home/technat/code/argo-cd/test/testutil.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/cluster"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/cluster/actions.go /home/technat/code/argo-cd/test/e2e/fixture/cluster/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/cluster/context.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/project"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/project/actions.go /home/technat/code/argo-cd/test/e2e/fixture/project/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/project/context.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff_test"
+	files=[]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/tools/cmd-docs"
+	files=[/home/technat/code/argo-cd/tools/cmd-docs/main.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/db/mocks"
+	files=[/home/technat/code/argo-cd/util/db/mocks/ArgoDB.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/cmd.go /home/technat/code/argo-cd/test/e2e/fixture/fixture.go /home/technat/code/argo-cd/test/e2e/fixture/http.go /home/technat/code/argo-cd/test/e2e/fixture/tmpl.go /home/technat/code/argo-cd/test/e2e/fixture/util.go /home/technat/code/argo-cd/test/e2e/fixture/versions.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers [github.com/argoproj/argo-cd/v2/applicationset/controllers.test]"
+	files=[/home/technat/code/argo-cd/applicationset/controllers/applicationset_controller.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler.go /home/technat/code/argo-cd/applicationset/controllers/applicationset_controller_test.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/certs"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/certs/certs.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services [github.com/argoproj/argo-cd/v2/applicationset/services.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/repo_service.go /home/technat/code/argo-cd/applicationset/services/repo_service_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators.test"
+	files=[/home/technat/.cache/go-build/65/65a70e8c9545a0a619e50f6abb37233b9cf162808db35437ac974f31d96fdb64-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services.test"
+	files=[/home/technat/.cache/go-build/4b/4b274fd76924cdb43ed3aadb5c02eacaeb79dbe35ef59e2791589f57880adba8-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request [github.com/argoproj/argo-cd/v2/applicationset/services/pull_request.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/pull_request/fake.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea.go /home/technat/code/argo-cd/applicationset/services/pull_request/github.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_app.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab.go /home/technat/code/argo-cd/applicationset/services/pull_request/interface.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils.go /home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request.test"
+	files=[/home/technat/.cache/go-build/48/48a2fc23f6fff2fdb428bc59b15178b388e968875b37afab1ed4609658168bb7-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/fake"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/clientset_generated.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/register.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/applicationsets/actions.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/context.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/expectation.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets/utils"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/cmd.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/errrors.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/fixture.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cmp_test"
+	files=[]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/app"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/app/actions.go /home/technat/code/argo-cd/test/e2e/fixture/app/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/app/context.go /home/technat/code/argo-cd/test/e2e/fixture/app/expectation.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/io/files_test"
+	files=[]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider.test"
+	files=[/home/technat/.cache/go-build/4d/4dc86008fd17d367940ec4ec3f3bad10752519a95dfe2df060c37a49439557c4-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils.test"
+	files=[/home/technat/.cache/go-build/6a/6aa34bf6dc4f37873dfdd7ae52f585d94b98a02663c0d44f86686dd0d5686048-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook.test"
+	files=[/home/technat/.cache/go-build/ad/ad9c4e513c7be6d1abc60fdb296cc343dfcd9425cc1397e1c6cf7b7a696d897a-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers.test"
+	files=[/home/technat/.cache/go-build/2e/2e256d22035b659514e09d50a9cd8afd06ecd41459612e3adfe82fff752f233c-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands [github.com/argoproj/argo-cd/v2/cmd/argocd/commands.test]"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/account.go /home/technat/code/argo-cd/cmd/argocd/commands/app.go /home/technat/code/argo-cd/cmd/argocd/commands/app_actions.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resources.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt.go /home/technat/code/argo-cd/cmd/argocd/commands/cert.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/common.go /home/technat/code/argo-cd/cmd/argocd/commands/completion.go /home/technat/code/argo-cd/cmd/argocd/commands/context.go /home/technat/code/argo-cd/cmd/argocd/commands/gpg.go /home/technat/code/argo-cd/cmd/argocd/commands/login.go /home/technat/code/argo-cd/cmd/argocd/commands/logout.go /home/technat/code/argo-cd/cmd/argocd/commands/project.go /home/technat/code/argo-cd/cmd/argocd/commands/project_role.go /home/technat/code/argo-cd/cmd/argocd/commands/projectwindows.go /home/technat/code/argo-cd/cmd/argocd/commands/relogin.go /home/technat/code/argo-cd/cmd/argocd/commands/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/repocreds.go /home/technat/code/argo-cd/cmd/argocd/commands/root.go /home/technat/code/argo-cd/cmd/argocd/commands/version.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resource_test.go /home/technat/code/argo-cd/cmd/argocd/commands/app_test.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset_test.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt_test.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster_test.go /home/technat/code/argo-cd/cmd/argocd/commands/common_test.go /home/technat/code/argo-cd/cmd/argocd/commands/context_test.go /home/technat/code/argo-cd/cmd/argocd/commands/login_test.go /home/technat/code/argo-cd/cmd/argocd/commands/logout_test.go /home/technat/code/argo-cd/cmd/argocd/commands/version_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators [github.com/argoproj/argo-cd/v2/applicationset/generators.test]"
+	files=[/home/technat/code/argo-cd/applicationset/generators/cluster.go /home/technat/code/argo-cd/applicationset/generators/duck_type.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor.go /home/technat/code/argo-cd/applicationset/generators/git.go /home/technat/code/argo-cd/applicationset/generators/interface.go /home/technat/code/argo-cd/applicationset/generators/list.go /home/technat/code/argo-cd/applicationset/generators/matrix.go /home/technat/code/argo-cd/applicationset/generators/merge.go /home/technat/code/argo-cd/applicationset/generators/pull_request.go /home/technat/code/argo-cd/applicationset/generators/scm_provider.go /home/technat/code/argo-cd/applicationset/generators/cluster_test.go /home/technat/code/argo-cd/applicationset/generators/duck_type_test.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor_test.go /home/technat/code/argo-cd/applicationset/generators/git_test.go /home/technat/code/argo-cd/applicationset/generators/list_test.go /home/technat/code/argo-cd/applicationset/generators/matrix_test.go /home/technat/code/argo-cd/applicationset/generators/merge_test.go /home/technat/code/argo-cd/applicationset/generators/pull_request_test.go /home/technat/code/argo-cd/applicationset/generators/scm_provider_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/gpgkeys"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/gpgkeys/gpgkeys.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin.test"
+	files=[/home/technat/.cache/go-build/f0/f0f0558aec5c9def317e9ffb4600c049656f59f0323d0c34356f9a9423d9e4d9-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin [github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin.test]"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/admin/admin.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/backup.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/dashboard.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/initial_password.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/notifications.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/secrets_redactor_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/util.test"
+	files=[/home/technat/.cache/go-build/b1/b10d0c6339d1f62e65ed750eb2ff1c597a44286f459ff63282182c11372db016-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider [github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_app.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab.go /home/technat/code/argo-cd/applicationset/services/scm_provider/mock.go /home/technat/code/argo-cd/applicationset/services/scm_provider/types.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils.go /home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/cache [github.com/argoproj/argo-cd/v2/controller/cache.test]"
+	files=[/home/technat/code/argo-cd/controller/cache/cache.go /home/technat/code/argo-cd/controller/cache/info.go /home/technat/code/argo-cd/controller/cache/cache_test.go /home/technat/code/argo-cd/controller/cache/info_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/metrics [github.com/argoproj/argo-cd/v2/controller/metrics.test]"
+	files=[/home/technat/code/argo-cd/controller/metrics/clustercollector.go /home/technat/code/argo-cd/controller/metrics/metrics.go /home/technat/code/argo-cd/controller/metrics/transportwrapper.go /home/technat/code/argo-cd/controller/metrics/workqueue.go /home/technat/code/argo-cd/controller/metrics/clustercollector_test.go /home/technat/code/argo-cd/controller/metrics/metrics_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/sharding [github.com/argoproj/argo-cd/v2/controller/sharding.test]"
+	files=[/home/technat/code/argo-cd/controller/sharding/sharding.go /home/technat/code/argo-cd/controller/sharding/sharding_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/metrics.test"
+	files=[/home/technat/.cache/go-build/66/663f29be8c315b3cde8f9192f20e1f7bc7ddb7664f309354505533cf3195999e-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient [github.com/argoproj/argo-cd/v2/pkg/apiclient.test]"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/apiclient.go /home/technat/code/argo-cd/pkg/apiclient/grpcproxy.go /home/technat/code/argo-cd/pkg/apiclient/apiclient_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/sharding.test"
+	files=[/home/technat/.cache/go-build/5f/5fccdfbb3ced1f990204d64d7a09eef8935407c2df2b1d86a528ad9d86af9dcd-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1 [github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1.test]"
+	files=[/home/technat/code/argo-cd/pkg/apis/application/v1alpha1/app_project_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_annotations.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_defaults.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/cluster_constants.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/hack.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/openapi_generated.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/register.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/repository_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/zz_generated.deepcopy.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types_test.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache [github.com/argoproj/argo-cd/v2/reposerver/cache.test]"
+	files=[/home/technat/code/argo-cd/reposerver/cache/cache.go /home/technat/code/argo-cd/reposerver/cache/cache_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository [github.com/argoproj/argo-cd/v2/reposerver/repository.test]"
+	files=[/home/technat/code/argo-cd/reposerver/repository/lock.go /home/technat/code/argo-cd/reposerver/repository/repository.go /home/technat/code/argo-cd/reposerver/repository/lock_test.go /home/technat/code/argo-cd/reposerver/repository/repository_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository.test"
+	files=[/home/technat/.cache/go-build/09/09944b1fc04748e6dce1a68785ccd2d4386560c3b43835f2c21ba0a16c687635-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/application [github.com/argoproj/argo-cd/v2/server/application.test]"
+	files=[/home/technat/code/argo-cd/server/application/application.go /home/technat/code/argo-cd/server/application/broadcaster.go /home/technat/code/argo-cd/server/application/logs.go /home/technat/code/argo-cd/server/application/terminal.go /home/technat/code/argo-cd/server/application/websocket.go /home/technat/code/argo-cd/server/application/application_test.go /home/technat/code/argo-cd/server/application/broadcaster_test.go /home/technat/code/argo-cd/server/application/logs_test.go /home/technat/code/argo-cd/server/application/terminal_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/application.test"
+	files=[/home/technat/.cache/go-build/e6/e66d4b0312d8f82de2f0fc571a1ef64acc6eed9c065c59c3e9cd6b2a7214c8ad-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/badge.test"
+	files=[/home/technat/.cache/go-build/6a/6a8f6cdce55fd91441a0d6781d79e68c24307436a39e2ee4704bbaed90eab0ab-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cache.test"
+	files=[/home/technat/.cache/go-build/43/434e440232f691b775e99d46f4532752ec76491267819a1712cd7fc876fb614d-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cluster [github.com/argoproj/argo-cd/v2/server/cluster.test]"
+	files=[/home/technat/code/argo-cd/server/cluster/cluster.go /home/technat/code/argo-cd/server/cluster/cluster_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cluster.test"
+	files=[/home/technat/.cache/go-build/4a/4a354f1c39707ef36f7ffb9415f08271f339457573dbc480c48f0b462859141d-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/logout [github.com/argoproj/argo-cd/v2/server/logout.test]"
+	files=[/home/technat/code/argo-cd/server/logout/logout.go /home/technat/code/argo-cd/server/logout/logout_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/logout.test"
+	files=[/home/technat/.cache/go-build/a0/a0888d52c6522752e948b226c418986d6f05cc74f449a06ec17d739d18560537-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/project [github.com/argoproj/argo-cd/v2/server/project.test]"
+	files=[/home/technat/code/argo-cd/server/project/project.go /home/technat/code/argo-cd/server/project/util.go /home/technat/code/argo-cd/server/project/project_test.go /home/technat/code/argo-cd/server/project/util_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/notification.test"
+	files=[/home/technat/.cache/go-build/58/58dc4fabb7e18d2f38bbb9a075a3248bddf127dc687979b89a26ee003f73c6d8-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/project.test"
+	files=[/home/technat/.cache/go-build/c6/c632082012dbe50a1b5fa9f4bad671c2f4d88625b9774677c4a5941e84ec43ac-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy.test"
+	files=[/home/technat/.cache/go-build/a2/a28319465edd3d7e99e2050e37b8dcce2586c30fb8beb408c6073f0efe30ce1f-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy [github.com/argoproj/argo-cd/v2/server/rbacpolicy.test]"
+	files=[/home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy.go /home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/session.test"
+	files=[/home/technat/.cache/go-build/e7/e7e648cf03aa2f23f2b35154a6e3d1b29a315b6c2a8b760229509310567e8376-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test.test"
+	files=[/home/technat/.cache/go-build/0e/0e05c4c2b4e2cd2a1e50b8a67c1265b3e0bd81520424076e9074b82855fc0c81-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/cache [github.com/argoproj/argo-cd/v2/server/cache.test]"
+	files=[/home/technat/code/argo-cd/server/cache/cache.go /home/technat/code/argo-cd/server/cache/cache_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache.test"
+	files=[/home/technat/.cache/go-build/ef/ef4eff0373fc705712e0b71bd17430f1ffa84b28b65d0fad56fc892ff16dd05c-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery.test"
+	files=[/home/technat/.cache/go-build/40/40c127c03750e59e43b8baf1bb86c7530375a9efac83ae3ee9d6a94f15c51919-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo [github.com/argoproj/argo-cd/v2/util/argo.test]"
+	files=[/home/technat/code/argo-cd/util/argo/argo.go /home/technat/code/argo-cd/util/argo/audit_logger.go /home/technat/code/argo-cd/util/argo/resource_tracking.go /home/technat/code/argo-cd/util/argo/argo_test.go /home/technat/code/argo-cd/util/argo/audit_logger_test.go /home/technat/code/argo-cd/util/argo/resource_tracking_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo.test"
+	files=[/home/technat/.cache/go-build/95/95cd8f2580908918152e946c76a82085b390510ac532315418c7b990bc26749c-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff_test [github.com/argoproj/argo-cd/v2/util/argo/diff.test]"
+	files=[/home/technat/code/argo-cd/util/argo/diff/diff_test.go /home/technat/code/argo-cd/util/argo/diff/ignore_test.go /home/technat/code/argo-cd/util/argo/diff/normalize_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff.test"
+	files=[/home/technat/.cache/go-build/4f/4f343e40f0c58e969c234c18cd3b6de7b8293b10675d710e70099b3e1cdc31b6-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers.test"
+	files=[/home/technat/.cache/go-build/dd/dd3b22dd880537c05507b49112b1f6fcbe81aecd6dc8bd1204e5314fa95c93fb-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/badge [github.com/argoproj/argo-cd/v2/server/badge.test]"
+	files=[/home/technat/code/argo-cd/server/badge/badge.go /home/technat/code/argo-cd/server/badge/color.go /home/technat/code/argo-cd/server/badge/badge_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cmp_test [github.com/argoproj/argo-cd/v2/util/cmp.test]"
+	files=[/home/technat/code/argo-cd/util/cmp/stream_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate.test"
+	files=[/home/technat/.cache/go-build/90/9039df2f904e2c2ad65b6ba82f166bd5672fda341a928609cbf864b72409ba15-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cmp.test"
+	files=[/home/technat/.cache/go-build/56/5695e7429fdd874e25ea6aaba1db91b87e29a4bce9c85350e9e1383f663cb2ee-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/db.test"
+	files=[/home/technat/.cache/go-build/18/182f00eddee5c47781ec44b3ca13188f20c9843323e9e1fb2f27970716d502a6-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/dex.test"
+	files=[/home/technat/.cache/go-build/b5/b5fc8af35c541ed2a802309f8f1600cb7043ad8da6a327ab4c73dc99220db694-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/github_app.test"
+	files=[/home/technat/.cache/go-build/1a/1aa8c2bb6533e8fe21da48f72588b69cc20bdc98d0cd209a04395cf2ea20fb05-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/gpg.test"
+	files=[/home/technat/.cache/go-build/f1/f19e595df2b01050259ca10309618822c40be62569d2320e6b0cb1b6886f27ab-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/io/files_test [github.com/argoproj/argo-cd/v2/util/io/files.test]"
+	files=[/home/technat/code/argo-cd/util/io/files/tar_test.go /home/technat/code/argo-cd/util/io/files/util_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/kustomize.test"
+	files=[/home/technat/.cache/go-build/95/95aa9fcfab775723854e43967da3b5b3970d4a78de43d6c1981c83d97b91c2a3-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/lua.test"
+	files=[/home/technat/.cache/go-build/86/86a62d805154efea0ef122c94ae17ce3fbca7ab87a26d580bf1ec5671298cebd-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream_test [github.com/argoproj/argo-cd/v2/util/manifeststream.test]"
+	files=[/home/technat/code/argo-cd/util/manifeststream/stream_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression [github.com/argoproj/argo-cd/v2/util/notification/expression.test]"
+	files=[/home/technat/code/argo-cd/util/notification/expression/expr.go /home/technat/code/argo-cd/util/notification/expression/expr_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression.test"
+	files=[/home/technat/.cache/go-build/8b/8b5cf4dc8386ac9e50a06d0969ac1d8aecdd7d52024a4594207fb66621b623b4-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings [github.com/argoproj/argo-cd/v2/util/notification/settings.test]"
+	files=[/home/technat/code/argo-cd/util/notification/settings/legacy.go /home/technat/code/argo-cd/util/notification/settings/settings.go /home/technat/code/argo-cd/util/notification/settings/legacy_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings.test"
+	files=[/home/technat/.cache/go-build/0a/0ad36140040a6938b6a2d22674fa2ebfde6d1dce192d4b33390b53b3ed18cde4-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/oidc.test"
+	files=[/home/technat/.cache/go-build/8e/8e89184ce73f33bd904f1237b1fef50fa47a78aa99df356d1309c71b06b3e69c-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/session.test"
+	files=[/home/technat/.cache/go-build/40/404789720f6728a5420a42f03f7cc1845fdc213aebe71ae0363b24ee7bb0cfc9-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/settings.test"
+	files=[/home/technat/.cache/go-build/c9/c9e018009e526d81893269f380eef380d0689e8dad6c14c223c081431b219fc7-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/webhook [github.com/argoproj/argo-cd/v2/util/webhook.test]"
+	files=[/home/technat/code/argo-cd/util/webhook/webhook.go /home/technat/code/argo-cd/util/webhook/webhook_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/settings [github.com/argoproj/argo-cd/v2/util/settings.test]"
+	files=[/home/technat/code/argo-cd/util/settings/accounts.go /home/technat/code/argo-cd/util/settings/filtered_resource.go /home/technat/code/argo-cd/util/settings/resources_filter.go /home/technat/code/argo-cd/util/settings/settings.go /home/technat/code/argo-cd/util/settings/accounts_test.go /home/technat/code/argo-cd/util/settings/filtered_resource_test.go /home/technat/code/argo-cd/util/settings/resources_filter_test.go /home/technat/code/argo-cd/util/settings/settings_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/lua [github.com/argoproj/argo-cd/v2/util/lua.test]"
+	files=[/home/technat/code/argo-cd/util/lua/lua.go /home/technat/code/argo-cd/util/lua/oslib_safe.go /home/technat/code/argo-cd/util/lua/custom_actions_test.go /home/technat/code/argo-cd/util/lua/health_test.go /home/technat/code/argo-cd/util/lua/lua_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/notification"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/notification/actions.go /home/technat/code/argo-cd/test/e2e/fixture/notification/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/notification/context.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream_test"
+	files=[]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils [github.com/argoproj/argo-cd/v2/applicationset/utils.test]"
+	files=[/home/technat/code/argo-cd/applicationset/utils/clusterUtils.go /home/technat/code/argo-cd/applicationset/utils/createOrUpdate.go /home/technat/code/argo-cd/applicationset/utils/map.go /home/technat/code/argo-cd/applicationset/utils/policy.go /home/technat/code/argo-cd/applicationset/utils/utils.go /home/technat/code/argo-cd/applicationset/utils/clusterUtils_test.go /home/technat/code/argo-cd/applicationset/utils/map_test.go /home/technat/code/argo-cd/applicationset/utils/utils_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook [github.com/argoproj/argo-cd/v2/applicationset/webhook.test]"
+	files=[/home/technat/code/argo-cd/applicationset/webhook/webhook.go /home/technat/code/argo-cd/applicationset/webhook/webhook_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands.test"
+	files=[/home/technat/.cache/go-build/32/32b7e89b6703c9f74ac1a31f54b6d526f0c5a73624b56558bdb591577b6edd7a-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmd/util [github.com/argoproj/argo-cd/v2/cmd/util.test]"
+	files=[/home/technat/code/argo-cd/cmd/util/app.go /home/technat/code/argo-cd/cmd/util/applicationset.go /home/technat/code/argo-cd/cmd/util/cluster.go /home/technat/code/argo-cd/cmd/util/common.go /home/technat/code/argo-cd/cmd/util/project.go /home/technat/code/argo-cd/cmd/util/repo.go /home/technat/code/argo-cd/cmd/util/app_test.go /home/technat/code/argo-cd/cmd/util/applicationset_test.go /home/technat/code/argo-cd/cmd/util/cluster_test.go /home/technat/code/argo-cd/cmd/util/project_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin [github.com/argoproj/argo-cd/v2/cmpserver/plugin.test]"
+	files=[/home/technat/code/argo-cd/cmpserver/plugin/config.go /home/technat/code/argo-cd/cmpserver/plugin/plugin.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_unix.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin.test"
+	files=[/home/technat/.cache/go-build/f2/f24e6a6a7bef94d18e06cfd1adc5c8dd9715c1b2005fd237915696f2d4cc733c-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller.test"
+	files=[/home/technat/.cache/go-build/d9/d9fcc5f8de609efc96bcdb2e897ddb8691b88fdc9a1d3b4db3694fb52f1cfdfc-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller [github.com/argoproj/argo-cd/v2/controller.test]"
+	files=[/home/technat/code/argo-cd/controller/appcontroller.go /home/technat/code/argo-cd/controller/clusterinfoupdater.go /home/technat/code/argo-cd/controller/health.go /home/technat/code/argo-cd/controller/sort_delete.go /home/technat/code/argo-cd/controller/state.go /home/technat/code/argo-cd/controller/sync.go /home/technat/code/argo-cd/controller/sync_namespace.go /home/technat/code/argo-cd/controller/appcontroller_test.go /home/technat/code/argo-cd/controller/clusterinfoupdater_test.go /home/technat/code/argo-cd/controller/health_test.go /home/technat/code/argo-cd/controller/sort_delete_test.go /home/technat/code/argo-cd/controller/state_test.go /home/technat/code/argo-cd/controller/sync_namespace_test.go /home/technat/code/argo-cd/controller/sync_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/controller/cache.test"
+	files=[/home/technat/.cache/go-build/72/728e4caa6d9881146dd238d87c9156a44dedfa471295efbc11027f2e28c2670f-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient.test"
+	files=[/home/technat/.cache/go-build/2b/2b33b6b83451873184b46beddab4b534591e461562cf0367c3ba791711c38075-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1.test"
+	files=[/home/technat/.cache/go-build/f8/f82aeab743eed7900c3e17462e9120ae4343cc8f21426a44133e20d3ad8ffe24-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/account [github.com/argoproj/argo-cd/v2/server/account.test]"
+	files=[/home/technat/code/argo-cd/server/account/account.go /home/technat/code/argo-cd/server/account/account_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server.test"
+	files=[/home/technat/.cache/go-build/f1/f1e3b2816a03e45a46106d2b7c8980ebe935cb9f0f658010381e8fe2ebb90362-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/account.test"
+	files=[/home/technat/.cache/go-build/0a/0a6ed9ac9a859111b7bb1856cbaba12dc1eb1c0d3c971ff457a20055e94aef18-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server [github.com/argoproj/argo-cd/v2/server.test]"
+	files=[/home/technat/code/argo-cd/server/server.go /home/technat/code/argo-cd/server/server_norace_test.go /home/technat/code/argo-cd/server/server_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/notification [github.com/argoproj/argo-cd/v2/server/notification.test]"
+	files=[/home/technat/code/argo-cd/server/notification/notification.go /home/technat/code/argo-cd/server/notification/notification_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/session [github.com/argoproj/argo-cd/v2/server/session.test]"
+	files=[/home/technat/code/argo-cd/server/session/ratelimiter.go /home/technat/code/argo-cd/server/session/session.go /home/technat/code/argo-cd/server/session/ratelimiter_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/repository.test"
+	files=[/home/technat/.cache/go-build/6f/6f6c0eec65349d2692073a9622a22091447e75d07e404cf6f00cc78d0e2be75d-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/server/repository [github.com/argoproj/argo-cd/v2/server/repository.test]"
+	files=[/home/technat/code/argo-cd/server/repository/repository.go /home/technat/code/argo-cd/server/repository/repository_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test [github.com/argoproj/argo-cd/v2/test.test]"
+	files=[/home/technat/code/argo-cd/test/testdata.go /home/technat/code/argo-cd/test/testutil.go /home/technat/code/argo-cd/test/manifests_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e [github.com/argoproj/argo-cd/v2/test/e2e.test]"
+	files=[/home/technat/code/argo-cd/test/e2e/accounts_test.go /home/technat/code/argo-cd/test/e2e/app_autosync_ns_test.go /home/technat/code/argo-cd/test/e2e/app_autosync_test.go /home/technat/code/argo-cd/test/e2e/app_deletion_test.go /home/technat/code/argo-cd/test/e2e/app_management_ns_test.go /home/technat/code/argo-cd/test/e2e/app_management_test.go /home/technat/code/argo-cd/test/e2e/app_namespaces_test.go /home/technat/code/argo-cd/test/e2e/applicationset_test.go /home/technat/code/argo-cd/test/e2e/cli_test.go /home/technat/code/argo-cd/test/e2e/cluster_generator_test.go /home/technat/code/argo-cd/test/e2e/cluster_objects_test.go /home/technat/code/argo-cd/test/e2e/cluster_test.go /home/technat/code/argo-cd/test/e2e/clusterdecisiongenerator_e2e_test.go /home/technat/code/argo-cd/test/e2e/custom_tool_test.go /home/technat/code/argo-cd/test/e2e/delarative_test.go /home/technat/code/argo-cd/test/e2e/deployment_test.go /home/technat/code/argo-cd/test/e2e/diff_test.go /home/technat/code/argo-cd/test/e2e/git_submodule_test.go /home/technat/code/argo-cd/test/e2e/helm_test.go /home/technat/code/argo-cd/test/e2e/hook_test.go /home/technat/code/argo-cd/test/e2e/jsonnet_test.go /home/technat/code/argo-cd/test/e2e/kustomize_test.go /home/technat/code/argo-cd/test/e2e/matrix_e2e_test.go /home/technat/code/argo-cd/test/e2e/merge_e2e_test.go /home/technat/code/argo-cd/test/e2e/notification_test.go /home/technat/code/argo-cd/test/e2e/project_management_test.go /home/technat/code/argo-cd/test/e2e/pruning_required_test.go /home/technat/code/argo-cd/test/e2e/repo_creds_test.go /home/technat/code/argo-cd/test/e2e/repo_management_test.go /home/technat/code/argo-cd/test/e2e/scoped_repository_test.go /home/technat/code/argo-cd/test/e2e/selective_sync_test.go /home/technat/code/argo-cd/test/e2e/ssh_repo_test.go /home/technat/code/argo-cd/test/e2e/sync_options_test.go /home/technat/code/argo-cd/test/e2e/sync_waves_test.go /home/technat/code/argo-cd/test/e2e/user_info_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/test/e2e.test"
+	files=[/home/technat/.cache/go-build/3a/3aa572edded421c1bee9cd9d641250182355b8541997c9696449f334edeaac87-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery [github.com/argoproj/argo-cd/v2/util/app/discovery.test]"
+	files=[/home/technat/code/argo-cd/util/app/discovery/discovery.go /home/technat/code/argo-cd/util/app/discovery/discovery_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers [github.com/argoproj/argo-cd/v2/util/argo/normalizers.test]"
+	files=[/home/technat/code/argo-cd/util/argo/normalizers/corev1_known_types.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/util.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer_test.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate [github.com/argoproj/argo-cd/v2/util/cache/appstate.test]"
+	files=[/home/technat/code/argo-cd/util/cache/appstate/cache.go /home/technat/code/argo-cd/util/cache/appstate/cache_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/db [github.com/argoproj/argo-cd/v2/util/db.test]"
+	files=[/home/technat/code/argo-cd/util/db/certificate.go /home/technat/code/argo-cd/util/db/cluster.go /home/technat/code/argo-cd/util/db/db.go /home/technat/code/argo-cd/util/db/gpgkeys.go /home/technat/code/argo-cd/util/db/helmrepository.go /home/technat/code/argo-cd/util/db/repo_creds.go /home/technat/code/argo-cd/util/db/repository.go /home/technat/code/argo-cd/util/db/repository_legacy.go /home/technat/code/argo-cd/util/db/repository_secrets.go /home/technat/code/argo-cd/util/db/secrets.go /home/technat/code/argo-cd/util/db/certificate_test.go /home/technat/code/argo-cd/util/db/cluster_norace_test.go /home/technat/code/argo-cd/util/db/cluster_test.go /home/technat/code/argo-cd/util/db/db_test.go /home/technat/code/argo-cd/util/db/gpgkeys_test.go /home/technat/code/argo-cd/util/db/repository_legacy_test.go /home/technat/code/argo-cd/util/db/repository_secrets_test.go /home/technat/code/argo-cd/util/db/repository_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/dex [github.com/argoproj/argo-cd/v2/util/dex.test]"
+	files=[/home/technat/code/argo-cd/util/dex/config.go /home/technat/code/argo-cd/util/dex/dex.go /home/technat/code/argo-cd/util/dex/dex_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/github_app [github.com/argoproj/argo-cd/v2/util/github_app.test]"
+	files=[/home/technat/code/argo-cd/util/github_app/repos.go /home/technat/code/argo-cd/util/github_app/repos_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/gpg [github.com/argoproj/argo-cd/v2/util/gpg.test]"
+	files=[/home/technat/code/argo-cd/util/gpg/gpg.go /home/technat/code/argo-cd/util/gpg/gpg_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/io/files.test"
+	files=[/home/technat/.cache/go-build/2b/2b72ef92c78456f5211b296fff76617430d7050965273b205e21f42cc24cf966-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/kustomize [github.com/argoproj/argo-cd/v2/util/kustomize.test]"
+	files=[/home/technat/code/argo-cd/util/kustomize/kustomize.go /home/technat/code/argo-cd/util/kustomize/kustomize_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/resource [github.com/argoproj/argo-cd/v2/util/resource.test]"
+	files=[/home/technat/code/argo-cd/util/resource/revision.go /home/technat/code/argo-cd/util/resource/revision_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/oidc [github.com/argoproj/argo-cd/v2/util/oidc.test]"
+	files=[/home/technat/code/argo-cd/util/oidc/oidc.go /home/technat/code/argo-cd/util/oidc/provider.go /home/technat/code/argo-cd/util/oidc/templates.go /home/technat/code/argo-cd/util/oidc/oidc_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream.test"
+	files=[/home/technat/.cache/go-build/e7/e7239c5bfb4b1d2dc60ab631c3d1afa730faf7cef3eb38f3dbdb48f71a2b12db-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/resource.test"
+	files=[/home/technat/.cache/go-build/25/25db5d8444f3ca48458176b46ac19d5b8843dc577838b24afa0bc05ba359891e-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/session [github.com/argoproj/argo-cd/v2/util/session.test]"
+	files=[/home/technat/code/argo-cd/util/session/sessionmanager.go /home/technat/code/argo-cd/util/session/state.go /home/technat/code/argo-cd/util/session/sessionmanager_norace_test.go /home/technat/code/argo-cd/util/session/sessionmanager_test.go /home/technat/code/argo-cd/util/session/state_test.go]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2
+	snapshot=4
+	package="github.com/argoproj/argo-cd/v2/util/webhook.test"
+	files=[/home/technat/.cache/go-build/1c/1cef5c64fb9122cfca6aa8c870bba34b1ad904994e9955538040db7af6e2c262-d]
+
+[Info  - 11:49:30 AM] 2022/11/25 11:49:30 go/packages.Load #2: updating metadata for 165 packages
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	directory=/home/technat/code/argo-cd
+	query=[github.com/argoproj/argo-cd/v2/applicationset/controllers github.com/argoproj/argo-cd/v2/applicationset/generators github.com/argoproj/argo-cd/v2/applicationset/services github.com/argoproj/argo-cd/v2/applicationset/services/pull_request github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider github.com/argoproj/argo-cd/v2/applicationset/utils github.com/argoproj/argo-cd/v2/applicationset/webhook github.com/argoproj/argo-cd/v2/cmd github.com/argoproj/argo-cd/v2/cmd/argocd-application-controller/commands github.com/argoproj/argo-cd/v2/cmd/argocd-applicationset-controller/commands github.com/argoproj/argo-cd/v2/cmd/argocd-cmp-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd-dex/commands github.com/argoproj/argo-cd/v2/cmd/argocd-notification/commands github.com/argoproj/argo-cd/v2/cmd/argocd-repo-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd-server/commands github.com/argoproj/argo-cd/v2/cmd/argocd/commands github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin github.com/argoproj/argo-cd/v2/cmd/argocd/commands/headless github.com/argoproj/argo-cd/v2/cmd/util github.com/argoproj/argo-cd/v2/cmpserver github.com/argoproj/argo-cd/v2/cmpserver/plugin github.com/argoproj/argo-cd/v2/controller github.com/argoproj/argo-cd/v2/controller/cache github.com/argoproj/argo-cd/v2/controller/cache/mocks github.com/argoproj/argo-cd/v2/controller/metrics github.com/argoproj/argo-cd/v2/controller/sharding github.com/argoproj/argo-cd/v2/hack/gen-catalog github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd/commands github.com/argoproj/argo-cd/v2/hack/gen-resources/generators github.com/argoproj/argo-cd/v2/hack/gen-resources/util github.com/argoproj/argo-cd/v2/notification_controller/controller github.com/argoproj/argo-cd/v2/pkg/apiclient github.com/argoproj/argo-cd/v2/pkg/apiclient/application github.com/argoproj/argo-cd/v2/pkg/apiclient/applicationset github.com/argoproj/argo-cd/v2/pkg/apiclient/certificate github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster/mocks github.com/argoproj/argo-cd/v2/pkg/apiclient/gpgkey github.com/argoproj/argo-cd/v2/pkg/apiclient/project github.com/argoproj/argo-cd/v2/pkg/apiclient/repocreds github.com/argoproj/argo-cd/v2/pkg/apiclient/repository github.com/argoproj/argo-cd/v2/pkg/apiclient/settings github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/fake github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/scheme github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1/fake github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application/v1alpha1 github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/internalinterfaces github.com/argoproj/argo-cd/v2/pkg/client/listers/application/v1alpha1 github.com/argoproj/argo-cd/v2/reposerver github.com/argoproj/argo-cd/v2/reposerver/apiclient github.com/argoproj/argo-cd/v2/reposerver/apiclient/mocks github.com/argoproj/argo-cd/v2/reposerver/cache github.com/argoproj/argo-cd/v2/reposerver/repository github.com/argoproj/argo-cd/v2/server github.com/argoproj/argo-cd/v2/server/account github.com/argoproj/argo-cd/v2/server/application github.com/argoproj/argo-cd/v2/server/applicationset github.com/argoproj/argo-cd/v2/server/badge github.com/argoproj/argo-cd/v2/server/cache github.com/argoproj/argo-cd/v2/server/certificate github.com/argoproj/argo-cd/v2/server/cluster github.com/argoproj/argo-cd/v2/server/gpgkey github.com/argoproj/argo-cd/v2/server/logout github.com/argoproj/argo-cd/v2/server/notification github.com/argoproj/argo-cd/v2/server/project github.com/argoproj/argo-cd/v2/server/rbacpolicy github.com/argoproj/argo-cd/v2/server/repocreds github.com/argoproj/argo-cd/v2/server/repository github.com/argoproj/argo-cd/v2/server/session github.com/argoproj/argo-cd/v2/server/settings github.com/argoproj/argo-cd/v2/server/version github.com/argoproj/argo-cd/v2/test github.com/argoproj/argo-cd/v2/test/e2e github.com/argoproj/argo-cd/v2/test/e2e/fixture github.com/argoproj/argo-cd/v2/test/e2e/fixture/account github.com/argoproj/argo-cd/v2/test/e2e/fixture/app github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets/utils github.com/argoproj/argo-cd/v2/test/e2e/fixture/certs github.com/argoproj/argo-cd/v2/test/e2e/fixture/cluster github.com/argoproj/argo-cd/v2/test/e2e/fixture/gpgkeys github.com/argoproj/argo-cd/v2/test/e2e/fixture/notification github.com/argoproj/argo-cd/v2/test/e2e/fixture/project github.com/argoproj/argo-cd/v2/test/e2e/fixture/repos github.com/argoproj/argo-cd/v2/tools/cmd-docs github.com/argoproj/argo-cd/v2/util/app/discovery github.com/argoproj/argo-cd/v2/util/appset github.com/argoproj/argo-cd/v2/util/argo github.com/argoproj/argo-cd/v2/util/argo/diff github.com/argoproj/argo-cd/v2/util/argo/diff_test github.com/argoproj/argo-cd/v2/util/argo/normalizers github.com/argoproj/argo-cd/v2/util/cache/appstate github.com/argoproj/argo-cd/v2/util/cmp github.com/argoproj/argo-cd/v2/util/cmp_test github.com/argoproj/argo-cd/v2/util/db github.com/argoproj/argo-cd/v2/util/db/mocks github.com/argoproj/argo-cd/v2/util/dex github.com/argoproj/argo-cd/v2/util/github_app github.com/argoproj/argo-cd/v2/util/gpg github.com/argoproj/argo-cd/v2/util/io/files github.com/argoproj/argo-cd/v2/util/io/files_test github.com/argoproj/argo-cd/v2/util/kustomize github.com/argoproj/argo-cd/v2/util/lua github.com/argoproj/argo-cd/v2/util/manifeststream github.com/argoproj/argo-cd/v2/util/manifeststream_test github.com/argoproj/argo-cd/v2/util/notification/argocd github.com/argoproj/argo-cd/v2/util/notification/expression github.com/argoproj/argo-cd/v2/util/notification/expression/repo github.com/argoproj/argo-cd/v2/util/notification/expression/shared github.com/argoproj/argo-cd/v2/util/notification/settings github.com/argoproj/argo-cd/v2/util/oidc github.com/argoproj/argo-cd/v2/util/resource github.com/argoproj/argo-cd/v2/util/session github.com/argoproj/argo-cd/v2/util/settings github.com/argoproj/argo-cd/v2/util/webhook]
+	packages=229
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/io/files"
+	files=[/home/technat/code/argo-cd/util/io/files/tar.go /home/technat/code/argo-cd/util/io/files/util.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/apis/application/v1alpha1/app_project_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_annotations.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_defaults.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/cluster_constants.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/generated.pb.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/hack.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/openapi_generated.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/register.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/repository_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/zz_generated.deepcopy.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/gpg"
+	files=[/home/technat/code/argo-cd/util/gpg/gpg.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/settings"
+	files=[/home/technat/code/argo-cd/util/settings/accounts.go /home/technat/code/argo-cd/util/settings/filtered_resource.go /home/technat/code/argo-cd/util/settings/resources_filter.go /home/technat/code/argo-cd/util/settings/settings.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services"
+	files=[/home/technat/code/argo-cd/applicationset/services/repo_service.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/db"
+	files=[/home/technat/code/argo-cd/util/db/certificate.go /home/technat/code/argo-cd/util/db/cluster.go /home/technat/code/argo-cd/util/db/db.go /home/technat/code/argo-cd/util/db/gpgkeys.go /home/technat/code/argo-cd/util/db/helmrepository.go /home/technat/code/argo-cd/util/db/repo_creds.go /home/technat/code/argo-cd/util/db/repository.go /home/technat/code/argo-cd/util/db/repository_legacy.go /home/technat/code/argo-cd/util/db/repository_secrets.go /home/technat/code/argo-cd/util/db/secrets.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils"
+	files=[/home/technat/code/argo-cd/applicationset/utils/clusterUtils.go /home/technat/code/argo-cd/applicationset/utils/createOrUpdate.go /home/technat/code/argo-cd/applicationset/utils/map.go /home/technat/code/argo-cd/applicationset/utils/policy.go /home/technat/code/argo-cd/applicationset/utils/utils.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request"
+	files=[/home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/pull_request/fake.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea.go /home/technat/code/argo-cd/applicationset/services/pull_request/github.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_app.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab.go /home/technat/code/argo-cd/applicationset/services/pull_request/interface.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider"
+	files=[/home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_app.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab.go /home/technat/code/argo-cd/applicationset/services/scm_provider/mock.go /home/technat/code/argo-cd/applicationset/services/scm_provider/types.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/application_client.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/generated_expansion.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators"
+	files=[/home/technat/code/argo-cd/applicationset/generators/cluster.go /home/technat/code/argo-cd/applicationset/generators/duck_type.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor.go /home/technat/code/argo-cd/applicationset/generators/git.go /home/technat/code/argo-cd/applicationset/generators/interface.go /home/technat/code/argo-cd/applicationset/generators/list.go /home/technat/code/argo-cd/applicationset/generators/matrix.go /home/technat/code/argo-cd/applicationset/generators/merge.go /home/technat/code/argo-cd/applicationset/generators/pull_request.go /home/technat/code/argo-cd/applicationset/generators/scm_provider.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/clientset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/doc.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/scheme"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/scheme/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/scheme/register.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/apiclient"
+	files=[/home/technat/code/argo-cd/reposerver/apiclient/clientset.go /home/technat/code/argo-cd/reposerver/apiclient/repository.go /home/technat/code/argo-cd/reposerver/apiclient/repository.pb.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/listers/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/listers/application/v1alpha1/expansion_generated.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo"
+	files=[/home/technat/code/argo-cd/util/argo/argo.go /home/technat/code/argo-cd/util/argo/audit_logger.go /home/technat/code/argo-cd/util/argo/resource_tracking.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers"
+	files=[/home/technat/code/argo-cd/applicationset/controllers/applicationset_controller.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/util"
+	files=[/home/technat/code/argo-cd/cmd/util/app.go /home/technat/code/argo-cd/cmd/util/applicationset.go /home/technat/code/argo-cd/cmd/util/cluster.go /home/technat/code/argo-cd/cmd/util/common.go /home/technat/code/argo-cd/cmd/util/project.go /home/technat/code/argo-cd/cmd/util/repo.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/metrics"
+	files=[/home/technat/code/argo-cd/controller/metrics/clustercollector.go /home/technat/code/argo-cd/controller/metrics/metrics.go /home/technat/code/argo-cd/controller/metrics/transportwrapper.go /home/technat/code/argo-cd/controller/metrics/workqueue.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook"
+	files=[/home/technat/code/argo-cd/applicationset/webhook/webhook.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/internalinterfaces"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/internalinterfaces/factory_interfaces.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/lua"
+	files=[/home/technat/code/argo-cd/util/lua/lua.go /home/technat/code/argo-cd/util/lua/oslib_safe.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate"
+	files=[/home/technat/code/argo-cd/util/cache/appstate/cache.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers"
+	files=[/home/technat/code/argo-cd/util/argo/normalizers/corev1_known_types.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/util.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff"
+	files=[/home/technat/code/argo-cd/util/argo/diff/diff.go /home/technat/code/argo-cd/util/argo/diff/ignore.go /home/technat/code/argo-cd/util/argo/diff/normalize.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/resource"
+	files=[/home/technat/code/argo-cd/util/resource/revision.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application/v1alpha1"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/application.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/applicationset.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/appproject.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/application/v1alpha1/interface.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/sharding"
+	files=[/home/technat/code/argo-cd/controller/sharding/sharding.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller"
+	files=[/home/technat/code/argo-cd/controller/appcontroller.go /home/technat/code/argo-cd/controller/clusterinfoupdater.go /home/technat/code/argo-cd/controller/health.go /home/technat/code/argo-cd/controller/sort_delete.go /home/technat/code/argo-cd/controller/state.go /home/technat/code/argo-cd/controller/sync.go /home/technat/code/argo-cd/controller/sync_namespace.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/github_app"
+	files=[/home/technat/code/argo-cd/util/github_app/repos.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/cache"
+	files=[/home/technat/code/argo-cd/controller/cache/cache.go /home/technat/code/argo-cd/controller/cache/info.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-application-controller/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-application-controller/commands/argocd_application_controller.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-applicationset-controller/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-applicationset-controller/commands/applicationset_controller.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cmp"
+	files=[/home/technat/code/argo-cd/util/cmp/stream.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin"
+	files=[/home/technat/code/argo-cd/cmpserver/plugin/config.go /home/technat/code/argo-cd/cmpserver/plugin/plugin.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_unix.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/settings"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/settings/settings.pb.go /home/technat/code/argo-cd/pkg/apiclient/settings/settings.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy"
+	files=[/home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/dex"
+	files=[/home/technat/code/argo-cd/util/dex/config.go /home/technat/code/argo-cd/util/dex/dex.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/oidc"
+	files=[/home/technat/code/argo-cd/util/oidc/oidc.go /home/technat/code/argo-cd/util/oidc/provider.go /home/technat/code/argo-cd/util/oidc/templates.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/session"
+	files=[/home/technat/code/argo-cd/util/session/sessionmanager.go /home/technat/code/argo-cd/util/session/state.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/settings"
+	files=[/home/technat/code/argo-cd/server/settings/settings.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/version"
+	files=[/home/technat/code/argo-cd/server/version/version.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/kustomize"
+	files=[/home/technat/code/argo-cd/util/kustomize/kustomize.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmpserver"
+	files=[/home/technat/code/argo-cd/cmpserver/server.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-dex/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-dex/commands/argocd_dex.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression"
+	files=[/home/technat/code/argo-cd/util/notification/expression/expr.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression/shared"
+	files=[/home/technat/code/argo-cd/util/notification/expression/shared/appdetail.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/argocd"
+	files=[/home/technat/code/argo-cd/util/notification/argocd/service.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-cmp-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-cmp-server/commands/argocd_cmp_server.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression/repo"
+	files=[/home/technat/code/argo-cd/util/notification/expression/repo/repo.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings"
+	files=[/home/technat/code/argo-cd/util/notification/settings/legacy.go /home/technat/code/argo-cd/util/notification/settings/settings.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/notification_controller/controller"
+	files=[/home/technat/code/argo-cd/notification_controller/controller/controller.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache"
+	files=[/home/technat/code/argo-cd/reposerver/cache/cache.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/application"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/application/application.pb.go /home/technat/code/argo-cd/pkg/apiclient/application/application.pb.gw.go /home/technat/code/argo-cd/pkg/apiclient/application/forwarder_overwrite.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery"
+	files=[/home/technat/code/argo-cd/util/app/discovery/discovery.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-repo-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-repo-server/commands/argocd_repo_server.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/applicationset"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/applicationset/applicationset.pb.go /home/technat/code/argo-cd/pkg/apiclient/applicationset/applicationset.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/certificate"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/certificate/certificate.pb.go /home/technat/code/argo-cd/pkg/apiclient/certificate/certificate.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/cluster/cluster.pb.go /home/technat/code/argo-cd/pkg/apiclient/cluster/cluster.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/gpgkey"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/gpgkey/gpgkey.pb.go /home/technat/code/argo-cd/pkg/apiclient/gpgkey/gpgkey.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/repocreds"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/repocreds/repocreds.pb.go /home/technat/code/argo-cd/pkg/apiclient/repocreds/repocreds.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions/application"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/application/interface.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/informers/externalversions"
+	files=[/home/technat/code/argo-cd/pkg/client/informers/externalversions/factory.go /home/technat/code/argo-cd/pkg/client/informers/externalversions/generic.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/account"
+	files=[/home/technat/code/argo-cd/server/account/account.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cache"
+	files=[/home/technat/code/argo-cd/server/cache/cache.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/appset"
+	files=[/home/technat/code/argo-cd/util/appset/appset.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/applicationset"
+	files=[/home/technat/code/argo-cd/server/applicationset/applicationset.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/certificate"
+	files=[/home/technat/code/argo-cd/server/certificate/certificate.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cluster"
+	files=[/home/technat/code/argo-cd/server/cluster/cluster.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/logout"
+	files=[/home/technat/code/argo-cd/server/logout/logout.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/project"
+	files=[/home/technat/code/argo-cd/server/project/project.go /home/technat/code/argo-cd/server/project/util.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-notification/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-notification/commands/controller.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/repository"
+	files=[/home/technat/code/argo-cd/server/repository/repository.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/project"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/project/forwarder_overwrite.go /home/technat/code/argo-cd/pkg/apiclient/project/project.pb.go /home/technat/code/argo-cd/pkg/apiclient/project/project.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/repository"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/repository/repository.pb.go /home/technat/code/argo-cd/pkg/apiclient/repository/repository.pb.gw.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server"
+	files=[/home/technat/code/argo-cd/server/server.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/application"
+	files=[/home/technat/code/argo-cd/server/application/application.go /home/technat/code/argo-cd/server/application/broadcaster.go /home/technat/code/argo-cd/server/application/logs.go /home/technat/code/argo-cd/server/application/terminal.go /home/technat/code/argo-cd/server/application/websocket.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/badge"
+	files=[/home/technat/code/argo-cd/server/badge/badge.go /home/technat/code/argo-cd/server/badge/color.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream"
+	files=[/home/technat/code/argo-cd/util/manifeststream/stream.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/gpgkey"
+	files=[/home/technat/code/argo-cd/server/gpgkey/gpgkey.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver"
+	files=[/home/technat/code/argo-cd/reposerver/gpgwatcher.go /home/technat/code/argo-cd/reposerver/server.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/notification"
+	files=[/home/technat/code/argo-cd/server/notification/notification.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository"
+	files=[/home/technat/code/argo-cd/reposerver/repository/lock.go /home/technat/code/argo-cd/reposerver/repository/repository.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/repocreds"
+	files=[/home/technat/code/argo-cd/server/repocreds/repocreds.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/session"
+	files=[/home/technat/code/argo-cd/server/session/ratelimiter.go /home/technat/code/argo-cd/server/session/session.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd-server/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd-server/commands/argocd_server.go /home/technat/code/argo-cd/cmd/argocd-server/commands/common.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/webhook"
+	files=[/home/technat/code/argo-cd/util/webhook/webhook.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/apiclient.go /home/technat/code/argo-cd/pkg/apiclient/grpcproxy.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/headless"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/headless/headless.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/admin/admin.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/backup.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/dashboard.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/initial_password.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/notifications.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/account.go /home/technat/code/argo-cd/cmd/argocd/commands/app.go /home/technat/code/argo-cd/cmd/argocd/commands/app_actions.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resources.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt.go /home/technat/code/argo-cd/cmd/argocd/commands/cert.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/common.go /home/technat/code/argo-cd/cmd/argocd/commands/completion.go /home/technat/code/argo-cd/cmd/argocd/commands/context.go /home/technat/code/argo-cd/cmd/argocd/commands/gpg.go /home/technat/code/argo-cd/cmd/argocd/commands/login.go /home/technat/code/argo-cd/cmd/argocd/commands/logout.go /home/technat/code/argo-cd/cmd/argocd/commands/project.go /home/technat/code/argo-cd/cmd/argocd/commands/project_role.go /home/technat/code/argo-cd/cmd/argocd/commands/projectwindows.go /home/technat/code/argo-cd/cmd/argocd/commands/relogin.go /home/technat/code/argo-cd/cmd/argocd/commands/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/repocreds.go /home/technat/code/argo-cd/cmd/argocd/commands/root.go /home/technat/code/argo-cd/cmd/argocd/commands/version.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd"
+	files=[/home/technat/code/argo-cd/cmd/main.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/cache/mocks"
+	files=[/home/technat/code/argo-cd/controller/cache/mocks/LiveStateCache.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/hack/gen-catalog"
+	files=[/home/technat/code/argo-cd/hack/gen-catalog/main.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/util"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/util/gen_options_parser.go /home/technat/code/argo-cd/hack/gen-resources/util/kube.go /home/technat/code/argo-cd/hack/gen-resources/util/progress_bar.go /home/technat/code/argo-cd/hack/gen-resources/util/util.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/generators"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/generators/application_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/cluster_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/project_generator.go /home/technat/code/argo-cd/hack/gen-resources/generators/repo_generator.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/cmd/main.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/fake"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/clientset_generated.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/fake/register.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test"
+	files=[/home/technat/code/argo-cd/test/testdata.go /home/technat/code/argo-cd/test/testutil.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/cmd.go /home/technat/code/argo-cd/test/e2e/fixture/fixture.go /home/technat/code/argo-cd/test/e2e/fixture/http.go /home/technat/code/argo-cd/test/e2e/fixture/tmpl.go /home/technat/code/argo-cd/test/e2e/fixture/util.go /home/technat/code/argo-cd/test/e2e/fixture/versions.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/hack/gen-resources/cmd/commands"
+	files=[/home/technat/code/argo-cd/hack/gen-resources/cmd/commands/cmd.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/certs"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/certs/certs.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/account"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/account/actions.go /home/technat/code/argo-cd/test/e2e/fixture/account/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/account/context.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/repos"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/repos/actions.go /home/technat/code/argo-cd/test/e2e/fixture/repos/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/repos/context.go /home/technat/code/argo-cd/test/e2e/fixture/repos/repos.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets/utils"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/cmd.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/errrors.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/utils/fixture.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/client/clientset/versioned/typed/application/v1alpha1/fake"
+	files=[/home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/doc.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_application.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_application_client.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_applicationset.go /home/technat/code/argo-cd/pkg/client/clientset/versioned/typed/application/v1alpha1/fake/fake_appproject.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/apiclient/mocks"
+	files=[/home/technat/code/argo-cd/reposerver/apiclient/mocks/Clientset.go /home/technat/code/argo-cd/reposerver/apiclient/mocks/RepoServerServiceClient.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e"
+	files=[]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/gpgkeys"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/gpgkeys/gpgkeys.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/applicationsets"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/applicationsets/actions.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/context.go /home/technat/code/argo-cd/test/e2e/fixture/applicationsets/expectation.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff_test"
+	files=[]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/notification"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/notification/actions.go /home/technat/code/argo-cd/test/e2e/fixture/notification/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/notification/context.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/io/files_test"
+	files=[]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream_test"
+	files=[]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers [github.com/argoproj/argo-cd/v2/applicationset/controllers.test]"
+	files=[/home/technat/code/argo-cd/applicationset/controllers/applicationset_controller.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler.go /home/technat/code/argo-cd/applicationset/controllers/applicationset_controller_test.go /home/technat/code/argo-cd/applicationset/controllers/clustereventhandler_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/controllers.test"
+	files=[/home/technat/.cache/go-build/2e/2e256d22035b659514e09d50a9cd8afd06ecd41459612e3adfe82fff752f233c-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services.test"
+	files=[/home/technat/.cache/go-build/4b/4b274fd76924cdb43ed3aadb5c02eacaeb79dbe35ef59e2791589f57880adba8-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient/cluster/mocks"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/cluster/mocks/ClusterServiceServer.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request.test"
+	files=[/home/technat/.cache/go-build/48/48a2fc23f6fff2fdb428bc59b15178b388e968875b37afab1ed4609658168bb7-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/pull_request [github.com/argoproj/argo-cd/v2/applicationset/services/pull_request.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/pull_request/fake.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea.go /home/technat/code/argo-cd/applicationset/services/pull_request/github.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_app.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab.go /home/technat/code/argo-cd/applicationset/services/pull_request/interface.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils.go /home/technat/code/argo-cd/applicationset/services/pull_request/bitbucket_server_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitea_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/github_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/gitlab_test.go /home/technat/code/argo-cd/applicationset/services/pull_request/utils_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider.test"
+	files=[/home/technat/.cache/go-build/4d/4dc86008fd17d367940ec4ec3f3bad10752519a95dfe2df060c37a49439557c4-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils [github.com/argoproj/argo-cd/v2/applicationset/utils.test]"
+	files=[/home/technat/code/argo-cd/applicationset/utils/clusterUtils.go /home/technat/code/argo-cd/applicationset/utils/createOrUpdate.go /home/technat/code/argo-cd/applicationset/utils/map.go /home/technat/code/argo-cd/applicationset/utils/policy.go /home/technat/code/argo-cd/applicationset/utils/utils.go /home/technat/code/argo-cd/applicationset/utils/clusterUtils_test.go /home/technat/code/argo-cd/applicationset/utils/map_test.go /home/technat/code/argo-cd/applicationset/utils/utils_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/utils.test"
+	files=[/home/technat/.cache/go-build/6a/6aa34bf6dc4f37873dfdd7ae52f585d94b98a02663c0d44f86686dd0d5686048-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook.test"
+	files=[/home/technat/.cache/go-build/ad/ad9c4e513c7be6d1abc60fdb296cc343dfcd9425cc1397e1c6cf7b7a696d897a-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands.test"
+	files=[/home/technat/.cache/go-build/32/32b7e89b6703c9f74ac1a31f54b6d526f0c5a73624b56558bdb591577b6edd7a-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin [github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin.test]"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/admin/admin.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/backup.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/dashboard.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/initial_password.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/notifications.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/app_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/generatespec_utils_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_allowlist_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/project_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/secrets_redactor_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_rbac_test.go /home/technat/code/argo-cd/cmd/argocd/commands/admin/settings_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/cluster"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/cluster/actions.go /home/technat/code/argo-cd/test/e2e/fixture/cluster/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/cluster/context.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/project"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/project/actions.go /home/technat/code/argo-cd/test/e2e/fixture/project/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/project/context.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/util [github.com/argoproj/argo-cd/v2/cmd/util.test]"
+	files=[/home/technat/code/argo-cd/cmd/util/app.go /home/technat/code/argo-cd/cmd/util/applicationset.go /home/technat/code/argo-cd/cmd/util/cluster.go /home/technat/code/argo-cd/cmd/util/common.go /home/technat/code/argo-cd/cmd/util/project.go /home/technat/code/argo-cd/cmd/util/repo.go /home/technat/code/argo-cd/cmd/util/app_test.go /home/technat/code/argo-cd/cmd/util/applicationset_test.go /home/technat/code/argo-cd/cmd/util/cluster_test.go /home/technat/code/argo-cd/cmd/util/project_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin [github.com/argoproj/argo-cd/v2/cmpserver/plugin.test]"
+	files=[/home/technat/code/argo-cd/cmpserver/plugin/config.go /home/technat/code/argo-cd/cmpserver/plugin/plugin.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_unix.go /home/technat/code/argo-cd/cmpserver/plugin/plugin_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/util.test"
+	files=[/home/technat/.cache/go-build/b1/b10d0c6339d1f62e65ed750eb2ff1c597a44286f459ff63282182c11372db016-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/cache [github.com/argoproj/argo-cd/v2/controller/cache.test]"
+	files=[/home/technat/code/argo-cd/controller/cache/cache.go /home/technat/code/argo-cd/controller/cache/info.go /home/technat/code/argo-cd/controller/cache/cache_test.go /home/technat/code/argo-cd/controller/cache/info_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/metrics [github.com/argoproj/argo-cd/v2/controller/metrics.test]"
+	files=[/home/technat/code/argo-cd/controller/metrics/clustercollector.go /home/technat/code/argo-cd/controller/metrics/metrics.go /home/technat/code/argo-cd/controller/metrics/transportwrapper.go /home/technat/code/argo-cd/controller/metrics/workqueue.go /home/technat/code/argo-cd/controller/metrics/clustercollector_test.go /home/technat/code/argo-cd/controller/metrics/metrics_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller [github.com/argoproj/argo-cd/v2/controller.test]"
+	files=[/home/technat/code/argo-cd/controller/appcontroller.go /home/technat/code/argo-cd/controller/clusterinfoupdater.go /home/technat/code/argo-cd/controller/health.go /home/technat/code/argo-cd/controller/sort_delete.go /home/technat/code/argo-cd/controller/state.go /home/technat/code/argo-cd/controller/sync.go /home/technat/code/argo-cd/controller/sync_namespace.go /home/technat/code/argo-cd/controller/appcontroller_test.go /home/technat/code/argo-cd/controller/clusterinfoupdater_test.go /home/technat/code/argo-cd/controller/health_test.go /home/technat/code/argo-cd/controller/sort_delete_test.go /home/technat/code/argo-cd/controller/state_test.go /home/technat/code/argo-cd/controller/sync_namespace_test.go /home/technat/code/argo-cd/controller/sync_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/sharding.test"
+	files=[/home/technat/.cache/go-build/5f/5fccdfbb3ced1f990204d64d7a09eef8935407c2df2b1d86a528ad9d86af9dcd-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmpserver/plugin.test"
+	files=[/home/technat/.cache/go-build/f2/f24e6a6a7bef94d18e06cfd1adc5c8dd9715c1b2005fd237915696f2d4cc733c-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1 [github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1.test]"
+	files=[/home/technat/code/argo-cd/pkg/apis/application/v1alpha1/app_project_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_annotations.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/application_defaults.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/cluster_constants.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/doc.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/generated.pb.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/hack.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/openapi_generated.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/register.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/repository_types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/zz_generated.deepcopy.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/applicationset_types_test.go /home/technat/code/argo-cd/pkg/apis/application/v1alpha1/types_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache [github.com/argoproj/argo-cd/v2/reposerver/cache.test]"
+	files=[/home/technat/code/argo-cd/reposerver/cache/cache.go /home/technat/code/argo-cd/reposerver/cache/cache_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/cache.test"
+	files=[/home/technat/.cache/go-build/ef/ef4eff0373fc705712e0b71bd17430f1ffa84b28b65d0fad56fc892ff16dd05c-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository.test"
+	files=[/home/technat/.cache/go-build/09/09944b1fc04748e6dce1a68785ccd2d4386560c3b43835f2c21ba0a16c687635-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server [github.com/argoproj/argo-cd/v2/server.test]"
+	files=[/home/technat/code/argo-cd/server/server.go /home/technat/code/argo-cd/server/server_norace_test.go /home/technat/code/argo-cd/server/server_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/tools/cmd-docs"
+	files=[/home/technat/code/argo-cd/tools/cmd-docs/main.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server.test"
+	files=[/home/technat/.cache/go-build/f1/f1e3b2816a03e45a46106d2b7c8980ebe935cb9f0f658010381e8fe2ebb90362-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/application [github.com/argoproj/argo-cd/v2/server/application.test]"
+	files=[/home/technat/code/argo-cd/server/application/application.go /home/technat/code/argo-cd/server/application/broadcaster.go /home/technat/code/argo-cd/server/application/logs.go /home/technat/code/argo-cd/server/application/terminal.go /home/technat/code/argo-cd/server/application/websocket.go /home/technat/code/argo-cd/server/application/application_test.go /home/technat/code/argo-cd/server/application/broadcaster_test.go /home/technat/code/argo-cd/server/application/logs_test.go /home/technat/code/argo-cd/server/application/terminal_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/application.test"
+	files=[/home/technat/.cache/go-build/e6/e66d4b0312d8f82de2f0fc571a1ef64acc6eed9c065c59c3e9cd6b2a7214c8ad-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/badge.test"
+	files=[/home/technat/.cache/go-build/6a/6a8f6cdce55fd91441a0d6781d79e68c24307436a39e2ee4704bbaed90eab0ab-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cluster [github.com/argoproj/argo-cd/v2/server/cluster.test]"
+	files=[/home/technat/code/argo-cd/server/cluster/cluster.go /home/technat/code/argo-cd/server/cluster/cluster_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/logout [github.com/argoproj/argo-cd/v2/server/logout.test]"
+	files=[/home/technat/code/argo-cd/server/logout/logout.go /home/technat/code/argo-cd/server/logout/logout_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cache.test"
+	files=[/home/technat/.cache/go-build/43/434e440232f691b775e99d46f4532752ec76491267819a1712cd7fc876fb614d-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/notification [github.com/argoproj/argo-cd/v2/server/notification.test]"
+	files=[/home/technat/code/argo-cd/server/notification/notification.go /home/technat/code/argo-cd/server/notification/notification_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy [github.com/argoproj/argo-cd/v2/server/rbacpolicy.test]"
+	files=[/home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy.go /home/technat/code/argo-cd/server/rbacpolicy/rbacpolicy_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/badge [github.com/argoproj/argo-cd/v2/server/badge.test]"
+	files=[/home/technat/code/argo-cd/server/badge/badge.go /home/technat/code/argo-cd/server/badge/color.go /home/technat/code/argo-cd/server/badge/badge_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/session [github.com/argoproj/argo-cd/v2/server/session.test]"
+	files=[/home/technat/code/argo-cd/server/session/ratelimiter.go /home/technat/code/argo-cd/server/session/session.go /home/technat/code/argo-cd/server/session/ratelimiter_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/repository.test"
+	files=[/home/technat/.cache/go-build/6f/6f6c0eec65349d2692073a9622a22091447e75d07e404cf6f00cc78d0e2be75d-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test.test"
+	files=[/home/technat/.cache/go-build/0e/0e05c4c2b4e2cd2a1e50b8a67c1265b3e0bd81520424076e9074b82855fc0c81-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test [github.com/argoproj/argo-cd/v2/test.test]"
+	files=[/home/technat/code/argo-cd/test/testdata.go /home/technat/code/argo-cd/test/testutil.go /home/technat/code/argo-cd/test/manifests_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e.test"
+	files=[/home/technat/.cache/go-build/3a/3aa572edded421c1bee9cd9d641250182355b8541997c9696449f334edeaac87-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff_test [github.com/argoproj/argo-cd/v2/util/argo/diff.test]"
+	files=[/home/technat/code/argo-cd/util/argo/diff/diff_test.go /home/technat/code/argo-cd/util/argo/diff/ignore_test.go /home/technat/code/argo-cd/util/argo/diff/normalize_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services [github.com/argoproj/argo-cd/v2/applicationset/services.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/repo_service.go /home/technat/code/argo-cd/applicationset/services/repo_service_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/diff.test"
+	files=[/home/technat/.cache/go-build/4f/4f343e40f0c58e969c234c18cd3b6de7b8293b10675d710e70099b3e1cdc31b6-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers.test"
+	files=[/home/technat/.cache/go-build/dd/dd3b22dd880537c05507b49112b1f6fcbe81aecd6dc8bd1204e5314fa95c93fb-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cmp_test [github.com/argoproj/argo-cd/v2/util/cmp.test]"
+	files=[/home/technat/code/argo-cd/util/cmp/stream_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cmp.test"
+	files=[/home/technat/.cache/go-build/56/5695e7429fdd874e25ea6aaba1db91b87e29a4bce9c85350e9e1383f663cb2ee-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate [github.com/argoproj/argo-cd/v2/util/cache/appstate.test]"
+	files=[/home/technat/code/argo-cd/util/cache/appstate/cache.go /home/technat/code/argo-cd/util/cache/appstate/cache_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider [github.com/argoproj/argo-cd/v2/applicationset/services/scm_provider.test]"
+	files=[/home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_app.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab.go /home/technat/code/argo-cd/applicationset/services/scm_provider/mock.go /home/technat/code/argo-cd/applicationset/services/scm_provider/types.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils.go /home/technat/code/argo-cd/applicationset/services/scm_provider/azure_devops_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_cloud_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/bitbucket_server_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitea_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/github_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/gitlab_test.go /home/technat/code/argo-cd/applicationset/services/scm_provider/utils_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/db [github.com/argoproj/argo-cd/v2/util/db.test]"
+	files=[/home/technat/code/argo-cd/util/db/certificate.go /home/technat/code/argo-cd/util/db/cluster.go /home/technat/code/argo-cd/util/db/db.go /home/technat/code/argo-cd/util/db/gpgkeys.go /home/technat/code/argo-cd/util/db/helmrepository.go /home/technat/code/argo-cd/util/db/repo_creds.go /home/technat/code/argo-cd/util/db/repository.go /home/technat/code/argo-cd/util/db/repository_legacy.go /home/technat/code/argo-cd/util/db/repository_secrets.go /home/technat/code/argo-cd/util/db/secrets.go /home/technat/code/argo-cd/util/db/certificate_test.go /home/technat/code/argo-cd/util/db/cluster_norace_test.go /home/technat/code/argo-cd/util/db/cluster_test.go /home/technat/code/argo-cd/util/db/db_test.go /home/technat/code/argo-cd/util/db/gpgkeys_test.go /home/technat/code/argo-cd/util/db/repository_legacy_test.go /home/technat/code/argo-cd/util/db/repository_secrets_test.go /home/technat/code/argo-cd/util/db/repository_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/github_app [github.com/argoproj/argo-cd/v2/util/github_app.test]"
+	files=[/home/technat/code/argo-cd/util/github_app/repos.go /home/technat/code/argo-cd/util/github_app/repos_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/db.test"
+	files=[/home/technat/.cache/go-build/18/182f00eddee5c47781ec44b3ca13188f20c9843323e9e1fb2f27970716d502a6-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/github_app.test"
+	files=[/home/technat/.cache/go-build/1a/1aa8c2bb6533e8fe21da48f72588b69cc20bdc98d0cd209a04395cf2ea20fb05-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/gpg [github.com/argoproj/argo-cd/v2/util/gpg.test]"
+	files=[/home/technat/code/argo-cd/util/gpg/gpg.go /home/technat/code/argo-cd/util/gpg/gpg_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/io/files_test [github.com/argoproj/argo-cd/v2/util/io/files.test]"
+	files=[/home/technat/code/argo-cd/util/io/files/tar_test.go /home/technat/code/argo-cd/util/io/files/util_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/kustomize [github.com/argoproj/argo-cd/v2/util/kustomize.test]"
+	files=[/home/technat/code/argo-cd/util/kustomize/kustomize.go /home/technat/code/argo-cd/util/kustomize/kustomize_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands [github.com/argoproj/argo-cd/v2/cmd/argocd/commands.test]"
+	files=[/home/technat/code/argo-cd/cmd/argocd/commands/account.go /home/technat/code/argo-cd/cmd/argocd/commands/app.go /home/technat/code/argo-cd/cmd/argocd/commands/app_actions.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resources.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt.go /home/technat/code/argo-cd/cmd/argocd/commands/cert.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster.go /home/technat/code/argo-cd/cmd/argocd/commands/common.go /home/technat/code/argo-cd/cmd/argocd/commands/completion.go /home/technat/code/argo-cd/cmd/argocd/commands/context.go /home/technat/code/argo-cd/cmd/argocd/commands/gpg.go /home/technat/code/argo-cd/cmd/argocd/commands/login.go /home/technat/code/argo-cd/cmd/argocd/commands/logout.go /home/technat/code/argo-cd/cmd/argocd/commands/project.go /home/technat/code/argo-cd/cmd/argocd/commands/project_role.go /home/technat/code/argo-cd/cmd/argocd/commands/projectwindows.go /home/technat/code/argo-cd/cmd/argocd/commands/relogin.go /home/technat/code/argo-cd/cmd/argocd/commands/repo.go /home/technat/code/argo-cd/cmd/argocd/commands/repocreds.go /home/technat/code/argo-cd/cmd/argocd/commands/root.go /home/technat/code/argo-cd/cmd/argocd/commands/version.go /home/technat/code/argo-cd/cmd/argocd/commands/app_resource_test.go /home/technat/code/argo-cd/cmd/argocd/commands/app_test.go /home/technat/code/argo-cd/cmd/argocd/commands/applicationset_test.go /home/technat/code/argo-cd/cmd/argocd/commands/bcrypt_test.go /home/technat/code/argo-cd/cmd/argocd/commands/cluster_test.go /home/technat/code/argo-cd/cmd/argocd/commands/common_test.go /home/technat/code/argo-cd/cmd/argocd/commands/context_test.go /home/technat/code/argo-cd/cmd/argocd/commands/login_test.go /home/technat/code/argo-cd/cmd/argocd/commands/logout_test.go /home/technat/code/argo-cd/cmd/argocd/commands/version_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/lua [github.com/argoproj/argo-cd/v2/util/lua.test]"
+	files=[/home/technat/code/argo-cd/util/lua/lua.go /home/technat/code/argo-cd/util/lua/oslib_safe.go /home/technat/code/argo-cd/util/lua/custom_actions_test.go /home/technat/code/argo-cd/util/lua/health_test.go /home/technat/code/argo-cd/util/lua/lua_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream.test"
+	files=[/home/technat/.cache/go-build/e7/e7239c5bfb4b1d2dc60ab631c3d1afa730faf7cef3eb38f3dbdb48f71a2b12db-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/lua.test"
+	files=[/home/technat/.cache/go-build/86/86a62d805154efea0ef122c94ae17ce3fbca7ab87a26d580bf1ec5671298cebd-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/cmd/argocd/commands/admin.test"
+	files=[/home/technat/.cache/go-build/f0/f0f0558aec5c9def317e9ffb4600c049656f59f0323d0c34356f9a9423d9e4d9-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cmp_test"
+	files=[]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/metrics.test"
+	files=[/home/technat/.cache/go-build/66/663f29be8c315b3cde8f9192f20e1f7bc7ddb7664f309354505533cf3195999e-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient [github.com/argoproj/argo-cd/v2/pkg/apiclient.test]"
+	files=[/home/technat/code/argo-cd/pkg/apiclient/apiclient.go /home/technat/code/argo-cd/pkg/apiclient/grpcproxy.go /home/technat/code/argo-cd/pkg/apiclient/apiclient_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/cache.test"
+	files=[/home/technat/.cache/go-build/72/728e4caa6d9881146dd238d87c9156a44dedfa471295efbc11027f2e28c2670f-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apiclient.test"
+	files=[/home/technat/.cache/go-build/2b/2b33b6b83451873184b46beddab4b534591e461562cf0367c3ba791711c38075-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller/sharding [github.com/argoproj/argo-cd/v2/controller/sharding.test]"
+	files=[/home/technat/code/argo-cd/controller/sharding/sharding.go /home/technat/code/argo-cd/controller/sharding/sharding_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/controller.test"
+	files=[/home/technat/.cache/go-build/d9/d9fcc5f8de609efc96bcdb2e897ddb8691b88fdc9a1d3b4db3694fb52f1cfdfc-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/db/mocks"
+	files=[/home/technat/code/argo-cd/util/db/mocks/ArgoDB.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/pkg/apis/application/v1alpha1.test"
+	files=[/home/technat/.cache/go-build/f8/f82aeab743eed7900c3e17462e9120ae4343cc8f21426a44133e20d3ad8ffe24-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e/fixture/app"
+	files=[/home/technat/code/argo-cd/test/e2e/fixture/app/actions.go /home/technat/code/argo-cd/test/e2e/fixture/app/consequences.go /home/technat/code/argo-cd/test/e2e/fixture/app/context.go /home/technat/code/argo-cd/test/e2e/fixture/app/expectation.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/reposerver/repository [github.com/argoproj/argo-cd/v2/reposerver/repository.test]"
+	files=[/home/technat/code/argo-cd/reposerver/repository/lock.go /home/technat/code/argo-cd/reposerver/repository/repository.go /home/technat/code/argo-cd/reposerver/repository/lock_test.go /home/technat/code/argo-cd/reposerver/repository/repository_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/account [github.com/argoproj/argo-cd/v2/server/account.test]"
+	files=[/home/technat/code/argo-cd/server/account/account.go /home/technat/code/argo-cd/server/account/account_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators [github.com/argoproj/argo-cd/v2/applicationset/generators.test]"
+	files=[/home/technat/code/argo-cd/applicationset/generators/cluster.go /home/technat/code/argo-cd/applicationset/generators/duck_type.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor.go /home/technat/code/argo-cd/applicationset/generators/git.go /home/technat/code/argo-cd/applicationset/generators/interface.go /home/technat/code/argo-cd/applicationset/generators/list.go /home/technat/code/argo-cd/applicationset/generators/matrix.go /home/technat/code/argo-cd/applicationset/generators/merge.go /home/technat/code/argo-cd/applicationset/generators/pull_request.go /home/technat/code/argo-cd/applicationset/generators/scm_provider.go /home/technat/code/argo-cd/applicationset/generators/cluster_test.go /home/technat/code/argo-cd/applicationset/generators/duck_type_test.go /home/technat/code/argo-cd/applicationset/generators/generator_spec_processor_test.go /home/technat/code/argo-cd/applicationset/generators/git_test.go /home/technat/code/argo-cd/applicationset/generators/list_test.go /home/technat/code/argo-cd/applicationset/generators/matrix_test.go /home/technat/code/argo-cd/applicationset/generators/merge_test.go /home/technat/code/argo-cd/applicationset/generators/pull_request_test.go /home/technat/code/argo-cd/applicationset/generators/scm_provider_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/account.test"
+	files=[/home/technat/.cache/go-build/0a/0a6ed9ac9a859111b7bb1856cbaba12dc1eb1c0d3c971ff457a20055e94aef18-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cache [github.com/argoproj/argo-cd/v2/server/cache.test]"
+	files=[/home/technat/code/argo-cd/server/cache/cache.go /home/technat/code/argo-cd/server/cache/cache_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/cluster.test"
+	files=[/home/technat/.cache/go-build/4a/4a354f1c39707ef36f7ffb9415f08271f339457573dbc480c48f0b462859141d-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/notification.test"
+	files=[/home/technat/.cache/go-build/58/58dc4fabb7e18d2f38bbb9a075a3248bddf127dc687979b89a26ee003f73c6d8-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/logout.test"
+	files=[/home/technat/.cache/go-build/a0/a0888d52c6522752e948b226c418986d6f05cc74f449a06ec17d739d18560537-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/project [github.com/argoproj/argo-cd/v2/server/project.test]"
+	files=[/home/technat/code/argo-cd/server/project/project.go /home/technat/code/argo-cd/server/project/util.go /home/technat/code/argo-cd/server/project/project_test.go /home/technat/code/argo-cd/server/project/util_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/project.test"
+	files=[/home/technat/.cache/go-build/c6/c632082012dbe50a1b5fa9f4bad671c2f4d88625b9774677c4a5941e84ec43ac-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/rbacpolicy.test"
+	files=[/home/technat/.cache/go-build/a2/a28319465edd3d7e99e2050e37b8dcce2586c30fb8beb408c6073f0efe30ce1f-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/session.test"
+	files=[/home/technat/.cache/go-build/e7/e7e648cf03aa2f23f2b35154a6e3d1b29a315b6c2a8b760229509310567e8376-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery.test"
+	files=[/home/technat/.cache/go-build/40/40c127c03750e59e43b8baf1bb86c7530375a9efac83ae3ee9d6a94f15c51919-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/server/repository [github.com/argoproj/argo-cd/v2/server/repository.test]"
+	files=[/home/technat/code/argo-cd/server/repository/repository.go /home/technat/code/argo-cd/server/repository/repository_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo.test"
+	files=[/home/technat/.cache/go-build/95/95cd8f2580908918152e946c76a82085b390510ac532315418c7b990bc26749c-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo [github.com/argoproj/argo-cd/v2/util/argo.test]"
+	files=[/home/technat/code/argo-cd/util/argo/argo.go /home/technat/code/argo-cd/util/argo/audit_logger.go /home/technat/code/argo-cd/util/argo/resource_tracking.go /home/technat/code/argo-cd/util/argo/argo_test.go /home/technat/code/argo-cd/util/argo/audit_logger_test.go /home/technat/code/argo-cd/util/argo/resource_tracking_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/app/discovery [github.com/argoproj/argo-cd/v2/util/app/discovery.test]"
+	files=[/home/technat/code/argo-cd/util/app/discovery/discovery.go /home/technat/code/argo-cd/util/app/discovery/discovery_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/test/e2e [github.com/argoproj/argo-cd/v2/test/e2e.test]"
+	files=[/home/technat/code/argo-cd/test/e2e/accounts_test.go /home/technat/code/argo-cd/test/e2e/app_autosync_ns_test.go /home/technat/code/argo-cd/test/e2e/app_autosync_test.go /home/technat/code/argo-cd/test/e2e/app_deletion_test.go /home/technat/code/argo-cd/test/e2e/app_management_ns_test.go /home/technat/code/argo-cd/test/e2e/app_management_test.go /home/technat/code/argo-cd/test/e2e/app_namespaces_test.go /home/technat/code/argo-cd/test/e2e/applicationset_test.go /home/technat/code/argo-cd/test/e2e/cli_test.go /home/technat/code/argo-cd/test/e2e/cluster_generator_test.go /home/technat/code/argo-cd/test/e2e/cluster_objects_test.go /home/technat/code/argo-cd/test/e2e/cluster_test.go /home/technat/code/argo-cd/test/e2e/clusterdecisiongenerator_e2e_test.go /home/technat/code/argo-cd/test/e2e/custom_tool_test.go /home/technat/code/argo-cd/test/e2e/delarative_test.go /home/technat/code/argo-cd/test/e2e/deployment_test.go /home/technat/code/argo-cd/test/e2e/diff_test.go /home/technat/code/argo-cd/test/e2e/git_submodule_test.go /home/technat/code/argo-cd/test/e2e/helm_test.go /home/technat/code/argo-cd/test/e2e/hook_test.go /home/technat/code/argo-cd/test/e2e/jsonnet_test.go /home/technat/code/argo-cd/test/e2e/kustomize_test.go /home/technat/code/argo-cd/test/e2e/matrix_e2e_test.go /home/technat/code/argo-cd/test/e2e/merge_e2e_test.go /home/technat/code/argo-cd/test/e2e/notification_test.go /home/technat/code/argo-cd/test/e2e/project_management_test.go /home/technat/code/argo-cd/test/e2e/pruning_required_test.go /home/technat/code/argo-cd/test/e2e/repo_creds_test.go /home/technat/code/argo-cd/test/e2e/repo_management_test.go /home/technat/code/argo-cd/test/e2e/scoped_repository_test.go /home/technat/code/argo-cd/test/e2e/selective_sync_test.go /home/technat/code/argo-cd/test/e2e/ssh_repo_test.go /home/technat/code/argo-cd/test/e2e/sync_options_test.go /home/technat/code/argo-cd/test/e2e/sync_waves_test.go /home/technat/code/argo-cd/test/e2e/user_info_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/argo/normalizers [github.com/argoproj/argo-cd/v2/util/argo/normalizers.test]"
+	files=[/home/technat/code/argo-cd/util/argo/normalizers/corev1_known_types.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer.go /home/technat/code/argo-cd/util/argo/normalizers/util.go /home/technat/code/argo-cd/util/argo/normalizers/diff_normalizer_test.go /home/technat/code/argo-cd/util/argo/normalizers/knowntypes_normalizer_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/generators.test"
+	files=[/home/technat/.cache/go-build/65/65a70e8c9545a0a619e50f6abb37233b9cf162808db35437ac974f31d96fdb64-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/cache/appstate.test"
+	files=[/home/technat/.cache/go-build/90/9039df2f904e2c2ad65b6ba82f166bd5672fda341a928609cbf864b72409ba15-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/applicationset/webhook [github.com/argoproj/argo-cd/v2/applicationset/webhook.test]"
+	files=[/home/technat/code/argo-cd/applicationset/webhook/webhook.go /home/technat/code/argo-cd/applicationset/webhook/webhook_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/dex [github.com/argoproj/argo-cd/v2/util/dex.test]"
+	files=[/home/technat/code/argo-cd/util/dex/config.go /home/technat/code/argo-cd/util/dex/dex.go /home/technat/code/argo-cd/util/dex/dex_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/dex.test"
+	files=[/home/technat/.cache/go-build/b5/b5fc8af35c541ed2a802309f8f1600cb7043ad8da6a327ab4c73dc99220db694-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/gpg.test"
+	files=[/home/technat/.cache/go-build/f1/f19e595df2b01050259ca10309618822c40be62569d2320e6b0cb1b6886f27ab-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/io/files.test"
+	files=[/home/technat/.cache/go-build/2b/2b72ef92c78456f5211b296fff76617430d7050965273b205e21f42cc24cf966-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/kustomize.test"
+	files=[/home/technat/.cache/go-build/95/95aa9fcfab775723854e43967da3b5b3970d4a78de43d6c1981c83d97b91c2a3-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/manifeststream_test [github.com/argoproj/argo-cd/v2/util/manifeststream.test]"
+	files=[/home/technat/code/argo-cd/util/manifeststream/stream_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings [github.com/argoproj/argo-cd/v2/util/notification/settings.test]"
+	files=[/home/technat/code/argo-cd/util/notification/settings/legacy.go /home/technat/code/argo-cd/util/notification/settings/settings.go /home/technat/code/argo-cd/util/notification/settings/legacy_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression.test"
+	files=[/home/technat/.cache/go-build/8b/8b5cf4dc8386ac9e50a06d0969ac1d8aecdd7d52024a4594207fb66621b623b4-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/expression [github.com/argoproj/argo-cd/v2/util/notification/expression.test]"
+	files=[/home/technat/code/argo-cd/util/notification/expression/expr.go /home/technat/code/argo-cd/util/notification/expression/expr_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/notification/settings.test"
+	files=[/home/technat/.cache/go-build/0a/0ad36140040a6938b6a2d22674fa2ebfde6d1dce192d4b33390b53b3ed18cde4-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/oidc.test"
+	files=[/home/technat/.cache/go-build/8e/8e89184ce73f33bd904f1237b1fef50fa47a78aa99df356d1309c71b06b3e69c-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/oidc [github.com/argoproj/argo-cd/v2/util/oidc.test]"
+	files=[/home/technat/code/argo-cd/util/oidc/oidc.go /home/technat/code/argo-cd/util/oidc/provider.go /home/technat/code/argo-cd/util/oidc/templates.go /home/technat/code/argo-cd/util/oidc/oidc_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/resource.test"
+	files=[/home/technat/.cache/go-build/25/25db5d8444f3ca48458176b46ac19d5b8843dc577838b24afa0bc05ba359891e-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/settings [github.com/argoproj/argo-cd/v2/util/settings.test]"
+	files=[/home/technat/code/argo-cd/util/settings/accounts.go /home/technat/code/argo-cd/util/settings/filtered_resource.go /home/technat/code/argo-cd/util/settings/resources_filter.go /home/technat/code/argo-cd/util/settings/settings.go /home/technat/code/argo-cd/util/settings/accounts_test.go /home/technat/code/argo-cd/util/settings/filtered_resource_test.go /home/technat/code/argo-cd/util/settings/resources_filter_test.go /home/technat/code/argo-cd/util/settings/settings_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/resource [github.com/argoproj/argo-cd/v2/util/resource.test]"
+	files=[/home/technat/code/argo-cd/util/resource/revision.go /home/technat/code/argo-cd/util/resource/revision_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/session [github.com/argoproj/argo-cd/v2/util/session.test]"
+	files=[/home/technat/code/argo-cd/util/session/sessionmanager.go /home/technat/code/argo-cd/util/session/state.go /home/technat/code/argo-cd/util/session/sessionmanager_norace_test.go /home/technat/code/argo-cd/util/session/sessionmanager_test.go /home/technat/code/argo-cd/util/session/state_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/session.test"
+	files=[/home/technat/.cache/go-build/40/404789720f6728a5420a42f03f7cc1845fdc213aebe71ae0363b24ee7bb0cfc9-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/settings.test"
+	files=[/home/technat/.cache/go-build/c9/c9e018009e526d81893269f380eef380d0689e8dad6c14c223c081431b219fc7-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/webhook [github.com/argoproj/argo-cd/v2/util/webhook.test]"
+	files=[/home/technat/code/argo-cd/util/webhook/webhook.go /home/technat/code/argo-cd/util/webhook/webhook_test.go]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13
+	snapshot=17
+	package="github.com/argoproj/argo-cd/v2/util/webhook.test"
+	files=[/home/technat/.cache/go-build/1c/1cef5c64fb9122cfca6aa8c870bba34b1ad904994e9955538040db7af6e2c262-d]
+
+[Info  - 11:50:26 AM] 2022/11/25 11:50:26 go/packages.Load #13: updating metadata for 165 packages
+

@@ -1,0 +1,31 @@
+2022-11-25 11:33:58.256 [info] Added views:workbench.panel.markers.view in workbench.panel.markers
+2022-11-25 11:33:58.256 [info] Added views:workbench.panel.output in workbench.panel.output
+2022-11-25 11:33:58.256 [info] Added views:terminal in terminal
+2022-11-25 11:33:58.256 [info] Added views:outline in workbench.view.explorer
+2022-11-25 11:33:58.256 [info] Added views:workbench.scm in workbench.view.scm
+2022-11-25 11:33:58.256 [info] Added views:workbench.view.search in workbench.view.search
+2022-11-25 11:33:58.256 [info] Added views:timeline in workbench.view.explorer
+2022-11-25 11:33:58.256 [info] Added views:workbench.explorer.emptyView in workbench.view.explorer
+2022-11-25 11:33:58.256 [info] Added views:workbench.debug.variablesView,workbench.debug.watchExpressionsView,workbench.debug.callStackView,workbench.debug.breakPointsView in workbench.view.debug
+2022-11-25 11:33:58.885 [info] Added views:workbench.panel.repl.view in workbench.panel.repl
+2022-11-25 11:33:58.887 [info] Removed views:workbench.debug.breakPointsView,workbench.debug.callStackView,workbench.debug.watchExpressionsView,workbench.debug.variablesView from workbench.view.debug
+2022-11-25 11:33:58.887 [info] Added views:workbench.debug.welcome in workbench.view.debug
+2022-11-25 11:34:32.142 [info] View visibility state changed: workbench.explorer.openEditorsView is now visible Explorer
+2022-11-25 11:34:32.142 [info] Showing view workbench.explorer.openEditorsView in the container workbench.view.explorer
+2022-11-25 11:34:32.142 [info] Added views:workbench.explorer.openEditorsView in workbench.view.explorer
+2022-11-25 11:34:36.843 [info] Added views:dockerContainers,dockerImages,dockerRegistries,dockerNetworks,dockerVolumes,vscode-docker.views.dockerContexts,vscode-docker.views.help in workbench.view.extension.dockerView
+2022-11-25 11:34:41.398 [info] Added views:targetsContainers,devVolumes in workbench.view.remote
+2022-11-25 11:34:41.844 [info] Added views:workbench.panel.markers.view in workbench.panel.markers
+2022-11-25 11:34:41.844 [info] Added views:workbench.panel.output in workbench.panel.output
+2022-11-25 11:34:41.844 [info] Added views:terminal in terminal
+2022-11-25 11:34:41.844 [info] Added views:outline in workbench.view.explorer
+2022-11-25 11:34:41.844 [info] Added views:workbench.scm in workbench.view.scm
+2022-11-25 11:34:41.844 [info] Added views:workbench.view.search in workbench.view.search
+2022-11-25 11:34:41.844 [info] Added views:timeline in workbench.view.explorer
+2022-11-25 11:34:41.844 [info] Added views:workbench.explorer.emptyView in workbench.view.explorer
+2022-11-25 11:34:41.844 [info] Added views:workbench.explorer.openEditorsView in workbench.view.explorer
+2022-11-25 11:34:42.039 [info] Added views:dockerContainers,dockerImages,dockerRegistries,dockerNetworks,dockerVolumes,vscode-docker.views.dockerContexts,vscode-docker.views.help in workbench.view.extension.dockerView
+2022-11-25 11:34:42.040 [info] Added views:targetsContainers,devVolumes in workbench.view.remote
+2022-11-25 11:34:42.172 [info] Added views:workbench.debug.welcome in workbench.view.debug
+2022-11-25 11:34:42.448 [info] Added views:workbench.panel.repl.view in workbench.panel.repl
+2022-11-25 11:34:45.574 [info] Added views:github.codespaces.explorer in workbench.view.remote

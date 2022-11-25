@@ -1,0 +1,43 @@
+2022-11-25 11:35:15.271 [info] Using settings sync service https://vscode-sync.trafficmanager.net/
+2022-11-25 11:35:15.271 [info] Auto Sync is disabled.
+2022-11-25 11:36:13.950 [info] Sync started.
+2022-11-25 11:36:14.169 [info] Did reset the local sync state.
+2022-11-25 11:36:14.511 [info] Settings: Updated remote settings
+2022-11-25 11:36:14.538 [info] Settings: Updated last synchronized settings
+2022-11-25 11:36:14.543 [info] Keybindings: No changes found during synchronizing keybindings.
+2022-11-25 11:36:14.548 [info] Snippets: No changes found during synchronizing snippets.
+2022-11-25 11:36:14.550 [info] Tasks: No changes found during synchronizing tasks.
+2022-11-25 11:36:15.171 [info] GlobalState: Updated remote ui state. Added: workbench.welcomePage.walkthroughMetadata. Updated: workbench.activity.pinnedViewlets2,workbench.statusbar.hidden,workbench.panel.pinnedPanels,colorThemeData,memento/gettingStartedService. Removed: cpp.1.lastSessionDate,cpp.1.sessionCount,java.2.lastSessionDate,java.2.sessionCount,javascript.1.lastSessionDate,javascript.1.sessionCount,typescript.1.lastSessionDate,typescript.1.sessionCount,workbench.panel.repl.hidden,workbench.welcomePage.hiddenCategories,workbench.view.extensions.state.hidden,workbench.view.remote.state.hidden,workbench.view.extension.dockerView.state.hidden,workbench.view.extension.test.state.hidden,ces/skipSurvey,terminal.integrated.showTerminalConfigPrompt,fileBasedRecommendations/promptedRecommendations,extensionTips/promptedExecutableTips,nps/isCandidate,nps/skipVersion,commandPalette.mru.cache,commandPalette.mru.counter,workbench.view.extension.terraform.state.hidden,workbench.view.extension.kubernetesView.state.hidden,http.linkProtectionTrustedDomains,remote.tunnels.toRestore.wsl+debian.1842411303,github-the-technat,~remote.forwardedPortsContainer.hidden,workbench.view.extension.github-pull-requests.state.hidden,workbench.view.extension.github-pull-request.state.hidden,workbench.view.extension.makefile__viewContainer.state.hidden.
+2022-11-25 11:36:15.195 [info] GlobalState: Updated last synchronized ui state
+2022-11-25 11:36:15.206 [info] Extensions: No changes found during synchronizing extensions.
+2022-11-25 11:36:15.209 [info] Sync done. Took 1259ms
+2022-11-25 11:36:15.215 [info] Auto Sync: Triggered by Interval
+2022-11-25 11:36:15.216 [info] Sync started.
+2022-11-25 11:36:15.442 [info] Settings: No changes found during synchronizing settings.
+2022-11-25 11:36:15.448 [info] Keybindings: No changes found during synchronizing keybindings.
+2022-11-25 11:36:15.452 [info] Snippets: No changes found during synchronizing snippets.
+2022-11-25 11:36:15.455 [info] Tasks: No changes found during synchronizing tasks.
+2022-11-25 11:36:15.459 [info] GlobalState: No changes found during synchronizing ui state.
+2022-11-25 11:36:15.511 [info] Extensions: No changes found during synchronizing extensions.
+2022-11-25 11:36:15.514 [info] Sync done. Took 299ms
+2022-11-25 11:36:17.777 [info] Auto Sync: Triggered by Activity
+2022-11-25 11:36:17.778 [info] Sync started.
+2022-11-25 11:36:17.893 [info] Settings: No changes found during synchronizing settings.
+2022-11-25 11:36:17.899 [info] Keybindings: No changes found during synchronizing keybindings.
+2022-11-25 11:36:17.905 [info] Snippets: No changes found during synchronizing snippets.
+2022-11-25 11:36:17.908 [info] Tasks: No changes found during synchronizing tasks.
+2022-11-25 11:36:18.136 [info] GlobalState: Updated remote ui state. Updated: memento/gettingStartedService.
+2022-11-25 11:36:18.161 [info] GlobalState: Updated last synchronized ui state
+2022-11-25 11:36:18.214 [info] Extensions: No changes found during synchronizing extensions.
+2022-11-25 11:36:18.216 [info] Sync done. Took 442ms
+2022-11-25 11:36:27.869 [info] Auto Sync: Triggered by Activity
+2022-11-25 11:36:27.870 [info] Sync started.
+2022-11-25 11:36:28.139 [info] Settings: Updated remote settings
+2022-11-25 11:36:28.166 [info] Settings: Updated last synchronized settings
+2022-11-25 11:36:28.175 [info] Keybindings: No changes found during synchronizing keybindings.
+2022-11-25 11:36:28.182 [info] Snippets: No changes found during synchronizing snippets.
+2022-11-25 11:36:28.186 [info] Tasks: No changes found during synchronizing tasks.
+2022-11-25 11:36:28.586 [info] GlobalState: Updated remote ui state. Updated: colorThemeData.
+2022-11-25 11:36:28.606 [info] GlobalState: Updated last synchronized ui state
+2022-11-25 11:36:28.645 [info] Extensions: No changes found during synchronizing extensions.
+2022-11-25 11:36:28.646 [info] Sync done. Took 779ms

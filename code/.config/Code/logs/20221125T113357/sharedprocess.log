@@ -1,0 +1,104 @@
+2022-11-25 11:33:58.959 [info] Starting worker process with pid 78751 (type: fileWatcher, window: 1).
+2022-11-25 11:34:32.415 [info] Getting Manifest... ms-vscode-remote.remote-wsl
+2022-11-25 11:34:32.420 [info] Getting Manifest... vscodevim.vim
+2022-11-25 11:34:32.421 [info] Getting Manifest... davidanson.vscode-markdownlint
+2022-11-25 11:34:32.431 [info] Getting Manifest... github.codespaces
+2022-11-25 11:34:32.737 [info] Getting Manifest... 4ops.terraform
+2022-11-25 11:34:32.758 [info] Getting Manifest... golang.go
+2022-11-25 11:34:32.760 [info] Getting Manifest... ms-azuretools.vscode-docker
+2022-11-25 11:34:32.764 [info] Getting Manifest... zhuangtongfa.material-theme
+2022-11-25 11:34:32.765 [info] Getting Manifest... equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:32.769 [info] Getting Manifest... artisanbytecrafter.poptheme
+2022-11-25 11:34:32.774 [info] Getting Manifest... asant930.pop
+2022-11-25 11:34:32.777 [info] Installing extension: davidanson.vscode-markdownlint
+2022-11-25 11:34:32.777 [info] Installing the extension without checking dependencies and pack davidanson.vscode-markdownlint
+2022-11-25 11:34:32.787 [info] Getting Manifest... andilutten92.pop-theme-switcher
+2022-11-25 11:34:32.953 [info] Getting Manifest... redhat.vscode-yaml
+2022-11-25 11:34:32.987 [info] Installing extension: zhuangtongfa.material-theme
+2022-11-25 11:34:32.988 [info] Installing the extension without checking dependencies and pack zhuangtongfa.material-theme
+2022-11-25 11:34:33.103 [info] Getting Manifest... ms-vscode-remote.remote-containers
+2022-11-25 11:34:33.116 [info] Installing extension: vscodevim.vim
+2022-11-25 11:34:33.116 [info] Installing the extension without checking dependencies and pack vscodevim.vim
+2022-11-25 11:34:33.135 [info] Installing extension: github.codespaces
+2022-11-25 11:34:33.135 [info] Installing the extension without checking dependencies and pack github.codespaces
+2022-11-25 11:34:33.286 [info] Installing extension: ms-vscode-remote.remote-wsl
+2022-11-25 11:34:33.287 [info] Installing the extension without checking dependencies and pack ms-vscode-remote.remote-wsl
+2022-11-25 11:34:33.299 [info] Installing extension: 4ops.terraform
+2022-11-25 11:34:33.299 [info] Installing the extension without checking dependencies and pack 4ops.terraform
+2022-11-25 11:34:33.322 [info] Installing extension: equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:33.322 [info] Installing the extension without checking dependencies and pack equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:33.331 [info] Installing extension: ms-azuretools.vscode-docker
+2022-11-25 11:34:33.331 [info] Installing the extension without checking dependencies and pack ms-azuretools.vscode-docker
+2022-11-25 11:34:33.331 [info] Installing extension: asant930.pop
+2022-11-25 11:34:33.332 [info] Installing the extension without checking dependencies and pack asant930.pop
+2022-11-25 11:34:33.353 [info] Installing extension: artisanbytecrafter.poptheme
+2022-11-25 11:34:33.353 [info] Installing the extension without checking dependencies and pack artisanbytecrafter.poptheme
+2022-11-25 11:34:33.370 [info] Installing extension: golang.go
+2022-11-25 11:34:33.370 [info] Installing the extension without checking dependencies and pack golang.go
+2022-11-25 11:34:33.372 [info] Installing extension: andilutten92.pop-theme-switcher
+2022-11-25 11:34:33.372 [info] Installing the extension without checking dependencies and pack andilutten92.pop-theme-switcher
+2022-11-25 11:34:33.528 [info] Installing extension: redhat.vscode-yaml
+2022-11-25 11:34:33.528 [info] Installing the extension without checking dependencies and pack redhat.vscode-yaml
+2022-11-25 11:34:33.707 [info] Installing extension: ms-vscode-remote.remote-containers
+2022-11-25 11:34:33.708 [info] Installing the extension without checking dependencies and pack ms-vscode-remote.remote-containers
+2022-11-25 11:34:33.787 [info] Extracted extension to /home/technat/.vscode/extensions/.02fd6775-387f-4e00-b0ef-cdbbad803290: zhuangtongfa.material-theme
+2022-11-25 11:34:33.793 [info] Renamed to /home/technat/.vscode/extensions/zhuangtongfa.material-theme-3.15.6
+2022-11-25 11:34:33.795 [info] Extracting completed. zhuangtongfa.material-theme
+2022-11-25 11:34:33.796 [info] Extension installed successfully: zhuangtongfa.material-theme
+2022-11-25 11:34:35.522 [info] Extracted extension to /home/technat/.vscode/extensions/.6565bd58-6746-442a-9aa7-c51e92004ea1: vscodevim.vim
+2022-11-25 11:34:35.529 [info] Renamed to /home/technat/.vscode/extensions/vscodevim.vim-1.24.3
+2022-11-25 11:34:35.530 [info] Extracting completed. vscodevim.vim
+2022-11-25 11:34:35.530 [info] Extension installed successfully: vscodevim.vim
+2022-11-25 11:34:35.537 [info] Extracted extension to /home/technat/.vscode/extensions/.48edb7c5-f9f1-4f85-8607-d4c078e71ba6: 4ops.terraform
+2022-11-25 11:34:35.545 [info] Renamed to /home/technat/.vscode/extensions/4ops.terraform-0.2.5
+2022-11-25 11:34:35.546 [info] Extracting completed. 4ops.terraform
+2022-11-25 11:34:35.547 [info] Extension installed successfully: 4ops.terraform
+2022-11-25 11:34:35.942 [info] Extracted extension to /home/technat/.vscode/extensions/.ef74a961-fa15-4b86-90c0-49b03df2e32c: davidanson.vscode-markdownlint
+2022-11-25 11:34:35.949 [info] Renamed to /home/technat/.vscode/extensions/davidanson.vscode-markdownlint-0.48.1
+2022-11-25 11:34:35.950 [info] Extracting completed. davidanson.vscode-markdownlint
+2022-11-25 11:34:35.950 [info] Extension installed successfully: davidanson.vscode-markdownlint
+2022-11-25 11:34:36.763 [info] Extracted extension to /home/technat/.vscode/extensions/.f3a4c940-28dc-403a-ae1e-7710a3f1f0f9: ms-azuretools.vscode-docker
+2022-11-25 11:34:36.770 [info] Renamed to /home/technat/.vscode/extensions/ms-azuretools.vscode-docker-1.22.2
+2022-11-25 11:34:36.777 [info] Extracting completed. ms-azuretools.vscode-docker
+2022-11-25 11:34:36.779 [info] Extension installed successfully: ms-azuretools.vscode-docker
+2022-11-25 11:34:36.977 [info] Extracted extension to /home/technat/.vscode/extensions/.e03db266-1fdc-4ba0-af59-9c8fde4a819e: asant930.pop
+2022-11-25 11:34:36.983 [info] Renamed to /home/technat/.vscode/extensions/asant930.pop-0.0.1
+2022-11-25 11:34:36.984 [info] Extracting completed. asant930.pop
+2022-11-25 11:34:36.985 [info] Extension installed successfully: asant930.pop
+2022-11-25 11:34:37.212 [info] Extracted extension to /home/technat/.vscode/extensions/.da191f8b-4901-4280-9ced-f206aa54e6b5: andilutten92.pop-theme-switcher
+2022-11-25 11:34:37.219 [info] Renamed to /home/technat/.vscode/extensions/andilutten92.pop-theme-switcher-1.0.2
+2022-11-25 11:34:37.225 [info] Extracting completed. andilutten92.pop-theme-switcher
+2022-11-25 11:34:37.226 [info] Extension installed successfully: andilutten92.pop-theme-switcher
+2022-11-25 11:34:37.301 [info] Extracted extension to /home/technat/.vscode/extensions/.0c3c0ded-ecb0-4908-b49a-e4d1f7f7c8a0: golang.go
+2022-11-25 11:34:37.308 [info] Renamed to /home/technat/.vscode/extensions/golang.go-0.36.0
+2022-11-25 11:34:37.310 [info] Extracting completed. golang.go
+2022-11-25 11:34:37.312 [info] Extension installed successfully: golang.go
+2022-11-25 11:34:37.335 [info] Extracted extension to /home/technat/.vscode/extensions/.2bf2bfc2-7b90-4777-812b-8a09a46be746: artisanbytecrafter.poptheme
+2022-11-25 11:34:37.340 [info] Renamed to /home/technat/.vscode/extensions/artisanbytecrafter.poptheme-1.0.4
+2022-11-25 11:34:37.340 [info] Extracting completed. artisanbytecrafter.poptheme
+2022-11-25 11:34:37.341 [info] Extension installed successfully: artisanbytecrafter.poptheme
+2022-11-25 11:34:38.240 [info] Extracted extension to /home/technat/.vscode/extensions/.2edff658-1c36-48eb-ade6-ba33f8c875ed: ms-vscode-remote.remote-wsl
+2022-11-25 11:34:38.292 [info] Renamed to /home/technat/.vscode/extensions/ms-vscode-remote.remote-wsl-0.72.0
+2022-11-25 11:34:38.301 [info] Extracting completed. ms-vscode-remote.remote-wsl
+2022-11-25 11:34:38.302 [info] Extension installed successfully: ms-vscode-remote.remote-wsl
+2022-11-25 11:34:38.333 [info] Extracted extension to /home/technat/.vscode/extensions/.9b916c9b-30ac-4cd0-bfef-d384398409b8: redhat.vscode-yaml
+2022-11-25 11:34:38.339 [info] Renamed to /home/technat/.vscode/extensions/redhat.vscode-yaml-1.10.1
+2022-11-25 11:34:38.341 [info] Extracting completed. redhat.vscode-yaml
+2022-11-25 11:34:38.342 [info] Extension installed successfully: redhat.vscode-yaml
+2022-11-25 11:34:40.244 [info] Getting Manifest... artisanbytecrafter.poptheme
+2022-11-25 11:34:40.249 [info] Installing extension: artisanbytecrafter.poptheme
+2022-11-25 11:34:40.361 [info] Extension installed successfully: artisanbytecrafter.poptheme
+2022-11-25 11:34:41.325 [info] Extracted extension to /home/technat/.vscode/extensions/.1564fccd-4d2d-41bc-a316-7cbafdbbce00: ms-vscode-remote.remote-containers
+2022-11-25 11:34:41.352 [info] Renamed to /home/technat/.vscode/extensions/ms-vscode-remote.remote-containers-0.262.3
+2022-11-25 11:34:41.353 [info] Extracting completed. ms-vscode-remote.remote-containers
+2022-11-25 11:34:41.354 [info] Extension installed successfully: ms-vscode-remote.remote-containers
+2022-11-25 11:34:41.409 [info] Worker process with pid 78751 terminated normally (type: fileWatcher, window: 1).
+2022-11-25 11:34:41.631 [info] Extracted extension to /home/technat/.vscode/extensions/.80de6845-fc89-4e74-be7a-bb8906b307f1: equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:41.648 [info] Renamed to /home/technat/.vscode/extensions/equinusocio.vsc-material-theme-icons-2.4.0
+2022-11-25 11:34:41.649 [info] Extracting completed. equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:41.650 [info] Extension installed successfully: equinusocio.vsc-material-theme-icons
+2022-11-25 11:34:42.364 [info] Starting worker process with pid 79124 (type: fileWatcher, window: 1).
+2022-11-25 11:34:45.487 [info] Extracted extension to /home/technat/.vscode/extensions/.22ecfcb0-8d44-4d1e-a280-dd4bce49a85d: github.codespaces
+2022-11-25 11:34:45.509 [info] Renamed to /home/technat/.vscode/extensions/github.codespaces-1.13.1
+2022-11-25 11:34:45.512 [info] Extracting completed. github.codespaces
+2022-11-25 11:34:45.513 [info] Extension installed successfully: github.codespaces
