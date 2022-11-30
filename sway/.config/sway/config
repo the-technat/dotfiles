@@ -223,7 +223,6 @@ output eDP-1 pos 0 0 res 1920x1080
 # Dell 27"
 output DP-1 pos 1920 0 res 2560x1440
 # Dell 21"
-output DP-2 transform 90
 output DP-2 pos 4480 0 res 1920x1080
 
 # Wallpaper
