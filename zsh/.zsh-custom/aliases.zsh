@@ -68,6 +68,7 @@ nukeAccount () {
   cat > /tmp/$name << EOF
     regions:
     - sa-east-1
+    - us-east-1
     - eu-central-2
     - global
 
@@ -78,6 +79,8 @@ nukeAccount () {
       "298410952490":
         filters:
           IAMUser:
+          - "banana"
+          IAMLoginProfile:
           - "banana"
           IAMUserPolicyAttachment:
           - "banana -> AdministratorAccess"
