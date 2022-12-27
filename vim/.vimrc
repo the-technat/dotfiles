@@ -55,7 +55,7 @@ set omnifunc=ale#completion#OmniFunc " trigger completion using <C-x><C-o>
 let g:ale_fixers = {
 \  '*': ['remove_trailing_lines', 'trim_whitespace'],
 \  'go': ['gofmt', 'gofumpt', 'goimports', 'golines'],
-\  'terraform': ['terraformfmt'],
+\  'terraform': ['terraform'],
 \  'sh': ['shfmt'],
 \}
 let g:ale_linters = {

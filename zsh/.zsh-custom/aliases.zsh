@@ -3,6 +3,7 @@
 ##################
 alias ll="ranger"
 alias l="ls -lahF --hyperlink=auto --color=auto"
+alias switchyubikey="gpg-connect-agent "scd serialno" "learn --force" /bye"
 
 ##################
 # Editing
@@ -29,6 +30,7 @@ alias diff="kitty +kitten diff"
 alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
 alias kk="kubectl --kubeconfig ~/.kube/cucumber.kubeconfig"
+alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
 function allns {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
@@ -85,7 +87,14 @@ nukeAccount () {
           IAMUserPolicyAttachment:
           - "banana -> AdministratorAccess"
           IAMUserAccessKey:
-          - "banana -> AKIAUK6VNY4VLQ2EIAAW"
+          - type: "glob"
+            value: "banana -> *"
+          IAMVirtualMFADevice:
+          - type: "glob"
+            value: "arn:aws:iam::298410952490:mfa/*"
+          IAMLoginProfile:
+          - type: "glob"
+            value: "*banana*"
 EOF
   aws-nuke --config /tmp/$name --no-dry-run
   rm /tmp/$name
