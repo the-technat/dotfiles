@@ -1,3 +1,4 @@
-!gpg/.gnupg/gpg.conf
-!gpg/.gnupg/gpg-agent.conf
 mutt/.config/mutt/.my-pwds
+kSuite/.local/share
+!kSuite/.local/share/applications/kdrive.desktop
+!kSuite/.local/share/applications/kmeet.desktop
