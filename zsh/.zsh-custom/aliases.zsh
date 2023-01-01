@@ -82,8 +82,6 @@ nukeAccount () {
         filters:
           IAMUser:
           - "banana"
-          IAMLoginProfile:
-          - "banana"
           IAMUserPolicyAttachment:
           - "banana -> AdministratorAccess"
           IAMUserAccessKey:
