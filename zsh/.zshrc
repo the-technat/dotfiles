@@ -69,7 +69,6 @@ ZSH_CUSTOM=/data/data/com.termux/files/home/.zsh-custom/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd)
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
