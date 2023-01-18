@@ -82,11 +82,15 @@ nukeAccount () {
         filters:
           IAMUser:
           - "banana"
+          - "aws_baseline"
           IAMUserPolicyAttachment:
           - "banana -> AdministratorAccess"
+          - "aws_baseline -> AdministratorAccess"
           IAMUserAccessKey:
           - type: "glob"
             value: "banana -> *"
+          - type: "glob"
+            value: "aws_baseline -> *"
           IAMVirtualMFADevice:
           - type: "glob"
             value: "arn:aws:iam::298410952490:mfa/*"

@@ -4,7 +4,7 @@ localArgoEnv() {
   # activeInterface=$(nmcli -g DEVICE connection show --active)
   # IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}')
   echo "Creating local k3d argocd cluster..."
-  k3d cluster create argocd -a 2 --api-port 0.0.0.0:6550 -p 443:443@loadbalancer -p 80:80@loadbalancer 2>&1 >&- > /dev/null
+  k3d cluster create argocd -a 2 --api-port 127.0.0.1:6443 -p 443:443@loadbalancer -p 80:80@loadbalancer 2>&1 >&- > /dev/null
   containsRepo=$(pwd |grep argo-cd)
   if [[ $containsRepo != "" ]]
   then
@@ -28,11 +28,11 @@ localArgoEnv() {
   case ${exposeMethod} in
     LoadBalancer|1 )
       exposeArgoLB
-      echo "Argo CD UI at https://localhost8080 using User admin and password $pw"
+      echo "Argo CD UI at https://argocd.local:8080 using User admin and password $pw"
       ;;
     Ingress|2 )
       exposeArgoIng
-      echo "Argo CD UI at https://localhost using User admin and password $pw"
+      echo "Argo CD UI at https://argocd.local using User admin and password $pw"
       ;;
     Telepresence|3 )
       echo "Spawing new telepresence shell..."
@@ -43,6 +43,12 @@ localArgoEnv() {
       echo "No method, expose it on your own or port-forward to the argocd-server"
       ;;
     esac
+}
+
+function argoAdminPW() {
+  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret 2>&1 >&- > /dev/null
+  pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
+  echo $pw
 }
 
 function exposeArgoLB() {
@@ -84,7 +90,7 @@ function exposeArgoIng() {
         ingress.kubernetes.io/ssl-redirect: "true"
     spec:
       rules:
-      - host: localhost
+      - host: argocd.local
         http:
           paths:
           - path: /
