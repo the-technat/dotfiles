@@ -1,54 +1,74 @@
 localArgoEnv() {
-  sudo systemctl start docker
   echo "Provisioning a local argocd dev environment..."
-  # activeInterface=$(nmcli -g DEVICE connection show --active)
-  # IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}')
+  createK3dCluster
+  deployDex
+  deployArgoCD
+}
+
+function createK3dCluster() {
+  sudo systemctl start docker
+  IP=$(getIP)
   echo "Creating local k3d argocd cluster..."
-  k3d cluster create argocd -a 2 --api-port 127.0.0.1:6443 -p 443:443@loadbalancer -p 80:80@loadbalancer 2>&1 >&- > /dev/null
-  containsRepo=$(pwd |grep argo-cd)
-  if [[ $containsRepo != "" ]]
+  k3d cluster create argocd -a 2 --host-alias $IP':argocd.local,dex.local' --api-port $IP:6443 -p $IP:443:443@loadbalancer -p $IP:80:80@loadbalancer 2>&1 >&- > /dev/null
+  echo "Cluster created, note that when the IP $(getIP) changes, you must rebuild the env"
+}
+
+function getArgoAdminPW() {
+  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret 2>&1 >&- > /dev/null
+  pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
+  echo $pw
+}
+
+function getIP() {
+  isArch=$(cat /etc/os-release | grep Arch)
+  activeInterface=$(nmcli -g DEVICE connection show --active | head -n 1 -)
+  if [[ $isArch != "" ]]
   then
-    kubectl create ns argocd 2>&1 >&- > /dev/null
-    kubectl apply -n argocd --force -f manifests/install.yaml 2>&1 >&- > /dev/null
+    IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}' | sed 's/addr://g' -)
   else
-    echo "Not in argo-cd git repo, installing from master branch..."
-    kubectl create ns argocd 2>&1 >&- > /dev/null
-    kubectl apply -n argocd --force -f https://raw.githubusercontent.com/argoproj/argo-cd/master/manifests/install.yaml 2>&1 >&- > /dev/null
+    IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}')
   fi
+  echo $IP
+}
+
+function setHost() {
+ containsHost=$(cat /etc/hosts |grep $1)
+  if [[ $containsHost == "" ]]
+  then
+    echo "$(getIP) $1" |sudo tee -a /etc/hosts
+    source /etc/hosts
+  fi
+}
+
+function deployDex() {
+  # pass those into the function
+  id=$1
+  secret=$2
+  setHost dex.local
+  kubectl create ns dex 2>&1 >&- > /dev/null
+  containsRepo=$(helm repo list |grep dex)
+  if [[ $containsRepo == "" ]]
+  then
+    helm repo add dex https://chart.dexidp.io 2>&1 > /dev/null
+  fi
+  helm upgrade -i -n dex dex dex/dex -f /home/technat/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
+}
+
+function deployArgoCD() {
+  setHost argocd.local
+  kubectl create ns argocd 2>&1 >&- > /dev/null
+  containsRepo=$(helm repo list |grep argo)
+  if [[ $containsRepo == "" ]]
+  then
+    helm repo add argo https://argoproj.github.io/argo-helm 2>&1 > /dev/null
+  fi
+  helm upgrade -i -n argocd argocd argo/argo-cd -f /home/technat/.zsh-custom/plugins/argocd/argocd-values.yaml
   echo "Waiting for Argo CD server to become available..."
   sleep 2
   pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
   kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod 2>&1 >&- > /dev/null
   sleep 2
-  echo "Waiting for admin secret to be created..."
-  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret 2>&1 >&- > /dev/null
-  pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
-  echo "Pick an exposing method: LoadBalancer(1) Ingress(2) Telepresence(3) None()"
-  read exposeMethod
-  case ${exposeMethod} in
-    LoadBalancer|1 )
-      exposeArgoLB
-      echo "Argo CD UI at https://argocd.local:8080 using User admin and password $pw"
-      ;;
-    Ingress|2 )
-      exposeArgoIng
-      echo "Argo CD UI at https://argocd.local using User admin and password $pw"
-      ;;
-    Telepresence|3 )
-      echo "Spawing new telepresence shell..."
-      telepresence --swap-deployment argocd-server --namespace argocd --env-file .envrc.remote --expose 8080:8080 --expose 8083:8083 --run zsh
-      export PS1="[telepresence]$PS1"
-      ;;
-    *)
-      echo "No method, expose it on your own or port-forward to the argocd-server"
-      ;;
-    esac
-}
-
-function argoAdminPW() {
-  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret 2>&1 >&- > /dev/null
-  pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
-  echo $pw
+  echo "Argo CD UI at https://argocd.local using User admin and password $(getArgoAdminPW)"
 }
 
 function exposeArgoLB() {
