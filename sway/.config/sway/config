@@ -221,7 +221,8 @@ bindsym $mod+Return exec $term
 # Internal monitor
 output eDP-1 pos 0 0 res 1920x1080
 # Dell 27"
-output DP-1 pos 1920 0 res 2560x1440
+# output DP-1 pos 1920 0 res 2560x1440
+output DP-1 pos 3440 0 res 3440x1440
 # Dell 21"
 output DP-2 pos 4480 0 res 1920x1080
 
@@ -259,15 +260,16 @@ bar {
 # Requires: swaylock-effects, swayidle
 ###########################
 # Define what happens when you should lock (requires swaylock-effects)
-set $lock swaylock \
-    --clock \
-    --indicator \
-    --screenshots \
-    --effect-scale 0.4 \
-    --effect-vignette 0.2:0.5 \
-    --effect-blur 4x2 \
-    --datestr "%a %e.%m.%Y" \
-    --timestr "%k:%M"
+#set $lock swaylock \
+#    --clock \
+#    --indicator \
+#    --screenshots \
+#    --effect-scale 0.4 \
+#    --effect-vignette 0.2:0.5 \
+#    --effect-blur 4x2 \
+#    --datestr "%a %e.%m.%Y" \
+#    --timestr "%k:%M"
+set $lock swaylock
 # To manually lock the screen we call a script
 set $lockman exec bash ~/.config/sway/lockman.sh
 bindsym Alt+Shift+q exec $lockman

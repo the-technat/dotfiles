@@ -1,3 +1,5 @@
+ssh/.ssh/known_hosts
+ssh/.ssh/known_hosts.old
 mutt/.config/mutt/.my-pwds
 kSuite/.local/share
 !kSuite/.local/share/applications/kdrive.desktop

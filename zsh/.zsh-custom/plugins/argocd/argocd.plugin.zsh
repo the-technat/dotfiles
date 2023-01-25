@@ -7,10 +7,37 @@ localArgoEnv() {
 
 function createK3dCluster() {
   sudo systemctl start docker
-  IP=$(getIP)
+  docker network create argocd-k3d --subnet 10.123.123.0/24 --gateway 10.123.123.1
   echo "Creating local k3d argocd cluster..."
-  k3d cluster create argocd -a 2 --host-alias $IP':argocd.local,dex.local' --api-port $IP:6443 -p $IP:443:443@loadbalancer -p $IP:80:80@loadbalancer 2>&1 >&- > /dev/null
-  echo "Cluster created, note that when the IP $(getIP) changes, you must rebuild the env"
+  name="$(date +%s)config.yaml"
+  cat > /tmp/$name <<EOF
+apiVersion: k3d.io/v1alpha4
+kind: Simple
+metadata:
+  name: argocd
+servers: 1
+agents: 2
+#kubeAPI:
+#  hostIP: "10.123.123.1"
+#  hostPort: "6445"
+network: argocd-k3d
+ports:
+  - port: 8080:80
+    nodeFilters:
+      - loadbalancer
+hostAliases:
+  - ip: 10.123.123.1
+    hostnames:
+      - argocd.local
+      - dex.local
+EOF
+  k3d cluster create --config /tmp/$name
+  rm /tmp/$name
+}
+
+function deleteK3dCluster() {
+	k3d cluster delete argocd
+  docker network rm argocd-k3d
 }
 
 function getArgoAdminPW() {
@@ -37,6 +64,8 @@ function setHost() {
   then
     echo "$(getIP) $1" |sudo tee -a /etc/hosts
     source /etc/hosts
+  else
+    echo "Host already set to: $containsHost"
   fi
 }
 
