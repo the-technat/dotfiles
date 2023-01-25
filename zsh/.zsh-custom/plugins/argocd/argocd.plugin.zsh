@@ -1,14 +1,20 @@
+# provisions the env
+# note: only one env at a time please
 localArgoEnv() {
   echo "Provisioning a local argocd dev environment..."
   createK3dCluster
-  deployDex
   deployArgoCD
+}
+
+# cleans up the env
+function destroyLocalArgoEnv() {
+	k3d cluster delete argocd
+  docker network rm argocd-k3d
 }
 
 function createK3dCluster() {
   sudo systemctl start docker
   docker network create argocd-k3d --subnet 10.123.123.0/24 --gateway 10.123.123.1
-  echo "Creating local k3d argocd cluster..."
   name="$(date +%s)config.yaml"
   cat > /tmp/$name <<EOF
 apiVersion: k3d.io/v1alpha4
@@ -17,14 +23,17 @@ metadata:
   name: argocd
 servers: 1
 agents: 2
-#kubeAPI:
-#  hostIP: "10.123.123.1"
-#  hostPort: "6445"
+kubeAPI:
+  hostIP: "10.123.123.1"
+  hostPort: "6443"
 network: argocd-k3d
 ports:
-  - port: 8080:80
-    nodeFilters:
-      - loadbalancer
+- port: 10.123.123.1:80:80
+  nodeFilters:
+  - loadbalancer
+- port: 10.123.123.1:443:443
+  nodeFilters:
+  - loadbalancer
 hostAliases:
   - ip: 10.123.123.1
     hostnames:
@@ -33,31 +42,19 @@ hostAliases:
 EOF
   k3d cluster create --config /tmp/$name
   rm /tmp/$name
+  echo "Created cluster argocd in docket network argocd-k3d"
 }
 
-function deleteK3dCluster() {
-	k3d cluster delete argocd
-  docker network rm argocd-k3d
-}
-
+# retrieves the inital admin password from secret
 function getArgoAdminPW() {
-  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret 2>&1 >&- > /dev/null
+  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret
   pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
   echo $pw
 }
 
-function getIP() {
-  isArch=$(cat /etc/os-release | grep Arch)
-  activeInterface=$(nmcli -g DEVICE connection show --active | head -n 1 -)
-  if [[ $isArch != "" ]]
-  then
-    IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}' | sed 's/addr://g' -)
-  else
-    IP=$(ifconfig $activeInterface | grep inet | grep -v inet6 | awk '{print $2}')
-  fi
-  echo $IP
-}
-
+# setHost configures your local hosts file
+# can only be called once since changing records
+# is not supported, but also not needed
 function setHost() {
  containsHost=$(cat /etc/hosts |grep $1)
   if [[ $containsHost == "" ]]
@@ -69,37 +66,44 @@ function setHost() {
   fi
 }
 
+# deployes Dex using official helm chart
+# and preconfigured config this dir
+# note: won't work if you omit
+# clientID and clientSecret
 function deployDex() {
   # pass those into the function
   id=$1
   secret=$2
   setHost dex.local
-  kubectl create ns dex 2>&1 >&- > /dev/null
+  kubectl create ns dex
   containsRepo=$(helm repo list |grep dex)
   if [[ $containsRepo == "" ]]
   then
-    helm repo add dex https://chart.dexidp.io 2>&1 > /dev/null
+    helm repo add dex https://chart.dexidp.io
   fi
   helm upgrade -i -n dex dex dex/dex -f /home/technat/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
 }
 
+# deployes Argocd using official helm chart
+# and preconfigured config from this dir
 function deployArgoCD() {
   setHost argocd.local
-  kubectl create ns argocd 2>&1 >&- > /dev/null
+  kubectl create ns argocd
   containsRepo=$(helm repo list |grep argo)
   if [[ $containsRepo == "" ]]
   then
-    helm repo add argo https://argoproj.github.io/argo-helm 2>&1 > /dev/null
+    helm repo add argo https://argoproj.github.io/argo-helm
   fi
   helm upgrade -i -n argocd argocd argo/argo-cd -f /home/technat/.zsh-custom/plugins/argocd/argocd-values.yaml
   echo "Waiting for Argo CD server to become available..."
   sleep 2
   pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
-  kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod 2>&1 >&- > /dev/null
+  kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod
   sleep 2
   echo "Argo CD UI at https://argocd.local using User admin and password $(getArgoAdminPW)"
 }
 
+# exposes an existing argocd deployment using a LB
 function exposeArgoLB() {
   cat <<EOF | kubectl apply -n argocd -f -
 apiVersion: v1
@@ -122,9 +126,10 @@ spec:
 EOF
 }
 
+# exposes an existing argocd deployment using an ingress
 function exposeArgoIng() {
-  kubectl patch -n argocd cm argocd-cmd-params-cm --patch '{"data": {"server.insecure": "true"}}' 2>&1 >&- > /dev/null
-  kubectl rollout -n argocd restart deployment argocd-server 2>&1 >&- > /dev/null
+  kubectl patch -n argocd cm argocd-cmd-params-cm --patch '{"data": {"server.insecure": "true"}}'
+  kubectl rollout -n argocd restart deployment argocd-server
   cat <<EOF | kubectl apply -n argocd -f -
     apiVersion: networking.k8s.io/v1
     kind: Ingress
