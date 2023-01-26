@@ -3,7 +3,7 @@
 ##################
 alias ll="ranger"
 alias l="ls -lahF --hyperlink=auto --color=auto"
-alias switchyubikey="gpg-connect-agent "scd serialno" "learn --force" /bye"
+alias switchyubikey="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
 
 ##################
 # Editing
