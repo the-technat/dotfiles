@@ -3,6 +3,7 @@
 localArgoEnv() {
   echo "Provisioning a local argocd dev environment..."
   createK3dCluster
+  telepresence helm install
   deployArgoCD
 }
 
