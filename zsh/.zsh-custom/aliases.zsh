@@ -29,7 +29,7 @@ alias diff="kitty +kitten diff"
 ##################
 alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
-alias kk="kubectl --kubeconfig ~/.kube/cucumber.kubeconfig"
+alias kk="kubectl --kubeconfig ~/.kube/second"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
 function allns {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do

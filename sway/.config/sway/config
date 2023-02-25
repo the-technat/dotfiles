@@ -260,16 +260,15 @@ bar {
 # Requires: swaylock-effects, swayidle
 ###########################
 # Define what happens when you should lock (requires swaylock-effects)
-#set $lock swaylock \
-#    --clock \
-#    --indicator \
-#    --screenshots \
-#    --effect-scale 0.4 \
-#    --effect-vignette 0.2:0.5 \
-#    --effect-blur 4x2 \
-#    --datestr "%a %e.%m.%Y" \
-#    --timestr "%k:%M"
-set $lock swaylock
+set $lock swaylock \
+    --clock \
+    --indicator \
+    --screenshots \
+   --effect-scale 0.4 \
+    --effect-vignette 0.2:0.5 \
+    --effect-blur 4x2 \
+    --datestr "%a %e.%m.%Y" \
+    --timestr "%k:%M"
 # To manually lock the screen we call a script
 set $lockman exec bash ~/.config/sway/lockman.sh
 bindsym Alt+Shift+q exec $lockman
