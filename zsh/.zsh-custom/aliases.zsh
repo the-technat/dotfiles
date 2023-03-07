@@ -4,6 +4,12 @@
 alias ll="ranger"
 alias l="ls -lahF --hyperlink=auto --color=auto"
 alias switchyubikey="gpg-connect-agent \"scd serialno\" \"learn --force\" /bye"
+function temp {
+  DIR=$(mktemp -u)
+  mkdir -p $DIR
+  export TEMP=$DIR
+  cd $DIR
+}
 
 ##################
 # Editing
