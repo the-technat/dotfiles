@@ -68,7 +68,7 @@ ZSH_CUSTOM=/home/technat/.zsh-custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd aws kubectx)
+plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd aws kubectx docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,3 +105,6 @@ RPS1='$(kubectx_prompt_info)'
 
 # https://github.com/ranger/ranger/wiki/Common-Changes#ranger-shell-prompt-indicator
 if [ -n "$RANGER_LEVEL" ]; then export PS1="[ranger]$PS1"; fi
+# see https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker#settings
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes

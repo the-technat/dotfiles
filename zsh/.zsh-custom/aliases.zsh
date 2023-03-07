@@ -27,6 +27,9 @@ alias diff="kitty +kitten diff"
 ##################
 # Kubernetes
 ##################
+function pruned {
+  docker system prune -a --volumes
+}
 alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
 alias kk="kubectl --kubeconfig ~/.kube/second"
