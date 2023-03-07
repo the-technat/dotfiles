@@ -21,7 +21,7 @@ set number
 set title
 set wildmenu
 set cursorline
-set background=dark
+set background=light
 set termguicolors
 syntax enable
 colorscheme solarized
