@@ -289,6 +289,13 @@ bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/clamshell.sh
 
 ###########################
+# Screen Mirroring
+# Docs: https://github.com/Ferdi265/wl-mirror
+# Requires: wl-mirror, pipectl, slurp
+###########################
+bindsym $mod+p exec bash ~/.config/sway/wl-present.sh mirror
+
+###########################
 # Inputs
 ###########################
 input "type:keyboard" {
@@ -296,7 +303,7 @@ input "type:keyboard" {
 }
 
 # Switch between keyboard layouts
- bindsym Alt+Space input type:keyboard xkb_switch_layout next
+bindsym Alt+Space input type:keyboard xkb_switch_layout next
 
 ###########################
 # Keybindings (general)
