@@ -296,12 +296,7 @@ input "type:keyboard" {
 }
 
 # Switch between keyboard layouts
-# bindsym Alt+Space input type:keyboard xkb_switch_layout next
-# Not working: https://github.com/swaywm/sway/issues/6011
-# Workaround:
-bindsym Alt+Space exec swaymsg -t get_inputs -r \
-| jq '[.[] | select(.type == "keyboard") | .xkb_active_layout_index][0] - 1 | fabs' \
-| xargs swaymsg 'input type:keyboard xkb_switch_layout'
+ bindsym Alt+Space input type:keyboard xkb_switch_layout next
 
 ###########################
 # Keybindings (general)
