@@ -85,44 +85,44 @@ exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Solarized Light
-#set $menu bemenu-run -i \
-#    -H 21 \
-#    --tb "#eee8d5" \
-#    --tf "#586e75" \
-#    --fb "#eee8d5" \
-#    --ff "#586e75" \
-#    --nb "#eee8d5" \
-#    --nf "#586e75" \
-#    --hb "#eee8d5" \
-#    --hf "#268bd2" \
-#    --fbb "#eee8d5" \
-#    --fbf "#586e75" \
-#    --sb "#eee8d5" \
-#    --sf "#586e75" \
-#    --scb "#eee8d5" \
-#    --scf "#586e75" \
-#    --fn "font pango:rubik 11" \
-#    "$@" -m "$(swayfocused)" -p ">"
-
-# Solarized Dark
 set $menu bemenu-run -i \
     -H 21 \
-    --tb "#002b36" \
-    --tf "#93a1a1" \
-    --fb "#002b36" \
-    --ff "#93a1a1" \
-    --nb "#002b36" \
-    --nf "#93a1a1" \
-    --hb "#002b36" \
-    --hf "#859900" \
-    --fbb "#002b36" \
-    --fbf "#93a1a1" \
-    --sb "#002b36" \
-    --sf "#93a1a1" \
-    --scb "#002b36" \
-    --scf "#93a1a1" \
+    --tb "#eee8d5" \
+    --tf "#586e75" \
+    --fb "#eee8d5" \
+    --ff "#586e75" \
+    --nb "#eee8d5" \
+    --nf "#586e75" \
+    --hb "#eee8d5" \
+    --hf "#268bd2" \
+    --fbb "#eee8d5" \
+    --fbf "#586e75" \
+    --sb "#eee8d5" \
+    --sf "#586e75" \
+    --scb "#eee8d5" \
+    --scf "#586e75" \
     --fn "font pango:rubik 11" \
     "$@" -m "$(swayfocused)" -p ">"
+
+# Solarized Dark
+# set $menu bemenu-run -i \
+#    -H 21 \
+#    --tb "#002b36" \
+#    --tf "#93a1a1" \
+#    --fb "#002b36" \
+#    --ff "#93a1a1" \
+#    --nb "#002b36" \
+#    --nf "#93a1a1" \
+#    --hb "#002b36" \
+#    --hf "#859900" \
+#    --fbb "#002b36" \
+#    --fbf "#93a1a1" \
+#    --sb "#002b36" \
+#    --sf "#93a1a1" \
+#    --scb "#002b36" \
+#    --scf "#93a1a1" \
+#    --fn "font pango:rubik 11" \
+#    "$@" -m "$(swayfocused)" -p ">"
 
 # Start your launcher
 bindsym $mod+d exec $menu
@@ -134,48 +134,48 @@ bindsym $mod+d exec $menu
 ###########################
 exec wl-paste --watch ~/.config/sway/cliphist.sh
 # Solarized Dark
-bindsym $mod+y exec cliphist list | \
-    bemenu -H 21 \
-    --tb "#002b36" \
-    --tf "#93a1a1" \
-    --fb "#002b36" \
-    --ff "#93a1a1" \
-    --nb "#002b36" \
-    --nf "#93a1a1" \
-    --hb "#002b36" \
-    --hf "#859900" \
-    --fbb "#002b36" \
-    --fbf "#93a1a1" \
-    --sb "#002b36" \
-    --sf "#93a1a1" \
-    --scb "#002b36" \
-    --scf "#93a1a1" \
-    --fn "font pango:rubik 11" \
-    "$@" -m "$(swayfocused)" -p ">" | \
-    cliphist decode | \
-    wl-copy
-
-# Solarized Light
-#bindsym Shift+Ctrl+h exec cliphist list | \
+# bindsym $mod+y exec cliphist list | \
 #    bemenu -H 21 \
-#    --tb "#eee8d5" \
-#    --tf "#586e75" \
-#    --fb "#eee8d5" \
-#    --ff "#586e75" \
-#    --nb "#eee8d5" \
-#    --nf "#586e75" \
-#    --hb "#eee8d5" \
-#    --hf "#268bd2" \
-#    --fbb "#eee8d5" \
-#    --fbf "#586e75" \
-#    --sb "#eee8d5" \
-#    --sf "#586e75" \
-#    --scb "#eee8d5" \
-#    --scf "#586e75" \
+#    --tb "#002b36" \
+#    --tf "#93a1a1" \
+#    --fb "#002b36" \
+#    --ff "#93a1a1" \
+#    --nb "#002b36" \
+#    --nf "#93a1a1" \
+#    --hb "#002b36" \
+#    --hf "#859900" \
+#    --fbb "#002b36" \
+#    --fbf "#93a1a1" \
+#    --sb "#002b36" \
+#    --sf "#93a1a1" \
+#    --scb "#002b36" \
+#    --scf "#93a1a1" \
 #    --fn "font pango:rubik 11" \
 #    "$@" -m "$(swayfocused)" -p ">" | \
 #    cliphist decode | \
 #    wl-copy
+
+# Solarized Light
+bindsym $mod+y exec cliphist list | \
+    bemenu -H 21 \
+    --tb "#eee8d5" \
+    --tf "#586e75" \
+    --fb "#eee8d5" \
+    --ff "#586e75" \
+    --nb "#eee8d5" \
+    --nf "#586e75" \
+    --hb "#eee8d5" \
+    --hf "#268bd2" \
+    --fbb "#eee8d5" \
+    --fbf "#586e75" \
+    --sb "#eee8d5" \
+    --sf "#586e75" \
+    --scb "#eee8d5" \
+    --scf "#586e75" \
+    --fn "font pango:rubik 11" \
+    "$@" -m "$(swayfocused)" -p ">" | \
+    cliphist decode | \
+    wl-copy
 
 
 ###########################
@@ -239,7 +239,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     # gsettings set $gnome-schema gtk-theme 'Solarized-Dark'
-    gsettings set $gnome-schema gtk-theme 'NumixSolarizedDarkBlue'
+    gsettings set $gnome-schema gtk-theme 'NumixSolarizedLightBlue'
     # gsettings set $gnome-schema icon-theme 'Your icon theme'
     # gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
     # gsettings set $gnome-schema font-name 'Your font name'

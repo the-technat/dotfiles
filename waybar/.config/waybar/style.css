@@ -3,7 +3,7 @@
  * Technat's Waybar configuration (https://git.technat.ch)
  *
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
- * Configuration base: 
+ * Configuration base:
  *
  * =========================================================================== */
 
@@ -14,45 +14,45 @@
 /* Solarized Dark */
 /*----------------*/
 /* General */
-@define-color background #002b36; 
-@define-color dark #586e75;  
-@define-color light #93a1a1;  
-@define-color warning #cb4b16; 
-@define-color critical #dc322f; 
+/* @define-color background #002b36; */
+/* @define-color dark #586e75; */
+/* @define-color light #93a1a1; */
+/* @define-color warning #cb4b16; */
+/* @define-color critical #dc322f; */
 /* Modules */
-@define-color mode #073642; 
-@define-color workspaces #073642; 
-@define-color tray #073642;
-@define-color sound #2aa198;
-@define-color network #073642;
-@define-color memory #859900;
-@define-color cpu #073642;
-@define-color temp #b58900;
-@define-color battery #073642; 
-@define-color date #d33682;
-@define-color time #073642; 
+/* @define-color mode #073642; */
+/* @define-color workspaces #073642; */
+/* @define-color tray #073642; */
+/* @define-color sound #2aa198; */
+/* @define-color network #073642; */
+/* @define-color memory #859900; */
+/* @define-color cpu #073642; */
+/* @define-color temp #b58900; */
+/* @define-color battery #073642; */
+/* @define-color date #d33682; */
+/* @define-color time #073642; */
 
 
 /* Solarized Light */
 /*-----------------*/
 /* General */
-/* @define-color background #fdf6e3; */
-/* @define-color dark #657b83; */  
-/* @define-color light #839496; */  
-/* @define-color warning #cb4b16; */ 
-/* @define-color critical #dc322f; */ 
+@define-color background #fdf6e3;
+@define-color dark #657b83;
+@define-color light #839496;
+@define-color warning #cb4b16;
+@define-color critical #dc322f;
 /* Modules */
-/* @define-color mode #eee8d5; */ 
-/* @define-color workspaces #eee8d5; */ 
-/* @define-color tray #eee8d5; */
-/* @define-color sound #2aa198; */
-/* @define-color network #eee8d5; */
-/* @define-color memory #859900; */
-/* @define-color cpu #eee8d5; */
-/* @define-color temp #b58900; */
-/* @define-color battery #eee8d5; */ 
-/* @define-color date #d33682; */
-/* @define-color time #eee8d5; */ 
+@define-color mode #eee8d5;
+@define-color workspaces #eee8d5;
+@define-color tray #eee8d5;
+@define-color sound #2aa198;
+@define-color network #eee8d5;
+@define-color memory #859900;
+@define-color cpu #eee8d5;
+@define-color temp #b58900;
+@define-color battery #eee8d5;
+@define-color date #d33682;
+@define-color time #eee8d5;
 
 
 /* -----------------------------------------------------------------------------
@@ -294,4 +294,3 @@
 	background: @time;
 	color: @light;
 }
-
