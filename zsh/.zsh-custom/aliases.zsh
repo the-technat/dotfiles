@@ -81,6 +81,7 @@ nukeAccount () {
     - sa-east-1
     - us-east-1
     - eu-central-2
+    - eu-central-1
     - global
 
     account-blocklist:

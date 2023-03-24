@@ -8,6 +8,9 @@ configs:
       issuer: https://dex.local
       clientID: argocd
       clientSecret: argocd
+      enableUserInfoGroups: true
+      userInfoPath: /userinfo
+      userInfoCacheExpiration: "5m"
       requestedScopes:
       - openid
       - email
