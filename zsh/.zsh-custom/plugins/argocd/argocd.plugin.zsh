@@ -60,7 +60,7 @@ function setHost() {
  containsHost=$(cat /etc/hosts |grep $1)
   if [[ $containsHost != "" ]]
   then
-    sed -i "$host/d" /etc/hosts
+    sudo sed -i "$host/d" /etc/hosts
   else
     echo "$ip $host" |sudo tee -a /etc/hosts
     source /etc/hosts > /dev/null 2>&1
