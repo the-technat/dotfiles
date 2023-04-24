@@ -82,7 +82,7 @@ function deployDex() {
   then
     helm repo add dex https://chart.dexidp.io
   fi
-  helm upgrade -i -n dex dex dex/dex -f /home/technat/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
+  helm upgrade -i -n dex dex dex/dex -f $HOME/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
 }
 
 # deployes Argocd using official helm chart
@@ -95,13 +95,13 @@ function deployArgoCD() {
   then
     helm repo add argo https://argoproj.github.io/argo-helm
   fi
-  helm upgrade -i -n argocd argocd argo/argo-cd -f /home/technat/.zsh-custom/plugins/argocd/argocd-values.yaml
+  helm upgrade -i -n argocd argocd argo/argo-cd -f $HOME/.zsh-custom/plugins/argocd/argocd-values.yaml
   echo "Waiting for Argo CD server to become available..."
   sleep 2
   pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
   kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod
   sleep 2
-  echo "Argo CD UI at https://argocd.local using User admin and password $(getArgoAdminPW)"
+  echo "Argo CD UI at https://argocd.local using user admin and password $(getArgoAdminPW)"
 }
 
 # exposes an existing argocd deployment using a LB
