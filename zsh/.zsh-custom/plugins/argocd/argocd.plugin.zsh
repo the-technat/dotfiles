@@ -53,17 +53,17 @@ function getArgoAdminPW() {
   echo $pw
 }
 
-# setHost configures your local hosts file
-# can only be called once since changing records
-# is not supported, but also not needed
+# setHost configures our local hosts file
 function setHost() {
+ host=$1
+ ip=$2
  containsHost=$(cat /etc/hosts |grep $1)
-  if [[ $containsHost == "" ]]
+  if [[ $containsHost != "" ]]
   then
-    echo "$(getIP) $1" |sudo tee -a /etc/hosts
-    source /etc/hosts
+    sed -i "$host/d" /etc/hosts
   else
-    echo "Host already set to: $containsHost"
+    echo "$ip $host" |sudo tee -a /etc/hosts
+    source /etc/hosts > /dev/null 2>&1
   fi
 }
 
@@ -75,7 +75,7 @@ function deployDex() {
   # pass those into the function
   id=$1
   secret=$2
-  setHost dex.local
+  setHost dex.local 10.123.213.1
   kubectl create ns dex
   containsRepo=$(helm repo list |grep dex)
   if [[ $containsRepo == "" ]]
@@ -88,7 +88,7 @@ function deployDex() {
 # deployes Argocd using official helm chart
 # and preconfigured config from this dir
 function deployArgoCD() {
-  setHost argocd.local
+  setHost argocd.local 10.123.123.1
   kubectl create ns argocd
   containsRepo=$(helm repo list |grep argo)
   if [[ $containsRepo == "" ]]
