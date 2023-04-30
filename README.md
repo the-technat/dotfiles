@@ -2,6 +2,6 @@
 
 A repository for everything related to my workplace.
 
-## Docs
+## Goal
 
-For guides, see [my sway-de guide](https://technat.ch/linux/sway-de). This repo only contains the necessary documentation in the config files.
+The idea is that those config files / scripts are generic and thus usable on every laptop / system to quickly setup my prefered environment to tinker / develop.
