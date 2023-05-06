@@ -1,0 +1,9 @@
+#!/bin/sh
+# Installs a bunch of good tools
+
+{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+sudo apt update
+sudo apt install tmux vim zsh git gpg gnupg2 gnupg-agent scdaemon pcscd -y
+{{ else }}
+  echo "dotfiles currently only work on debian-based systems"
+{{- end }}

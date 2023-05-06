@@ -1,0 +1,14 @@
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+[data]
+  osid = {{ $osid | quote }}
+  [data.home]
+    email = "technat@technat.ch"
+    username = "technat"
+
+[git]
+  autoCommit = true
+  autoPush = true
