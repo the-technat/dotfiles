@@ -1,5 +1,4 @@
 #!/bin/sh
 
-
-gpg --recv-keys {{ .signingkey }}
-(echo trust &echo 5 &echo y &echo quit) | gpg --command-fd 0 --edit-key {{ .email }}
+gpg --recv-keys {{ .signingkey }} > /dev/null
+(echo trust &echo 5 &echo y &echo quit) | gpg --command-fd 0 --edit-key {{ .email }} > /dev/null

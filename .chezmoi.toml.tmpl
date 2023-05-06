@@ -1,25 +1,31 @@
-# generates .osid
+# Defaults
+{{ $email := "technat@technat.ch" -}}
+{{ $name := "Nathanael Liechti" -}}
+{{ $username := "technat" -}}
+{{ $signingkey := "22391b207dad6969" -}}
+{{ $is_wsl := false -}}
+
+# If TTY we can ask for overrides
+{{ if stdinIsATTY -}}
+{{   $email = promptStringOnce . "email" "Your email address" "technat@technat.ch" -}}
+{{   $name = promptStringOnce . "name" "Your name (git name)" "Nathanael Liechti" -}}
+{{   $username = promptStringOnce . "username" "Your username" "technat" -}}
+{{   $signingkey = promptStringOnce . "signingkey" "Git signing key" "22391b207dad6969" -}}
+{{   $is_wsl = promptBoolOnce . "is_wsl" "Is WSL" false -}}
+{{ end -}}
+
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-# sets sourceDir to the one from flags
 sourceDir = {{ .chezmoi.sourceDir | quote }}
-
-# CODESPACES says if we install unattended or not
-{{- $unattended:= env "CODESPACES" | not | not -}}
-
 [data]
   osid = {{ $osid | quote }}
-	signingkey = "22391b207dad6969"
-  name = "Nathanael Liechti"
-{{- if $unattended }}
-  email = "technat@technat.ch"
-  username = "technat"
-{{- else }}
-  email = {{ promptString "email" | quote }}
-  username = {{ promptString "username" | quote }}
+	signingkey = {{ $signingkey | quote }}
+  email = {{ $email | quote }}
+  username = {{ $username | quote }}
+  name = {{ $name | quote }}
 
 [git]
   autoCommit = true
