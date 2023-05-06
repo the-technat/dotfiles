@@ -1,0 +1,24 @@
+Host infomaniak
+  HostName gr1z6.ftp.infomaniak.com
+  Port 22
+  User gr1z6_technat
+
+Host github.com 
+  User git
+  Port 22
+
+Host *.gitpod.io
+  Port 22
+
+Host i-* mi-*
+  Port 22
+  ProxyCommand sh -c "aws ssm start-session --profile alleaffengaffen --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  User ec2-user
+  ServerAliveInterval 120
+  GSSAPIAuthentication no
+
+Host *
+  Port 59245
+  IdentityFile ~/.ssh/id_yubikey
