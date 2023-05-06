@@ -8,6 +8,10 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt update > /dev/null
 sudo apt install tmux vim zsh git gpg gnupg2 gnupg-agent scdaemon pcscd -y  > /dev/null
 
+###### Go
+curl -sSL -o go.tar.gz https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go.tar.gz
+
 ###### Argo CLI
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 > /dev/null
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd > /dev/null
@@ -15,6 +19,30 @@ rm argocd-linux-amd64 > /dev/null
 
 ###### K3d
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash > /dev/null
+
+
+####### Cilium
+CILIUM_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt)
+GOOS=$(go env GOOS)
+GOARCH=$(go env GOARCH)
+curl -sL --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+sha256sum --check cilium-${GOOS}-${GOARCH}.tar.gz.sha256sum
+sudo tar -C /usr/local/bin -xzvf cilium-${GOOS}-${GOARCH}.tar.gz
+rm cilium-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+
+###### Telepresence
+sudo curl -fL https://app.getambassador.io/download/tel2/linux/amd64/latest/telepresence -o /usr/local/bin/telepresence
+sudo chmod a+x /usr/local/bin/telepresence
+
+####### Hubble
+HUBBLE_CLI_VERSION=$(curl -s https://raw.githubusercontent.com/cilium/hubble/main/stable.txt)
+GOOS=$(go env GOOS)
+GOARCH=$(go env GOARCH)
+curl -sL --remote-name-all https://github.com/cilium/hubble/releases/download/${HUBBLE_CLI_VERSION}/hubble-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+sha256sum --check hubble-${GOOS}-${GOARCH}.tar.gz.sha256sum
+sudo tar -C /usr/local/bin -xzvf hubble-${GOOS}-${GOARCH}.tar.gz
+rm hubble-${GOOS}-${GOARCH}.tar.gz{,.sha256sum}
+
 
 {{ else }}
   echo "dotfiles currently only work on debian-based systems"
