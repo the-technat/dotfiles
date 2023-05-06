@@ -2,8 +2,21 @@
 # Installs a bunch of good tools
 
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+
+###### APT Packages
 sudo apt update
 sudo apt install tmux vim zsh git gpg gnupg2 gnupg-agent scdaemon pcscd -y
+
+
+###### Argo CLI
+curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+rm argocd-linux-amd64
+
+
+###### K3d
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+
 {{ else }}
   echo "dotfiles currently only work on debian-based systems"
 {{- end }}

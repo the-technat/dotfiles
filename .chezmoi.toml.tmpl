@@ -1,13 +1,25 @@
+# generates .osid
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
+# sets sourceDir to the one from flags
+sourceDir = {{ .chezmoi.sourceDir | quote }}
+
+# CODESPACES says if we install unattended or not
+{{- $unattended:= env "CODESPACES" | not | not -}}
+
 [data]
   osid = {{ $osid | quote }}
-  [data.home]
-    email = "technat@technat.ch"
-    username = "technat"
+	signingkey = "22391b207dad6969"
+  name = "Nathanael Liechti"
+{{- if $unattended }}
+  email = "technat@technat.ch"
+  username = "technat"
+{{- else }}
+  email = {{ promptString "email" | quote }}
+  username = {{ promptString "username" | quote }}
 
 [git]
   autoCommit = true
