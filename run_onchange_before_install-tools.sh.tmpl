@@ -116,6 +116,9 @@ tar -zxvf k9s.tar.gz
 sudo install -o root -g root -m 0755 k9s /usr/local/bin/k9s
 sudo rm README.md LICENSE k9s.tar.gz
 
+###### Tailscale
+curl -fsSL https://tailscale.com/install.sh | sh > /dev/null
+
 {{ else }}
   echo "dotfiles currently only work on debian-based systems"
 {{- end }}
