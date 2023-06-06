@@ -1,0 +1,43 @@
+#!/bin/sh
+
+VERSION=v2.7.4 # Select desired TAG from https://github.com/argoproj/argo-cd/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+loadInstaller() {
+	if [ $ARCH = "amd64" ]
+	then
+		curl -sSL "https://awscli.amazonaws.com/awscli-exe-$OS-x86_64.zip" -o "/tmp/awscliv2.zip"
+	elif [ $ARCH = "arm64" ]
+	then
+		curl -sSL "https://awscli.amazonaws.com/awscli-exe-$OS-aarch64.zip" -o "/tmp/awscliv2.zip"
+	else
+		echo "Unknown arch ($ARCH) for aws-cli"
+	fi
+  unzip -qq /tmp/awscliv2.zip -d /tmp
+}
+
+cleanupInstallation() {
+	rm /tmp/awscliv2.zip
+	rm -rf /tmp/aws
+}
+
+
+# If it's not already installed, install it
+if ! type "aws" > /dev/null; then
+  loadInstaller
+  sudo /tmp/aws/install > /dev/null
+  cleanupInstallation
+else
+  # If it's already installed, check if we should update it
+	binaryPath=$(which aws)
+	if [ $(date +%s -r $binaryPath) -lt $(date +%s --date="30 days ago") ]
+	then
+		echo "AWS cli wasn't updated for 30 days, doing update..."
+    loadInstaller
+		sudo /tmp/aws/install --update > /dev/null
+    cleanupInstallation
+  fi
+fi
+
+

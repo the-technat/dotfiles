@@ -1,0 +1,24 @@
+#!/bin/sh
+
+VERSION=v2.7.4 # Select desired TAG from https://github.com/argoproj/argo-cd/releases
+KUBELOGIN_VERSION=v0.0.29 # see https://github.com/Azure/kubelogin/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+## Azure cli
+sudo mkdir -p /etc/apt/keyrings > /dev/null
+curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
+    gpg --dearmor |
+    sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
+sudo chmod go+r /etc/apt/keyrings/microsoft.gpg > /dev/null
+AZ_REPO=$(lsb_release -cs)
+echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
+    sudo tee /etc/apt/sources.list.d/azure-cli.list >/dev/null
+sudo apt-get update >/dev/null
+sudo apt-get install azure-cli=2.49.0-1~jammy >/dev/null
+
+## Kubelogin
+curl -sSL -o /tmp/kubelogin-$OS-$ARCH.zip -L https://github.com/Azure/kubelogin/releases/download/$KUBELOGIN_VERSION/kubelogin-$OS-$ARCH.zip
+unzip -qq /tmp/kubelogin-$OS-$ARCH.zip -d /tmp
+sudo install -m 555 /tmp/bin/"$OS"_$ARCH/kubelogin /usr/local/bin/kubelogin
+rm -rf /tmp/bin /tmp/kubelogin.zip
