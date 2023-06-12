@@ -1,0 +1,9 @@
+#!/bin/sh
+
+VERSION=v4.34.1 # see https://github.com/mikefarah/yq/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -sSL -o /tmp/yq-$OS-$ARCH https://github.com/mikefarah/yq/releases/download/$VERSION/yq_"$OS"_"$ARCH"
+sudo install -m 555 /tmp/yq-$OS-$ARCH /usr/local/bin/yq
+rm /tmp/yq-$OS-$ARCH
