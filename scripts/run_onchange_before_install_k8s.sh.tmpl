@@ -13,7 +13,7 @@ sudo install -o root -g root -m 0555 /tmp/kubectl-$OS-$ARCH /usr/local/bin/kubec
 rm /tmp/kubectl-$OS-$ARCH
 
 ## Kind
-curl -sSL -o /tmp/kind-$OS-$ARCH https://kind.sigs.k8s.io/dl/$VERSION/kind-$OS-$ARCH
+curl -sSL -o /tmp/kind-$OS-$ARCH https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-$OS-$ARCH
 sudo install -m 555 /tmp/kind-$OS-$ARCH /usr/local/bin/kind
 rm /tmp/kind-$OS-$ARCH
 
