@@ -3,8 +3,8 @@
 {{ $name := "Nathanael Liechti" -}}
 {{ $username := "technat" -}}
 {{ $signingkey := "22391b207dad6969" -}}
-{{ $is_wsl := false -}}
-{{- $codespaces:= env "CODESPACES" | not | not -}}
+{{ $kitty_enabled := true -}} 
+{{ $codespaces:= env "CODESPACES" | not | not -}}
 
 # If TTY we can ask for overrides
 {{ if stdinIsATTY -}}
@@ -12,7 +12,7 @@
 {{   $name = promptStringOnce . "name" "Your name (git name)" "Nathanael Liechti" -}}
 {{   $username = promptStringOnce . "username" "Your username" "technat" -}}
 {{   $signingkey = promptStringOnce . "signingkey" "Git signing key" "22391b207dad6969" -}}
-{{   $is_wsl = promptBoolOnce . "is_wsl" "Is WSL" false -}}
+{{   $kitty_enabled = promptBoolOnce . "kitty_enabled" "Kitty enabled?" false -}}
 {{ end -}}
 
 # If we are running in a codespace, we need to override the user
@@ -32,6 +32,8 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   email = {{ $email | quote }}
   username = {{ $username | quote }}
   name = {{ $name | quote }}
+  codespaces = {{ $codespaces }}
+  kitty_enabled = {{ $kitty_enabled }}
 
 [git]
   autoCommit = true

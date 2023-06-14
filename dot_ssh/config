@@ -12,7 +12,7 @@ Host *.gitpod.io
 
 Host i-* mi-*
   Port 22
-  ProxyCommand sh -c "aws ssm start-session --profile alleaffengaffen --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
   User ec2-user

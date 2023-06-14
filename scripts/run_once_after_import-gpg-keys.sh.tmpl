@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# for any remote system other usernames are used (e.g codespace or ssm-user)
 {{- if eq .username "technat" }}
+# for any remote system other usernames are used (e.g codespace or ssm-user)
 gpg --recv-keys {{ .signingkey }} > /dev/null
 (echo trust &echo 5 &echo y &echo quit) | gpg --command-fd 0 --edit-key {{ .email }} > /dev/null
 {{- end }}
