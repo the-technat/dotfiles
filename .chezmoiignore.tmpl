@@ -1,4 +1,4 @@
 install.sh
-{{- if not (eq .osid "linux-amzn") }}
+{{- if not (or (eq .osid "linux-amzn") (eq .osid "linux-ubuntu")) }}
 .oh-my-zsh/cache
 {{- end }}
