@@ -1,0 +1,20 @@
+#!/bin/sh
+
+VERSION=v0.9.4
+
+git clone --quiet https://github.com/ahmetb/kubectx.git --single-branch --branch $VERSION /tmp/kubectx &> /dev/null
+
+# install scripts
+sudo cp /tmp/kubectx/kubectx /usr/local/bin/kubectx
+sudo cp /tmp/kubectx/kubens /usr/local/bin/kubens
+
+# install completions
+if [ ! -d $HOME/.oh-my-zsh/cache/completions ]
+then
+  mkdir -p $HOME/.oh-my-zsh/cache/completions
+  chmod 755 $HOME/.oh-my-zsh/cache/completions
+fi
+cp /tmp/kubectx/completion/kubectx.zsh $HOME/.oh-my-zsh/cache/completions/_kubectx.zsh
+cp /tmp/kubectx/completion/kubens.zsh $HOME/.oh-my-zsh/cache/completions/_kubens.zsh
+
+rm -rf /tmp/kubectx

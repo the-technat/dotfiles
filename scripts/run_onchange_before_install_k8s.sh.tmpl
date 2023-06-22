@@ -12,6 +12,8 @@ curl -sSL -o /tmp/kubectl-$OS-$ARCH https://dl.k8s.io/release/$KUBECTL_VERSION/b
 sudo install -o root -g root -m 0555 /tmp/kubectl-$OS-$ARCH /usr/local/bin/kubectl 
 rm /tmp/kubectl-$OS-$ARCH
 
+# completion done by oh-my-zsh plugin
+
 ## Kind
 curl -sSL -o /tmp/kind-$OS-$ARCH https://kind.sigs.k8s.io/dl/$KIND_VERSION/kind-$OS-$ARCH
 sudo install -m 555 /tmp/kind-$OS-$ARCH /usr/local/bin/kind

@@ -1,10 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
-zstyle ':omz:update' mode disabled  # disable automatic updates
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_CUSTOM=~/.omz-custom
-plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd aws kubectx docker)
+# RPS1='$(kubectx_prompt_info)' # kubectx plugin
+plugins=(git gpg-agent sudo helm kubectl cp extract terraform k3d argocd aws docker)
+zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
 prompt_context () { } # redefine prompt_context for hiding user@hostname
-RPS1='$(kubectx_prompt_info)' # kubectx plugin
