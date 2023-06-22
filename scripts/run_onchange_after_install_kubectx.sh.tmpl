@@ -2,11 +2,11 @@
 
 VERSION=v0.9.4
 
-git clone --quiet https://github.com/ahmetb/kubectx.git --single-branch --branch $VERSION /tmp/kubectx &> /dev/null
+git clone --quiet https://github.com/ahmetb/kubectx.git --single-branch --branch $VERSION /tmp/kubectx 
 
 # install scripts
-sudo cp /tmp/kubectx/kubectx /usr/local/bin/kubectx
-sudo cp /tmp/kubectx/kubens /usr/local/bin/kubens
+sudo install -o root -g root -m 0555 /tmp/kubectx/kubectx /usr/local/bin/kubectx
+sudo install -o root -g root -m 0555 /tmp/kubectx/kubens /usr/local/bin/kubens
 
 # install completions
 if [ ! -d $HOME/.oh-my-zsh/cache/completions ]
