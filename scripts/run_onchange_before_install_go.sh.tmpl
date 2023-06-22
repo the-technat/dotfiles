@@ -1,9 +1,14 @@
 #!/bin/sh
 
-VERSION=v2.7.4 # Select desired TAG from https://github.com/argoproj/argo-cd/releases
+VERSION=1.20.5 # see https://go.dev/dl/
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
-curl -sSL -o /tmp/argocd-$OS-$ARCH https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-$OS-$ARCH
-sudo install -m 555 /tmp/argocd-$OS-$ARCH /usr/local/bin/argocd
-rm /tmp/argocd-$OS-$ARCH
+if [ -d "/usr/local/go" ]
+then
+ sudo rm -rf /usr/local/go
+fi
+
+curl -sSL -o /tmp/go.tar.gz https://go.dev/dl/go$VERSION.$OS-$ARCH.tar.gz
+sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+rm -rf /tmp/go.tar.gz
