@@ -2,10 +2,10 @@
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 export DEBIAN_FRONTEND=noninteractive
 sudo apt update > /dev/null
-sudo apt install tmux vim zsh git gpg gnupg2 gnupg-agent scdaemon pcscd lsb-release unzip yamllint jq -y  > /dev/null
+sudo apt install tmux vim zsh git gpg gnupg2 gnupg-agent scdaemon pcscd lsb-release unzip yamllint jq fzf -y  > /dev/null
 {{- else if eq .osid "linux-amzn" }}
 sudo yum update > /dev/null
-sudo yum install -y zsh jq tmux vim git gpg gnupg2 unzip > /dev/null
+sudo yum install -y zsh jq tmux vim git gpg gnupg2 unzip fzf > /dev/null
 {{ else }}
 echo "Unknown OS to install tools"
 {{- end}}

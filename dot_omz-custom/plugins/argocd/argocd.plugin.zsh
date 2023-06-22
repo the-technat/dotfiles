@@ -15,7 +15,6 @@ function destroyLocalArgoEnv() {
 
 function createK3dCluster() {
   sudo systemctl start docker
-  docker network create argocd-k3d --subnet 10.123.123.0/24 --gateway 10.123.123.1
   name="$(date +%s)config.yaml"
   cat > /tmp/$name <<EOF
 apiVersion: k3d.io/v1alpha4
@@ -25,25 +24,25 @@ metadata:
 servers: 1
 agents: 2
 kubeAPI:
-  hostIP: "10.123.123.1"
+  hostIP: "10.123.0.1"
   hostPort: "6443"
-network: argocd-k3d
+subnet: 10.123.0.0/24
 ports:
-- port: 10.123.123.1:80:80
+- port: 10.123.0.1:80:80
   nodeFilters:
   - loadbalancer
-- port: 10.123.123.1:443:443
+- port: 10.123.0.1:443:443
   nodeFilters:
   - loadbalancer
 hostAliases:
-  - ip: 10.123.123.1
+  - ip: 10.123.0.1
     hostnames:
       - argocd.local
       - dex.local
 EOF
   k3d cluster create --config /tmp/$name
   rm /tmp/$name
-  echo "Created cluster argocd in docket network argocd-k3d"
+  echo "Created cluster argocd"
 }
 
 # retrieves the inital admin password from secret
