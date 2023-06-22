@@ -7,7 +7,7 @@ Host github.com
   User git
   Port 22
 
-Host *.gitpod.io
+Host cucumber
   Port 22
 
 Host i-* mi-*
@@ -21,4 +21,8 @@ Host i-* mi-*
 
 Host *
   Port 59245
+  {{- if .is_remote }}
+  IdentityFile ~/.ssh/id_ed25519
+  {{- else }}
   IdentityFile ~/.ssh/id_yubikey
+  {{- end }}

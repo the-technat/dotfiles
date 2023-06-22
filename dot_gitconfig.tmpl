@@ -2,8 +2,7 @@
 	email = {{ .email }}
 	name = {{ .name }}
 	signingkey = {{ .signingkey }}
-{{- if eq .username "technat" }}
-# for any remote system other usernames are used (e.g codespace or ssm-user)
+{{- if not .is_remote }}
 [commit]
 	gpgsign = true
 {{- end }}
