@@ -1,6 +1,7 @@
 [default]
-region = eu-north-1
+region = eu-west-1
 output = table
 
-[alleaffengaffen]
-region = sa-east-1
+[profile root]
+region = eu-north-1
+output = table
