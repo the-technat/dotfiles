@@ -2,6 +2,10 @@
 region = eu-west-1
 output = table
 
+[k8s]
+role_arn = arn:aws:iam::298410952490:role/EKSClusterAdmin
+source_profile = default
+
 [profile root]
 region = eu-north-1
 output = table
