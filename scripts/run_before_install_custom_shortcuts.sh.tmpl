@@ -1,0 +1,5 @@
+#!/bin/sh
+# dconf dump / | sed -n '/\[org.gnome.settings-daemon.plugins.media-keys/,/^$/p' > custom-shortcuts.conf # Export if needed
+
+dconf load / < {{ .chezmoi.workingTree }}/custom-shortcuts.conf # Import current custom shortcuts
+
