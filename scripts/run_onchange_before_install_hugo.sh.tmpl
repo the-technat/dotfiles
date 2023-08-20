@@ -1,0 +1,12 @@
+#!/bin/sh
+
+VERSION=0.117.0 # see https://github.com/gohugoio/hugo/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -sSL -o /tmp/hugo-$OS-$ARCH.tar.gz https://github.com/gohugoio/hugo/releases/download/v"$VERSION"/hugo_"$VERSION"_"$OS"-"$ARCH".tar.gz
+sudo tar -C /tmp -xzf /tmp/hugo-${OS}-${ARCH}.tar.gz
+sudo install -m 555 /tmp/hugo /usr/local/bin/hugo
+sudo rm -rf /tmp/hugo-$OS-$ARCH.tar.gz
+sudo rm -rf /tmp/LICENSE /tmp/README.md
+
