@@ -30,6 +30,10 @@ sudo rm /tmp/README.md /tmp/LICENSE /tmp/k9s-$OS-$ARCH.tar.gz
 curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | TAG=$K3D_VERSION bash > /dev/null
 
 ## k3sup
-curl -sSL -o /tmp/k3sup-$ARCH https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup-$ARCH
-sudo install -o root -g root -m 0555 /tmp/k3sup-$ARCH /usr/local/bin/k3sup
-sudo rm /tmp/k3sup-$ARCH
+{{- if (eq .chezmoi.arch "arm64") }}
+curl -fsSL -o /tmp/k3sup https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup-arm64
+{{- else }}
+curl -fsSL -o /tmp/k3sup https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup
+{{- end }}
+sudo install -o root -g root -m 0555 /tmp/k3sup /usr/local/bin/k3sup
+sudo rm /tmp/k3sup
