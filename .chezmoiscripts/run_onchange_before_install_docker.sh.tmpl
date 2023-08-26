@@ -1,5 +1,6 @@
 #!/bin/sh
 
+{{- if not .is_remote }}
 
 # OS selector
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")  }}
@@ -19,3 +20,4 @@ sudo systemctl enable docker --now > /dev/null
   echo "Unknown OS for docker installation"
 {{- end }}
 
+{{- end }}
