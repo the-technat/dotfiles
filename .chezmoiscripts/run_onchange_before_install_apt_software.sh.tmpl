@@ -32,14 +32,15 @@ DEBIAN_FRONTEND=noninteractive sudo apt install tmux vim zsh git gpg gnupg2 lsb-
   telegram-desktop diodon keepassxc caffeine \
   yubioath-desktop discord nextcloud-desktop \
   audacity spotify-client handbrake kitty signal-desktop \
+  gdebi \
   -y > /dev/null
 
   curl -sSL -o /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2022.12.05_amd64.deb >/dev/null
-  sudo apt install /tmp/dropbox.deb > /dev/null
+  sudo gdebi /tmp/dropbox.deb > /dev/null
   sudo rm -rf /tmp/dropbox.deb 
 
   curl -fsSL -o /tmp/threema.deb https://releases.threema.ch/web-electron/v1/release/Threema-Latest.deb >/dev/null
-  sudo apt install /tmp/threema.deb > /dev/null
+  sudo gdebi /tmp/threema.deb > /dev/null
   sudo rm -rf /tmp/threema.deb
 {{- end }}
 
