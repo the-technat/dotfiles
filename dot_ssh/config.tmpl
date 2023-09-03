@@ -7,9 +7,6 @@ Host github.com
   User git
   Port 22
 
-Host cucumber
-  Port 22
-
 Host i-* mi-*
   Port 22
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
@@ -20,7 +17,7 @@ Host i-* mi-*
   GSSAPIAuthentication no
 
 Host *
-  Port 59245
+  Port 22
   {{- if .is_remote }}
   IdentityFile ~/.ssh/id_ed25519
   {{- else }}
