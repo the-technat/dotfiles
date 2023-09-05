@@ -23,7 +23,7 @@ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] 
 DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
 
 ## Install (general)
-DEBIAN_FRONTEND=noninteractive sudo apt install tmux vim zsh git gpg gnupg2 lsb-release unzip yamllint jq fzf -y  > /dev/null
+DEBIAN_FRONTEND=noninteractive sudo apt install code tmux vim zsh git gpg gnupg2 lsb-release unzip yamllint jq fzf -y  > /dev/null
 
 ## Install (desktop)
 {{- if not .is_remote }}
