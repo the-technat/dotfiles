@@ -1,3 +1,8 @@
 #!/bin/sh
 
-chsh -s $(which zsh) {{ .username }}
+shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
+
+if [ $shell != $(which zsh) ]
+then
+	chsh -s $(which zsh) {{ .username }}
+fi
