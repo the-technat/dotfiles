@@ -1,6 +1,18 @@
 #!/bin/sh
 
 {{- if not .is_remote }}
-gpg --recv-keys {{ .signingkey }} > /dev/null
-(echo trust &echo 5 &echo y &echo quit) | gpg --command-fd 0 --edit-key {{ .email }} > /dev/null
+	gpg --recv-keys {{ .signingkey }} > /dev/null
+	(echo trust &echo 5 &echo y &echo quit) | gpg --command-fd 0 --edit-key {{ .email }} > /dev/null
+
+	{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+	sudo apt update > /dev/null
+  sudo apt install -y gnupg2 gnupg-agent scdaemon pcscd hopenpgp-tools yubikey-personalization > /dev/null
+	{{- else if eq .osid "linux-arch" }}
+  sudo pacman -Syu gnupg pcsclite ccid hopenpgp-tools yubikey-personalization  > /dev/null
+	{{ else }}
+	echo "Cannot install gpg agent due to unknown OS" 
+	{{- end }}
+
+	sudo systemctl enable --now pcscd.service
+
 {{- end }}
