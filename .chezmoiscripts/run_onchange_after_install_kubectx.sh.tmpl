@@ -2,7 +2,9 @@
 
 VERSION=v0.9.5
 
+git config --global advice.detachedHead false
 git clone --quiet https://github.com/ahmetb/kubectx.git --single-branch --branch $VERSION /tmp/kubectx 
+git config --global advice.detachedHead true
 
 # install scripts
 sudo install -o root -g root -m 0555 /tmp/kubectx/kubectx /usr/local/bin/kubectx
