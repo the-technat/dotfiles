@@ -1,0 +1,8 @@
+#!/bin/sh
+
+## Update
+DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
+
+## Install (general)
+DEBIAN_FRONTEND=noninteractive sudo apt install tmux vim zsh git gpg gnupg2 lsb-release unzip yamllint jq fzf -y  > /dev/null
+
