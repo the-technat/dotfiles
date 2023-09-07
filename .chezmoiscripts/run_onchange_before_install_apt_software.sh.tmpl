@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Peridocically run this script every 30 days to updates tools 
-if [ $(date +%s -r /etc/last-chezmoi-update) -lt $(date +%s --date="30 days ago") ]
+if [ -f "/etc/last-chezmoi-update" ] && [ $(date +%s -r /etc/last-chezmoi-update) -lt $(date +%s --date="30 days ago") ]
 then
 echo "Installing apt toolchain, either first time or after 30 days of pause"
 
