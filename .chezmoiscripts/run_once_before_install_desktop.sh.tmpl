@@ -1,4 +1,6 @@
 #!/bin/sh
+# Note: meant to only run once and then updates are managed elsewhere
+# Script installs a bunch of desktop tools (not related to your shell env)
 
 # when to run comes at the end of the script
 desktopToolchain() {
@@ -19,7 +21,7 @@ desktopToolchain() {
 
   ## Install (desktop)
   {{- if not .is_remote }}
-    DEBIAN_FRONTEND=noninteractive sudo apt install gnupg-agent scdaemon pcscd flameshot \
+    DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
     firefox code onlyoffice-desktopeditors slack-desktop \
     telegram-desktop diodon keepassxc caffeine \
     yubioath-desktop discord nextcloud-desktop \
@@ -46,12 +48,9 @@ desktopToolchain() {
 if [ ! -f "/etc/last-desktop-update" ] 
 then
   echo "Installing desktop toolchain for the first time"
-  #desktopToolchain 
-  #exit 0
-fi
-if [ $(date +%s -r "/etc/last-desktop-update") -lt $(date +%s --date="30 days ago") ]
+  desktopToolchain 
+elif [ $(date +%s -r "/etc/last-desktop-update") -lt $(date +%s --date="30 days ago") ]
 then
   echo "Updating desktop toolchain"
-  #desktopToolchain
+  desktopToolchain
 fi
-

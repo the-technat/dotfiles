@@ -2,9 +2,12 @@
 	email = {{ .email }}
 	name = {{ .name }}
 	signingkey = {{ .signingkey }}
-{{- if not .is_remote }}
-[commit]
-	gpgsign = true
-{{- end }}
 [pull]
 	rebase = true
+{{- if .use_yubikey }}
+[commit]
+	gpgsign = true
+[credential]
+	helper = store
+{{- end }}
+

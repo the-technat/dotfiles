@@ -16,7 +16,7 @@ then
   mkdir -p $HOME/.oh-my-zsh/cache/completions
   chmod 755 $HOME/.oh-my-zsh/cache/completions
 fi
-cp /tmp/kubectx/completion/kubectx.zsh $HOME/.oh-my-zsh/cache/completions/_kubectx.zsh
-cp /tmp/kubectx/completion/kubens.zsh $HOME/.oh-my-zsh/cache/completions/_kubens.zsh
+cp /tmp/kubectx/completion/_kubectx.zsh $HOME/.oh-my-zsh/cache/completions/_kubectx.zsh
+cp /tmp/kubectx/completion/_kubens.zsh $HOME/.oh-my-zsh/cache/completions/_kubens.zsh
 
 rm -rf /tmp/kubectx

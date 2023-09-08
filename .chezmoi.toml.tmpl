@@ -4,7 +4,12 @@
 {{ $username := "technat" -}}
 {{ $signingkey := "22391b207dad6969" -}}
 {{ $is_remote := true -}} 
-{{ $codespaces:= env "CODESPACES" | not | not -}} 
+{{ $use_yubikey := true -}}
+
+# If we are running in a codespace, the username is always codespace
+{{ if env "CODESPACES" | not | not -}}
+{{   $username = "codespace" -}}
+{{ end -}}
 
 # If TTY we can ask for overrides
 {{ if stdinIsATTY -}}
@@ -13,11 +18,7 @@
 {{   $username = promptStringOnce . "username" "Your username" "technat" -}}
 {{   $signingkey = promptStringOnce . "signingkey" "Git signing key" "22391b207dad6969" -}}
 {{   $is_remote = promptBoolOnce . "is_remote" "Remote machine?" true -}}
-{{ end -}}
-
-# If we are running in a codespace, we need to override the user
-{{ if $codespaces -}}
-{{   $username = "codespace" -}}
+{{   $use_yubikey = promptBoolOnce . "use_yubikey" "Do you want to use your yubikey for auth?" true -}}
 {{ end -}}
 
 {{- $osid := .chezmoi.os -}}
@@ -32,8 +33,8 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   email = {{ $email | quote }}
   username = {{ $username | quote }}
   name = {{ $name | quote }}
-  codespaces = {{ $codespaces }}
   is_remote = {{ $is_remote }}
+  use_yubikey = {{ $use_yubikey }}
 
 [git]
   autoCommit = true
