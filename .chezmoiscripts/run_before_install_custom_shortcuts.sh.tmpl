@@ -1,9 +1,0 @@
-#!/bin/sh
-
-# only import shortcuts if a gnome-shell is present
-if type "gnome-shell" > /dev/null; then
-  # Export current shortcuts
-  # dconf dump / | sed -n '/\[org.gnome.settings-daemon.plugins.media-keys/,/^$/p' > {{ .chezmoi.workingTree }}/gnome-shortcuts.conf 
-  # Import current gnome shortcuts
-  dconf load / < {{ .chezmoi.workingTree }}/gnome-shortcuts.conf 
-fi
