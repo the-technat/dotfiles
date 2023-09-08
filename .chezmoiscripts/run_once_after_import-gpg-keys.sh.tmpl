@@ -6,7 +6,7 @@
 
 	{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 	sudo apt update > /dev/null
-  sudo apt install -y gnupg2 gnupg-agent scdaemon pcscd hopenpgp-tools yubikey-personalization > /dev/null
+  sudo apt install -y gnupg2 gnupg-agent scdaemon pcscd hopenpgp-tools yubikey-personalization ykman > /dev/null
 	{{- else if eq .osid "linux-arch" }}
   sudo pacman -Syu gnupg pcsclite ccid hopenpgp-tools yubikey-personalization  > /dev/null
 	{{ else }}
