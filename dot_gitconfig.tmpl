@@ -4,10 +4,10 @@
 	signingkey = {{ .signingkey }}
 [pull]
 	rebase = true
+[credential]
+	helper = store
 {{- if .use_yubikey }}
 [commit]
 	gpgsign = true
-[credential]
-	helper = store
 {{- end }}
 
