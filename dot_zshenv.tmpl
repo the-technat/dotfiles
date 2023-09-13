@@ -1,13 +1,8 @@
 # some systems don't import systemd/user env vars
-# to avoid confusions, we only set them this way if we have such a system
-{{- if eq .osid "linux-amzn" }}
-export PATH="$PATH:/home/{{ .username }}/bin:$GOBIN:$GOROOT/bin:$FLYCTL_INSTALL/bin"
-export FLYCTL_INSTALL="/home/{{ .username }}/.fly"
-export GOROOT="/usr/local/go"
-export GOPATH="/home/{{ .username }}/go"
-export GOBIN="$GOPATH/bin"
-export DEFAULT_USER="{{ .username }}"
-export SHELL="/usr/bin/zsh"
-export PAGER=/usr/bin/less
-export EDITOR=/usr/bin/vim
-{{- end }}
+# Export all variables
+set -a
+# Call the systemd generator that reads all files in environment.d
+source /dev/fd/0 <<EOF
+$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)
+EOF
+set +a
