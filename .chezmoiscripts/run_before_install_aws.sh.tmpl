@@ -4,6 +4,14 @@ VERSION=v2.7.4 # Select desired TAG from https://github.com/argoproj/argo-cd/rel
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
+checkDeps() {
+  unzipPath=$(which unzip)
+  if [ "$unzipPath" = "" ]
+  then
+    DEBIAN_FRONTEND=noninteractive sudo apt install unzip -y > /dev/null
+  fi
+}
+
 loadInstaller() {
 	if [ $ARCH = "amd64" ]
 	then
@@ -25,10 +33,12 @@ cleanupInstallation() {
 
 # If it's not already installed, install it
 if ! type "aws" > /dev/null; then
+  checkDeps
   loadInstaller
   sudo /tmp/aws/install > /dev/null
   cleanupInstallation
 else
+  checkDeps
   # If it's already installed, check if we should update it
 	binaryPath=$(which aws)
 	if [ $(date +%s -r $binaryPath) -lt $(date +%s --date="30 days ago") ]
