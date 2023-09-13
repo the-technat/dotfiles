@@ -8,19 +8,21 @@ desktopToolchain() {
   # OS Selector
   {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 
-  ## GPG keys
-  curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&options=mr&search=0xCB2DE8E5" | gpg --import - > /dev/null
-  curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null
-  curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg
 
-  ## APT repos
-  echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee /etc/apt/sources.list.d/onlyoffice.list > /dev/null
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null
-  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-    sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null
-
-  ## Install (desktop)
   {{- if not .is_remote }}
+
+		## GPG keys
+		curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&options=mr&search=0xCB2DE8E5" | gpg --import - > /dev/null
+		curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null
+		curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg
+
+		## APT repos
+		echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee /etc/apt/sources.list.d/onlyoffice.list > /dev/null
+		echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null
+		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+			sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null
+
+		## Install (desktop)
     DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
     firefox code onlyoffice-desktopeditors slack-desktop \
     telegram-desktop diodon keepassxc caffeine \
