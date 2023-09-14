@@ -1,0 +1,10 @@
+#!/bin/sh
+
+VERSION=v0.5.2 # see https://github.com/cbednarski/hostess/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -sSL -o /tmp/hostess-$OS-$ARCH https://github.com/cbednarski/hostess/releases/download/$VERSION/hostess_"$OS"_"$ARCH"
+sudo install -m 555 /tmp/hostess-$OS-$ARCH /usr/local/bin/hostess
+rm /tmp/hostess-$OS-$ARCH
+
