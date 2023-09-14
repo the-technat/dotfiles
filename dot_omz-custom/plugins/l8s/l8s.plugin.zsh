@@ -11,11 +11,10 @@ EOF
 	dockerPath=$(which docker)
 	k3dPath=$(which k3d)
 	kubectlPath=$(which kubectl)
-	helmPath=$(which helm)
 	
-	if [[ "$kubectlPath" == "" ]] || [[ "$k3dPath" == "" ]] || [[ "$dockerPath" == "" ]] || [[ "$helmPath" == "" ]]; then
+	if [[ "$kubectlPath" == "" ]] || [[ "$k3dPath" == "" ]] || [[ "$dockerPath" == "" ]]; then
 		echo "Not all requirements for l8s are met"
-		echo "Please ensure you have docker,k3d,kubectl and helm installed and in your PATH"
+		echo "Please ensure you have docker,k3d and kubectl installed and in your PATH"
 		return
 	fi
 
@@ -35,7 +34,7 @@ EOF
 		(create)
 			createCluster $2;;
 		(tools)
-			installToolchain $2;;
+			toolChain $2;;
 		(list)
 			k3d cluster list;;
 		(delete)
@@ -120,39 +119,37 @@ toolChain() {
 		echo "No name for the cluster specified"
 		return
 	fi
+
+	helmPath=$(which helm)
+	goTemplateCLI=$(which tpl)
+	if [[ "$helmPath" == "" ]] || [[ "$j2Path" == "" ]]; then
+		echo "Not all requirements met for installing the toolchain" 
+		echo "Please ensure you have helm and go-template-cli installed and in your PATH"
+		return
+	fi
+
 	echo "Installing toolchain on $1"
+	# Installation must be reproducable, so that a rerun just reconfigured the tools
 
-# deployes Dex using official helm chart
-# and preconfigured config this dir
-# note: won't work if you omit
-# pass those into the function
-  id=$1
-  secret=$2
-  kubectl create ns dex
-  containsRepo=$(helm repo list |grep dex)
-  if [[ $containsRepo == "" ]]
-  then
-    helm repo add dex https://chart.dexidp.io
-  fi
-  helm upgrade -i -n dex dex dex/dex -f $HOME/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
- clientID and clientSecret
-
-  kubectl create ns argocd
+	## Argo CD
+	kubectl create ns argocd
   containsRepo=$(helm repo list |grep argo)
   if [[ $containsRepo == "" ]]
   then
     helm repo add argo https://argoproj.github.io/argo-helm
   fi
-  helm upgrade -i -n argocd argocd argo/argo-cd -f $HOME/.zsh-custom/plugins/argocd/argocd-values.yaml
-  echo "Waiting for Argo CD server to become available..."
-  sleep 2
-  pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
-  kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod
-  sleep 2
-  echo "Argo CD UI at https://argocd.local using user admin and password $(getArgoAdminPW)"
+	tpl -f $HOME/.omz_custom/plugins/l8s/argocd-values.yaml > $(pwd)/argocd-values.yaml
+	echo "Argo CD values have been saved into your current directroy"
+  #helm upgrade -i -n argocd argocd argo/argo-cd -f $(pwd)/argocd-values.yaml
+  #echo "Waiting for Argo CD server to become available..."
+  #sleep 2
+  #pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
+  #kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod
+  #sleep 2
+  #echo "Argo CD UI at https://argocd.local using user admin and password $(getArgoAdminPW)"
 
-  kubectl patch -n argocd cm argocd-cmd-params-cm --patch '{"data": {"server.insecure": "true"}}'
-  kubectl rollout -n argocd restart deployment argocd-server
+  #kubectl patch -n argocd cm argocd-cmd-params-cm --patch '{"data": {"server.insecure": "true"}}'
+  #kubectl rollout -n argocd restart deployment argocd-server
   cat <<EOF | kubectl apply -n argocd -f -
     apiVersion: networking.k8s.io/v1
     kind: Ingress
@@ -179,9 +176,24 @@ toolChain() {
                   number: 80
 EOF
 
+# deployes Dex using official helm chart
+# and preconfigured config this dir
+# note: won't work if you omit
+# pass those into the function
+  #id=$1
+  #secret=$2
+  #kubectl create ns dex
+  #containsRepo=$(helm repo list |grep dex)
+  #if [[ $containsRepo == "" ]]
+  #then
+  #  helm repo add dex https://chart.dexidp.io
+  #fi
+  #helm upgrade -i -n dex dex dex/dex -f $HOME/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
+ #clientID and clientSecret
 
-  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret
-  pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
-  echo $pw
+ 
 
+  #kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret
+  #pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
+  #echo $pw
 }

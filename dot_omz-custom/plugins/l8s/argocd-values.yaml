@@ -1,7 +1,7 @@
 configs:
   cm:
     exec.enabled: true
-    url: "https://argocd.local"
+    url: "{{ argocd_url }}"
     oidc.tls.insecure.skip.verify: "true"
     oidc.config: |
       name: Dex
@@ -16,9 +16,10 @@ configs:
       - email
       - groups
   params:
+		controller.app.resync: 10
     server.insecure: true
   rbac:
-    policy.default: ''
+    policy.default: role:readonly
     policy.csv: |
       p, role:org-admin, applications, *, */*, allow
       p, role:org-admin, clusters, get, *, allow
@@ -34,11 +35,10 @@ dex:
 server:
   ingress:
     enabled: true
+		ingressClassName: traefik
     annotations:
       ingress.kubernetes.io/ssl-redirect: "true"
-    hosts:
-      - argocd.local
-
+    hosts: [] # catch-all
     paths:
-      - /
+      - /argocd
     pathType: Prefix
