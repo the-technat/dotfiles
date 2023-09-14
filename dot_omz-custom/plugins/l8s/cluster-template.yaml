@@ -1,0 +1,26 @@
+apiVersion: k3d.io/v1alpha5
+kind: Simple
+metadata:
+  name: {{ .name }}
+servers: 1
+agents: 2
+kubeAPI:
+  hostIP: {{ .gateway }}
+  hostPort: "6443"
+network: {{ .name }}
+ports:
+{{ if eq .exposeLocalhost "--exposeLocalhost" }}
+- port: 127.0.0.1:443:443
+  nodeFilters:
+  - loadbalancer
+{{ end }} 
+- port: {{ .gateway }}:80:80
+  nodeFilters:
+  - loadbalancer
+- port: {{ .gateway }}:443:443
+  nodeFilters:
+  - loadbalancer
+hostAliases:
+  - ip: {{ .gateway }}
+    hostnames:
+      - {{ .name }}.local

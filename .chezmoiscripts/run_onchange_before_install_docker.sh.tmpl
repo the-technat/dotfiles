@@ -1,6 +1,11 @@
 #!/bin/sh
 
-{{- if not .is_remote }}
+sudo systemctl is-active --quiet containerd
+if [ $? -eq 0 ]; then
+	# if containerd is already running we skip the installation of docker 
+  # because it could be a k3s/k8s worker/master already beeing setup 
+	exit 0 
+fi
 
 # OS selector
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")  }}
@@ -20,4 +25,3 @@ sudo systemctl enable docker --now > /dev/null
   echo "Unknown OS for docker installation"
 {{- end }}
 
-{{- end }}
