@@ -2,14 +2,14 @@ ingress:
   enabled: true
   annotations:
     ingress.kubernetes.io/ssl-redirect: "true"
-  hosts:
-  - host: dex.local
+  hosts: 
+  - host: ""
     paths:
-    - path: /
+    - path: /dex
       pathType: Prefix
 
 config:
-  issuer: https://dex.local
+  issuer: {{ .issuer }}
   oauth2:
     skipApprovalScreen: true
   storage:
@@ -21,13 +21,15 @@ config:
     id: github
     name: GitHub
     config:
-      redirectURI: https://dex.local/callback
+      redirectURI: {{ .dexRedirectURI }}
       orgs:
       - name: alleaffengaffen
       loadAllGroups: true
+      clientID: {{ .client_id }}
+      clientSecret: {{ .client_secret }}
   staticClients:
   - id: argocd
     secret: argocd
     name: ArgoCD
     redirectURIs:
-      - https://argocd.local/auth/callback
+      - {{ .argoRedirectURI }}

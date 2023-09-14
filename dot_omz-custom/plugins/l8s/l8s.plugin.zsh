@@ -11,10 +11,28 @@ EOF
 	dockerPath=$(which docker)
 	k3dPath=$(which k3d)
 	kubectlPath=$(which kubectl)
-	
-	if [[ "$kubectlPath" == "" ]] || [[ "$k3dPath" == "" ]] || [[ "$dockerPath" == "" ]]; then
-		echo "Not all requirements for l8s are met"
-		echo "Please ensure you have docker,k3d and kubectl installed and in your PATH"
+	hostessPath=$(which hostess)
+
+	if [[ ! -f "$hostessPath" ]]; then
+		echo "Please install hostess"
+		echo "https://github.com/cbednarski/hostess"
+		return
+	fi	
+
+	if [[ ! -f "$kubectlPath" ]]; then
+		echo "Please install kubectl"
+		echo "https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/"
+		return
+	fi
+
+	if [[ ! -f "$k3dPath" ]]; then
+		echo "Please install k3d"
+		echo "https://k3d.io/"
+	fi
+
+	if [[ ! -f "$dockerPath" ]]; then
+		echo "Please install docker"
+		echo "https://docs.docker.com/engine/install/"
 		return
 	fi
 
@@ -52,6 +70,7 @@ deleteCluster() {
 	fi
   k3d cluster delete $1
   docker network rm $1
+	sudo hostess rm $1.local $gateway
 }
 
 createCluster() {
@@ -111,89 +130,83 @@ EOF
 	fi
   rm /tmp/$name
 
+	# finally set one DNS record in your hosts file for the entire cluster
+	sudo hostess add $1.local $gateway
+
   echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
 }
 
 toolChain() {
+	# Installation must be reproducable, so that a rerun just reconfigured the tools
   if [[ $1 == "" ]]; then
 		echo "No name for the cluster specified"
 		return
 	fi
 
 	helmPath=$(which helm)
-	goTemplateCLI=$(which tpl)
-	if [[ "$helmPath" == "" ]] || [[ "$j2Path" == "" ]]; then
-		echo "Not all requirements met for installing the toolchain" 
-		echo "Please ensure you have helm and go-template-cli installed and in your PATH"
+	goTemplateCLIPath=$(which tpl)
+
+	if [[ ! -f "$helmPath" ]]; then
+		echo "Please install helm"
+		echo "https://helm.sh/docs/intro/install/"
+		return
+	fi
+	if [[ ! -f "$goTemplateCLIPath" ]]; then
+		echo "Please install go-template-cli"
+		echo "https://github.com/bluebrown/go-template-cli"
 		return
 	fi
 
 	echo "Installing toolchain on $1"
-	# Installation must be reproducable, so that a rerun just reconfigured the tools
+	kubectl config set-context k3d-$1 > /dev/null
 
 	## Argo CD
-	kubectl create ns argocd
+  kubectl create namespace argocd --dry-run=client -o yaml | kubectl apply -f - > /dev/null # idempotent
   containsRepo=$(helm repo list |grep argo)
   if [[ $containsRepo == "" ]]
   then
     helm repo add argo https://argoproj.github.io/argo-helm
   fi
-	tpl -f $HOME/.omz_custom/plugins/l8s/argocd-values.yaml > $(pwd)/argocd-values.yaml
-	echo "Argo CD values have been saved into your current directroy"
-  #helm upgrade -i -n argocd argocd argo/argo-cd -f $(pwd)/argocd-values.yaml
-  #echo "Waiting for Argo CD server to become available..."
-  #sleep 2
-  #pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
-  #kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod
-  #sleep 2
-  #echo "Argo CD UI at https://argocd.local using user admin and password $(getArgoAdminPW)"
-
-  #kubectl patch -n argocd cm argocd-cmd-params-cm --patch '{"data": {"server.insecure": "true"}}'
-  #kubectl rollout -n argocd restart deployment argocd-server
-  cat <<EOF | kubectl apply -n argocd -f -
-    apiVersion: networking.k8s.io/v1
-    kind: Ingress
-    metadata:
-      name: argocd-server
-      namespace: argocd
-      labels:
-        app.kubernetes.io/component: server
-        app.kubernetes.io/name: argocd-server
-        app.kubernetes.io/part-of: argocd
-      annotations:
-        ingress.kubernetes.io/ssl-redirect: "true"
-    spec:
-      rules:
-      - host: argocd.local
-        http:
-          paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+	cat <<EOF | tpl -f $HOME/.omz-custom/plugins/l8s/argocd-values.yaml > $(pwd)/argocd.yaml
+{
+  "argocd_url": "https://$1.local/argocd",
+	"dex_url": "https://$1.local/dex"
+}
 EOF
+	echo "Argo CD values have been saved into your current directroy"
+  helm upgrade -i -n argocd argocd argo/argo-cd -f $(pwd)/argocd.yaml > /dev/null
+  echo "Waiting for Argo CD server to become available..."
+  sleep 2
+  pod=$(kubectl get pods -l "app.kubernetes.io/name=argocd-server" -n argocd -o=jsonpath='{.items[0].metadata.name}')
+  kubectl wait -n argocd --timeout=600s --for=condition=Ready pod/$pod > /dev/null 
+  kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret > /dev/null
+  sleep 2
+  echo "Argo CD UI at https://$1.local/argocd using user admin and password $(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)"
+	echo "Update Argo CD using: helm upgrade -i argocd -n argocd argo/argo-cd -f $(pwd)/argocd.yaml"
 
-# deployes Dex using official helm chart
-# and preconfigured config this dir
-# note: won't work if you omit
-# pass those into the function
-  #id=$1
-  #secret=$2
-  #kubectl create ns dex
-  #containsRepo=$(helm repo list |grep dex)
-  #if [[ $containsRepo == "" ]]
-  #then
-  #  helm repo add dex https://chart.dexidp.io
-  #fi
-  #helm upgrade -i -n dex dex dex/dex -f $HOME/.zsh-custom/plugins/argocd/dex-values.yaml --set 'config.connectors[0].config.clientID'=$id --set 'config.connectors[0].config.clientSecret'=$secret
- #clientID and clientSecret
-
- 
-
-  #kubectl wait -n argocd --for=jsonpath='{.kind}'=Secret secret/argocd-initial-admin-secret
-  #pw=$(kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d)
-  #echo $pw
+	## Dex
+  kubectl create namespace dex --dry-run=client -o yaml | kubectl apply -f - > /dev/null # idempotent 
+  containsRepo=$(helm repo list |grep dex)
+  if [[ $containsRepo == "" ]]
+  then
+    helm repo add dex https://charts.dexidp.io
+  fi
+	echo "Please enter the clientID and clientSecret for the AlleAffenGaffen Github ORG in the following format: <clientID> <clientSecret>:\n"
+	read clientID clientSecret
+	cat <<EOF | tpl -f $HOME/.omz-custom/plugins/l8s/dex-values.yaml > /tmp/dex.yaml
+{
+  "client_id": "$clientID",
+	"client_secret": "$clientSecret",
+	"dexRedirectURI": "https://$1.local/dex/callback",
+	"argoRedirectURI": "https://$1.local/argocd/auth/callback",
+	"issuer": "https://$1.local/dex"
+}
+EOF
+  helm upgrade -i -n dex dex dex/dex -f /tmp/dex.yaml > /dev/null
+	if [[ $? -eq 0 ]]; then
+		rm -rf /tmp/dex.yaml
+		echo "Dex successfully installed, please make sure you set the redirectURI in the OAuth App to https://$1.local/dex/callback"
+	else
+		echo "Dex installation failed, see /tmp/dex.yaml for values"
+	fi
 }
