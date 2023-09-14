@@ -2,7 +2,7 @@ l8s() {
   
   if (( $# == 0 )); then
 		cat >&2 <<'EOF'
-Usage: l8s [create|tools|list|delete] <clusterName> 
+Usage: l8s [create|tools|list|delete|funnel] <clusterName>
 Note: the script doesn't need elevated privileges in general, but some commands try to use sudo
 EOF
 	fi
@@ -57,6 +57,8 @@ EOF
 			k3d cluster list;;
 		(delete)
 			deleteCluster $2;;
+		(funnel)
+			enableTailscaleFunnel $2;;
 		(*)
 			;;
 		esac
@@ -138,10 +140,7 @@ EOF
 
 toolChain() {
 	# Installation must be reproducable, so that a rerun just reconfigured the tools
-  if [[ $1 == "" ]]; then
-		echo "No name for the cluster specified"
-		return
-	fi
+	checkClusterName $!
 
 	helmPath=$(which helm)
 	goTemplateCLIPath=$(which tpl)
@@ -208,5 +207,61 @@ EOF
 		echo "Dex successfully installed, please make sure you set the redirectURI in the OAuth App to https://$1.local/dex/callback"
 	else
 		echo "Dex installation failed, see /tmp/dex.yaml for values"
+	fi
+}
+
+enableTailscaleFunnel() {
+	checkClusterName $1
+  
+	tailscalePath=$(which tailscale)
+	if [[ ! -f "$tailscalePath" ]]; then
+		echo "Please install tailscale for this feature"
+		echo "https://tailscale.com/kb/installation/"
+		return
+	fi
+
+	tailscaleStatus=$(tailscale status)
+	if [[ "$tailscaleStatus" == "Logged out." ]]; then
+		echo "Tailscale must be up & running"
+		echo "Use sudo tailscale up --ssh to activate"
+		return
+	fi
+
+	gateway=$(docker network inspect $1 |  jq '.[0].IPAM.Config[0].Gateway' |tr -d "\"")
+	
+	# the funnel can only be active for one cluster at the tiem
+	funnelStatus=$(tailscale funnel status)
+	if [[ "$funnelStatus" == "No serve config" ]]; then
+		tailscale serve https / $gateway:443
+		tailscale funnel 443 on
+		tailscale funnel status
+	else 
+		tailscale funnel status
+		echo "Funnel is currently active, do you want to overwrite the config?\n"
+		read overwrite
+		if [[ "$overwrite" == *"y"* ]]; then
+			# https://tailscale.com/kb/1223/tailscale-funnel/#limitations
+			tailscale funnel 443 off
+			tailscale funnel 8443 off
+			tailscale funnel 10000 off
+			tailscale serve https / $gateway:443
+			tailscale funnel 443 on
+			tailscale funnel status
+		fi
+	fi
+	
+}
+
+#### Helper functions
+checkClusterName() {
+  if [[ $1 == "" ]]; then
+		echo "No name for the cluster specified"
+		return
+	fi
+
+	clusterList=$(k3d cluster list)
+	if [[ "$clusterList" != *"$1"* ]]; then
+		echo "Cluster doesn't exist"
+		return
 	fi
 }
