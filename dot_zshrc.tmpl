@@ -3,7 +3,11 @@ ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_CUSTOM=~/.omz-custom
+{{ if .use_yubikey }}
 plugins=(git gpg-agent sudo helm kubectl cp extract terraform aws docker kubectx l8s)
+{{ else }}
+plugins=(git sudo helm kubectl cp extract terraform aws docker kubectx l8s)
+{{- end }}
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
 prompt_context () { } # redefine prompt_context for hiding user@hostname

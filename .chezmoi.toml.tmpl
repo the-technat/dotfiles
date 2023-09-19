@@ -4,7 +4,7 @@
 {{ $username := "technat" -}}
 {{ $signingkey := "22391b207dad6969" -}}
 {{ $is_remote := true -}} 
-{{ $use_yubikey := true -}}
+{{ $use_yubikey := false -}}
 
 # If we are running in a codespace, the username is always codespace
 {{ if env "CODESPACES" | not | not -}}
@@ -18,7 +18,7 @@
 {{   $username = promptStringOnce . "username" "Your username" "technat" -}}
 {{   $signingkey = promptStringOnce . "signingkey" "Git signing key" "22391b207dad6969" -}}
 {{   $is_remote = promptBoolOnce . "is_remote" "Remote machine?" true -}}
-{{   $use_yubikey = promptBoolOnce . "use_yubikey" "Do you want to use your yubikey for auth?" true -}}
+{{   $use_yubikey = promptBoolOnce . "use_yubikey" "Do you want to use your yubikey for auth?" false -}}
 {{ end -}}
 
 {{- $osid := .chezmoi.os -}}
