@@ -1,4 +1,6 @@
 #!/bin/sh
+  
+{{ if not .is_termux -}}
 
 VERSION=v2.8.0 # see https://github.com/argoproj/argo-cd/releases
 ARCH={{ .chezmoi.arch }}
@@ -8,3 +10,4 @@ curl -sSL -o /tmp/argocd-$OS-$ARCH https://github.com/argoproj/argo-cd/releases/
 sudo install -m 555 /tmp/argocd-$OS-$ARCH /usr/local/bin/argocd
 rm /tmp/argocd-$OS-$ARCH
 
+{{ end -}}

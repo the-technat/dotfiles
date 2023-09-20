@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+{{ if not .is_termux -}}
+
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 binaryPath="/usr/local/bin/akeyless"
@@ -19,5 +22,5 @@ if [ $(date +%s -r $binaryPath) -lt $(date +%s --date="30 days ago") ]; then
   inPlaceUpdate
 fi
 
-
+{{ end -}}
 

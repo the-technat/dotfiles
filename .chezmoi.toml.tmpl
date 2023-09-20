@@ -10,7 +10,7 @@
 # try to fetch the username from LOGNAME or USER
 {{ if not (eq (env "USER") "") -}}
 {{ $username = env "USER" -}}
-{{ else if not (eq env "LOGNAME" "") -}}
+{{ else if not (eq (env "LOGNAME") "") -}}
 {{ $username = env "LOGNAME" -}}
 {{ end -}}
 
@@ -22,6 +22,7 @@
 # On termux we skip most of the files and folders
 {{ if not (eq (env "TERMUX_VERSION") "") -}}
 {{ $is_termux = true -}}
+{{ $is_remote = true -}}
 {{ end -}}
 
 # If TTY we can ask for overrides

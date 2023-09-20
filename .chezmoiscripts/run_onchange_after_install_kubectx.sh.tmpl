@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 VERSION=v0.9.5
 
 git config --global advice.detachedHead false
@@ -20,3 +22,5 @@ cp /tmp/kubectx/completion/_kubectx.zsh $HOME/.oh-my-zsh/cache/completions/_kube
 cp /tmp/kubectx/completion/_kubens.zsh $HOME/.oh-my-zsh/cache/completions/_kubens.zsh
 
 rm -rf /tmp/kubectx
+
+{{ end -}}

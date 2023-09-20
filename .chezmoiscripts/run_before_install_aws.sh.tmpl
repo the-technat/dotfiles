@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+{{ if not .is_termux -}}
+
 VERSION=v2.7.4 # Select desired TAG from https://github.com/argoproj/argo-cd/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -50,4 +53,4 @@ else
   fi
 fi
 
-
+{{ end -}}

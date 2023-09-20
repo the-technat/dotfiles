@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 VERSION=0.118.2 # see https://github.com/gohugoio/hugo/releases for the extended current version
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -10,3 +12,4 @@ sudo install -m 555 /tmp/hugo /usr/local/bin/hugo
 sudo rm -rf /tmp/hugo-$OS-$ARCH.tar.gz
 sudo rm -rf /tmp/LICENSE /tmp/README.md
 
+{{ end -}}

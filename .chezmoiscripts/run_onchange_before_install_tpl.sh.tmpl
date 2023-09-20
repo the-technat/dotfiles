@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 VERSION=v0.2.0 # see https://github.com/bluebrown/go-template-cli/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -10,3 +12,4 @@ curl -sSL -o /tmp/tpl-$OS-$ARCH https://github.com/bluebrown/go-template-cli/rel
 sudo install -m 555 /tmp/tpl-$OS-$ARCH /usr/local/bin/tpl
 rm /tmp/tpl-$OS-$ARCH
 
+{{ end -}}

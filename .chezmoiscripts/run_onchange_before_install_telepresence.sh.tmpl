@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+{{ if not .is_termux -}}
+
 VERSION=v2.14.2 # see https://github.com/telepresenceio/telepresence/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -8,3 +11,4 @@ curl -sSL -o /tmp/telepresence-$OS-$ARCH https://github.com/telepresenceio/telep
 sudo install -m 555 /tmp/telepresence-$OS-$ARCH /usr/local/bin/telepresence
 rm /tmp/telepresence-$OS-$ARCH
 
+{{ end -}}

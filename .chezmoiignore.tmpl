@@ -1,3 +1,14 @@
+{{ if not .is_termux -}}
+.bashrc
+{{ end -}}
+{{ if .is_termux -}}
+.aws/
+.oh-my-zsh/
+.omz-custom/
+.gnupg/
+.config/
+.local/
+{{ end -}}
 install.sh
 README.md
 dconf.conf

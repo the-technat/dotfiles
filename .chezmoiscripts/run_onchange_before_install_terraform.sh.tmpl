@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 TF_VERSION=1.5.5 # see https://developer.hashicorp.com/terraform/downloads
 TF_DOCS_VERSION=v0.16.0 # see https://github.com/terraform-docs/terraform-docs/releases
 ARCH={{ .chezmoi.arch }}
@@ -16,3 +18,5 @@ curl -sSL -o /tmp/terraform-docs-$OS-$ARCH.tar.gz https://github.com/terraform-d
 tar -xzf /tmp/terraform-docs-$OS-$ARCH.tar.gz -C /tmp 
 sudo install -o root -g root -m 0555 /tmp/terraform-docs /usr/local/bin/terraform-docs 
 rm /tmp/terraform-docs /tmp/terraform-docs-$OS-$ARCH.tar.gz
+
+{{ end -}}

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 KUBELOGIN_VERSION=v0.0.31 # see https://github.com/Azure/kubelogin/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -28,3 +30,4 @@ echo "Azure CLI probably not needed on AWS ;)"
 echo "Unknown OS to install Azure CLI"
 {{- end}}
 
+{{ end -}}

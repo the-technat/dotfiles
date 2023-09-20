@@ -1,5 +1,8 @@
 #!/bin/sh
 
+
+{{ if not .is_termux -}}
+
 # only configure gpg if we are locally and want to use the yubikey
 {{- if (and (not .is_remote) (.use_yubikey)) }}
 	gpg --recv-keys {{ .signingkey }} > /dev/null
@@ -15,3 +18,5 @@
 	{{- end }}
 	sudo systemctl enable --now pcscd.service
 {{- end }}
+
+{{ end -}}

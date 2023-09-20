@@ -1,5 +1,7 @@
 #!/bin/sh
 
+{{ if not .is_termux -}}
+
 sudo systemctl is-active --quiet containerd
 if [ $? -eq 0 ]; then
 	# if containerd is already running we skip the installation of docker 
@@ -25,3 +27,4 @@ sudo systemctl enable docker --now > /dev/null
   echo "Unknown OS for docker installation"
 {{- end }}
 
+{{ end -}}
