@@ -5,6 +5,7 @@ ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
 
+# Note: currently doesn't support ARM64
 curl -sSL -o /tmp/tpl-$OS-$ARCH https://github.com/bluebrown/go-template-cli/releases/download/$VERSION/tpl-$OS-$ARCH 
 sudo install -m 555 /tmp/tpl-$OS-$ARCH /usr/local/bin/tpl
 rm /tmp/tpl-$OS-$ARCH

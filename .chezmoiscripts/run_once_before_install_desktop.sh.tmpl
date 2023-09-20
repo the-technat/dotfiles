@@ -8,9 +8,6 @@ desktopToolchain() {
   # OS Selector
   {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 
-
-  {{- if not .is_remote }}
-
 		## GPG keys
 		curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&options=mr&search=0xCB2DE8E5" | gpg --import - > /dev/null
 		curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null
@@ -40,19 +37,20 @@ desktopToolchain() {
     sudo rm -rf /tmp/threema.deb
   {{- end }}
 
-  {{- end }}
 
   sudo touch -m /etc/last-desktop-update # at the end mark the script as beeing run
 }
 
 
-# Peridocically run this script every 30 days to update tools 
-if [ ! -f "/etc/last-desktop-update" ] 
-then
-  echo "Installing desktop toolchain for the first time"
-  desktopToolchain 
-elif [ $(date +%s -r "/etc/last-desktop-update") -lt $(date +%s --date="30 days ago") ]
-then
-  echo "Updating desktop toolchain"
-  desktopToolchain
-fi
+{{- if not .is_remote }}
+  # Peridocically run this script every 30 days to update tools 
+  if [ ! -f "/etc/last-desktop-update" ] 
+  then
+    echo "Installing desktop toolchain for the first time"
+    desktopToolchain 
+  elif [ $(date +%s -r "/etc/last-desktop-update") -lt $(date +%s --date="30 days ago") ]
+  then
+    echo "Updating desktop toolchain"
+    desktopToolchain
+  fi
+{{- end }}
