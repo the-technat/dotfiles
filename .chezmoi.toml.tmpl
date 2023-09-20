@@ -4,21 +4,34 @@
 {{ $username := "technat" -}}
 {{ $signingkey := "22391b207dad6969" -}}
 {{ $is_remote := true -}} 
+{{ $is_termux := false -}}
 {{ $use_yubikey := false -}}
+
+# try to fetch the username from LOGNAME or USER
+{{ if not (eq (env "USER") "") -}}
+{{ $username = env "USER" -}}
+{{ else if not (eq env "LOGNAME" "") -}}
+{{ $username = env "LOGNAME" -}}
+{{ end -}}
 
 # If we are running in a codespace, the username is always codespace
 {{ if env "CODESPACES" | not | not -}}
 {{   $username = "codespace" -}}
 {{ end -}}
 
+# On termux we skip most of the files and folders
+{{ if not (eq (env "TERMUX_VERSION") "") -}}
+{{ $is_termux = true -}}
+{{ end -}}
+
 # If TTY we can ask for overrides
 {{ if stdinIsATTY -}}
-{{   $email = promptStringOnce . "email" "Your email address" "technat@technat.ch" -}}
-{{   $name = promptStringOnce . "name" "Your name (git name)" "Nathanael Liechti" -}}
-{{   $username = promptStringOnce . "username" "Your username" "technat" -}}
-{{   $signingkey = promptStringOnce . "signingkey" "Git signing key" "22391b207dad6969" -}}
-{{   $is_remote = promptBoolOnce . "is_remote" "Remote machine?" true -}}
-{{   $use_yubikey = promptBoolOnce . "use_yubikey" "Do you want to use your yubikey for auth?" false -}}
+{{   $email = promptStringOnce . "email" "Your email address" $email -}}
+{{   $name = promptStringOnce . "name" "Your name (git name)" $name -}}
+{{   $username = promptStringOnce . "username" "Your username" $username -}}
+{{   $signingkey = promptStringOnce . "signingkey" "Git signing key" $signingkey -}}
+{{   $is_remote = promptBoolOnce . "is_remote" "Remote machine?" $is_remote -}}
+{{   $use_yubikey = promptBoolOnce . "use_yubikey" "Do you want to use your yubikey for auth?" $use_yubikey -}}
 {{ end -}}
 
 {{- $osid := .chezmoi.os -}}
@@ -34,6 +47,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   username = {{ $username | quote }}
   name = {{ $name | quote }}
   is_remote = {{ $is_remote }}
+  is_termux = {{ $is_termux }}
   use_yubikey = {{ $use_yubikey }}
 
 [git]
