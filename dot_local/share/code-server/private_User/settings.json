@@ -3,4 +3,5 @@
     "redhat.telemetry.enabled": false,
     "workbench.sideBar.location": "right",
     "workbench.startupEditor": "none",
+    "terminal.integrated.defaultProfile.linux": "zsh"
 }
