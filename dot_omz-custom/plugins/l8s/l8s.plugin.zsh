@@ -2,7 +2,7 @@ l8s() {
   
   if (( $# == 0 )); then
 		cat >&2 <<'EOF'
-Usage: l8s [create|tools|list|delete|funnel] <clusterName> --exposeLocalhost
+Usage: l8s [create|tools|list|delete|funnel] <clusterName> [funnelSubPath]
 Note: the script doesn't need elevated privileges in general, but some commands try to use sudo
 EOF
 	fi
@@ -58,7 +58,7 @@ EOF
 		(delete)
 			deleteCluster $2;;
 		(funnel)
-			enableTailscaleFunnel $2;;
+			enableTailscaleFunnel $2 $3;;
 		(*)
 			;;
 		esac
@@ -72,8 +72,7 @@ deleteCluster() {
 	fi
   k3d cluster delete $1
   docker network rm $1
-	sudo hostess rm $1.local $gateway
-  disableFunnel
+  sudo hostess rm $1.local $gateway
 }
 
 createCluster() {
@@ -82,10 +81,7 @@ createCluster() {
  	# the gateway of this network serves as the control-plane endpoint 
   # as well as the endpoint for traefik
 
-	if [[ $1 == "" ]]; then
-		echo "No name for the cluster specified"
-		return
-	fi
+    checkClusterName $1
 	echo "Creating new Cluster $1"
 	
 	# Create a new bridge network, rely on dockerd to assign a free IP range
@@ -104,9 +100,9 @@ createCluster() {
 	cat <<EOF | tpl -f $HOME/.omz-custom/plugins/l8s/cluster-template.yaml > /tmp/$name
 {
   "gateway": "$gateway",
-	"subnet": "$subnet",
+  "subnet": "$subnet",
   "name": "$1",
-	"exposeLocalhost": "$2"
+  "exposeLocalhost": "$2"
 }
 EOF
   k3d cluster create --config /tmp/$name
@@ -121,6 +117,10 @@ EOF
 	sudo hostess add $1.local $gateway
 
   echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
+
+  if [[ $2 != "" ]]; then
+    enableTailscaleFunnel $1 $2
+  fi
 }
 
 toolChain() {
@@ -215,7 +215,7 @@ enableTailscaleFunnel() {
 	# the funnel can only be active for one cluster at the tiem
 	funnelStatus=$(tailscale funnel status)
 	if [[ "$funnelStatus" == "No serve config" ]]; then
-		sudo tailscale serve https / 127.0.0.1:443
+		sudo tailscale serve https $2 127.0.0.1:443
 		sudo tailscale funnel 443 on
 		tailscale funnel status
 	else 
@@ -224,9 +224,12 @@ enableTailscaleFunnel() {
 		read overwrite
 		if [[ "$overwrite" == *"y"* ]]; then
 			disableFunnel
-			sudo tailscale serve https / 127.0.0.1:443
+			sudo tailscale serve https $2 127.0.0.1:443
 			sudo tailscale funnel 443 on
 			tailscale funnel status
+		else
+		  echo "Please activate the serve config yourself (in order to not disrupt the current funnel activities)"
+		  echo "Example: sudo tailscale serve https $2 127.0.0.1:443 -> works if 443 is already on"
 		fi
 	fi
 	
@@ -244,12 +247,4 @@ checkClusterName() {
 		echo "Cluster doesn't exist"
 		return
 	fi
-}
-
-disableFunnel() {
-	# https://tailscale.com/kb/1223/tailscale-funnel/#limitations
-	sudo tailscale funnel 443 off
-	sudo tailscale funnel 8443 off
-	sudo tailscale funnel 10000 off
-	sudo tailscale serve reset
 }
