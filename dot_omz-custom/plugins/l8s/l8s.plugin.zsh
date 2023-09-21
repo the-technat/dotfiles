@@ -116,6 +116,9 @@ EOF
 	# finally set one DNS record in your hosts file for the entire cluster
 	sudo hostess add $1.local $gateway
 
+	# inject traefik patch
+	docker cp $HOME/.omz-custom/plugins/l8s/traefik-patch.yaml k3d-$1-server-0:/var/lib/rancher/k8s/server/manifests/
+
   echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
 
   if [[ $2 != "" ]]; then
