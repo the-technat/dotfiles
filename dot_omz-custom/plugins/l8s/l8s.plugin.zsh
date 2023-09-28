@@ -2,8 +2,8 @@ l8s() {
   
   if (( $# == 0 )); then
 		cat >&2 <<'EOF'
-Usage: l8s [create|tools|list|delete|funnel] <clusterName> [funnelSubPath]
-Note: the script doesn't need elevated privileges in general, but some commands try to use sudo
+Usage: l8s [create|tools|list|delete] <clusterName> [funnelSubPath]
+Note: the function does need elevated privileges in some commands (e.g sudo)
 EOF
 	fi
 
@@ -57,8 +57,6 @@ EOF
 			k3d cluster list;;
 		(delete)
 			deleteCluster $2;;
-		(funnel)
-			enableTailscaleFunnel $2 $3;;
 		(*)
 			;;
 		esac
@@ -73,13 +71,14 @@ deleteCluster() {
   k3d cluster delete $1
   docker network rm $1
   sudo hostess rm $1.local $gateway
+  echo "Remember to remove the funnel routes yourself if you exposed the cluster using tailscale"
 }
 
 createCluster() {
 	
 	# function creates a k3d cluster in a new docker bridge network
  	# the gateway of this network serves as the control-plane endpoint 
-  # as well as the endpoint for traefik
+    # as well as the endpoint for traefik
 
     checkClusterName $1
 	echo "Creating new Cluster $1"
@@ -95,6 +94,11 @@ createCluster() {
 	
 	subnet=$(docker network inspect $1 |  jq '.[0].IPAM.Config[0].Subnet'| tr -d "\"")
 	gateway=$(docker network inspect $1 |  jq '.[0].IPAM.Config[0].Gateway' |tr -d "\"")
+    if [[ $2 != "" ]]; then
+	  randomLocalhostPort=$(getRandomPort)
+    else
+	  randomLocalhostPort=""
+	fi
 
 	name="$(date +%s)config.yaml"
 	cat <<EOF | tpl -f $HOME/.omz-custom/plugins/l8s/cluster-template.yaml > /tmp/$name
@@ -102,7 +106,7 @@ createCluster() {
   "gateway": "$gateway",
   "subnet": "$subnet",
   "name": "$1",
-  "exposeLocalhost": "$2"
+  "localhostPort": "$randomLocalhostPort"
 }
 EOF
   k3d cluster create --config /tmp/$name
@@ -119,10 +123,10 @@ EOF
 	# inject traefik patch
 	docker cp $HOME/.omz-custom/plugins/l8s/traefik-patch.yaml k3d-$1-server-0:/var/lib/rancher/k8s/server/manifests/
 
-  echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
+	echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
 
   if [[ $2 != "" ]]; then
-    enableTailscaleFunnel $1 $2
+    enableTailscaleFunnel $1 $2 $randomLocalhostPort
   fi
 }
 
@@ -218,21 +222,19 @@ enableTailscaleFunnel() {
 	# the funnel can only be active for one cluster at the tiem
 	funnelStatus=$(tailscale funnel status)
 	if [[ "$funnelStatus" == "No serve config" ]]; then
-		sudo tailscale serve https $2 127.0.0.1:443
+		sudo tailscale serve https $2 127.0.0.1:$3
 		sudo tailscale funnel 443 on
 		tailscale funnel status
 	else 
-		tailscale funnel status
-		echo "Funnel is currently active, do you want to overwrite the config?\n"
-		read overwrite
-		if [[ "$overwrite" == *"y"* ]]; then
-			disableFunnel
-			sudo tailscale serve https $2 127.0.0.1:443
-			sudo tailscale funnel 443 on
+		listOfActivePaths=$(tailscale funnel status --json | jq '.Web | to_entries[] | select(.key|startswith("")) | .value.Handlers | to_entries[] | .key' | tr -d "\"" | tr '\n' ' '  )
+		if [[ ! ${listOfActivePaths[@]} =~ $2 ]]; then
+			sudo tailscale serve https $2 127.0.0.1:$3
+			echo "Funnel already active, added new subPath to the serve config"
 			tailscale funnel status
 		else
-		  echo "Please activate the serve config yourself (in order to not disrupt the current funnel activities)"
-		  echo "Example: sudo tailscale serve https $2 127.0.0.1:443 -> works if 443 is already on"
+			echo "Funnel is currently active and the specified path is already in use"
+			echo "Please active the funnel yourself"
+			echo "Example: sudo tailscale serve https $2 127.0.0.1:$3"
 		fi
 	fi
 	
@@ -250,4 +252,18 @@ checkClusterName() {
 		echo "Cluster doesn't exist"
 		return
 	fi
+}
+
+# https://unix.stackexchange.com/questions/55913/whats-the-easiest-way-to-find-an-unused-local-port
+getRandomPort() {
+    LOW_BOUND=49152
+    RANGE=16384
+    while true; do
+        CANDIDATE=$[$LOW_BOUND + ($RANDOM % $RANGE)]
+        (echo "" >/dev/tcp/127.0.0.1/${CANDIDATE}) >/dev/null 2>&1
+        if [ $? -ne 0 ]; then
+            echo $CANDIDATE
+            break
+        fi
+    done
 }
