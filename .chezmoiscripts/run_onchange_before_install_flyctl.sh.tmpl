@@ -1,0 +1,24 @@
+#!/bin/sh
+  
+{{ if not .is_termux -}}
+
+VERSION=0.1.104 # see https://github.com/superfly/flyctl/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+{{- if eq .chezmoi.arch "amd64" }}
+ARCH="x86_64"
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
+OS="Linux"
+{{- end }}
+
+
+curl -sSL -o /tmp/fly-$OS-$ARCH.tar.gz https://github.com/superfly/flyctl/releases/download/v$VERSION/flyctl_"$VERSION"_"$OS"_"$ARCH".tar.gz
+tar -zxf /tmp/fly-$OS-$ARCH.tar.gz -C /tmp
+sudo install -m 555 /tmp/flyctl /usr/local/bin/flyctl
+sudo ln -sf /usr/local/bin/flyctl /usr/local/bin/fly
+rm /tmp/flyctl
+rm /tmp/fly-$OS-$ARCH.tar.gz
+
+{{ end -}}        
