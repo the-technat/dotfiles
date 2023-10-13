@@ -121,7 +121,7 @@ EOF
 	sudo hostess add $1.local $gateway
 
 	# inject traefik patch
-	docker cp $HOME/.omz-custom/plugins/l8s/traefik-patch.yaml k3d-$1-server-0:/var/lib/rancher/k8s/server/manifests/
+	docker cp $HOME/.omz-custom/plugins/l8s/traefik-patch.yaml k3d-$1-server-0:/var/lib/rancher/k3s/server/manifests/
 
 	echo "Created cluster $1 with control-plane available at $gateway:6443 and LoadBalancer available at $gateway:443"
 
