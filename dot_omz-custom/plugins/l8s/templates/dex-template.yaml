@@ -23,7 +23,7 @@ config:
     config:
       redirectURI: {{ .dexRedirectURI }}
       orgs:
-      - name: alleaffengaffen
+      - name: {{ .org }}
       loadAllGroups: true
       clientID: {{ .client_id }}
       clientSecret: {{ .client_secret }}

@@ -18,8 +18,8 @@ configs:
   params:
     controller.app.resync: 10
     server.insecure: true
-    server.basehref: /argocd
-    server.rootpath: /argocd
+    # server.basehref: /argocd
+    # server.rootpath: /argocd
   rbac:
     policy.default: role:readonly
     policy.csv: |
@@ -36,7 +36,7 @@ dex:
 
 server:
   ingress:
-    enabled: true
+    enabled: false
     ingressClassName: traefik
     annotations:
       ingress.kubernetes.io/ssl-redirect: "true"

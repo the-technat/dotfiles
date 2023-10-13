@@ -9,11 +9,6 @@ kubeAPI:
   hostPort: "6443"
 network: {{ .name }}
 ports:
-{{ if not (eq .localhostPort "") }}
-- port: 127.0.0.1:{{ .localhostPort }}:80
-  nodeFilters:
-  - loadbalancer
-{{ end }} 
 - port: {{ .gateway }}:80:80
   nodeFilters:
   - loadbalancer
