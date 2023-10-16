@@ -8,8 +8,20 @@ ingress:
     - path: /dex
       pathType: Prefix
 
+envVars:
+- name: GITHUB_CLIENT_ID
+  valueFrom:
+    secretKeyRef:
+      name: github-oauth-creds
+      key: client_id
+- name: GITHUB_CLIENT_SECRET
+  valueFrom:
+    secretKeyRef:
+      name: github-oauth-creds
+      key: client_secret
+
 config:
-  issuer: {{ .issuer }}
+  issuer: "https://{{ .name }}.{{ .dnsSuffix }}/dex"
   oauth2:
     skipApprovalScreen: true
   storage:
@@ -21,15 +33,15 @@ config:
     id: github
     name: GitHub
     config:
-      redirectURI: {{ .dexRedirectURI }}
+      redirectURI: "https://{{ .name }}.{{ .dnsSuffix }}/dex/callback"
       orgs:
       - name: {{ .org }}
       loadAllGroups: true
-      clientID: {{ .client_id }}
-      clientSecret: {{ .client_secret }}
+      clientID: $GITHUB_CLIENT_ID
+      clientSecret: $GITHUB_CLIENT_SECRET 
   staticClients:
   - id: argocd
     secret: argocd
     name: ArgoCD
     redirectURIs:
-      - {{ .argoRedirectURI }}
+      - "https://{{ .name }}.{{ .dnsSuffix }}/argocd/auth/callback"

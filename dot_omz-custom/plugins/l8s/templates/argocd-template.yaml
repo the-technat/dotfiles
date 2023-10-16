@@ -1,11 +1,11 @@
 configs:
   cm:
     exec.enabled: true
-    url: {{ .argocd_url }}
+    url: "https://{{ .name }}.{{ .dnsSuffix }}/argocd"
     oidc.tls.insecure.skip.verify: "true"
     oidc.config: |
       name: Dex
-      issuer: {{ .dex_url }}
+      issuer: "https://{{ .name }}.{{ .dnsSuffix }}/dex"
       clientID: argocd
       clientSecret: argocd
       enableUserInfoGroups: true
@@ -18,8 +18,8 @@ configs:
   params:
     controller.app.resync: 10
     server.insecure: true
-    # server.basehref: /argocd
-    # server.rootpath: /argocd
+    server.basehref: /argocd
+    server.rootpath: /argocd
   rbac:
     policy.default: role:readonly
     policy.csv: |
@@ -36,11 +36,11 @@ dex:
 
 server:
   ingress:
-    enabled: false
+    enabled: true
+    hosts: [] # catch-all
+    pathType: Prefix
+    paths:
+      - /argocd
     ingressClassName: traefik
     annotations:
       ingress.kubernetes.io/ssl-redirect: "true"
-    hosts: [] # catch-all
-    paths:
-      - /argocd
-    pathType: Prefix
