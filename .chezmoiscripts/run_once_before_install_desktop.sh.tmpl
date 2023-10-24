@@ -1,54 +1,39 @@
 #!/bin/sh
-# Note: meant to only run once and then updates are managed elsewhere
+# Note: meant to only run once and then updates are managed through package managers
 # Script installs a bunch of desktop tools (not related to your shell env)
 
-# when to run comes at the end of the script
-desktopToolchain() {
-
-  # OS Selector
-  {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
-
-		## GPG keys
-		curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null
-		curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg
-
-		## APT repos
-		echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null
-		echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-	        sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null
-
-		## Install (desktop)
-    DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
-    firefox code slack-desktop \
-    telegram-desktop diodon keepassxc caffeine \
-    yubioath-desktop discord nextcloud-desktop \
-    audacity spotify-client handbrake kitty signal-desktop \
-    gdebi \
-    -y > /dev/null
-
-    curl -sSL -o /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2022.12.05_amd64.deb >/dev/null
-    sudo gdebi /tmp/dropbox.deb > /dev/null
-    sudo rm -rf /tmp/dropbox.deb 
-
-    curl -fsSL -o /tmp/threema.deb https://releases.threema.ch/web-electron/v1/release/Threema-Latest.deb >/dev/null
-    sudo gdebi /tmp/threema.deb > /dev/null
-    sudo rm -rf /tmp/threema.deb
-  {{- end }}
-
-
-  sudo touch -m /etc/last-desktop-update # at the end mark the script as beeing run
-}
-
-
 {{- if not .is_remote }}
-  # Peridocically run this script every 30 days to update tools 
-  if [ ! -f "/etc/last-desktop-update" ] 
-  then
-    echo "Installing desktop toolchain for the first time"
-    desktopToolchain 
-  elif [ $(date +%s -r "/etc/last-desktop-update") -lt $(date +%s --date="30 days ago") ]
-  then
-    echo "Updating desktop toolchain"
-    desktopToolchain
-  fi
+ 
+# OS Selector
+{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+
+  ## GPG keys
+	curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null # Spotify
+	curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg # Signal
+
+	## APT repos
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null # Spotify
+	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+  sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null # Signal
+
+	## Install (desktop)
+  DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
+  firefox code slack-desktop \
+  telegram-desktop diodon keepassxc caffeine \
+  yubioath-desktop discord nextcloud-desktop \
+  audacity spotify-client handbrake kitty signal-desktop \
+  gdebi \
+  -y > /dev/null
+
+  # Dropbox
+  curl -sSL -o /tmp/dropbox.deb https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2022.12.05_amd64.deb >/dev/null
+  sudo gdebi /tmp/dropbox.deb > /dev/null
+  sudo rm -rf /tmp/dropbox.deb 
+
+  # Threema
+  curl -fsSL -o /tmp/threema.deb https://releases.threema.ch/web-electron/v1/release/Threema-Latest.deb >/dev/null
+  sudo gdebi /tmp/threema.deb > /dev/null
+  sudo rm -rf /tmp/threema.deb
+{{- end }}
+
 {{- end }}
