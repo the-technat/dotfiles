@@ -34,6 +34,10 @@
   curl -fsSL -o /tmp/threema.deb https://releases.threema.ch/web-electron/v1/release/Threema-Latest.deb >/dev/null
   sudo gdebi /tmp/threema.deb > /dev/null
   sudo rm -rf /tmp/threema.deb
+
+  # Set default terminal
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/kitty 1
+
 {{- end }}
 
 {{- end }}
