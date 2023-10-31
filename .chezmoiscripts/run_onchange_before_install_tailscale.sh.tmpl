@@ -1,7 +1,0 @@
-#!/bin/sh
-
-{{ if not .is_termux -}}
-
-curl -fsSL https://tailscale.com/install.sh | sh  > /dev/null
-
-{{ end -}}

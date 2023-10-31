@@ -2,11 +2,11 @@
 
 {{ if not .is_termux -}}
 
-KUBECTL_VERSION=v1.28.0 # see https://storage.googleapis.com/kubernetes-release/release/stable.txt
+KUBECTL_VERSION=v1.28.3 # see https://storage.googleapis.com/kubernetes-release/release/stable.txt
 K9S_VERSION=v0.27.4 # see https://github.com/derailed/k9s/releases
 KIND_VERSION=v0.20.0 # see https://github.com/kubernetes-sigs/kind/releases
-K3D_VERSION=v5.5.2 # see https://github.com/k3d-io/k3d/releases
-K3SUP_VERSION=0.12.15 # see https://github.com/alexellis/k3sup/releases
+K3D_VERSION=v5.6.0 # see https://github.com/k3d-io/k3d/releases
+K3SUP_VERSION=0.13.3 # see https://github.com/alexellis/k3sup/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 

@@ -8,7 +8,7 @@
 
 	{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 
-# see https://github.com/ranger/ranger#dependencies for informations on what the packages do
+    # see https://github.com/ranger/ranger#dependencies for informations on what the packages do
 	DEBIAN_FRONTEND=noninteractive sudo apt install ranger file python3-chardet imagemagick librsvg2-2 ffmpeg bat highlight atool w3m poppler-utils exiftool mediainfo odt2txt openscad -y > /dev/null
 	
 	# for drag and drop also install https://github.com/mwh/dragon

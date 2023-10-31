@@ -19,4 +19,4 @@ As much as possible is installed using scripts in the `.chezmoiscripts` dir.
 Scripts that install tools must be:
 - as platform agnostic as possible (e.g use binaries/curl if possible)
 - install pinned versions or only run once and then track lifecycle through package managers
-- differntiate between the shell environment and the desktop env -> it must be possible to install all the tooling on a remote server as well
+- differentiate between the shell environment and the desktop env -> it must be possible to install all the tooling on a remote server as well

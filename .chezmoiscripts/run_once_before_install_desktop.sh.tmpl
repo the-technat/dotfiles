@@ -13,8 +13,10 @@
 
 	## APT repos
 	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null # Spotify
-	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-  sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null # Signal
+	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null # Signal
+  
+  ## Update sources
+  DEBIAN_FRONTEND=noninteractive sudo apt update
 
 	## Install (desktop)
   DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
@@ -22,7 +24,7 @@
   telegram-desktop diodon keepassxc caffeine \
   yubioath-desktop discord nextcloud-desktop \
   audacity spotify-client handbrake kitty signal-desktop \
-  gdebi \
+  gdebi-core \
   -y > /dev/null
 
   # Dropbox
@@ -35,7 +37,7 @@
   sudo gdebi /tmp/threema.deb > /dev/null
   sudo rm -rf /tmp/threema.deb
 
-  # Set default terminal
+  # Set default terminal for gnome-shell
   sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/kitty 1
   sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
 

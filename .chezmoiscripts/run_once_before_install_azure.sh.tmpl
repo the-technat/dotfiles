@@ -2,12 +2,8 @@
 
 {{ if not .is_termux -}}
 
-KUBELOGIN_VERSION=v0.0.31 # see https://github.com/Azure/kubelogin/releases
-ARCH={{ .chezmoi.arch }}
-OS={{ .chezmoi.os }}
-
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
-## Azure cli
+
 sudo mkdir -p /etc/apt/keyrings > /dev/null
 curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
     gpg --dearmor |
@@ -19,11 +15,6 @@ echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsof
 sudo apt-get update >/dev/null
 sudo apt-get install azure-cli  >/dev/null
 
-## Kubelogin
-curl -sSL -o /tmp/kubelogin-$OS-$ARCH.zip -L https://github.com/Azure/kubelogin/releases/download/$KUBELOGIN_VERSION/kubelogin-$OS-$ARCH.zip
-unzip -qq /tmp/kubelogin-$OS-$ARCH.zip -d /tmp
-sudo install -m 555 /tmp/bin/"$OS"_$ARCH/kubelogin /usr/local/bin/kubelogin
-rm -rf /tmp/bin /tmp/kubelogin.zip
 {{- else if eq .osid "linux-amzn" }}
 echo "Azure CLI probably not needed on AWS ;)"
 {{ else }}

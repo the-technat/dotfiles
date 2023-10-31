@@ -1,0 +1,14 @@
+#!/bin/sh
+
+{{ if not .is_termux -}}
+
+KUBELOGIN_VERSION=v0.0.33 # see https://github.com/Azure/kubelogin/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -sSL -o /tmp/kubelogin-$OS-$ARCH.zip -L https://github.com/Azure/kubelogin/releases/download/$KUBELOGIN_VERSION/kubelogin-$OS-$ARCH.zip
+unzip -qq /tmp/kubelogin-$OS-$ARCH.zip -d /tmp
+sudo install -m 555 /tmp/bin/"$OS"_$ARCH/kubelogin /usr/local/bin/kubelogin
+rm -rf /tmp/bin /tmp/kubelogin.zip
+
+{{ end -}}
