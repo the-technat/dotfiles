@@ -1,0 +1,47 @@
+#!/bin/sh
+# Note: meant to only run once and then updates are managed through package managers
+# Script installs a bunch of desktop tools (not related to your shell env)
+
+{{- if not .is_remote }}
+ 
+# OS Selector
+{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+
+  ## GPG keys
+	curl -fsSL https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null # Spotify
+	curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null # Signal
+  curl -fsSL https://download.opensuse.org/repositories/home:ungoogled_chromium/Ubuntu_Jammy/Release.key | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/home_ungoogled_chromium.gpg > /dev/null # ungoogled-chromium
+  
+
+	## APT repos
+	echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null # Spotify
+	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null # Signal
+  echo 'deb http://download.opensuse.org/repositories/home:/ungoogled_chromium/Ubuntu_Jammy/ /' | sudo tee /etc/apt/sources.list.d/home:ungoogled_chromium.list > /dev/null # ungoogled chromium  
+
+  ## Update sources
+  DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
+
+	## Install (desktop)
+  DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
+  firefox code slack-desktop  ungoogled-chromium \
+  telegram-desktop diodon caffeine \
+  yubioath-desktop discord nextcloud-desktop \
+  audacity spotify-client handbrake kitty signal-desktop \
+  -y > /dev/null
+
+  # Set default terminal for gnome-shell
+  kitty=$(which kitty)
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $kitty 1
+  sudo update-alternatives --set x-terminal-emulator $kitty
+
+  # Set default browser for gnome-shell
+  browser=$(which chromium)
+  xdg-settings set default-web-browser chromium.desktop
+  sudo update-alternatives --install /usr/bin/www-browser www-browser $browser 1
+  sudo update-alternatives --install /usr/bin/gnome-www-browser gnome-www-browser $browser 1
+  sudo update-alternatives --set www-browser $browser
+  sudo update-alternatives --set gnome-www-browser $browser
+
+{{- end }}
+
+{{- end }}

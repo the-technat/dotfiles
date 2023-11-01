@@ -1,0 +1,30 @@
+{
+    "bookmark_bar": {
+        "show_on_all_tabs": false
+    },
+    "browser": {
+        "check_default_browser": false,
+        "clear_data": {
+            "browsing_history": false,
+            "cache": true,
+            "download_history": false,
+            "form_data": true,
+            "hosted_apps_data": true,
+            "passwords": true,
+            "time_period": 4
+        },
+        "has_seen_welcome_page": true
+    },
+    "default_search_provider": {
+        "synced_guid": "485bf7d3-0215-45af-87dc-538868000092"
+    },
+    "download": {
+        "prompt_for_download": false
+    },
+    "homepage": "https://cloud.technat.ch/",
+    "homepage_is_newtabpage": true,
+    "profile": {
+        "name": "Technat",
+        "password_manager_enabled": false
+    }
+}
