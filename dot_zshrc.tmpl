@@ -10,5 +10,8 @@ plugins=(git sudo helm kubectl cp extract terraform aws docker kubectx l8s)
 {{- end }}
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
-prompt_context () { } # redefine prompt_context for hiding user@hostname
+prompt_context() {
+  hostname=$(hostname)
+  prompt_segment black default "$hostname "
+}
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
