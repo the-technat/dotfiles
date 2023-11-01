@@ -14,9 +14,12 @@ Maybe one day in the future I'll add support for Arch Linux or extend the stuff 
 
 As much as possible is installed using scripts in the `.chezmoiscripts` dir.
 
-### Scripts
-
-Scripts that install tools must be:
+Scripts that install tools are:
 - as platform agnostic as possible (e.g use binaries/curl if possible)
 - install pinned versions or only run once and then track lifecycle through package managers
 - differentiate between the shell environment and the desktop env -> it must be possible to install all the tooling on a remote server as well
+
+## To Do
+
+- Add Gnome online accounts, mail accounts, AWS credentials and much more using a bitwarden integration
+- Manage VSCode settings (not using settings sync)
