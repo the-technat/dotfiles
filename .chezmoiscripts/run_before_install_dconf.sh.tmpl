@@ -1,9 +1,7 @@
 #!/bin/sh
+# on gnome-shells you can configure many things using dconf
+# known gnome-shell distros can thus be easily configured by once reading a saved dconf file
 
-# only import configs if in a gnome-shell
-if type "gnome-shell" > /dev/null; then
-  # Export current config
-  # dconf dump / 
-  # Import current configs
-  dconf load / < {{ .chezmoi.workingTree }}/dconf.conf 
-fi
+{{- if (eq .osid "linux-pop") }}
+dconf load / < {{ .chezmoi.workingTree }}/dconf-pop.conf 
+{{- end }}
