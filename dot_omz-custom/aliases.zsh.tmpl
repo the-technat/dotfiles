@@ -58,7 +58,7 @@ function allns {
 }
 
 ##################
-# PGP
+# Security
 ##################
 encrypt () {
   output="${1}".$(date +%s).enc
@@ -72,4 +72,10 @@ encrypt () {
 decrypt () {
         output=$(echo "${1}" | rev | cut -c16- | rev)
         gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
+}
+akeyless_token() {
+	# Fetches the current vault token for akeyless
+  VAULT_TOKEN=$(akeyless auth --access-type=oidc --oidc-sp=github --json true | jq '.token' | tr -d "\"" )
+  export VAULT_TOKEN
+  echo "Akeyless Token saved into variable VAULT_TOKEN"
 }
