@@ -4,7 +4,7 @@
 
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 
-sudo apt install python3 python3-pip
+sudo apt install python3 python3-pip -y > /dev/null
 
 {{ else }}
 
