@@ -11,9 +11,7 @@ Host i-* mi-*
   ServerAliveInterval 120
 
 Host *
+  User technat
   {{- if .use_yubikey }}
   IdentityFile ~/.ssh/id_yubikey
   {{- end }}
-  {{- if .is_termux }}
-  User technat
-  {{- end -}}
