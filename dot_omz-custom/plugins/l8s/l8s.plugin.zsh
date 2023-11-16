@@ -159,7 +159,8 @@ EOF
       sleep 2
       pod=$(kubectl get pods -l "app=operator" -n tailscale -o=jsonpath='{.items[0].metadata.name}')
       kubectl wait -n tailscale --timeout=600s --for=condition=Ready pod/$pod > /dev/null 
-      dnsSuffix=$(tailscale status -json | jq '.MagicDNSSuffix' | tr -d "\"")
+      echo "Please enter the Magic DNS domain for your tailnet:"
+      read dnsSuffix
       echo "Successfully installed Tailscale onto your cluster"
       echo "Traefik is now reachable on https://$name.$dnsSuffix, use subPaths to expose services"
       ;;
@@ -174,7 +175,8 @@ EOF
       echo "Do you want Argo CD to be exposed using tailscale or traefik?"
       read expose
       if [[ $expose == "tailscale" ]]; then
-        dnsSuffix=$(tailscale status -json | jq '.MagicDNSSuffix' | tr -d "\"")
+        echo "Please enter the Magic DNS domain for your tailnet:"
+        read dnsSuffix
       else
         dnsSuffix="local"
       fi
@@ -208,7 +210,8 @@ EOF
       echo "Do you want Dex to be exposed using tailscale or traefik?"
       read expose
       if [[ $expose == "tailscale" ]]; then
-        dnsSuffix=$(tailscale status -json | jq '.MagicDNSSuffix' | tr -d "\"")
+        echo "Please enter the Magic DNS domain for your tailnet:"
+        read dnsSuffix
       else
         dnsSuffix="local"
       fi
