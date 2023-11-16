@@ -155,7 +155,7 @@ metadata:
     tailscale.com/expose: "true"
     tailscale.com/funnel: "true"
     tailscale.com/host: "{{ .name }}"
-    tailscale.com/tags: "tag:k8s,tag:funnel"
+    tailscale.com/tags: "tag:k8s,tag:feature-funnel"
   labels:
     app.kubernetes.io/instance: traefik-kube-system
     app.kubernetes.io/name: traefik
