@@ -7,6 +7,7 @@ K9S_VERSION=v0.27.4 # see https://github.com/derailed/k9s/releases
 KIND_VERSION=v0.20.0 # see https://github.com/kubernetes-sigs/kind/releases
 K3D_VERSION=v5.6.0 # see https://github.com/k3d-io/k3d/releases
 K3SUP_VERSION=0.13.3 # see https://github.com/alexellis/k3sup/releases
+STERN_VERSION=1.27.0 # see https://github.com/stern/stern/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
@@ -39,5 +40,11 @@ curl -fsSL -o /tmp/k3sup https://github.com/alexellis/k3sup/releases/download/$K
 {{- end }}
 sudo install -o root -g root -m 0555 /tmp/k3sup /usr/local/bin/k3sup
 sudo rm /tmp/k3sup
+
+## stern
+curl -sSL -o /tmp/stern-$OS-$ARCH.tar.gz -L https://github.com/stern/stern/releases/download/v"$STERN_VERSION"/stern_"$STERN_VERSION"_"$OS"_$ARCH.tar.gz
+tar -zxf /tmp/stern-$OS-$ARCH.tar.gz -C /tmp
+sudo install -o root -g root -m 0555 /tmp/stern /usr/local/bin/stern
+sudo rm /tmp/LICENSE /tmp/stern-$OS-$ARCH.tar.gz
 
 {{ end -}}
