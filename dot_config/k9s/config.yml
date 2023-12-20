@@ -1,0 +1,7 @@
+k9s:
+  refreshRate: 2
+  enableMouse: true
+  headless: true
+  crumbsless: true
+  readOnly: true
+  keepMissingClusters: true
