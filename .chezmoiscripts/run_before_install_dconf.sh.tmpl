@@ -1,7 +1,0 @@
-#!/bin/sh
-# on gnome-shells you can configure many things using dconf
-# known gnome-shell distros can thus be easily configured by once reading a saved dconf file
-
-{{- if (eq .osid "linux-pop") }}
-dconf load / < {{ .chezmoi.workingTree }}/dconf-pop.conf 
-{{- end }}

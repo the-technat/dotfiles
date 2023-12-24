@@ -1,13 +1,7 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
-	signingkey = {{ .signingkey }}
 [pull]
 	rebase = true
 [credential]
 	helper = store
-{{- if .use_yubikey }}
-[commit]
-	gpgsign = true
-{{- end }}
-

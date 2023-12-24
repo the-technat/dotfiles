@@ -1,7 +1,3 @@
-Host infomaniak
-  HostName gr1z6.ftp.infomaniak.com
-  User gr1z6_technat
-
 Host github.com 
   User git
 
@@ -12,6 +8,3 @@ Host i-* mi-*
 
 Host *
   User technat
-  {{- if .use_yubikey }}
-  IdentityFile ~/.ssh/id_yubikey
-  {{- end }}
