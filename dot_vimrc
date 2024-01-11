@@ -20,6 +20,8 @@ set wildmenu
 set background=light
 set termguicolors
 syntax enable
+set background=dark
+colorscheme solarized
 
 " Search
 set hlsearch
