@@ -11,3 +11,6 @@ prompt_context() {
   prompt_segment black default "$hostname "
 }
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
+
+## completions (must be in here somehow)
+source <(stern --completion=zsh)
