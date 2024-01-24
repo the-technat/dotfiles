@@ -55,6 +55,9 @@ function allns {
     fi
   done
 }
+startSSMSession () {
+        aws ssm start-session --target $1
+}
 
 ##################
 # Security
