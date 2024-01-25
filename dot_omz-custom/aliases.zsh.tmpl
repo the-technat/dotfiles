@@ -39,6 +39,7 @@ alias paste="kitty +kitten clipboard --get-clipboard"
 function pruned {
   docker system prune -a --volumes
 }
+alias dip="docker inspect -f '\{\{range .NetworkSettings.Networks\}\}\{\{.IPAddress\}\}\{\{end\}\}'"
 alias kcn="kubens"
 alias kcuc="kubectx"
 alias kak="kubectl apply -k"
