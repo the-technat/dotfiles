@@ -2,12 +2,14 @@
 
 {{ if not .is_termux -}}
 
-{{ if stdinIsATTY -}}
-shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
-if [ $shell != $(which zsh) ]
+if [ -t 0 ] && [ -t 1 ]
 then
-chsh -s $(which zsh) {{ .username }}
+  shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
+  if [ $shell != $(which zsh) ]
+  then
+    chsh -s $(which zsh) {{ .username }}
+  fi
 fi
-{{ end -}}
+
 
 {{ end -}}
