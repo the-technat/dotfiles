@@ -46,6 +46,10 @@ alias kak="kubectl apply -k"
 alias kaf="kubectl apply -f"
 alias kk="kubectl --kubeconfig ~/.kube/second"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
+podCountPerNode () {
+        kubectl get pods -A -o json | jq -rs 'map({Node: .items[].spec.nodeName}) | group_by(.Node) | map({Node: .[0].Node, Pods: length}) ' | jq -r '"Node\t\t\t\t\t\tPods","----------------------------------------------\t----",( .[] | "\(.Node)\t\(.Pods
+)")'
+}
 function allns {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
