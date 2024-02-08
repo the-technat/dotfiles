@@ -3,7 +3,7 @@
 {{ if not .is_termux -}}
 
 # no need to do this on a codespace, vscode opens always a zsh due to my settings
-{{ if not $codespaces:= env "CODESPACES" | not | not -}} 
+{{ if not env "CODESPACES" | not | not -}} 
 if [ -t 0 ] && [ -t 1 ]
 then
   shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
