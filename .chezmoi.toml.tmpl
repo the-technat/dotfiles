@@ -44,7 +44,7 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   name = {{ $name | quote }}
   is_remote = {{ $is_remote }}
   is_termux = {{ $is_termux }}
-  bindir = /home/{{ .username }}/.local/bin
+  bindir = "/home/{{ .username }}/.local/bin"
 
 [git]
   autoCommit = true
