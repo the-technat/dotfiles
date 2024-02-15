@@ -9,12 +9,12 @@ OS={{ .chezmoi.os }}
 
 ## Cilium
 curl -sL --remote-name-all https://github.com/cilium/cilium-cli/releases/download/${CILIUM_CLI_VERSION}/cilium-${OS}-${ARCH}.tar.gz -o /tmp/cilium-$OS-$ARCH.tar.gz
-sudo tar -C /usr/local/bin -xzf /tmp/cilium-${OS}-${ARCH}.tar.gz
+tar -C {{ .bindir }} -xzf /tmp/cilium-${OS}-${ARCH}.tar.gz
 rm /tmp/cilium-${OS}-${ARCH}.tar.gz
 
 ## Hubble
 curl -sL --remote-name-all https://github.com/cilium/hubble/releases/download/${HUBBLE_CLI_VERSION}/hubble-${OS}-${ARCH}.tar.gz -o /tmp/hubble-$OS-$ARCH.tar.gz
-sudo tar -C /usr/local/bin -xzf /tmp/hubble-${OS}-${ARCH}.tar.gz
+tar -C {{ .bindir }} -xzf /tmp/hubble-${OS}-${ARCH}.tar.gz
 rm /tmp/hubble-${OS}-${ARCH}.tar.gz
 
 {{ end -}}

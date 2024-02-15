@@ -16,8 +16,8 @@ OS="Linux"
 
 curl -sSL -o /tmp/fly-$OS-$ARCH.tar.gz https://github.com/superfly/flyctl/releases/download/v$VERSION/flyctl_"$VERSION"_"$OS"_"$ARCH".tar.gz
 tar -zxf /tmp/fly-$OS-$ARCH.tar.gz -C /tmp
-sudo install -m 555 /tmp/flyctl /usr/local/bin/flyctl
-sudo ln -sf /usr/local/bin/flyctl /usr/local/bin/fly
+install -m 555 /tmp/flyctl {{ .bindir }}/flyctl
+ln -sf {{ .bindir }}/flyctl {{ .bindir }}/fly
 rm /tmp/flyctl
 rm /tmp/fly-$OS-$ARCH.tar.gz
 

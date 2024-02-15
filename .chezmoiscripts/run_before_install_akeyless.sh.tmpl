@@ -5,12 +5,12 @@
 
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
-binaryPath="/usr/local/bin/akeyless"
+binaryPath="{{ .bindir }}/akeyless"
 
 inPlaceUpdate() {
 	curl -sSL -o /tmp/akeyless-$OS-$ARCH https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-$OS-$ARCH > /dev/null
-	sudo install -o root -g root -m 0555 /tmp/akeyless-$OS-$ARCH $binaryPath >/dev/null
-	sudo rm /tmp/akeyless-$OS-$ARCH > /dev/null
+	install -m 0555 /tmp/akeyless-$OS-$ARCH $binaryPath >/dev/null
+	rm /tmp/akeyless-$OS-$ARCH > /dev/null
 }
 
 if ! type "akeyless" > /dev/null; then

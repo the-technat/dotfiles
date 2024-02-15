@@ -9,8 +9,8 @@ git clone --quiet https://github.com/ahmetb/kubectx.git --single-branch --branch
 git config --global advice.detachedHead true
 
 # install scripts
-sudo install -o root -g root -m 0555 /tmp/kubectx/kubectx /usr/local/bin/kubectx
-sudo install -o root -g root -m 0555 /tmp/kubectx/kubens /usr/local/bin/kubens
+install  -m 0555 /tmp/kubectx/kubectx {{ .bindir }}/kubectx
+install  -m 0555 /tmp/kubectx/kubens {{ .bindir }}/kubens
 
 # install completions
 if [ ! -d $HOME/.oh-my-zsh/cache/completions ]

@@ -8,12 +8,12 @@
   DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
 
   ## Install (general)
-  DEBIAN_FRONTEND=noninteractive sudo apt install tmux vim zsh git gpg gnupg2 lsb-release unzip yamllint jq fzf -y  > /dev/null
+  DEBIAN_FRONTEND=noninteractive sudo apt install vim zsh git lsb-release unzip yamllint fzf -y  > /dev/null
 
 {{- else if eq .osid "linux-amzn" }}
 
   sudo yum update > /dev/null
-  sudo yum install -y zsh jq tmux vim git gpg gnupg2 unzip fzf > /dev/null
+  sudo yum install -y zsh vim git unzip fzf > /dev/null
 
 {{ else }}
 

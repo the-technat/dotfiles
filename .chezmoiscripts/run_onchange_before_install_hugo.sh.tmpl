@@ -7,9 +7,9 @@ ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
 curl -sSL -o /tmp/hugo_extended_$OS-$ARCH.tar.gz https://github.com/gohugoio/hugo/releases/download/v"$VERSION"/hugo_extended_"$VERSION"_"$OS"-"$ARCH".tar.gz
-sudo tar -C /tmp -xzf /tmp/hugo_extended_${OS}-${ARCH}.tar.gz
-sudo install -m 555 /tmp/hugo /usr/local/bin/hugo
-sudo rm -rf /tmp/hugo-$OS-$ARCH.tar.gz
-sudo rm -rf /tmp/LICENSE /tmp/README.md
+tar -C /tmp -xzf /tmp/hugo_extended_${OS}-${ARCH}.tar.gz
+install -m 555 /tmp/hugo {{ .bindir }}/hugo
+rm -rf /tmp/hugo-$OS-$ARCH.tar.gz
+rm -rf /tmp/LICENSE /tmp/README.md
 
 {{ end -}}

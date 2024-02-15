@@ -8,7 +8,7 @@ OS={{ .chezmoi.os }}
 
 curl -sSL -o /tmp/helm-$OS-$ARCH.tar.gz https://get.helm.sh/helm-$VERSION-$OS-$ARCH.tar.gz 
 tar -zxf /tmp/helm-$OS-$ARCH.tar.gz -C /tmp
-sudo install -m 555 /tmp/$OS-$ARCH/helm /usr/local/bin/helm
+install -m 555 /tmp/$OS-$ARCH/helm {{ .bindir }}/helm
 rm /tmp/$OS-$ARCH -rf
 
 # completion done by oh-my-zsh plugin

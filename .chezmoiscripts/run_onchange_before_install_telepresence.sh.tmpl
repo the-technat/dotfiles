@@ -8,7 +8,7 @@ ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
 curl -sSL -o /tmp/telepresence-$OS-$ARCH https://github.com/telepresenceio/telepresence/releases/download/$VERSION/telepresence-$OS-$ARCH
-sudo install -m 555 /tmp/telepresence-$OS-$ARCH /usr/local/bin/telepresence
+install -m 555 /tmp/telepresence-$OS-$ARCH {{ .bindir }}/telepresence
 rm /tmp/telepresence-$OS-$ARCH
 
 {{ end -}}

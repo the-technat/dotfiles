@@ -2,17 +2,17 @@
 
 {{ if not .is_termux -}}
 
-VERSION=1.21.3 # see https://go.dev/dl/
+VERSION=1.22.0 # see https://go.dev/dl/
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
-if [ -d "/usr/local/go" ]
+if [ -d "{{ .bindir }}/go" ]
 then
- sudo rm -rf /usr/local/go
+rm -rf {{ .bindir }}/go
 fi
 
 curl -sSL -o /tmp/go.tar.gz https://go.dev/dl/go$VERSION.$OS-$ARCH.tar.gz
-sudo tar -C /usr/local -xzf /tmp/go.tar.gz
+sudo tar -C {{ .bindir }} -xzf /tmp/go.tar.gz
 rm -rf /tmp/go.tar.gz
 
 {{ end -}}

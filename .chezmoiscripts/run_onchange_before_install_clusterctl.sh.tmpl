@@ -7,7 +7,7 @@ ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
 curl -sSL https://github.com/kubernetes-sigs/cluster-api/releases/download/$VERSION/clusterctl-$OS-$ARCH -o /tmp/clusterctl-$OS-$ARCH
-sudo install -m 555 /tmp/clusterctl-$OS-$ARCH /usr/local/bin/clusterctl
+install -m 555 /tmp/clusterctl-$OS-$ARCH {{ .bindir }}/clusterctl
 rm /tmp/clusterctl-$OS-$ARCH -rf
 
 {{ end -}}

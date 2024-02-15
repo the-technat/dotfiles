@@ -1,4 +1,4 @@
-GOROOT="/usr/local/go"
-GOPATH="/home/{{ .username }}/go"
+GOROOT="{{ .bindir }}/go"
+GOPATH="{{ .bindir }}/go"
 GOBIN=$GOPATH/bin
-PATH=$PATH:$GOBIN:$GOROOT/bin
+PATH=$GOBIN:$GOROOT/bin:$PATH

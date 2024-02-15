@@ -37,7 +37,7 @@ cleanupInstallation() {
 if ! type "aws" > /dev/null; then
   checkDeps
   loadInstaller
-  sudo /tmp/aws/install > /dev/null
+  /tmp/aws/install --bin-dir {{ .bindir}} --install-dir {{ .bindir }}/aws-cli -> /dev/null
   cleanupInstallation
 else
   checkDeps
@@ -47,7 +47,7 @@ else
 	then
 		echo "AWS cli wasn't updated for 30 days, doing update..."
     loadInstaller
-		sudo /tmp/aws/install --update > /dev/null
+		/tmp/aws/install --update --bin-dir {{ .bindir}} --install-dir {{ .bindir }}/aws-cli > /dev/null
     cleanupInstallation
   fi
 fi

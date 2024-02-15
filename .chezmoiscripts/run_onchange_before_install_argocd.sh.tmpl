@@ -7,7 +7,7 @@ ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
 curl -sSL -o /tmp/argocd-$OS-$ARCH https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-$OS-$ARCH
-sudo install -m 555 /tmp/argocd-$OS-$ARCH /usr/local/bin/argocd
+install -m 555 /tmp/argocd-$OS-$ARCH {{ .bindir }}/argocd
 rm /tmp/argocd-$OS-$ARCH
 
 {{ end -}}
