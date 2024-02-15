@@ -1,0 +1,13 @@
+#!/bin/sh
+  
+{{ if not .is_termux -}}
+
+VERSION=v1.63.3 # see https://github.com/fortio/fortio/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -fsSL -o /tmp/fortio.deb https://github.com/fortio/fortio/releases/download/v$VERSION/fortio_"$VERSION"_"$ARCH".deb
+sudo apt install /tmp/fortio.deb
+rm /tmp/fortio.deb
+
+{{ end -}}
