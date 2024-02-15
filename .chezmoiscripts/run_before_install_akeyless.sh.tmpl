@@ -5,20 +5,21 @@
 
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
-binaryPath="{{ .bindir }}/akeyless"
 
 inPlaceUpdate() {
 	curl -sSL -o /tmp/akeyless-$OS-$ARCH https://akeyless-cli.s3.us-east-2.amazonaws.com/cli/latest/production/cli-$OS-$ARCH > /dev/null
-	install -m 0555 /tmp/akeyless-$OS-$ARCH $binaryPath >/dev/null
+	install -m 0555 /tmp/akeyless-$OS-$ARCH {{ .bindir }}/akeyless >/dev/null
 	rm /tmp/akeyless-$OS-$ARCH > /dev/null
 }
 
-if ! type "akeyless" > /dev/null; then
+if [ ! -d "{{ .bindir }}/akeyless" ];
+then
   inPlaceUpdate
 fi
 
-if [ $(date +%s -r $binaryPath) -lt $(date +%s --date="30 days ago") ]; then
-	echo "akeyless cli wasn't updated for 30 days, doing update..."
+if [ $(date +%s -r "{{ .bindir }}/akeyless") -lt $(date +%s --date="30 days ago") ]; 
+then
+  echo "akeyless cli wasn't updated for 30 days, doing update..."
   inPlaceUpdate
 fi
 
