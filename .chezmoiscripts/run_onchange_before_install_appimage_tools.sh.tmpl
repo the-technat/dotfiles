@@ -13,6 +13,9 @@
   curl -fsSL -o {{ .bindir }}/standard-notes.AppImage https://github.com/standardnotes/app/releases/download/%40standardnotes/desktop%403.191.18/standard-notes-3.191.18-linux-x86_64.AppImage
   chmod +x {{ .bindir }}/standard-notes.AppImage
 
+  # Bitwarden
+  curl -fsSL -o {{ .bindir }}/bitwarden.AppImage "https://vault.bitwarden.com/download/?app=desktop&platform=linux"
+  chmod +x {{ .bindir }}/bitwarden.AppImage
 
 {{- end }}
 
