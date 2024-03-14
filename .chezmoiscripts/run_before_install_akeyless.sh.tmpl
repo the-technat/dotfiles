@@ -12,7 +12,7 @@ inPlaceUpdate() {
 	rm /tmp/akeyless-$OS-$ARCH > /dev/null
 }
 
-if [ ! -d "{{ .bindir }}/akeyless" ];
+if ! [ -d "{{ .bindir }}/akeyless" ];
 then
   inPlaceUpdate
 fi
