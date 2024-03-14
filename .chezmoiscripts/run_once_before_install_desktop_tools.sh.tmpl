@@ -8,17 +8,17 @@
 {{- if (or (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
 
   ## GPG keys
-  curl -fsSL https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg > /dev/null # Spotify
-  curl -fsSL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null # Signal
-  curl -fsSL https://download.opensuse.org/repositories/home:ungoogled_chromium/Ubuntu_Jammy/Release.key | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/home_ungoogled_chromium.gpg > /dev/null # ungoogled-chromium
+  curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg # Spotify
+  curl -fssL https://updates.signal.org/desktop/apt/keys.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/signal-desktop-keyring.gpg # Signal
+  curl -fsSL https://download.opensuse.org/repositories/home:ungoogled_chromium/Ubuntu_Jammy/Release.key | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/home_ungoogled_chromium.gpg  # ungoogled-chromium
 
   ## APT repos
-  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list > /dev/null # Spotify
-  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee /etc/apt/sources.list.d/signal-xenial.list > /dev/null # Signal
+  echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list # Spotify
+  echo 'deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee /etc/apt/sources.list.d/signal-xenial.list # Signal
   echo 'deb http://download.opensuse.org/repositories/home:/ungoogled_chromium/Ubuntu_Jammy/ /' | sudo tee /etc/apt/sources.list.d/home:ungoogled_chromium.list > /dev/null # ungoogled chromium  
 
   ## Update sources
-  DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
+  DEBIAN_FRONTEND=noninteractive sudo apt update 
 
   ## Install (desktop)
   DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
@@ -26,7 +26,7 @@
   telegram-desktop diodon caffeine ykman \
   yubioath-desktop discord nextcloud-desktop \
   audacity spotify-client handbrake kitty signal-desktop \
-  -y > /dev/null
+  -y 
 
   # Set default terminal for gnome-shell
   kitty=$(which kitty)
