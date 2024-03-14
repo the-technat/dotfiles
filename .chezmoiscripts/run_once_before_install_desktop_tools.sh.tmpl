@@ -22,7 +22,7 @@
 
   ## Install (desktop)
   DEBIAN_FRONTEND=noninteractive sudo apt install flameshot \
-  firefox code slack-desktop  ungoogled-chromium \
+  firefox code slack-desktop ungoogled-chromium fuse2fs \
   telegram-desktop diodon caffeine yubikey-manager \
   yubioath-desktop discord nextcloud-desktop \
   audacity spotify-client handbrake kitty signal-desktop \
@@ -32,17 +32,10 @@
   curl -fsSL -o /tmp/telegram.tar.xz https://telegram.org/dl/desktop/linux
   tar -C /tmp -xf /tmp/telegram.tar.xz
   install -m 555 /tmp/Telegram/Telegram {{ .bindir }}/Telegram
-  cat <<EOF | tee $HOME/.local/share/applications/telegram.desktop
-    [Desktop Entry]
-    Name=Telegram
-    GenericName=File Synchronizer
-    Exec="{{ .bindir }}/Telegram"
-    Terminal=false
-    Icon=telegram
-    Categories=Network
-    Type=Application
-    StartupNotify=false
-  EOF
+  rm -rf /tmp/Telegram /tmp/telegram.tar.xz
+
+  # Install kDrive
+  curl -fsSL -o {{ .bindir }}/kdrive.AppImage https://download.storage.infomaniak.com/drive/desktopclient/kDrive-3.5.8.20240227-amd64.AppImage
 
   # Set default terminal for gnome-shell
   kitty=$(which kitty)
