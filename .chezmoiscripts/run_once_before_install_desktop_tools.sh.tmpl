@@ -28,14 +28,9 @@
   audacity spotify-client handbrake kitty signal-desktop \
   -y 
 
-  # Install Telegram Desktop
-  curl -fsSL -o /tmp/telegram.tar.xz https://telegram.org/dl/desktop/linux
-  tar -C /tmp -xf /tmp/telegram.tar.xz
-  install -m 555 /tmp/Telegram/Telegram {{ .bindir }}/Telegram
-  rm -rf /tmp/Telegram /tmp/telegram.tar.xz
-
   # Install kDrive
   curl -fsSL -o {{ .bindir }}/kdrive.AppImage https://download.storage.infomaniak.com/drive/desktopclient/kDrive-3.5.8.20240227-amd64.AppImage
+  chmod +x {{ .bindir }}/kdrive.AppImage
 
   # Set default terminal for gnome-shell
   kitty=$(which kitty)
