@@ -4,6 +4,6 @@
 
 VERSION=v1.63.3 # see https://github.com/fortio/fortio/releases
 
-go install fortio.org/fortio@"$VERSION"
+{{ .bindir }}/go/bin/go install fortio.org/fortio@"$VERSION"
 
 {{ end -}}
