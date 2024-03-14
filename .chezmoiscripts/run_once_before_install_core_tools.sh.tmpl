@@ -3,7 +3,7 @@
 
 {{ if not .is_termux -}}
 
-{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+{{- if (or (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
   ## Update
   DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
 

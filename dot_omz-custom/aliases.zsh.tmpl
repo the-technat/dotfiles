@@ -24,7 +24,7 @@ alias -g gss="git status -s"
 ##################
 # Kitty related
 ##################
-{{- if not .is_remote }}
+{{- if .is_desktop }}
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 alias hg="kitty +kitten hyperlinked_grep"
@@ -75,19 +75,6 @@ startSSMSession () {
 ##################
 # Security
 ##################
-encrypt () {
-  output="${1}".$(date +%s).enc
-  gpg --encrypt --armor \
-    --output ${output} \
-    -r 0x22391B207DAD6969 \
-    -r technat@technat.ch \
-    "${1}" && echo "${1} -> ${output}"
-}
-
-decrypt () {
-        output=$(echo "${1}" | rev | cut -c16- | rev)
-        gpg --decrypt --output ${output} "${1}" && echo "${1} -> ${output}"
-}
 akeyless_token() {
 	# Fetches the current vault token for akeyless
   VAULT_TOKEN=$(akeyless auth --access-type=oidc --oidc-sp=github --json true | jq '.token' | tr -d "\"" )
