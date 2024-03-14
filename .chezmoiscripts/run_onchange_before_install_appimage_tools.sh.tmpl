@@ -1,0 +1,19 @@
+#!/bin/sh
+
+{{- if .is_desktop }}
+
+# OS Selector
+{{- if (or (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
+
+  # Install kDrive
+  curl -fsSL -o {{ .bindir }}/kdrive.AppImage https://download.storage.infomaniak.com/drive/desktopclient/kDrive-3.5.8.20240227-amd64.AppImage
+  chmod +x {{ .bindir }}/kdrive.AppImage
+
+  # Standard Notes
+  curl -fsSL -o {{ .bindir }}/standard-notes.AppImage https://github.com/standardnotes/app/releases/download/%40standardnotes/desktop%403.191.18/standard-notes-3.191.18-linux-x86_64.AppImage
+  chmod +x {{ .bindir }}/standard-notes.AppImage
+
+
+{{- end }}
+
+{{- end }}

@@ -28,10 +28,6 @@
   audacity spotify-client handbrake kitty signal-desktop \
   -y 
 
-  # Install kDrive
-  curl -fsSL -o {{ .bindir }}/kdrive.AppImage https://download.storage.infomaniak.com/drive/desktopclient/kDrive-3.5.8.20240227-amd64.AppImage
-  chmod +x {{ .bindir }}/kdrive.AppImage
-
   # Set default terminal for gnome-shell
   kitty=$(which kitty)
   sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $kitty 1
