@@ -5,3 +5,10 @@
 	rebase = true
 [credential]
 	helper = store
+[init]
+  defaultBranch = develop
+# check full path for gh binary!
+[credential "https://github.com"]
+        helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+        helper = !gh auth git-credential
