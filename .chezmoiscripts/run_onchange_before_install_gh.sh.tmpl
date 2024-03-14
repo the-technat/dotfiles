@@ -1,0 +1,10 @@
+#!/bin/sh
+
+VERSION=2.45.0 # see https://github.com/cli/cli/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+curl -sSL -o /tmp/gh-$OS-$ARCH.tar.gz https://github.com/cli/cli/releases/download/v$VERSION/gh_"$VERSION"_"$OS"_"$ARCH".tar.gz
+tar -C /tmp -xzf /tmp/gh-$OS-$ARCH.tar.gz
+install -m 555 /tmp/gh_"$VERSION"_"$OS"_"$ARCH"/bin/gh {{ .bindir }}/gh
+rm -rf /tmp/gh-$OS-$ARCH.tar.gz /tmp/gh_"$VERSION"_"$OS"_"$ARCH"
