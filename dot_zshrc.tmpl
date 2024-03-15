@@ -6,10 +6,6 @@ ZSH_CUSTOM=~/.omz-custom
 plugins=(git sudo helm kubectl cp extract terraform aws docker kubectx l8s)
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
-prompt_context() {
-  hostname=$(hostname)
-  prompt_segment black default "$hostname "
-}
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
 
 ## completions (must be in here somehow)
