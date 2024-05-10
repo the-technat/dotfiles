@@ -1,7 +1,13 @@
 k9s:
+  liveViewAutoRefresh: true
   refreshRate: 2
-  enableMouse: true
-  headless: true
-  crumbsless: true
-  readOnly: true
-  keepMissingClusters: true
+  ui:
+    headless: true
+    logoless: true
+    crumbless: true
+    skin: solarized-light
+    enableMouse: true
+  logger:
+    textWrap: true
+    showTime: true
+    buffer: 99999
