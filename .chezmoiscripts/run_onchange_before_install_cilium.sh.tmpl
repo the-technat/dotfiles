@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 HUBBLE_CLI_VERSION=v0.12.2 # see https://raw.githubusercontent.com/cilium/hubble/master/stable.txt
 CILIUM_CLI_VERSION=v0.15.11 # see https://raw.githubusercontent.com/cilium/cilium-cli/main/stable.txt
 ARCH={{ .chezmoi.arch }}
@@ -16,5 +14,3 @@ rm /tmp/cilium-${OS}-${ARCH}.tar.gz
 curl -sL --remote-name-all https://github.com/cilium/hubble/releases/download/${HUBBLE_CLI_VERSION}/hubble-${OS}-${ARCH}.tar.gz -o /tmp/hubble-$OS-$ARCH.tar.gz
 tar -C {{ .bindir }} -xzf /tmp/hubble-${OS}-${ARCH}.tar.gz
 rm /tmp/hubble-${OS}-${ARCH}.tar.gz
-
-{{ end -}}

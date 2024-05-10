@@ -1,8 +1,5 @@
 #!/bin/sh
 
-
-{{ if not .is_termux -}}
-
 VERSION=v4.35.2 # see https://github.com/mikefarah/yq/releases
 JQ_VERSION=1.7.1 # see https://github.com/jqlang/jq/releases/tag/jq-1.7.1
 ARCH={{ .chezmoi.arch }}
@@ -15,5 +12,3 @@ rm /tmp/yq-$OS-$ARCH
 curl -fsSL -o /tmp/jq-$OS-$ARCH https://github.com/jqlang/jq/releases/download/jq-$JQ_VERSION/jq-linux-amd64
 install -m 555 /tmp/jq-$OS-$ARCH {{ .bindir }}/jq
 rm /tmp/jq-$OS-$ARCH
-
-{{ end -}}

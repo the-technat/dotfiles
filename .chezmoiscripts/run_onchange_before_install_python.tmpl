@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 VERSION=3.11.8 # see https://www.python.org/downloads/source/
 MINOR_VERSION=3.11
 ## Please note: this script will reinstall python every time it runs!
@@ -41,5 +39,3 @@ ln -s python"$MINOR_VERSION" python
 ln -s python"$MINOR_VERSION" python3
 ln -s pip"$MINOR_VERSION" pip
 ln -s pip"$MINOR_VERSION" pip3
-
-{{ end -}}

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 VERSION=v0.5.2 # see https://github.com/cbednarski/hostess/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -9,5 +7,3 @@ OS={{ .chezmoi.os }}
 curl -sSL -o /tmp/hostess-$OS-$ARCH https://github.com/cbednarski/hostess/releases/download/$VERSION/hostess_"$OS"_"$ARCH"
 install -m 555 /tmp/hostess-$OS-$ARCH {{ .bindir }}/hostess
 rm /tmp/hostess-$OS-$ARCH
-
-{{ end -}}

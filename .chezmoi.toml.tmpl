@@ -3,24 +3,12 @@
 {{ $name := "Nathanael Liechti" -}}
 {{ $username := "technat" -}}
 {{ $is_desktop := false -}} 
-{{ $is_termux := false -}}
 
 # try to fetch the username from LOGNAME or USER
 {{ if not (eq (env "USER") "") -}}
 {{ $username = env "USER" -}}
 {{ else if not (eq (env "LOGNAME") "") -}}
 {{ $username = env "LOGNAME" -}}
-{{ end -}}
-
-# If we are running in a codespace, the username is always codespace
-{{ if env "CODESPACES" | not | not -}}
-{{   $username = "codespace" -}}
-{{ end -}}
-
-# On termux we skip most of the files and folders
-{{ if not (eq (env "TERMUX_VERSION") "") -}}
-{{ $is_termux = true -}}
-{{ $is_desktop = false -}}
 {{ end -}}
 
 # If TTY we can ask for overrides
@@ -43,7 +31,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   username = {{ $username | quote }}
   name = {{ $name | quote }}
   is_desktop = {{ $is_desktop }}
-  is_termux = {{ $is_termux }}
   bindir = "/home/{{ $username }}/.local/bin"
 
 [git]

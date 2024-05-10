@@ -1,8 +1,6 @@
 #!/bin/sh
 
 
-{{ if not .is_termux -}}
-
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
@@ -22,6 +20,3 @@ then
   echo "akeyless cli wasn't updated for 30 days, doing update..."
   inPlaceUpdate
 fi
-
-{{ end -}}
-

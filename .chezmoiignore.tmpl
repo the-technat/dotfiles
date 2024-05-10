@@ -1,15 +1,5 @@
-{{ if not .is_termux -}}
 .bashrc
 .config/k9s/config.yml
-{{ end -}}
-{{ if .is_termux -}}
-.aws/
-.oh-my-zsh/
-.omz-custom/
-.gnupg/
-.config/
-.local/
-{{ end -}}
 install.sh
 README.md
 dconf-pop.conf

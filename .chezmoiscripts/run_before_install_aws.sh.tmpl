@@ -1,8 +1,5 @@
 #!/bin/sh
 
-
-{{ if not .is_termux -}}
-
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
@@ -50,5 +47,3 @@ else
     cleanupInstallation
   fi
 fi
-
-{{ end -}}

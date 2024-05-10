@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 VERSION=v3.13.1 # Select desired TAG from https://github.com/helm/helm/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -12,5 +10,3 @@ install -m 555 /tmp/$OS-$ARCH/helm {{ .bindir }}/helm
 rm /tmp/$OS-$ARCH -rf
 
 # completion done by oh-my-zsh plugin
-
-{{ end -}}

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 KUBECTL_VERSION=v1.28.3 # see https://storage.googleapis.com/kubernetes-release/release/stable.txt
 K9S_VERSION=v0.29.1 # see https://github.com/derailed/k9s/releases
 KIND_VERSION=v0.20.0 # see https://github.com/kubernetes-sigs/kind/releases
@@ -46,5 +44,3 @@ curl -sSL -o /tmp/stern-$OS-$ARCH.tar.gz -L https://github.com/stern/stern/relea
 tar -zxf /tmp/stern-$OS-$ARCH.tar.gz -C /tmp
 install -m 0555 /tmp/stern {{ .bindir }}/stern
 rm /tmp/LICENSE /tmp/stern-$OS-$ARCH.tar.gz
-
-{{ end -}}

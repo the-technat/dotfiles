@@ -1,9 +1,5 @@
 #!/bin/sh
   
-{{ if not .is_termux -}}
-
 VERSION=v1.63.3 # see https://github.com/fortio/fortio/releases
 
 {{ .bindir }}/go/bin/go install fortio.org/fortio@"$VERSION"
-
-{{ end -}}

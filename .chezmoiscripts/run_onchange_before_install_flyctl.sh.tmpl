@@ -1,7 +1,5 @@
 #!/bin/sh
   
-{{ if not .is_termux -}}
-
 VERSION=0.1.114 # see https://github.com/superfly/flyctl/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -20,5 +18,3 @@ install -m 555 /tmp/flyctl {{ .bindir }}/flyctl
 ln -sf {{ .bindir }}/flyctl {{ .bindir }}/fly
 rm /tmp/flyctl
 rm /tmp/fly-$OS-$ARCH.tar.gz
-
-{{ end -}}        

@@ -1,6 +1,4 @@
 #!/bin/sh
-  
-{{ if not .is_termux -}}
 
 VERSION=v2.8.5 # see https://github.com/argoproj/argo-cd/releases
 ARCH={{ .chezmoi.arch }}
@@ -9,5 +7,3 @@ OS={{ .chezmoi.os }}
 curl -sSL -o /tmp/argocd-$OS-$ARCH https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocd-$OS-$ARCH
 install -m 555 /tmp/argocd-$OS-$ARCH {{ .bindir }}/argocd
 rm /tmp/argocd-$OS-$ARCH
-
-{{ end -}}

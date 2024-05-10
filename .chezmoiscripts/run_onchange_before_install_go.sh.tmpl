@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 VERSION=1.22.0 # see https://go.dev/dl/
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
@@ -14,5 +12,3 @@ fi
 curl -sSL -o /tmp/go.tar.gz https://go.dev/dl/go$VERSION.$OS-$ARCH.tar.gz
 sudo tar -C {{ .bindir }} -xzf /tmp/go.tar.gz
 rm -rf /tmp/go.tar.gz
-
-{{ end -}}

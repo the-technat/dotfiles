@@ -1,7 +1,5 @@
 #!/bin/sh
 
-{{ if not .is_termux -}}
-
 VERSION=1.2.497.0 # see https://github.com/aws/session-manager-plugin/releases
 
 {{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
@@ -21,5 +19,3 @@ VERSION=1.2.497.0 # see https://github.com/aws/session-manager-plugin/releases
   sudo yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/$VERSION/linux_64bit/session-manager-plugin.rpm > /dev/null
   {{- end }}
 {{- end }}
-
-{{ end -}}

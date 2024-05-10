@@ -1,8 +1,5 @@
 #!/bin/sh
 
-
-{{ if not .is_termux -}}
-
 {{- if (or (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
   ## Update
   DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
@@ -20,5 +17,3 @@
   echo "Unknown OS to install tools"
 
 {{- end }}
-  
-{{ end -}}

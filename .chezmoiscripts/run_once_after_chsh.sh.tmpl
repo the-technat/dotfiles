@@ -2,8 +2,6 @@
 # chaning shell requires your password
 # thus only on interactive sessions
 
-{{ if not .is_termux -}}
-
 # no need to do this on a codespace, vscode opens always a zsh due to my settings
 {{ if ne .username "codespace" }}
 
@@ -11,7 +9,5 @@
   if ! [ -x "$(command -v zsh)" ]; then
     chsh -s $(command -v zsh) {{ .username }}
   fi
-
-{{ end -}}
 
 {{ end -}}

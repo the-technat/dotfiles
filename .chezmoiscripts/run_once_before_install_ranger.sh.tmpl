@@ -1,9 +1,6 @@
 #!/bin/sh
 # Installs https://github.com/ranger/ranger once
 
-
-{{ if not .is_termux -}}
-
 {{- if .is_desktop }}
 
 	{{- if (or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-pop")) }}
@@ -18,5 +15,3 @@
 	{{- end }}
 
 {{- end }}
-
-{{ end -}}
