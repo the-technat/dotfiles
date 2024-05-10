@@ -71,6 +71,21 @@ function allns {
 startSSMSession () {
         aws ssm start-session --target $1
 }
+ssmToInstance () {
+		nodeToExec=$(kubectl get nodes -o=name | sed -e 's/^node\///g' | fzf)
+		id=$(kubectl get node $nodeToExec -o=jsonpath='{.spec.providerID}' | grep -Eo 'i-[a-z0-9]{1,}$')
+		aws $profile ssm start-session --target $id --debug
+}
+nodeCount () {
+        count=$(kubectl get nodes --no-headers | wc -l)
+        cluster=$(kubectl config current-context)
+        echo "$cluster has $count nodes"
+}
+podCount () {
+        count=$(kubectl get pods -A --no-headers | wc -l)
+        cluster=$(kubectl config current-context)
+        echo "$cluster has $count pods"
+}
 
 ##################
 # Security
