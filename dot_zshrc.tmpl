@@ -7,6 +7,8 @@ plugins=(git sudo helm kubectl cp extract terraform aws docker kubectx l8s)
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
+DEFAULT_USER={{ .username }}
+prompt_context(){}
 
 ## completions (must be in here somehow)
 source <(stern --completion=zsh)
