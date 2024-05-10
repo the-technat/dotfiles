@@ -1,3 +1,9 @@
 #!/bin/sh
 
+{{ if (not (eq .username "codespace" )) }}
+# in codespaces we skip self-installed python version
+pip install azure-cli > /dev/null
+{{ else }}
+# use self-compiled python version if installed
 /home/{{ .username }}/.local/bin/python/bin/pip install azure-cli > /dev/null
+{{ end }}
