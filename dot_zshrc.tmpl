@@ -3,7 +3,7 @@ ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_CUSTOM=~/.omz-custom
-plugins=(git sudo helm kubectl cp extract terraform aws docker kubectx l8s)
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx l8s)
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
