@@ -1,5 +1,5 @@
 # don't self-compile python in codespace
 # the preinstalled version should be fine
-{{- if not eq .username "codespace" }}
+{{ if (not (eq .username "codespace")) }}
 PATH={{ .bindir }}/python/bin:$PATH
-{{- end }}
+{{ end }}

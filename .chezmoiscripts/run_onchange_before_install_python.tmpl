@@ -6,7 +6,7 @@ MINOR_VERSION=3.11
 
 # don't self-compile python in codespace
 # the preinstalled version should be fine
-{{- if not eq .username "codespace" }}
+{{ if (not (eq .username "codespace" )) }}
 
   # ensure deps for compiling python
   # see https://devguide.python.org/getting-started/setup-building/index.html#install-dependencies
@@ -44,4 +44,4 @@ MINOR_VERSION=3.11
   ln -s pip"$MINOR_VERSION" pip
   ln -s pip"$MINOR_VERSION" pip3
 
-{{- end }}
+{{ end }}

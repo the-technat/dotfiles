@@ -6,6 +6,6 @@
 [init]
   defaultBranch = develop
 [credential "https://github.com"]
-        helper = {{ .bindir }}/gh auth git-credential
+        helper = !{{ .bindir }}/gh auth git-credential
 [credential "https://gist.github.com"]
-        helper = {{ .bindir }}/gh auth git-credential
+        helper = !{{ .bindir }}/gh auth git-credential
