@@ -86,6 +86,16 @@ podCount () {
         cluster=$(kubectl config current-context)
         echo "$cluster has $count pods"
 }
+nodesInAZ() {
+  NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
+  total_count=0
+  for node in $NODES; do
+      pod_count=$(kubectl get pods -A --field-selector spec.nodeName=$node -o json | \
+                  jq -r '[.items[] | select(.metadata.ownerReferences[0].kind == "ReplicaSet") | .metadata.name]')
+      echo $node
+      echo $pod_count
+  done
+}
 
 ##################
 # Security
