@@ -86,6 +86,12 @@ podCount () {
         cluster=$(kubectl config current-context)
         echo "$cluster has $count pods"
 }
+podCountByNodeLabelSelector() {
+  for node in $(kubectl get nodes -o=jsonpath='{.items[*].metadata.name}'); do
+    count=$(kubectl get pods -A -l $1 --field-selector spec.nodeName=$node --no-headers | wc -l)
+    echo "$node: $count"
+  done
+}
 nodesInAZ() {
   NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
   total_count=0
