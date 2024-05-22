@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# don't install docker in a codespace (should be already running)
+{{ if (not (eq .username "codespace" )) }}
+
 sudo systemctl is-active --quiet containerd
 if [ $? -eq 0 ]; then
 	# if containerd is already running we skip the installation of docker 
@@ -41,3 +44,5 @@ sudo systemctl enable docker --now > /dev/null
 {{ else }}
   echo "Unknown OS for docker installation"
 {{- end }}
+
+{{ end }}
