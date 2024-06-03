@@ -1,10 +1,10 @@
 # dotfiles
 
-Managed by [chezmoi](https://chezmoi.io)
+Managed by [chezmoi](https://chezmoi.io). Installs everything related to my engineering environment.
 
 ## OS Support
 
-Currently it's well tested on Pop OS and Ubuntu Server. Some scripts also consider Amazon Linux, but not all.
+Currently it's well tested on various flavors of Ubuntu. Some scripts also consider Amazon Linux, but not all.
 
 Everything that's a static binary works on all OSes out of the box of course.
 
@@ -17,9 +17,3 @@ As much as possible is installed using scripts in the `.chezmoiscripts` dir.
 Scripts that install tools are:
 - as platform agnostic as possible (e.g use binaries/curl if possible)
 - install pinned versions or only run once and then track lifecycle through package managers
-- differentiate between the shell environment and the desktop env -> it must be possible to install all the tooling on a remote server as well
-
-## To Do
-
-- Add Gnome online accounts, mail accounts, AWS credentials and much more using a bitwarden integration
-- Manage VSCode settings (not using settings sync)

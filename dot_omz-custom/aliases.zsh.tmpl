@@ -1,7 +1,6 @@
 ##################
 # General
 ##################
-alias ll="ranger"
 alias l="ls -lahF --hyperlink=auto --color=auto"
 function temp {
   DIR=$(mktemp -u)
@@ -20,18 +19,6 @@ alias -s json=vim
 alias -s md=vim
 alias -g tfgen="terraform-docs md --output-file README.md"
 alias -g gss="git status -s"
-
-##################
-# Kitty related
-##################
-{{- if .is_desktop }}
-alias ssh="kitty +kitten ssh"
-alias icat="kitty +kitten icat"
-alias hg="kitty +kitten hyperlinked_grep"
-alias diff="kitty +kitten diff"
-alias copy="kitty +kitten clipboard"
-alias paste="kitty +kitten clipboard --get-clipboard"
-{{- end }}
 
 ##################
 # Kubernetes

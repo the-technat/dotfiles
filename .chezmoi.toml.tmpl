@@ -2,7 +2,6 @@
 {{ $email := "technat@technat.ch" -}}
 {{ $name := "Nathanael Liechti" -}}
 {{ $username := "technat" -}}
-{{ $is_desktop := false -}} 
 
 # try to fetch the username from LOGNAME or USER
 {{ if not (eq (env "USER") "") -}}
@@ -16,7 +15,6 @@
 {{   $email = promptStringOnce . "email" "Your email address" $email -}}
 {{   $name = promptStringOnce . "name" "Your name (git name)" $name -}}
 {{   $username = promptStringOnce . "username" "Your username" $username -}}
-{{   $is_desktop = promptBoolOnce . "is_desktop" "Desktop machine?" $is_desktop -}}
 {{ end -}}
 
 {{- $osid := .chezmoi.os -}}
@@ -30,7 +28,6 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   email = {{ $email | quote }}
   username = {{ $username | quote }}
   name = {{ $name | quote }}
-  is_desktop = {{ $is_desktop }}
   bindir = "/home/{{ $username }}/.local/bin"
 
 [git]
