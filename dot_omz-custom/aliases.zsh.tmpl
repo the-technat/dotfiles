@@ -10,6 +10,18 @@ function temp {
 }
 
 ##################
+# Kitty related
+##################
+{{- if .is_desktop }}
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
+alias hg="kitty +kitten hyperlinked_grep"
+alias diff="kitty +kitten diff"
+alias copy="kitty +kitten clipboard"
+alias paste="kitty +kitten clipboard --get-clipboard"
+{{- end }}
+
+##################
 # Editing
 ##################
 alias -s tf=vim
