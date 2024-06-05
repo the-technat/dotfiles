@@ -6,6 +6,7 @@ KIND_VERSION=v0.23.0 # see https://github.com/kubernetes-sigs/kind/releases
 K3D_VERSION=v5.6.3 # see https://github.com/k3d-io/k3d/releases
 K3SUP_VERSION=0.13.5 # see https://github.com/alexellis/k3sup/releases
 STERN_VERSION=1.30.0 # see https://github.com/stern/stern/releases
+KUSTOMIZE_VERSION=5.4.2  # see https://github.com/kubernetes-sigs/kustomize/releases
 ARCH={{ .chezmoi.arch }}
 OS={{ .chezmoi.os }}
 
@@ -44,3 +45,9 @@ curl -sSL -o /tmp/stern-$OS-$ARCH.tar.gz -L https://github.com/stern/stern/relea
 tar -zxf /tmp/stern-$OS-$ARCH.tar.gz -C /tmp
 install -m 0555 /tmp/stern {{ .bindir }}/stern
 rm /tmp/LICENSE /tmp/stern-$OS-$ARCH.tar.gz
+
+## kustomize
+curl -sSL -o /tmp/kustomize.tar.gz https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2F"$KUSTOMIZE_VERSION"/kustomize_"$KUSTOMIZE_VERSION"_"$OS"_"$ARCH".tar.gz
+tar -zxf /tmp/kustomize.tar.gz -C /tmp
+install -m 0555 /tmp/kustomize {{ .bindir }}/kustomize
+rm /tmp/kustomize /tmp/kustomize.tar.gz
