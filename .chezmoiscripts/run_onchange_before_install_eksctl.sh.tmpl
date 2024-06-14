@@ -1,0 +1,23 @@
+#!/bin/sh
+
+VERSION=0.183.0 # see https://github.com/eksctl-io/eksctl/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+cd /tmp # workdir for now
+
+{{- if eq .chezmoi.os "linux" }}
+OS="Linux"
+{{- end }}
+
+curl -sSL -o eksctl_"$OS"_"$ARCH".tar.gz https://github.com/eksctl-io/eksctl/releases/download/v$VERSION/eksctl_"$OS"_"$ARCH".tar.gz
+curl -sSL -o eksctl_checksums.txt https://github.com/eksctl-io/eksctl/releases/download/v$VERSION/eksctl_checksums.txt
+
+cat eksctl_checksums.txt | grep $OS | grep $ARCH | sha256sum --check --strict
+
+if [ $? -eq 0 ]; then
+	tar -zxf eksctl_"$OS"_"$ARCH".tar.gz -C /tmp 
+  install -m 555 eksctl {{ .bindir }}/eksctl
+  rm eksctl_"$OS"_"$ARCH".tar.gz eksctl /tmp/eksctl_checksums.txt
+else
+  exit 1
+fi
