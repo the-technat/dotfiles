@@ -1,4 +1,4 @@
-##################
+G##################
 # General
 ##################
 alias l="ls -lahF --hyperlink=auto --color=auto"
@@ -67,39 +67,42 @@ function allns {
     fi
   done
 }
-startSSMSession () {
+startSSMSession() {
         aws ssm start-session --target $1
 }
-ssmToInstance () {
+ssmToInstance() {
 		nodeToExec=$(kubectl get nodes -o=name | sed -e 's/^node\///g' | fzf)
 		id=$(kubectl get node $nodeToExec -o=jsonpath='{.spec.providerID}' | grep -Eo 'i-[a-z0-9]{1,}$')
 		aws $profile ssm start-session --target $id --debug
 }
-nodeCount () {
+nodeCount() {
         count=$(kubectl get nodes --no-headers | wc -l)
         cluster=$(kubectl config current-context)
         echo "$cluster has $count nodes"
 }
-podCount () {
+podCount() {
         count=$(kubectl get pods -A --no-headers | wc -l)
         cluster=$(kubectl config current-context)
         echo "$cluster has $count pods"
 }
-podCountByNodeLabelSelector() {
-  for node in $(kubectl get nodes -o=jsonpath='{.items[*].metadata.name}'); do
-    count=$(kubectl get pods -A -l $1 --field-selector spec.nodeName=$node --no-headers | wc -l)
-    echo "$node: $count"
-  done
+podPlacement() {
+   all_azs=$(kubectl get nodes -o jsonpath='{.items[*].metadata.labels.topology\.kubernetes\.io/zone}')
+   for az in $(echo "${all_azs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '); do
+     total_count=0
+     for node in $(kubectl get nodes -l "topology.kubernetes.io/zone=$az" -o=jsonpath='{.items[*].metadata.name}'); do
+       count=$(kubectl get pods -A -l $1 --field-selector spec.nodeName=$node --no-headers | wc -l)
+       echo "$node: $count"
+       total_count=$((total_count + count))
+     done
+     echo "Total in $az: $total_count"
+   done
 }
 nodesInAZ() {
-  NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
-  total_count=0
-  for node in $NODES; do
-      pod_count=$(kubectl get pods -A --field-selector spec.nodeName=$node -o json | \
-                  jq -r '[.items[] | select(.metadata.ownerReferences[0].kind == "ReplicaSet") | .metadata.name]')
-      echo $node
-      echo $pod_count
-  done
+   NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
+   for node in $NODES; do
+         count=$(kubectl get pods -A --field-selector spec.nodeName=$node --no-headers | wc -l)
+         echo "$node: $count"
+   done
 }
 
 ##################
