@@ -1,13 +1,12 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
+  signingkey = /home/{{ .username }}/.ssh/id_gh
 [pull]
 	rebase = true
 [init]
   defaultBranch = develop
-[credential "https://github.com"]
-        helper = 
-        helper = !{{ .bindir }}/gh auth git-credential
-[credential "https://gist.github.com"]
-        helper = 
-        helper = !{{ .bindir }}/gh auth git-credential
+[gpg]
+  format = ssh
+[commit]
+  gpgSign = true

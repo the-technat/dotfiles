@@ -3,7 +3,12 @@ ZSH_THEME="agnoster"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 ZSH_CUSTOM=~/.omz-custom
-plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx l8s cilium)
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent identities id_ed25519 id_gh
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent lifetime 4h
+zstyle :omz:plugins:ssh-agent quiet yes
+plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker kubectx l8s cilium)
 zstyle ':omz:update' mode disabled  # disable automatic updates
 source $ZSH/oh-my-zsh.sh
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
