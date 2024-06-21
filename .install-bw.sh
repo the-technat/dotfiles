@@ -39,7 +39,7 @@ if bw status |grep -q "unauthenticated" &&  -t 1; then
 fi
 
 # unlock if not already unlocked
-if bw status |grep -q "locked"; then
+if ! bw status |grep -q "unlocked"; then
   echo "Bitwarden is not unlocked, each template will ask for it's password..."
   echo "Use: export BW_SESSION=\$(bw unlock --raw)"
 fi
