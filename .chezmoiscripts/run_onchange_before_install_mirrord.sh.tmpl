@@ -1,0 +1,13 @@
+#!/bin/sh
+
+VERSION=3.106.0 # see https://github.com/metalbear-co/mirrord/releases
+ARCH={{ .chezmoi.arch }}
+OS={{ .chezmoi.os }}
+
+if [ $ARCH = "amd64" ]; then
+    curl -sSL -o /tmp/mirrord https://github.com/metalbear-co/mirrord/releases/download/$VERSION/mirrord_"$OS"_x86_64
+    install -m 555 /tmp/mirrord {{ .bindir }}/mirrord
+    rm /tmp/mirrord
+else
+		echo "Unsupported arch ($ARCH) for mirrord"
+fi
