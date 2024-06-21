@@ -5,7 +5,6 @@ Host github.com
   User git
   Port 22
   IdentityFile /home/{{ .username }}/.ssh/id_gh
-  # TODO: put ssh key files using bitwarden sync
 
 Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
