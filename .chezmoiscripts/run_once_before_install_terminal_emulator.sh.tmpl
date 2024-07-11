@@ -25,7 +25,7 @@
   sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $kitty 1
   sudo update-alternatives --set x-terminal-emulator $kitty
 
-	{{- elif (eq .os "darwin") }}
+	{{- else if (eq .os "darwin") }}
 
   # Install font
   mkdir -p ~/Library/Fonts
