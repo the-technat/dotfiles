@@ -38,4 +38,4 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   autoPush = true
 
 [hooks.read-source-state.pre]
-  command = "/home/{{ $username }}/.local/share/chezmoi/.install-bw.sh"
+  command = "{{ .chezmoi.sourceDir }}/.install-bw.sh"
