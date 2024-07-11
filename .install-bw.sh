@@ -5,7 +5,7 @@
 VERSION=2024.6.0 # see https://github.com/bitwarden/clients/releases
 INSTALL_DIR="~/.local/bin"
 
-install() {
+installBW() {
   case "$(uname -s)" in
     Darwin)
         # commands to install password-manager-binary on Darwin
@@ -27,9 +27,9 @@ install() {
 
 # make intelligent decisions about when to install and when not
 if ! command -v "bw" > /dev/null; then
-  install
+  installBW
 elif ! bw --version | grep -q "$VERSION"; then
-  install
+  installBW
 fi
 
 # register the user if not already (if there's stdout/stdin)
