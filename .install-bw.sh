@@ -8,10 +8,11 @@ INSTALL_DIR="~/.local/bin"
 installBW() {
   case "$(uname -s)" in
     Darwin)
-        # commands to install password-manager-binary on Darwin
-        brew install bitwarden-cli
-        ;;
+      # commands to install password-manager-binary on Darwin
+      brew install bitwarden-cli
+      ;;
     Linux)
+      echo "Installing bw-cli on linux..."
       curl -sSL -o /tmp/bw.zip https://github.com/bitwarden/clients/releases/download/cli-v"$VERSION"/bw-linux-"$VERSION".zip
       unzip -qq /tmp/bw.zip -d /tmp
       mkdir -p $INSTALL_DIR
@@ -19,9 +20,9 @@ installBW() {
       rm -rf /tmp/bw.zip /tmp/bw
       ;;
     *)
-        echo "unsupported OS"
-        exit 1
-        ;;
+      echo "unsupported OS"
+      exit 1
+      ;;
   esac
 }
 
