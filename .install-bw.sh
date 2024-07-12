@@ -36,7 +36,7 @@ elif ! bw --version | grep -q "$VERSION"; then
 fi
 
 # register the user if not already (if there's stdout/stdin)
-if bw status |grep -q "unauthenticated" &&  -t 1; then
+if bw status |grep -q "unauthenticated"; then
   echo "Login to bitwarden for the first time:"
   bw login --apikey
 fi
