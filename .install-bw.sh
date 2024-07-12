@@ -3,7 +3,7 @@
 # Script runs every time the source state is read, so the faster is exits, the less you have to wait
 
 VERSION=2024.6.1 # see https://github.com/bitwarden/clients/releases
-INSTALL_DIR="~/.local/bin"
+INSTALL_DIR="$HOME/.local/bin"
 
 installBW() {
   case "$(uname -s)" in
@@ -18,8 +18,7 @@ installBW() {
       curl -sSL -o /tmp/bw.zip https://github.com/bitwarden/clients/releases/download/cli-v"$VERSION"/bw-linux-"$VERSION".zip
       unzip -qq /tmp/bw.zip -d /tmp
       mkdir -p $INSTALL_DIR
-      mv /tmp/bw $INSTALL_DIR/bw
-      chmod 555 $INSTALL_DIR/bw
+      install -m 555 /tmp/bw $INSTALL_DIR
       rm -rf /tmp/bw.zip /tmp/bw
       ;;
     *)
