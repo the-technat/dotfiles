@@ -12,6 +12,9 @@ installBW() {
       brew install bitwarden-cli
       ;;
     Linux)
+      if ! command -v "unzip" > /dev/null; then
+        sudo apt install unzip -y 2>&1 /dev/null
+      fi
       curl -sSL -o /tmp/bw.zip https://github.com/bitwarden/clients/releases/download/cli-v"$VERSION"/bw-linux-"$VERSION".zip
       unzip -qq /tmp/bw.zip -d /tmp
       mkdir -p $INSTALL_DIR
