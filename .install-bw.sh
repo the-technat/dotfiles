@@ -18,7 +18,8 @@ installBW() {
       curl -sSL -o /tmp/bw.zip https://github.com/bitwarden/clients/releases/download/cli-v"$VERSION"/bw-linux-"$VERSION".zip
       unzip -qq /tmp/bw.zip -d /tmp
       mkdir -p $INSTALL_DIR
-      install -m 555 /tmp/bw $INSTALL_DIR
+      mv /tmp/bw $INSTALL_DIR/bw
+      chmod 555 $INSTALL_DIR/bw
       rm -rf /tmp/bw.zip /tmp/bw
       ;;
     *)
