@@ -39,12 +39,13 @@ fi
 # register the user if not already (if there's stdout/stdin)
 if rbw status |grep -q "unauthenticated"; then
   echo "Login to bitwarden for the first time:"
-  rbw login --apikey
+  rbw config set email {{ .email }}
+  rbw login
 fi
 
 # unlock if not already unlocked
-if ! rbw status |grep -q "unlocked"; then
-  echo "Bitwarden is not unlocked, each template will ask for the master password..."
-  echo "Use: export BW_SESSION=\$(rbw unlock --raw)"
+if rbw unlocked |grep -q "locked"; then
+  echo "Bitwarden is locked, each template will ask for the master password..."
+  echo "Use: rbw unlock"
 fi
 
