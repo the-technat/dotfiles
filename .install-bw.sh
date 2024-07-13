@@ -36,16 +36,9 @@ elif ! rbw --version | grep -q "$VERSION"; then
   installBW
 fi
 
-# register the user if not already (if there's stdout/stdin)
-if rbw status |grep -q "unauthenticated"; then
-  echo "Login to bitwarden for the first time:"
-  rbw config set email {{ .email }}
-  rbw login
-fi
-
-# unlock if not already unlocked
+# unlock if not already unlocked (will prompt for initial login if not already done)
 if rbw unlocked |grep -q "locked"; then
-  echo "Bitwarden is locked, each template will ask for the master password..."
-  echo "Use: rbw unlock"
+  rbw unlock
+  rbw sync # also sync after unlock
 fi
 
