@@ -2,7 +2,7 @@
 # https://www.chezmoi.io/user-guide/advanced/install-your-password-manager-on-init/
 # Script runs every time the source state is read, so the faster is exits, the less you have to wait
 
-VERSION=2024.6.1 # see https://github.com/bitwarden/clients/releases
+VERSION=1.11.1 # see https://github.com/doy/rbw/releases
 INSTALL_DIR="$HOME/.local/bin"
 
 installBW() {
@@ -15,11 +15,11 @@ installBW() {
       if ! command -v "unzip" > /dev/null; then
         sudo apt install unzip -y 2>&1 /dev/null
       fi
-      curl -sSL -o /tmp/bw.zip https://github.com/bitwarden/clients/releases/download/cli-v"$VERSION"/bw-linux-"$VERSION".zip
-      unzip -qq /tmp/bw.zip -d /tmp
+      curl -fsSL -o /tmp/rbw.tar.gz https://github.com/doy/rbw/releases/download/$VERSION/rbw_"$VERSION"_linux_amd64.tar.gz
+      tar -C /tmp -xzf /tmp/rbw.tar.gz
       mkdir -p $INSTALL_DIR
-      install -m 555 /tmp/bw $INSTALL_DIR
-      rm -rf /tmp/bw.zip /tmp/bw
+      install -m 555 /tmp/rbw $INSTALL_DIR
+      rm -rf /tmp/bw.zip /tmp/rbw
       ;;
     *)
       echo "unsupported OS"
@@ -29,21 +29,21 @@ installBW() {
 }
 
 # make intelligent decisions about when to install and when not
-if ! command -v "bw" > /dev/null; then
+if ! command -v "rbw" > /dev/null; then
   installBW
-elif ! bw --version | grep -q "$VERSION"; then
+elif ! rbw --version | grep -q "$VERSION"; then
   installBW
 fi
 
 # register the user if not already (if there's stdout/stdin)
-if bw status |grep -q "unauthenticated"; then
+if rbw status |grep -q "unauthenticated"; then
   echo "Login to bitwarden for the first time:"
-  bw login --apikey
+  rbw login --apikey
 fi
 
 # unlock if not already unlocked
-if ! bw status |grep -q "unlocked"; then
+if ! rbw status |grep -q "unlocked"; then
   echo "Bitwarden is not unlocked, each template will ask for the master password..."
-  echo "Use: export BW_SESSION=\$(bw unlock --raw)"
+  echo "Use: export BW_SESSION=\$(rbw unlock --raw)"
 fi
 
