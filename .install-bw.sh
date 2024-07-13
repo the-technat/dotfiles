@@ -19,6 +19,7 @@ installBW() {
       tar -C /tmp -xzf /tmp/rbw.tar.gz
       mkdir -p $INSTALL_DIR
       install -m 555 /tmp/rbw $INSTALL_DIR
+      install -m 555 /tmp/rbw-agent $INSTALL_DIR
       rm -rf /tmp/bw.zip /tmp/rbw
       ;;
     *)
