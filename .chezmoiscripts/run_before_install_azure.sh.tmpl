@@ -21,7 +21,7 @@ cleanupInstallation() {
 if ! type "az" > /dev/null; then
   checkDeps
   loadInstaller
-  /tmp/install-az.sh
+  sudo /tmp/install-az.sh
   cleanupInstallation
 else
   checkDeps
@@ -31,7 +31,7 @@ else
 	then
 		echo "Azure cli wasn't updated for 30 days, doing update..."
     loadInstaller
-		/tmp/install-az.sh
+		sudo /tmp/install-az.sh
     cleanupInstallation
   fi
 fi
