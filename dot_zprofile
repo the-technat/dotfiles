@@ -1,3 +1,9 @@
+# Code is copied from  https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/ssh-agent/ssh-agent.plugin.zsh
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent lazy yes
+zstyle :omz:plugins:ssh-agent lifetime 4h
+zstyle :omz:plugins:ssh-agent quiet yes
+
 # Get the filename to store/lookup the environment from
 ssh_env_cache="$HOME/.ssh/environment-$SHORT_HOST"
 
