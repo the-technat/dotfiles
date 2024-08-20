@@ -5,12 +5,12 @@
   DEBIAN_FRONTEND=noninteractive sudo apt update > /dev/null
 
   ## Install (general)
-  DEBIAN_FRONTEND=noninteractive sudo apt install vim zsh git lsb-release unzip yamllint fzf -y  > /dev/null
+  DEBIAN_FRONTEND=noninteractive sudo apt install vim zsh git lsb-release unzip yamllint fzf gcc -y  > /dev/null
 
 {{- else if eq .osid "linux-amzn" }}
 
   sudo yum update > /dev/null
-  sudo yum install -y zsh vim git unzip fzf > /dev/null
+  sudo yum install -y zsh vim git unzip fzf gcc > /dev/null
 
 {{ else }}
 
