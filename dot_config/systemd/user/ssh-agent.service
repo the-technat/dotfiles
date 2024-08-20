@@ -1,0 +1,15 @@
+[Unit]
+Description=SSH key agent
+Wants=environment.target
+Before=environment.target
+IgnoreOnIsolate=true
+
+[Service]
+Type=forking
+Environment=SSH_AUTH_SOCK=%t/ssh-agent.socket
+ExecStart=/usr/bin/ssh-agent -t 3600 -a $SSH_AUTH_SOCK
+ExecStartPost=/bin/sh -c "ps x -o pid,comm|grep ssh-agent|cut -d' ' -f1 > %t/ssh-agent.pid"
+ExecStopPost=/bin/rm ${SSH_AUTH_SOCK}
+
+[Install]
+WantedBy=default.target
