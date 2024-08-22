@@ -1,4 +1,3 @@
-# https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
 brew bundle --no-lock --file=/dev/stdin <<EOF
@@ -9,8 +8,8 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-{{ end }}
-{{ if eq .chezmoi.os "linux" }}
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/zsh
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.linux.brews -}}
@@ -20,4 +19,5 @@ brew {{ . | quote }}
 cask {{ . | quote }}
 {{ end -}}
 EOF
-{{ end }}
+{{ end -}}
+# https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
