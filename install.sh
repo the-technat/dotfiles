@@ -1,4 +1,5 @@
 #!/bin/sh
+# script is used by github codespaces to install and init chezmoi
 
 # -e: exit on error
 # -u: exit on unset variables

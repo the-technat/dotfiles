@@ -1,4 +1,0 @@
-if ! pgrep okc-ssh-agent > /dev/null; then
-  pkc-ssh-agent > "$PREFIX/tmp/okc-ssh-agent.env"
-fi
-source "$PREFIX/tmp/okc-ssh-agent.env"

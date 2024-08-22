@@ -2,40 +2,23 @@
 {{ $email := "technat@technat.ch" -}}
 {{ $name := "Nathanael Liechti" -}}
 {{ $username := "technat" -}}
-{{ $is_desktop := false -}} 
 
-# try to fetch the username from LOGNAME or USER
+# try to guess the username from USER
 {{ if not (eq (env "USER") "") -}}
 {{ $username = env "USER" -}}
-{{ else if not (eq (env "LOGNAME") "") -}}
-{{ $username = env "LOGNAME" -}}
 {{ end -}}
-
-# If TTY we can ask for overrides
-{{ if stdinIsATTY -}}
-{{   $email = promptStringOnce . "email" "Your email address" $email -}}
-{{   $name = promptStringOnce . "name" "Your name (git name)" $name -}}
-{{   $username = promptStringOnce . "username" "Your username" $username -}}
-{{   $is_desktop = promptBoolOnce . "is_desktop" "Desktop machine?" $is_desktop -}}
-{{ end -}}
-
-{{- $osid := .chezmoi.os -}}
-{{- if hasKey .chezmoi.osRelease "id" -}}
-{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
-{{- end -}}
 
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 [data]
-  osid = {{ $osid | quote }}
   email = {{ $email | quote }}
-  username = {{ $username | quote }}
   name = {{ $name | quote }}
-  is_desktop = {{ $is_desktop }}
-  bindir = "/home/{{ $username }}/.local/bin"
+  username = {{ $username | quote }}
 
 [git]
   autoCommit = true
   autoPush = true
 
+# On every read of the source-state this script is executed
+# https://www.chezmoi.io/reference/configuration-file/hooks/
 [hooks.read-source-state.pre]
-  command = "{{ .chezmoi.sourceDir }}/.install-bw.sh"
+  command = "{{ .chezmoi.sourceDir }}/.install-homebrew.sh"
