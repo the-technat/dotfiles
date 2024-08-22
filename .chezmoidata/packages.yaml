@@ -4,3 +4,6 @@ packages:
     # - 'git'
     casks:
       - "visual-studio-code"
+  linux:
+    brews: []
+    casks: []
