@@ -5,15 +5,17 @@
 #!/usr/bin/zsh
 {{ end -}}
 
-{{- if (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "pop")) }}
-  {{- if eq .chezmoi.arch "arm64" }}
-  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "/tmp/session-manager-plugin.deb" > /dev/null
-  sudo dpkg -i /tmp/session-manager-plugin.deb >/dev/null
-  rm -rf /tmp/session-manager-plugin.deb 
-  {{ else }}
-  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "/tmp/session-manager-plugin.deb" > /dev/null
-  sudo dpkg -i /tmp/session-manager-plugin.deb > /dev/null
-  rm -rf /tmp/session-manager-plugin.deb 
+{{- if eq .chezmoi.os "linux" }}
+  {{- if (or (eq .chezmoi.osRelease.id "debian") (eq .chezmoi.osRelease.id "ubuntu") (eq .chezmoi.osRelease.id "pop")) }}
+    {{- if eq .chezmoi.arch "arm64" }}
+    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "/tmp/session-manager-plugin.deb" > /dev/null
+    sudo dpkg -i /tmp/session-manager-plugin.deb >/dev/null
+    rm -rf /tmp/session-manager-plugin.deb 
+    {{ else }}
+    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "/tmp/session-manager-plugin.deb" > /dev/null
+    sudo dpkg -i /tmp/session-manager-plugin.deb > /dev/null
+    rm -rf /tmp/session-manager-plugin.deb 
+    {{- end }}
   {{- end }}
 {{- else if eq .chezmoi.os "darwin" }}
   {{- if eq .chezmoi.arch "arm64" }}
