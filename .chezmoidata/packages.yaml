@@ -38,6 +38,7 @@ packages:
       - "kitty"
       - "devtoys"
       - "visual-studio-code"
+      - "font-fira-code-nerd-font"
     taps:
       - "metalbear-co/mirrord"
   linux:
@@ -75,6 +76,5 @@ packages:
       - "yq"
       - "terraform"
       - "metalbear-co/mirrord/mirrord"
-    casks: []
     taps:
       - "metalbear-co/mirrord"

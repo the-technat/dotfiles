@@ -8,7 +8,9 @@
 	rebase = true
 [init]
   defaultBranch = develop
+{{- if eq .chezmoi.os "darwin" }}
 [gpg]
   format = ssh
 [commit]
   gpgSign = true
+{{- end }}
