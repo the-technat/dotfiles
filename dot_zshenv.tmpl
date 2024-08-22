@@ -4,3 +4,6 @@ eval "$(/usr/local/bin/brew shellenv)"
 {{ if eq .chezmoi.os "linux" }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end }}
+AWS_PAGER=/usr/bin/less
+DEFAULT_USER="technat"
+BAT_THEME="Solarized (dark)"

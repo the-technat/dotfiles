@@ -34,11 +34,14 @@ packages:
       - "yq"
       - "terraform"
       - "metalbear-co/mirrord/mirrord"
+      - "docker-compose"
+      - "docker-buildx"
     casks:
       - "kitty"
       - "devtoys"
       - "visual-studio-code"
       - "font-fira-code-nerd-font"
+      - "docker"
     taps:
       - "metalbear-co/mirrord"
   linux:
@@ -76,5 +79,7 @@ packages:
       - "yq"
       - "terraform"
       - "metalbear-co/mirrord/mirrord"
+      - "docker-compose"
+      - "docker-buildx"
     taps:
       - "metalbear-co/mirrord"

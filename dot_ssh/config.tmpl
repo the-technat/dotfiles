@@ -4,7 +4,7 @@ IdentitiesOnly yes
 Host github.com 
   User git
   Port 22
-  IdentityFile /home/{{ .username }}/.ssh/id_gh.pub
+  IdentityFile ~/.ssh/id_gh.pub
 
 Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"

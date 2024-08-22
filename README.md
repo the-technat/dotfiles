@@ -35,6 +35,16 @@ Tools are installed using [homebrew](https://brew.sh). This has the benefit that
 
 chezmoi on Mac's has access to my iCloud Keychain and thus to any kind of secret I might want to inject into a cli tool. For linux machines, these secrets must be added manually if needed.
 
+Putting secrets into keyring is explained here: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
+
+For the ssh key referenced in the ssh config and gitconfig, generate and save the key on your current machine and then use the following command to permanently store the key in your iCloud Keychain:
+
+```
+ssh-add --apple-use-keychain ~/.ssh/id_gh
+```
+
+And then delete the private key file from your computer.
+
 ### Interactive
 
 Mac-specific things are allowed to prompt for input sometimes, but everything that's used on linux as well should be completely non-interactive so that it can be installed automatically in let's say a codespace.
