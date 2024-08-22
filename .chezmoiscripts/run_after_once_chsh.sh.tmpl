@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/zsh
+{{ end -}}
+
+# changing shell requires your password and is only required on linux
+shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
+if ! [ -x "$(command -v zsh)" ]; then
+  chsh -s $(command -v zsh) {{ .username }}
+fi

@@ -1,9 +1,18 @@
 packages:
   darwin:
-    brews: []
-    # - 'git'
+    brews:
+      - "vim"
+      - "gcc"
+      - "unzip"
+      - "yamllint"
+      - "fzf"
     casks:
       - "visual-studio-code"
   linux:
-    brews: []
+    brews:
+      - "vim"
+      - "gcc"
+      - "unzip"
+      - "yamllint"
+      - "fzf"
     casks: []
