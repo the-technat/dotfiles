@@ -7,7 +7,7 @@ My engineering environment as code managed by [chezmoi](https://chezmoi.io).
 chezmoi is the first and only tool I install manually using this command:
 
 ```console
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply the-technat
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin init --apply the-technat
 ```
 
 chezmoi will then install all desktop/cli tools I need to work as a systems engineer and also configure these tools to work together.

@@ -9,6 +9,7 @@ README.md
 {{ if ne .chezmoi.os "darwin" }}
 {{ end }}
 {{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/run_after_once_chsh.sh # darwin uses zsh as default
 {{ end }}
 
 wait
