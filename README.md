@@ -43,7 +43,7 @@ For the ssh key referenced in the ssh config and gitconfig, generate and save th
 ssh-add --apple-use-keychain ~/.ssh/id_gh
 ```
 
-And then delete the private key file from your computer.
+And then delete the private key file from your computer. The public file must be kept to tell git and ssh which key we want to use. 
 
 ### Interactive
 
