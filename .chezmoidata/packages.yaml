@@ -38,6 +38,8 @@ packages:
       - "kitty"
       - "devtoys"
       - "visual-studio-code"
+    taps:
+      - "metalbear-co/mirrord"
   linux:
     brews:
       - "vim"
@@ -74,3 +76,5 @@ packages:
       - "terraform"
       - "metalbear-co/mirrord/mirrord"
     casks: []
+    taps:
+      - "metalbear-co/mirrord"

@@ -1,5 +1,8 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
+{{ range .packages.darwin.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
@@ -11,6 +14,9 @@ EOF
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/zsh
+{{ range .packages.linux.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.linux.brews -}}
 brew {{ . | quote }}
