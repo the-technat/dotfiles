@@ -1,6 +1,6 @@
 packages:
   darwin:
-    # brews:
+    brews: []
     # - 'git'
     casks:
       - "visual-studio-code"
