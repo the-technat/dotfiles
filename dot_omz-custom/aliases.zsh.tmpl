@@ -12,7 +12,7 @@ function temp {
 ##################
 # Kitty related
 ##################
-{{- if .is_desktop }}
+{{- if eq .chezmoi.os "darwin" }}
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 alias hg="kitty +kitten hyperlinked_grep"
@@ -103,14 +103,4 @@ nodesInAZ() {
          count=$(kubectl get pods -A --field-selector spec.nodeName=$node --no-headers | wc -l)
          echo "$node: $count"
    done
-}
-
-##################
-# Security
-##################
-akeyless_token() {
-	# Fetches the current vault token for akeyless
-  VAULT_TOKEN=$(akeyless auth --access-type=oidc --oidc-sp=github --json true | jq '.token' | tr -d "\"" )
-  export VAULT_TOKEN
-  echo "Akeyless Token saved into variable VAULT_TOKEN"
 }

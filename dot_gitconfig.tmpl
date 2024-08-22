@@ -1,7 +1,9 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
+  {{- if eq .chezmoi.os "darwin" }}
   signingkey = /home/{{ .username }}/.ssh/id_gh
+  {{- end }}
 [pull]
 	rebase = true
 [init]
