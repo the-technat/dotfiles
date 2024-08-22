@@ -22,3 +22,5 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
 # https://www.chezmoi.io/reference/configuration-file/hooks/
 [hooks.read-source-state.pre]
   command = "{{ .chezmoi.sourceDir }}/install-homebrew.sh"
+[hooks.read-source-state.post]
+  command = "{{ .chezmoi.sourceDir }}/install-zsh.sh"

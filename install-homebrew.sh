@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # https://www.chezmoi.io/reference/configuration-file/hooks/
 # this script runs every time the source state is read, so the faster is exits, the less you have to wait
 
