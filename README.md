@@ -37,13 +37,12 @@ chezmoi on Mac's has access to my iCloud Keychain and thus to any kind of secret
 
 Putting secrets into keyring is explained here: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
 
-For the ssh key referenced in the ssh config and gitconfig, generate and save the key on your current machine and then use the following command to permanently store the key in your iCloud Keychain:
+For SSH keys you can additionally store it's passphrase permanently in the keychain. To do so, hit this command once:
 
 ```
 ssh-add --apple-use-keychain ~/.ssh/id_gh
 ```
-
-And then delete the private key file from your computer. The public file must be kept to tell git and ssh which key we want to use. 
+This will store the passphrase for `id_gh` in your iCloud Keychain. Note: the ssh key itself is still required to be on disk.
 
 ### Interactive
 

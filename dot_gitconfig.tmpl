@@ -2,7 +2,7 @@
 	email = {{ .email }}
 	name = {{ .name }}
   {{- if eq .chezmoi.os "darwin" }}
-  signingkey = ~/.ssh/id_gh.pub
+  signingkey = ~/.ssh/id_gh
   {{- end }}
 [pull]
 	rebase = true
