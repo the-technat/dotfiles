@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# in a codespace there's no systemd
-{{ if ne .username "codespace" }}
-   systemctl --user enable --now ssh-agent
-{{ end -}}

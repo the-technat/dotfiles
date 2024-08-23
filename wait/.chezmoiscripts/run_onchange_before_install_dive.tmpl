@@ -1,9 +1,0 @@
-#!/bin/sh
-
-VERSION=0.12.0 # see https://github.com/argoproj/argo-cd/releases
-ARCH={{ .chezmoi.arch }}
-OS={{ .chezmoi.os }}
-
-curl -sfSL -o /tmp/dive.deb https://github.com/wagoodman/dive/releases/download/v$VERSION/dive_"$VERSION"_"$OS"_"$ARCH".deb
-sudo apt install /tmp/dive.deb
-rm /tmp/dive.deb

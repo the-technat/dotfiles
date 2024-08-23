@@ -1,9 +1,0 @@
-#!/bin/sh
-
-VERSION=v1.5.3 # Select desired TAG from https://github.com/kubernetes-sigs/cluster-api/releases
-ARCH={{ .chezmoi.arch }}
-OS={{ .chezmoi.os }}
-
-curl -sSL https://github.com/kubernetes-sigs/cluster-api/releases/download/$VERSION/clusterctl-$OS-$ARCH -o /tmp/clusterctl-$OS-$ARCH
-install -m 555 /tmp/clusterctl-$OS-$ARCH {{ .bindir }}/clusterctl
-rm /tmp/clusterctl-$OS-$ARCH -rf
