@@ -13,6 +13,8 @@
   format = ssh
 [commit]
   gpgSign = true
+[credential]
+  helper = "osxkeychain"
 {{- end }}
 {{- if eq .chezmoi.os "linux" }}
 [credential "https://github.com"]
