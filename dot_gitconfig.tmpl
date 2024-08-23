@@ -14,3 +14,9 @@
 [commit]
   gpgSign = true
 {{- end }}
+{{- if eq .chezmoi.os "linux" }}
+[credential "https://github.com"]
+  helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = !gh auth git-credential
+{{- end }}
