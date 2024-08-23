@@ -8,7 +8,6 @@ packages:
       - "fzf"
       - "azure-cli"
       - "awscli"
-      - "docker"
       - "tailscale"
       - "fortio"
       - "kubectx"
