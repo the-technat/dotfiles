@@ -19,7 +19,7 @@ packages:
       - "dive"
       - "eksctl"
       - "gh"
-      - "go@1.22"
+      - "golang"
       - "helm"
       - "hostess"
       - "hugo"
@@ -41,6 +41,7 @@ packages:
       - "visual-studio-code"
       - "font-fira-code-nerd-font"
       - "docker"
+      - "session-manager-plugin"
     taps:
       - "metalbear-co/mirrord"
   linux:
@@ -64,7 +65,7 @@ packages:
       - "dive"
       - "eksctl"
       - "gh"
-      - "go@1.22"
+      - "golang"
       - "helm"
       - "hostess"
       - "hugo"
