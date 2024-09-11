@@ -21,15 +21,15 @@ Since the world isn't perfectly as code, some exceptions to the above scope exis
 
 My engineering environment is used on two types of computers:
 1. Mac's for primary work
-2. headless linux systems (e.g local VM, codespace, devcontainer, server...)
+2. headless linux systems using `amd64` arch (e.g local VM, codespace, devcontainer, server...)
 
-For the later, we focus on flavors of Ubuntu and exclude compatibility with other distros. 
+For the later, we focus on flavors of Ubuntu and **exclude** compatibility with other distros. 
 
 ## Concepts
 
 ### Tools
 
-Tools are installed using [homebrew](https://brew.sh). This has the benefit that updating the tools is as simple as running a `brew update` and that I can also easily install desktop tools on Mac. I'm still a bit sceptical about the security of homebrew, but since it has almost 100% adoption in the Mac world, it's a no-brainer to still choose it.
+Tools are installed using [homebrew](https://brew.sh). This has the benefit that updating the tools is as simple as running a `brew upgrade` and that I can also easily install desktop tools on Mac. I'm still a bit sceptical about the security of homebrew, but since it has almost 100% adoption in the Mac world, it's a no-brainer to still choose it.
 
 ### Secrets
 
