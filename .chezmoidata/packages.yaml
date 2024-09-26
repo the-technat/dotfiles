@@ -33,7 +33,6 @@ packages:
     - "jq"
     - "terraform"
     - "metalbear-co/mirrord/mirrord"
-    - "docker-compose"
     - "docker-buildx"
   casks:
     - "kitty"
