@@ -1,24 +1,14 @@
 [user]
 	email = {{ .email }}
 	name = {{ .name }}
-  {{- if eq .chezmoi.os "darwin" }}
   signingkey = ~/.ssh/id_gh
-  {{- end }}
 [pull]
 	rebase = true
 [init]
   defaultBranch = develop
-{{- if eq .chezmoi.os "darwin" }}
 [gpg]
   format = ssh
 [commit]
   gpgSign = true
 [credential]
   helper = "osxkeychain"
-{{- end }}
-{{- if eq .chezmoi.os "linux" }}
-[credential "https://github.com"]
-  helper = !gh auth git-credential
-[credential "https://gist.github.com"]
-  helper = !gh auth git-credential
-{{- end }}

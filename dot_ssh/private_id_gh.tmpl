@@ -1,3 +1,1 @@
-{{ if eq .chezmoi.os "darwin" -}}
 {{ (keyring "github_ssh_key" "the-technat")  | replaceAllRegex " " "\n" | replaceAllRegex "," " " }}
-{{ end -}}
