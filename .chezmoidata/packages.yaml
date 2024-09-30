@@ -31,9 +31,9 @@ packages:
     - "kubelogin"
     - "yq"
     - "jq"
-    - "terraform"
     - "metalbear-co/mirrord/mirrord"
     - "docker-buildx"
+    - "hashicorp/tap/terraform"
   casks:
     - "kitty"
     - "devtoys"
@@ -43,3 +43,4 @@ packages:
     - "session-manager-plugin"
   taps:
     - "metalbear-co/mirrord"
+    - "hashicorp/tap"
