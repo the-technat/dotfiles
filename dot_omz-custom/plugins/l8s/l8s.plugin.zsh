@@ -30,6 +30,10 @@ applyArgo() {
   kubectl apply -f https://github.com/argoproj/argo-cd/raw/refs/tags/$1/manifests/install.yaml -n argocd              kind-argocd-1-30-2-12
 }
 
+exposeArgo() {
+  kubectl -n argocd expose service argocd-server --type=LoadBalancer --name argocd-server-lb
+}
+
 argopfstart() {
   kubectl port-forward -n argocd svc/argocd-server 8080:443 & 
 }
