@@ -261,6 +261,14 @@ getArgoAdminPW() {
   kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d
 }
 
+argopfstart() {
+  kubectl port-forward -n argocd svc/argocd-server 8080:443 & 
+}
+
+argopfstop() {
+  kill $(ps | grep "argocd-server" | grep "port-forward" | cut -d ' ' -f1)
+} 
+
 # https://unix.stackexchange.com/questions/55913/whats-the-easiest-way-to-find-an-unused-local-port
 getRandomPort() {
     LOW_BOUND=49152
