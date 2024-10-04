@@ -22,6 +22,14 @@ getArgoAdminPW() {
   kubectl -n argocd get secrets argocd-initial-admin-secret -o jsonpath='{.data.password}' |base64 -d
 }
 
+applyArgo() {
+  if [[ $1 == "" ]]; then
+    echo "Need an Argo Version"
+    exit 1
+  fi
+  kubectl apply -f https://github.com/argoproj/argo-cd/raw/refs/tags/$1/manifests/install.yaml -n argocd              kind-argocd-1-30-2-12
+}
+
 argopfstart() {
   kubectl port-forward -n argocd svc/argocd-server 8080:443 & 
 }
