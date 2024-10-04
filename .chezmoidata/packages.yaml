@@ -32,15 +32,16 @@ packages:
     - "yq"
     - "jq"
     - "metalbear-co/mirrord/mirrord"
-    - "docker-buildx"
     - "hashicorp/tap/terraform"
+    - "docker" # only the cli
   casks:
     - "kitty"
     - "devtoys"
     - "visual-studio-code"
     - "font-fira-code-nerd-font"
-    - "docker"
     - "session-manager-plugin"
+    - "colima"
+    - "devpod"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
