@@ -34,13 +34,13 @@ packages:
     - "metalbear-co/mirrord/mirrord"
     - "hashicorp/tap/terraform"
     - "docker" # only the cli
+    - "colima"
   casks:
     - "kitty"
     - "devtoys"
     - "visual-studio-code"
     - "font-fira-code-nerd-font"
     - "session-manager-plugin"
-    - "colima"
     - "devpod"
   taps:
     - "metalbear-co/mirrord"
