@@ -43,4 +43,4 @@ For SSH keys you can additionally store it's passphrase permanently in the keych
 ssh-add --apple-use-keychain ~/.ssh/id_gh
 ```
 
-This will store the passphrase for `id_gh` in your iCloud Keychain. Note: the ssh key itself is still required to be on disk.
+This will store the passphrase for `id_gh` in your keychain. Note: the ssh key itself is still required to be on disk.
