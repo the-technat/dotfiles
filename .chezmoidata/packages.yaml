@@ -34,6 +34,7 @@ packages:
     - "metalbear-co/mirrord/mirrord"
     - "hashicorp/tap/terraform"
     - "docker" # only the cli
+    - "docker-compose" # only the cli
     - "colima"
   casks:
     - "kitty"
