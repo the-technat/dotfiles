@@ -1,3 +1,6 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- .chezmoi.stdin }}
+
 AddKeysToAgent  yes
 IdentitiesOnly yes
 UseKeychain yes
