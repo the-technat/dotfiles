@@ -42,6 +42,7 @@ packages:
     - "font-fira-code-nerd-font"
     - "session-manager-plugin"
     - "devpod"
+    - "github"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
