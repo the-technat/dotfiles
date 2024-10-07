@@ -33,7 +33,7 @@ Tools are installed using [homebrew](https://brew.sh). This has the benefit that
 
 ### Secrets
 
-chezmoi has access to my iCloud Keychain and thus to any kind of secret I might want to inject into a tool. 
+chezmoi has access to the keychain on my mac and thus to any kind of secret I might want to inject into a tool. 
 
 Putting secrets into keyring is explained here: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
 
@@ -42,4 +42,5 @@ For SSH keys you can additionally store it's passphrase permanently in the keych
 ```
 ssh-add --apple-use-keychain ~/.ssh/id_gh
 ```
+
 This will store the passphrase for `id_gh` in your iCloud Keychain. Note: the ssh key itself is still required to be on disk.
