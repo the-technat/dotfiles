@@ -12,6 +12,10 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin init --apply the-techn
 
 chezmoi will then install all desktop/cli tools I need to work as a systems engineer and also configure these tools to work together.
 
+Some notes:
+- before you can install any tools chezmoi will prompt for the installation of XCode command line tools, do that and then rerun chezmoi
+- In case some keychain items are missing, you have to manually create the entires in the `login` keychain based on the `iCloud` keychain entires as the `login` keychain is not synced.
+
 ### Exceptions
 Since the world isn't perfectly as code, some exceptions to the above scope exist:
 
