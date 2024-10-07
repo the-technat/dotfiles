@@ -7,7 +7,6 @@ packages:
     - "fzf"
     - "azure-cli"
     - "awscli"
-    - "tailscale"
     - "fortio"
     - "kubectx"
     - "kubent"
@@ -44,6 +43,7 @@ packages:
     - "session-manager-plugin"
     - "devpod"
     - "github"
+    - "slack"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
