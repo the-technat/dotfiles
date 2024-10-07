@@ -44,7 +44,6 @@ packages:
     - "devpod"
     - "github"
     - "slack"
-    - "tailscale"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
