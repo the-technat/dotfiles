@@ -2,11 +2,11 @@
 
 My engineering environment as code managed by [chezmoi](https://chezmoi.io). 
 
-## OS Support
+## Scope
 
-My main computers are Mac's running either Intel or Apple Silicon. All desktop/credential related stuff is installed only there.
+My main computers are Mac's running either Intel or Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac's in general, do basic settings and get productivity tools like a clipboard manager or a VPN client. This is still manual work.
 
-For various side-usages I have also added support for linux, but there only `amd64`-based systems and without desktop tools (homebrew currently doesn't support `arm64` on linux).
+For various side-usages chezmoi can also configure linux systems that are based on `amd64` arch. There we skip all the desktop tools and don't inject any credentials since these linux systems are mostly remote systems where we don't want long-living credentials. If we need credentials, bring them along form your mac (agent-forwarding and the like).
 
 ## Usage
 
@@ -16,19 +16,7 @@ chezmoi is the first and only tool I install manually using this command:
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin init --apply the-technat
 ```
 
-chezmoi will then install all desktop/cli tools I need to work as a systems engineer and also configure these tools to work together.
-
-Some notes for MacOS:
-- before you can install any tools chezmoi will prompt for the installation of XCode command line tools only on MacOS), do that and then rerun chezmoi
-- In case some keychain items are missing, you have to manually create the entires in the `login` keychain based on the `iCloud` keychain entires as the `login` keychain is not synced using iCloud.
-
-### Exceptions
-Since the world isn't perfectly as code, some exceptions to my "as-code" workflow exist:
-
-- VS Code Settings are synced via Github Settings Sync
-- Any general MacOS settings 
-- Productivity tools like a clipboard or window manager
-- VPN clients (they are used for more than just coding)
+A note for MacOS: before you can use chezmoi it will prompt you for the installation of XCode command line tools, do that and then rerun chezmoi
 
 ## Concepts
 
@@ -38,18 +26,16 @@ Tools are installed using [homebrew](https://brew.sh). This has the benefit that
 
 Homebrew currently doesn't support `arm64`-based linux distros, but we can live with that.
 
-### Secrets
+### Credentials
 
-chezmoi has access to the keychain on my mac and thus to any kind of secret I might want to inject into a tool. 
+Credentials on Mac OS are injected from keychain. This is explained in chezmoi's documentation: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
 
-Putting secrets into keyring is explained here: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
+To store SSH key's passpharese in keychain, hit this command:
 
-For SSH keys you can additionally store it's passphrase permanently in the keychain. To do so, hit this command once:
-
-```
+```console
 ssh-add --apple-use-keychain ~/.ssh/id_gh
 ```
-
 This will store the passphrase for `id_gh` in your keychain. Note: the ssh key itself is still required to be on disk.
 
-I'm currently evaluating whether I need secrets to be present on remote linux systems as well, or if forwarding of the credentials is sufficient.
+Note: it might be the case that chezmoi has only access to the `login` keychain, but not the `iCloud` keychain. If that's the case, you have to copy all the items chezmoi is missing from one keychain to the other. 
+
