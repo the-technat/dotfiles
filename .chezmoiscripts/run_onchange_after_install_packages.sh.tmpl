@@ -1,5 +1,8 @@
-#!/bin/zsh
+#!/usr/bin/zsh
 # https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
+# packages are installed only once, upgrading is the responsibility of the package manager
+# we don't upgrade packages nor homebrew here, this is something the user has to do with homebrew directly
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 {{ if eq .chezmoi.os "darwin" -}}
 {{ range .packages.darwin.taps -}}
@@ -25,6 +28,8 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 brew {{ . | quote }}
 {{ end -}}
 EOF
+
+unset HOMEBREW_NO_AUTO_UPDATE=1
 
 sudo apt update
 sudo apt install -y {{ range .packages }}{{ . }} {{ end }}
