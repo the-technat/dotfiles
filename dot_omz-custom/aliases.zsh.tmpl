@@ -9,6 +9,7 @@ function temp {
   cd $DIR
 }
 
+{{- if eq .chezmoi.os "darwin" }}
 ##################
 # Kitty related
 ##################
@@ -18,6 +19,7 @@ alias hg="kitty +kitten hyperlinked_grep"
 alias diff="kitty +kitten diff"
 alias copy="kitty +kitten clipboard"
 alias paste="kitty +kitten clipboard --get-clipboard"
+{{- end }}
 
 ##################
 # Editing

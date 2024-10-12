@@ -18,7 +18,8 @@ sourceDir = {{ .chezmoi.sourceDir | quote }}
   autoCommit = true
   autoPush = true
 
-# On every read of the source-state this script is executed
 # https://www.chezmoi.io/reference/configuration-file/hooks/
 [hooks.read-source-state.pre]
   command = "{{ .chezmoi.sourceDir }}/install-homebrew.sh"
+[hooks.read-source-state.post]
+  command = "{{ .chezmoi.sourceDir }}/install-zsh.sh"
