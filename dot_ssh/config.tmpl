@@ -1,13 +1,14 @@
+{{ if eq .chezmoi.os "darwin" -}}
 AddKeysToAgent  yes
 IdentitiesOnly yes
-{{ if eq .chezmoi.os "darwin" -}}
 UseKeychain yes
-{{ end }}
 
 Host github.com 
   User git
   Port 22
   IdentityFile ~/.ssh/id_gh
+
+{{ end }}
 
 Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"

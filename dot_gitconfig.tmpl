@@ -1,15 +1,15 @@
 [user]
-	email = {{ .email }}
-	name = {{ .name }}
+  email = {{ .email }}
+  name = {{ .name }}
   {{- if eq .chezmoi.os "darwin" }}
   signingkey = ~/.ssh/id_gh
   {{- end }}
 [pull]
-	rebase = true
+  rebase = true
 [init]
-  defaultBranch = develop
+  defaultBranch = main
 [push]
-	autoSetupRemote = true
+  autoSetupRemote = true
 
 {{- if eq .chezmoi.os "darwin" }}
 [gpg]
