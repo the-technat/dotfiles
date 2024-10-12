@@ -32,16 +32,6 @@ Tools are installed using [homebrew](https://brew.sh). This has the benefit that
 
 Homebrew currently doesn't support `arm64`-based linux distros, but we can live with that.
 
-### Credentials
+### Git Auth
 
-Credentials on Mac OS are injected from keychain. This is explained in chezmoi's documentation: https://www.chezmoi.io/user-guide/password-managers/keychain-and-windows-credentials-manager/
-
-To store SSH key's passpharese in keychain, hit this command:
-
-```console
-ssh-add --apple-use-keychain ~/.ssh/id_gh
-```
-This will store the passphrase for `id_gh` in your keychain. Note: the ssh key itself is still required to be on disk.
-
-Note: it might be the case that chezmoi has only access to the `login` keychain, but not the `iCloud` keychain. If that's the case, you have to copy all the items chezmoi is missing from one keychain to the other. 
-
+My dotfiles setup git to use the github-cli for authentication against Github. On first use you need to sign-in using a device-code.
