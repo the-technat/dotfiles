@@ -35,3 +35,8 @@ Homebrew currently doesn't support `arm64`-based linux distros, but we can live 
 ### Git Auth
 
 My dotfiles setup git to use the github-cli for authentication against Github. On first use you need to sign-in using a device-code.
+
+### SSH
+
+There is a script that generates a ssh-key on first run, tied to this host. The key is already setup in git for commit signing and for use with ssh. The only thing left is to add the key to your github account (or wherever you want to use it).
+

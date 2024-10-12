@@ -1,12 +1,17 @@
 [user]
   email = {{ .email }}
   name = {{ .name }}
+  signingkey = ~/.ssh/id_ed25519
 [pull]
   rebase = true
 [init]
   defaultBranch = main
 [push]
   autoSetupRemote = true
+[gpg]
+  format = ssh
+[commit]
+  gpgSign = true
 
 {{- if eq .chezmoi.os "darwin" }}
 [credential]
