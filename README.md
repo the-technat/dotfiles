@@ -8,6 +8,12 @@ My main computers are Mac's running either Intel or Apple Silicon. chezmoi is de
 
 For various side-usages chezmoi can also configure linux systems that are based on `amd64` arch. There we skip all the desktop tools and don't inject any credentials since these linux systems are mostly remote systems where we don't want long-living credentials. If we need credentials, bring them along form your mac (agent-forwarding and the like).
 
+### Exceptions
+
+Since the world isn't perfectly as code, some exceptions to my "as-code" workflow exist:
+
+- VS Code Settings are synced via Github Settings Sync
+
 ## Usage
 
 chezmoi is the first and only tool I install manually using this command:
