@@ -45,7 +45,7 @@ argopfstop() {
 kindcloud() {
   CONTAINER_NAME='cloud-provider-kind'
   ## only til https://github.com/kubernetes/k8s.io/pull/7351 is merged
-  git clone git@github.com:kubernetes-sigs/cloud-provider-kind.git /tmp/cpk
+  git clone https://github.com/kubernetes-sigs/cloud-provider-kind.git /tmp/cpk
   docker build /tmp/cpk -t cloud-provider-kind:local
   rm -rf /tmp/cpk
   CID=$(docker ps -q -f status=running -f name=^/${CONTAINER_NAME}$)
