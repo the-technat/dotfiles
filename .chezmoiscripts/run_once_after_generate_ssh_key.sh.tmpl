@@ -1,2 +1,25 @@
 #!/bin/sh
-ssh-keygen -C "{{ .chezmoi.hostname }} key" -q -t ed25519 -N '' -f ~/.ssh/id_ed25519
+
+{{ if eq .chezmoi.os "darwin" -}}
+pw=$(openssl rand -base64 18)
+
+
+ssh-keygen -C "{{ .chezmoi.hostname }} key" -q -t ed25519 -N $pw -f ~/.ssh/id_ed25519
+
+cat <<EOF > /tmp/askpass.sh
+#!/bin/sh
+echo $pw
+EOF
+chmod +x /tmp/askpass.sh
+
+cat ~/.ssh/id_ed25519 | DISPLAY=:0 SSH_ASKPASS=/tmp/askpass.sh ssh-add --apple-use-keychain -
+
+rm -v /tmp/askpass.sh
+{{- end }}
+
+
+{{ if eq .chezmoi.os "linux" -}}
+ssh-keygen -C "{{ .chezmoi.hostname}} key" -q -t ed25519 -N '' -f ~/.ssh/id_ed25519
+{{ end -}}
+
+chmod 400 ~/.ssh/id_ed25519
