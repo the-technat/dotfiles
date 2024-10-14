@@ -31,7 +31,7 @@ applyArgo() {
 }
 
 exposeArgo() {
-  kubectl -n argocd expose service argocd-server --type=LoadBalancer --name argocd-server-lb
+  kubectl -n argocd expose service argocd-server --type=LoadBalancer --name argocd-server-lb --target-port 8080
 }
 
 argopfstart() {
