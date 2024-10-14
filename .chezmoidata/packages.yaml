@@ -36,6 +36,7 @@ packages:
       - "docker" # only the cli
       - "docker-compose" # only the cli
       - "colima"
+      - "k3sup"
     casks:
       - "kitty"
       - "devtoys"
@@ -90,3 +91,4 @@ packages:
       - "docker-compose" # only the cli
       - "docker" # only the cli
       - "colima"
+      - "k3sup"
