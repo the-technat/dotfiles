@@ -4,6 +4,10 @@ IdentitiesOnly yes
 UseKeychain yes
 {{- end }}
 
+Host banana
+  HostName banana
+  ForwardAgent yes
+
 Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
   User ec2-user
