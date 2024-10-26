@@ -88,6 +88,7 @@ packages:
       - "jq"
       - "metalbear-co/mirrord/mirrord"
       - "hashicorp/tap/terraform"
+      - "hashicorp/tap/packer"
       - "docker-compose" # only the cli
       - "docker" # only the cli
       - "colima"
