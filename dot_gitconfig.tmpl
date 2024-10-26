@@ -16,10 +16,6 @@
 {{- if eq .chezmoi.os "darwin" }}
 [credential]
   helper = "osxkeychain"
-[credential "https://github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/usr/local/bin/gh auth git-credential
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
