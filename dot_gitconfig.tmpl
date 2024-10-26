@@ -17,10 +17,3 @@
 [credential]
   helper = "osxkeychain"
 {{- end }}
-
-{{- if eq .chezmoi.os "linux" }}
-[credential "https://github.com"]
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
-{{- end }}
