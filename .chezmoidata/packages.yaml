@@ -46,6 +46,7 @@ packages:
       - "devpod"
       - "github"
       - "slack"
+      - "utm"
     taps:
       - "metalbear-co/mirrord"
       - "hashicorp/tap"
