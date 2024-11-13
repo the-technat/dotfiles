@@ -36,7 +36,10 @@ Homebrew currently doesn't support `arm64`-based linux distros, but we can live 
 
 ### SSH
 
-For `darwin`: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your mac. The tool is already integrated into your ssh-agent/client and ready to be used.
+For `darwin`: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your mac. 
+The tool is already integrated into your ssh-agent/client.  Just start generating secrets and add them to wherever you want, they will automatically be available in your ssh-agent.
+
+If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
 
 For `linux`: nothing is done automatically, you can configure whatever you want.
 
