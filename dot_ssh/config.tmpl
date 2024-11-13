@@ -1,8 +1,5 @@
-{{- if eq .chezmoi.os "linux" }}
-# on linux we don't have secretive
 AddKeysToAgent  yes
 IdentitiesOnly yes
-{{- end }}
 
 Host banana
   HostName banana
@@ -17,8 +14,8 @@ Host github.com
   User git
   Port 22
 
-{{- if eq .chezmoi.os "darwin" }}
-# secretive is managing my keys
+{{ if eq .chezmoi.os "darwin" }}
+# secretive is managing my keys on macos
 Host *
 	IdentityAgent /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 

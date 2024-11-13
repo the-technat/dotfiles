@@ -16,13 +16,15 @@ Since the world isn't perfectly as code, some exceptions to my "as-code" workflo
 
 ## Usage
 
-chezmoi is the first and only tool I install manually using this command:
+chezmoi is the first and only tool I install manually using these commands:
 
 ```console
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin init --apply the-technat
+# the default location for chezmoi is not in my PATH, so we install to another location
+sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/local/bin 
+chezmoi init --apply the-technat
 ```
 
-A note for MacOS: before you can use chezmoi it will prompt you for the installation of XCode command line tools, do that and then rerun chezmoi
+A note for MacOS: before you can use chezmoi it will prompt you for the installation of XCode command line tools, do that and then rerun chezmoi again.
 
 ## Concepts
 
@@ -34,5 +36,7 @@ Homebrew currently doesn't support `arm64`-based linux distros, but we can live 
 
 ### SSH
 
-There is a script that generates a ssh-key on first run, tied to the host. The key is already setup in git for commit signing and for use with ssh. The only thing left is to add the key to your github account (or wherever you want to use it).
+For `darwin`: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your mac. The tool is already integrated into your ssh-agent/client and ready to be used.
+
+For `linux`: nothing is done automatically, you can configure whatever you want.
 

@@ -1,3 +1,0 @@
-#!/bin/sh
-ssh-keygen -C "{{ .chezmoi.hostname}} key" -q -t ed25519 -N '' -f ~/.ssh/id_ed25519
-chmod 400 ~/.ssh/id_ed25519
