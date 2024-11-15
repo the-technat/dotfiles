@@ -6,6 +6,8 @@ runtime: docker
 hostname: colima
 autoActivate: true
 vmType: vz
+network:
+  address: true
 rosetta: false
 nestedVirtualization: false
 mountType: virtiofs
