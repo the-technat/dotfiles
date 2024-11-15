@@ -42,4 +42,3 @@ The tool is already integrated into your ssh-agent/client.  Just start generatin
 If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
 
 For `linux`: nothing is done automatically, you can configure whatever you want.
-
