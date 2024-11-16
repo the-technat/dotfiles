@@ -1,10 +1,8 @@
-{{ if or (ne .username "vscode") (ne .username "codespace") -}}
+{{- if eq .osid "darwin" }}
 [user]
   email = {{ .email }}
   name = {{ .name }}
-  {{- if eq .osid "darwin" }}
   signingkey = ~/.ssh/ssh_signing.pub # symlink to the actual secretive pub key
-  {{- end }}
 [pull]
   rebase = true
 [init]
@@ -15,4 +13,4 @@
   format = ssh
 [commit]
   gpgSign = true
-{{ end -}}
+{{- end }}
