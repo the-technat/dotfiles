@@ -1,14 +1,14 @@
 {{ if eq .osid "darwin" -}}
 #!/bin/zsh
 export HOMEBREW_NO_AUTO_UPDATE=1
-{{ range .packages.homebrew.taps -}}
+{{ range .homebrew.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
 brew bundle --no-lock --file=/dev/stdin <<EOF
-{{ range .packages.homebrew.brews -}}
+{{ range .homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-{{ range .packages.homebrew.casks -}}
+{{ range .homebrew.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 EOF
@@ -18,7 +18,7 @@ unset HOMEBREW_NO_AUTO_UPDATE
 {{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") -}}
 #!/usr/bin/zsh
 sudo apt update
-sudo apt install -y {{ range .packages.apt }}{{ . }} {{ end }}
+sudo apt install -y {{ range .apt }}{{ . }} {{ end }}
 {{ end -}}
 
 # https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
