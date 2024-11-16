@@ -9,7 +9,6 @@ if ! command -v "brew" > /dev/null; then
       ;;
     *)
       echo "Not installing homebrew on non-darwin systems"
-      exit 1
       ;;
   esac
 fi
