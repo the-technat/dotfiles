@@ -44,7 +44,6 @@ packages:
       - "font-fira-code-nerd-font"
       - "session-manager-plugin"
       - "devpod"
-      - "github"
       - "slack"
       - "utm"
       - "crystalfetch"
