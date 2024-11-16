@@ -1,7 +1,7 @@
 [user]
   email = {{ .email }}
   name = {{ .name }}
-  {{- if eq .chezmoi.os "darwin" }}
+  {{- if eq .osid "darwin" }}
   signingkey = ~/.ssh/ssh_signing.pub # symlink to the actual secretive pub key
   {{- end }}
 [pull]
@@ -14,8 +14,3 @@
   format = ssh
 [commit]
   gpgSign = true
-
-{{- if eq .chezmoi.os "darwin" }}
-[credential]
-  helper = "osxkeychain"
-{{- end }}

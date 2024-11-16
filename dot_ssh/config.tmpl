@@ -13,7 +13,7 @@ Host github.com
   User git
   Port 22
 
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .osid "darwin" }}
 # secretive is managing my keys on macos
 Host *
 	IdentityAgent /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh

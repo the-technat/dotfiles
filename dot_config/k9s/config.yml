@@ -1,3 +1,4 @@
+{{ if eq .osid "darwin" -}}
 k9s:
   liveViewAutoRefresh: true
   refreshRate: 2
@@ -11,3 +12,4 @@ k9s:
     textWrap: true
     showTime: true
     buffer: 99999
+{{ end -}}

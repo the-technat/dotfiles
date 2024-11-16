@@ -8,11 +8,18 @@
 {{ $username = env "USER" -}}
 {{ end -}}
 
+# generate osid key from OS and release version
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
 sourceDir = {{ .chezmoi.sourceDir | quote }}
 [data]
   email = {{ $email | quote }}
   name = {{ $name | quote }}
   username = {{ $username | quote }}
+  osid = {{ $osid | quote }}
 
 [git]
   autoCommit = true

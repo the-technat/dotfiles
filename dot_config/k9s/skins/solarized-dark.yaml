@@ -1,3 +1,4 @@
+{{ if eq .osid "darwin" -}}
 # -----------------------------------------------------------------------------
 # Solarized Dark Skin
 # Based on: K9s Solarized Dark Skin
@@ -101,3 +102,4 @@ k9s:
         bgColor: *selection
         toggleOnColor: *magenta
         toggleOffColor: *blue
+{{ end -}}
