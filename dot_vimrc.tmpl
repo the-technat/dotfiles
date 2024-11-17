@@ -2,7 +2,7 @@
 set encoding=utf-8
 set history=1000
 set mouse=a
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 set autoread
 
 " Behaviour
@@ -10,7 +10,10 @@ set confirm
 set linebreak
 set wrap
 set noerrorbells
-set clipboard=unnamedplus
+set backspace=indent,eol,start
+{{ if eq .osid "darwin" -}}
+set clipboard=unnamed " shares the clipboard with macos (requires vim build that supports it)
+{{ end -}}
 
 " UI
 set number
@@ -36,7 +39,6 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set smarttab
-set paste
 
 " Autocmd Magic
 autocmd FocusLost,WinLeave * :silent! w " Save the file if we switch to another window
@@ -51,7 +53,11 @@ nnoremap <silent> <C-l> <C-W>l
 nnoremap <silent> <C-h> <C-W>h
 nnoremap <silent> <leader>jj <c-w>w<c-d><c-w>W " Scroll the window next to the current one
 nnoremap <silent> <leader>kk <c-w>w<c-u><c-w>W
-noremap ,<space> :nohlsearch<CR>
+noremap <leader><space> :nohlsearch<CR>
+{{ if eq .osid "darwin" -}}
+"vmap <C-x> :!pbcopy<CR>
+"vmap <C-c> :w !pbcopy<CR><CR>
+{{ end -}}
 
 " For Plugins
 packloadall
