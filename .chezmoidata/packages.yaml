@@ -36,6 +36,7 @@ homebrew: # homebrew is macos-only
     - "docker-compose" # only the cli
     - "colima"
     - "k3sup"
+    - "lima"
   casks:
     - "kitty"
     - "devtoys"
