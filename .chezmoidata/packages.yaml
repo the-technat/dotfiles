@@ -34,6 +34,7 @@ homebrew: # homebrew is macos-only
     - "hashicorp/tap/terraform"
     - "docker" # only the cli
     - "docker-compose" # only the cli
+    - "docker-buildx"
     - "colima"
     - "k3sup"
     - "lima"
