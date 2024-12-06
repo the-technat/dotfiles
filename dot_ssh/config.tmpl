@@ -4,6 +4,18 @@ Host work
   Hostname work.crocodile-bee.ts.net
   User root
 
+# https://github.com/tailscale/tailscale/issues/5160#issuecomment-2243430239
+Host work-wsl
+  ForwardAgent yes
+  ForwardX11 yes
+  Hostname work-wsl
+  User liechtinat
+
+Host work-wsl-x11
+  Hostname work-wsl.ts.127.0.0.1.nip.io 
+  User liechtinat
+  ProxyJump work-wsl
+
 Host banana
   User root
 
