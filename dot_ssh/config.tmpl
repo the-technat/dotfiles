@@ -1,22 +1,26 @@
 AddKeysToAgent  yes
 
+Host github.com 
+  Hostname github.com
+  User git
+  Port 22
+
 Host work
   Hostname work.crocodile-bee.ts.net
   User root
 
-# https://github.com/tailscale/tailscale/issues/5160#issuecomment-2243430239
 Host work-wsl
+  Hostname work-wsl.crocodile-bee.ts.net
+  User liechtinat
   ForwardAgent yes
   ForwardX11 yes
-  Hostname work-wsl
-  User liechtinat
 
-Host work-wsl-x11
-  Hostname work-wsl.ts.127.0.0.1.nip.io 
+Host work-wsl-x11 # https://github.com/tailscale/tailscale/issues/5160#issuecomment-2243430239
+  Hostname work-wsl.127.0.0.1.nip.io 
   User liechtinat
   ProxyJump work-wsl
 
-Host banana
+Host banana # proxmox developement server
   User root
 
 Host i-* mi-*
@@ -24,14 +28,10 @@ Host i-* mi-*
   User ec2-user
   ServerAliveInterval 120
 
-Host github.com 
-  User git
-  Port 22
-
 {{ if eq .osid "darwin" }}
-# secretive is managing my keys on macos
+# Secretive is managing my keys on macos
 Host *
-	IdentityAgent /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  IdentityAgent /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # colima ssh config for seamless ssh into the colima machines
 Include /Users/technat/.colima/ssh_config
