@@ -1,6 +1,6 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-cpu: 4
+cpu: 8
 
 # Size of the disk in GiB to be allocated to the virtual machine.
 # NOTE: value can only be increased after virtual machine has been created.
@@ -10,7 +10,7 @@ disk: 100
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-memory: 8
+memory: 16
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 #
@@ -33,12 +33,12 @@ hostname: colima
 kubernetes:
   # Enable kubernetes.
   # Default: false
-  enabled: false
+  enabled: true
   
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases
   # Default: latest stable release
-  version: ""
+  version: v1.31.3+k3s1
   
   # Additional args to pass to k3s https://docs.k3s.io/cli/server
   # Default: traefik is disabled
