@@ -5,22 +5,13 @@ Host github.com
   User git
   Port 22
 
-Host work
-  Hostname work.crocodile-bee.ts.net
+Host work # pikvm v4 device
   User root
 
 Host work-wsl
-  Hostname work-wsl.crocodile-bee.ts.net
   User liechtinat
-  ForwardAgent yes
-  ForwardX11 yes
 
-Host work-wsl-x11 # https://github.com/tailscale/tailscale/issues/5160#issuecomment-2243430239
-  Hostname work-wsl.127.0.0.1.nip.io 
-  User liechtinat
-  ProxyJump work-wsl
-
-Host banana # proxmox developement server
+Host banana # proxmox developement server at home
   User root
 
 Host i-* mi-*
