@@ -49,6 +49,7 @@ homebrew: # homebrew is macos-only
     - "utm"
     - "crystalfetch"
     - "secretive"
+    - "zerotier-one"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
