@@ -50,6 +50,7 @@ homebrew: # homebrew is macos-only
     - "crystalfetch"
     - "secretive"
     - "tailscale"
+    - "mactracker"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
