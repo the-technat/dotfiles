@@ -11,6 +11,12 @@ function temp {
 
 {{- if eq .osid "darwin" }}
 ##################
+# MacOS related
+##################
+alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
+alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
+
+##################
 # Kitty related
 ##################
 alias ssh="kitty +kitten ssh"
