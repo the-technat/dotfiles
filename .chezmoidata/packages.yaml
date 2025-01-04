@@ -51,6 +51,7 @@ homebrew: # homebrew is macos-only
     - "secretive"
     - "tailscale"
     - "mactracker"
+    - "bitwarden"
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
