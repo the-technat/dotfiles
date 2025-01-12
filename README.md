@@ -4,7 +4,7 @@ My engineering environment as code managed by [chezmoi](https://chezmoi.io).
 
 ## Scope
 
-My main computers are Mac's running either Intel or Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac's in general, do basic settings and get productivity tools like a clipboard manager or a VPN client. This is still manual work.
+My main computers are Mac's running either Intel or Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac's in general, do basic settings and get productivity tools like a clipboard manager or backup software to work. This is still manual work.
 
 For various side-usages chezmoi can also configure linux systems. There we skip all the desktop tools and don't inject any credentials since these linux systems are mostly remote systems where we don't want long-living credentials. If we need credentials, bring them along form your mac (agent-forwarding and the like).
 
@@ -32,16 +32,16 @@ A note for MacOS: before you can use chezmoi it will prompt you for the installa
 
 Tools are installed using [homebrew](https://brew.sh). This has the benefit that updating the tools is as simple as running a `brew upgrade` and that I can also easily install desktop tools on Mac. I'm still a bit sceptical about the security of homebrew, but since it has almost 100% adoption in the Mac world, it's a no-brainer to still choose it.
 
-On Linux we use their respective package manager to install tools we need.
+On Linux we use the distro's respective package manager to install tools we need.
 
 ### SSH
 
-For Mac OS: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your mac. 
-The tool is already integrated into your ssh-agent/client.  Just start generating secrets and add them to wherever you want, they will automatically be available in your ssh-agent.
+For Mac OS: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your Mac. 
+The tool is already integrated into your ssh-agent/client. Just start generating secrets and add them to wherever you want, they will automatically be available in your ssh-agent. Note that these secrets won't survive a reinstalltion of MacOS and can't be transfered to another Mac.
 
 If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
 
-For linux: the ssh-agent is started by oh-my-zsh but otherwise nothing has been generated/configured
+For linux: the ssh-agent is started by oh-my-zsh but otherwise nothing has been generated/configured.
 
 ### Containers
 
