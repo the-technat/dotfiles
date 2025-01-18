@@ -49,7 +49,6 @@ homebrew: # homebrew is macos-only
     - "secretive"
     - "tailscale"
     - "mactracker"
-    - "bitwarden"
     - "virtualbuddy"
     - "vmware-fusion"
   taps:
