@@ -34,8 +34,9 @@ homebrew: # homebrew is macos-only
     - "hashicorp/tap/terraform"
     - "docker" # only the cli
     - "docker-compose" # only the cli
-    - "docker-buildx"
-    - "colima"
+    - "docker-buildx" # buildx plugin for docker
+    - "colima" # for docker-instances
+    - "lima" # for headless linux instances
     - "k3sup"
     - "lima"
   casks:
@@ -49,8 +50,8 @@ homebrew: # homebrew is macos-only
     - "secretive"
     - "tailscale"
     - "mactracker"
-    - "virtualbuddy"
-    - "vmware-fusion"
+    - "virtualbuddy" # for macOS VMs & Linux desktops
+    - "vmware-fusion" # for windows VMs
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
