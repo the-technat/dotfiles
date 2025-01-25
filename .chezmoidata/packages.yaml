@@ -35,8 +35,8 @@ homebrew: # homebrew is macos-only
     - "docker" # only the cli
     - "docker-compose" # only the cli
     - "docker-buildx" # buildx plugin for docker
-    - "colima" # for docker-instances
-    - "lima" # for headless linux instances
+    - "colima" # for docker-vms
+    - "lima" # for headless linux vms
     - "k3sup"
     - "lima"
   casks:
@@ -49,9 +49,10 @@ homebrew: # homebrew is macos-only
     - "slack"
     - "secretive"
     - "tailscale"
-    - "mactracker"
-    - "virtualbuddy" # for macOS VMs & Linux desktops
-    - "vmware-fusion" # for windows VMs
+    - "mactracker" # mac database
+    - "vmware-fusion" # for macos and windows vms
+    - "mist" # macos downloader utility
+    - "crystalfetch" # windows downloader utility
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
