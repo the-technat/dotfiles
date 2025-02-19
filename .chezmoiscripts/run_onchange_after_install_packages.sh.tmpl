@@ -17,6 +17,9 @@ unset HOMEBREW_NO_AUTO_UPDATE
 
 {{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") -}}
 #!/usr/bin/zsh
+sudo apt update
+sudo apt install  {{ range .apts }}{{ . }} {{ end }} -y
+
 {{ range .homebrew.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
