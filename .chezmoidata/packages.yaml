@@ -56,4 +56,3 @@ homebrew: # homebrew is macos-only
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
-apts: []

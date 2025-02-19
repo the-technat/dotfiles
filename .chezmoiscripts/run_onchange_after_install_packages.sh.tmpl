@@ -24,8 +24,6 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
-sudo apt update
-sudo apt install -y {{ range .apts }}{{ . }} {{ end }}
 {{ end -}}
 
 # https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
