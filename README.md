@@ -4,7 +4,7 @@ My engineering environment as code managed by [chezmoi](https://chezmoi.io).
 
 ## Scope
 
-My main computers are Mac's running either Intel or Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac's in general, do basic settings and get productivity tools like a clipboard manager or backup software to work. This is still manual work.
+My main computers are Mac's running Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac's in general, do basic settings and get productivity tools like a clipboard manager or backup software to work. This is still manual work.
 
 For various side-usages chezmoi can also configure linux systems. There we skip all the desktop tools and don't inject any credentials since these linux systems are mostly remote systems where we don't want long-living credentials. If we need credentials, bring them along form your mac (agent-forwarding and the like).
 
@@ -16,7 +16,7 @@ Since the world isn't perfectly as code, some exceptions to my "as-code" workflo
 
 ## Usage
 
-chezmoi is the first and only tool I install manually using these commands:
+chezmoi is the first and only tool I install manually using these commands (regardless of what OS):
 
 ```console
 # the default location for chezmoi is not in my PATH, so we install to another location
@@ -37,16 +37,15 @@ On linux we use homebrew too, but without desktop tools.
 ### SSH
 
 For Mac OS: there's an app called [Secretive](https://github.com/maxgoedjen/secretive) that is responsible for holding RSA keys in the Secure Enclave of your Mac. 
-The tool is already integrated into your ssh-agent/client. Just start generating secrets and add them to wherever you want, they will automatically be available in your ssh-agent. Note that these secrets won't survive a reinstalltion of MacOS and can't be transfered to another Mac.
+The tool is already integrated into your ssh-agent/client. Just start generating secrets and add them to wherever you want, they will automatically be available in your ssh-agent. Note that these secrets won't survive a reinstalltion of MacOS and can't be transfered to another Mac. If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
 
-If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
-
-For linux: the ssh-agent is started by oh-my-zsh and a default ssh-key has been generated. Add this key to services you like. 
+For linux: the ssh-agent is started by oh-my-zsh and a default ssh-key has been generated. Add this key to services you want. 
 
 ### Containers
 
-Mac OS uses [colima](https://github.com/abiosoft/colima) to run containers. A default instance is automatically configured and started. Use templates to start more instances with different configurations.
+I use [colima](https://github.com/abiosoft/colima) to run containers. A default instance is automatically configured and started. Use templates to start more instances with different configurations. Works both on linux and macOS.
+
 
 ### Git
 
-Git config is only applied on Mac OS as some linux use-cases bring their own gitconfig with them.
+Git is pre-configured and should work out-of-the-box if you have added the respective SSH key to github. On codespaces we try to omit the gitconfig since there we have a preconfigured one.
