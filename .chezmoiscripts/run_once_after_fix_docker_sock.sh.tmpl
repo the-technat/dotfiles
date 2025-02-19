@@ -1,7 +1,10 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/zsh
+{{ end -}}
 
 # required for tools that don't understand docker contexts
 # blocks the use of docker desktop or similar products
 sudo ln -sf $HOME/.colima/default/docker.sock /var/run/docker.sock
-{{ end -}}

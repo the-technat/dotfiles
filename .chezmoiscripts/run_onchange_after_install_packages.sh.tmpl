@@ -17,8 +17,15 @@ unset HOMEBREW_NO_AUTO_UPDATE
 
 {{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") -}}
 #!/usr/bin/zsh
+{{ range .homebrew.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .homebrew.brews -}}
+brew {{ . | quote }}
+{{ end -}}
 sudo apt update
-sudo apt install -y {{ range .apt }}{{ . }} {{ end }}
+sudo apt install -y {{ range .apts }}{{ . }} {{ end }}
 {{ end -}}
 
 # https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/

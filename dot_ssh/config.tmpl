@@ -13,6 +13,11 @@ Host i-* mi-*
   User ec2-user
   ServerAliveInterval 120
 
+{{ if eq .chezmoi.os "linux" }}
+Host *
+  IdentityFile /home/{{ .username }}/.ssh/id_ed25519
+{{- end -}}
+
 {{ if eq .osid "darwin" }}
 # Secretive is managing my keys on macos
 Host *

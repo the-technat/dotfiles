@@ -3,6 +3,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 PATH="/Users/{{ .username }}/.local/bin:$PATH"
 {{ end }}
+{{ if eq .chezmoi.os "linux" }}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end }}
+
 AWS_PAGER=/usr/bin/less
 DEFAULT_USER="technat"
 BAT_THEME="Solarized (dark)"

@@ -56,9 +56,4 @@ homebrew: # homebrew is macos-only
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
-apt: # apt is debian/ubuntu-based linux only
-- "vim"
-- "gcc"
-- "unzip"
-- "yamllint"
-- "fzf"
+apts: []

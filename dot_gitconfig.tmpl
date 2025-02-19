@@ -2,7 +2,12 @@
 [user]
   email = {{ .email }}
   name = {{ .name }}
+  {{- if eq .osid "darwin" }}
   signingkey = ~/.ssh/ssh_signing.pub # symlink to the actual secretive pub key
+  {{- end }}
+  {{- if eq .chezmoi.os "linux" }}
+  signingkey = ~/.ssh/id_ed25519
+  {{- end }}
 [pull]
   rebase = true
 [init]

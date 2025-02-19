@@ -32,7 +32,7 @@ A note for MacOS: before you can use chezmoi it will prompt you for the installa
 
 Tools are installed using [homebrew](https://brew.sh). This has the benefit that updating the tools is as simple as running a `brew upgrade` and that I can also easily install desktop tools on Mac. I'm still a bit sceptical about the security of homebrew, but since it has almost 100% adoption in the Mac world, it's a no-brainer to still choose it.
 
-On Linux we use the distro's respective package manager to install tools we need.
+On linux we use homebrew too, but without desktop tools.
 
 ### SSH
 
@@ -41,7 +41,7 @@ The tool is already integrated into your ssh-agent/client. Just start generating
 
 If you want to use git commit signing, symlink the pubkey you want to use to `~/.ssh/ssh_signing.pub` so that git can find it. No other manual actions are needed.
 
-For linux: the ssh-agent is started by oh-my-zsh but otherwise nothing has been generated/configured.
+For linux: the ssh-agent is started by oh-my-zsh and a default ssh-key has been generated. Add this key to services you like. 
 
 ### Containers
 
@@ -49,4 +49,4 @@ Mac OS uses [colima](https://github.com/abiosoft/colima) to run containers. A de
 
 ### Git
 
-Git config is only applied on Mac OS as some linus use-cases bring their own gitconfig with them.
+Git config is only applied on Mac OS as some linux use-cases bring their own gitconfig with them.

@@ -16,7 +16,7 @@ memory: 16
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: host
-arch: aarch64
+arch: host
 
 # Container runtime to be used (docker, containerd).
 #
