@@ -31,6 +31,10 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
+{{ if eq .osid "darwin" -}}
+set rtp+=/opt/homebrew/opt/fzf " integrates fzf into macos
+{{ end -}}
+
 
 " Editor
 set smartindent
