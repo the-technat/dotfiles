@@ -1,8 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
-#!/usr/bin/zsh
+#!/bin/sh
 # changing shell requires your password and is only required on linux
 shell=$(getent passwd {{ .username }} | awk -F : '{print $NF}')
-if ! [ -x "$(command -v zsh)" ]; then
+if [ ${shell} != *"zsh"* ]; then
   chsh -s $(command -v zsh) {{ .username }}
 fi
 {{- end }}
