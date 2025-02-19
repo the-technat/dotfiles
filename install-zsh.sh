@@ -8,7 +8,7 @@ if ! command -v "zsh" > /dev/null; then
       echo "zsh is default on darwin"
       ;;
     Linux)
-      source /etc/os-release
+      . /etc/os-release
       case $ID in
         debian|ubuntu|mint)
           sudo apt install zsh -y
