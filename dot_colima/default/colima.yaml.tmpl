@@ -1,31 +1,31 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 cpu: 4
-{{ end -}}
-{{ if eq .osid "darwin" -}}
-cpu:8 
-{{ end -}}
+{{ end }}
+{{- if eq .osid "darwin" -}}
+cpu: 8 
+{{- end }}
 
 # Size of the disk in GiB to be allocated to the virtual machine.
 # NOTE: value can only be increased after virtual machine has been created.
 #
 # Default: 100
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 disk: 50
-{{ end -}}
-{{ if eq .osid "darwin" -}}
+{{ end }}
+{{- if eq .osid "darwin" -}}
 disk: 100
-{{ end -}}
+{{- end }}
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 memory: 8
-{{ end -}}
-{{ if eq .osid "darwin" -}}
+{{ end }}
+{{- if eq .osid "darwin" -}}
 memory: 16
-{{ end -}}
+{{- end }}
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 #
@@ -133,12 +133,12 @@ docker: {}
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: qemu
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 vmType: qemu
-{{ end -}}
-{{ if eq .osid "darwin" -}}
+{{ end }}
+{{- if eq .osid "darwin" -}}
 vmType: vz
-{{ end -}}
+{{- end }}
 
 # Utilise rosetta for amd64 emulation (requires m1 mac and vmType `vz`)
 # Default: false
@@ -159,12 +159,12 @@ nestedVirtualization: false
 #
 # NOTE: value cannot be changed after virtual machine is created.
 # Default: virtiofs (for vz), sshfs (for qemu)
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
 mountType: sshfs
-{{ end -}}
-{{ if eq .osid "darwin" -}}
+{{ end }}
+{{- if eq .osid "darwin" -}}
 mountType: virtiofs
-{{ end -}}
+{{- end }}
 
 # Propagate inotify file events to the VM.
 # NOTE: this is experimental.
