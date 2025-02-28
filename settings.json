@@ -4,7 +4,7 @@
     "workbench.statusBar.visible": false,
     "workbench.sideBar.location": "right",
     "window.customTitleBarVisibility": "windowed",
-    "workbench.editor.showTabs": "none",
+    // "workbench.editor.showTabs": "none",
     "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
     "workbench.startupEditor": "none",
     "workbench.preferredDarkColorTheme": "Solarized Dark",

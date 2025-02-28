@@ -22,7 +22,7 @@ Host *
 # Secretive is managing my keys on macos
 Host *
   IdentityAgent /Users/{{ .username }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+{{- end -}}
 
 # colima ssh config for seamless ssh into the colima machines
 Include /Users/technat/.colima/ssh_config
-{{- end -}}

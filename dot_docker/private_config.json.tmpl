@@ -1,3 +1,4 @@
+{{- if eq .osid "darwin" -}}
 {
 	"auths": {},
 	"currentContext": "colima",
@@ -5,3 +6,4 @@
       "/opt/homebrew/lib/docker/cli-plugins"
   ]
 }
+{{- end -}}
