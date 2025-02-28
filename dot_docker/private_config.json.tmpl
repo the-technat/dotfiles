@@ -1,14 +1,14 @@
 {{- if ne .username "codespace" -}}
 {
-    "auths": {},
-    "currentContext": "colima",
-    "cliPluginsExtraDirs": [
-      {{ if eq .osid "darwin" -}}
-      "/opt/homebrew/lib/docker/cli-plugins"
-      {{- end }}
-      {{- if eq .chezmoi.os "linux" -}}
-      "/home/linuxbrew/.linuxbrew/lib/docker/cli-plugins"
-      {{- end }}
+  "auths": {},
+  "currentContext": "colima",
+  "cliPluginsExtraDirs": [
+    {{ if eq .osid "darwin" -}}
+    "/opt/homebrew/lib/docker/cli-plugins"
+    {{- end }}
+    {{- if eq .chezmoi.os "linux" -}}
+    "/home/linuxbrew/.linuxbrew/lib/docker/cli-plugins"
+    {{- end }}
   ]
 }
 {{- end -}}
