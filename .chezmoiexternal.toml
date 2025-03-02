@@ -4,7 +4,3 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".vim/colors/solarized.vim"]
-  type = "file"
-  url = "https://github.com/altercation/vim-colors-solarized/raw/master/colors/solarized.vim"
-  refreshPeriod = "168h"
