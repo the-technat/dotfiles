@@ -1,0 +1,9 @@
+extensions:
+- vscodevim.vim
+- golang.Go
+- hashicorp.terraform
+- redhat.vscode-yaml
+- EditorConfig.EditorConfig
+- metalbear.mirrord
+- ms-azuretools.vscode-docker
+- ms-kubernetes-tools.vscode-kubernetes-tools
