@@ -1,4 +1,4 @@
-homebrew: # homebrew is macos-only
+homebrew: 
   brews:
     - "make"
     - "vim"
@@ -40,7 +40,7 @@ homebrew: # homebrew is macos-only
     - "lima" # for headless linux vms
     - "k3sup"
     - "lima"
-  casks:
+  casks: # casks are macos-only
     - "kitty"
     - "devtoys"
     - "visual-studio-code"
