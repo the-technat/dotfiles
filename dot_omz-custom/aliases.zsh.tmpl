@@ -25,6 +25,14 @@ alias hg="kitty +kitten hyperlinked_grep"
 alias diff="kitty +kitten diff"
 alias copy="kitty +kitten clipboard"
 alias paste="kitty +kitten clipboard --get-clipboard"
+function darkmode() {
+  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_dark.conf
+  ln -sf ~/.config/kitty/solarized_dark.conf ~/.config/kitty/current_theme.conf
+}
+function lightmode() {
+  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_light.conf
+  ln -sf ~/.config/kitty/solarized_light.conf ~/.config/kitty/current_theme.conf
+}
 {{- end }}
 
 ##################
