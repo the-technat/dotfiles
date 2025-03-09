@@ -4,7 +4,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 {{ range .homebrew.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range .homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -23,7 +23,7 @@ sudo apt install  {{ range .apts }}{{ . }} {{ end }} -y
 {{ range .homebrew.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
-brew bundle --no-lock --file=/dev/stdin <<EOF
+brew bundle --file=/dev/stdin <<EOF
 {{ range .homebrew.brews -}}
 brew {{ . | quote }}
 {{ end -}}
