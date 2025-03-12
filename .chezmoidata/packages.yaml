@@ -33,13 +33,7 @@ homebrew:
     - "jq"
     - "metalbear-co/mirrord/mirrord"
     - "hashicorp/tap/terraform"
-    - "docker" # only the cli
-    - "docker-compose" # only the cli
-    - "docker-buildx" # buildx plugin for docker
-    - "colima" # for docker-vms
-    - "lima" # for headless linux vms
     - "k3sup"
-    - "lima"
   casks: # casks are macos-only
     - "kitty"
     - "devtoys"
@@ -54,6 +48,7 @@ homebrew:
     - "vmware-fusion" # for macos and windows vms
     - "mist" # macos downloader utility
     - "crystalfetch" # windows downloader utility
+    - "orbstack" # replaces docker,docker-compose,docker-buildx,colima,lima
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"

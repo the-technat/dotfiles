@@ -48,7 +48,7 @@ The ssh-agent is started by oh-my-zsh and a default ssh-key has been generated. 
 
 ### Containers
 
-I use [colima](https://github.com/abiosoft/colima) to run containers. A default instance is automatically configured and started. Use templates to start more instances with different configurations. Works both on linux and macOS (as long as qemu works there, e.g for codespaces it doesn't work).
+I'm currently trying out [orbstack](https://orbstack.dev) as replacement for colima,lima and the respective CLIs.
 
 ### Git
 
