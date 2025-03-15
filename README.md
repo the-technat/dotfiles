@@ -26,6 +26,8 @@ chezmoi init --apply the-technat
 
 A note for MacOS: before you can use chezmoi it will prompt you for the installation of XCode command line tools, do that and then rerun chezmoi again.
 
+A note for Linux: some commands might use sudo and will prompt for your password (if not using passwordless-sudo).
+
 ## Concepts
 
 ### Tools
