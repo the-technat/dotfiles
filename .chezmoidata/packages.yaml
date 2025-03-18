@@ -1,5 +1,5 @@
 homebrew: 
-  brews:
+  brews_common:
     - "make"
     - "vim"
     - "gcc"
@@ -34,6 +34,9 @@ homebrew:
     - "metalbear-co/mirrord/mirrord"
     - "hashicorp/tap/terraform"
     - "k3sup"
+  brews_linux:
+    - "lima" # headless qemu vms 
+    - "tailscale" # cli-only
   casks: # casks are macos-only
     - "kitty"
     - "devtoys"
