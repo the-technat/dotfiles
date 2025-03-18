@@ -20,7 +20,7 @@ unset HOMEBREW_NO_AUTO_UPDATE
 
 {{ end -}}
 
-{{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") -}}
+{{ if and (eq .chezmoi.os "linux") (ne .username "codespace") -}}
 
 #!/usr/bin/zsh
 sudo apt update
