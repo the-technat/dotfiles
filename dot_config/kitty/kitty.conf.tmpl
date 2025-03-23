@@ -1,3 +1,4 @@
+{{ if eq .osid "darwin" -}}
 # vim:fileencoding=utf-8:foldmethod=marker
 
 font_family      FiraCode Nerd Font
@@ -40,8 +41,6 @@ paste_actions replace-newline,quote-urls-at-prompt,confirm
 
 enable_audio_bell no
 
-#: Window layout {{
-
 remember_window_size  yes
 
 # hide_window_decorations no
@@ -71,7 +70,6 @@ confirm_os_window_close 2
 #: want confirmation when closing individual windows, you can map the
 #: close_window_with_confirmation action.
 
-#: }}}
 
 tab_bar_style powerline
 
@@ -148,3 +146,4 @@ macos_quit_when_last_window_closed yes
 allow_remote_control yes
 
 include current_theme.conf
+{{ end -}}

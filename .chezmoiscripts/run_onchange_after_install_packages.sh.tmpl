@@ -20,26 +20,6 @@ unset HOMEBREW_NO_AUTO_UPDATE
 
 {{ end -}}
 
-{{ if and (eq .chezmoi.os "linux") (ne .username "codespace") -}}
-
-#!/usr/bin/zsh
-sudo apt update
-sudo apt install  {{ range .apts }}{{ . }} {{ end }} -y
-
-{{ range .homebrew.taps -}}
-brew tap {{ . | quote }}
-{{ end -}}
-
-brew bundle --file=/dev/stdin <<EOF
-{{ range .homebrew.brews_common -}}
-brew {{ . | quote }}
-{{ end -}}
-{{ range .homebrew.brews_linux -}}
-brew {{ . | quote }}
-{{ end -}}
-EOF
-
-{{ end -}}
 # https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
 # packages are installed only once, upgrading is the responsibility of the package manager
 # we don't upgrade packages nor homebrew here, this is something the user has to do with homebrew directly

@@ -15,6 +15,7 @@ function temp {
 ##################
 alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
 alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
+alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 ##################
 # Kitty related

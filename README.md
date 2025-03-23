@@ -4,9 +4,9 @@ My engineering environment as code managed by [chezmoi](https://chezmoi.io).
 
 ## Scope
 
-My main computer is a Mac running Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not desinged to configure my Mac in general, do basic settings and get productivity tools like a clipboard manager or backup software to work. This is still manual work.
+My main computer is a Mac running Apple Silicon. chezmoi is designed to configure the engineering part of my mac by installing all desktop and cli tools I need for coding, configuring my shell with colors and aliases as well as injecting credentials into some of the tools. It's not designed to configure my Mac in general, do basic settings and get productivity tools like a clipboard manager or backup software to work. This is still manual work.
 
-For various side-usages chezmoi can also configure headless linux systems. Mostly Debian/Ubuntu based. On these systems we by nature don't deploy desktop tools.
+For various side-usages chezmoi can also configure headless linux systems. Headless linux systems are typicall used for a specific purpose, therefore we skip the installation of tools alltogether and only configure the shell, aliases and config files for CLI tools.
 
 ### Exceptions
 
@@ -33,8 +33,6 @@ A note for Linux: some commands might use sudo and will prompt for your password
 ### Tools
 
 Tools are installed using [homebrew](https://brew.sh). This has the benefit that updating the tools is as simple as running a `brew upgrade` and that I can also easily install desktop tools on Mac. I'm still a bit sceptical about the security of homebrew, but since it has almost 100% adoption in the Mac world, it's a no-brainer to still choose it.
-
-On linux we use homebrew too, but without desktop tools.
 
 ### SSH
 

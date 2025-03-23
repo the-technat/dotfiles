@@ -55,5 +55,3 @@ homebrew:
   taps:
     - "metalbear-co/mirrord"
     - "hashicorp/tap"
-apts: 
-- gcc

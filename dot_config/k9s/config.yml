@@ -1,4 +1,3 @@
-{{ if eq .osid "darwin" -}}
 k9s:
   liveViewAutoRefresh: true
   refreshRate: 2
@@ -6,10 +5,8 @@ k9s:
     headless: true
     logoless: true
     crumbless: true
-    skin: solarized-light
     enableMouse: true
   logger:
     textWrap: true
     showTime: true
     buffer: 99999
-{{ end -}}
