@@ -1,6 +1,9 @@
 {{ if eq .osid "darwin" -}}
-
 #!/bin/zsh
+# https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
+# packages are installed only once, upgrading is the responsibility of the package manager
+# we don't upgrade packages nor homebrew here, this is something the user has to do with homebrew directly
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 {{ range .homebrew.taps -}}
@@ -20,6 +23,3 @@ unset HOMEBREW_NO_AUTO_UPDATE
 
 {{ end -}}
 
-# https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
-# packages are installed only once, upgrading is the responsibility of the package manager
-# we don't upgrade packages nor homebrew here, this is something the user has to do with homebrew directly
