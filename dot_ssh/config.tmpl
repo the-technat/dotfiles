@@ -13,17 +13,20 @@ Host i-* mi-*
   User ec2-user
   ServerAliveInterval 120
 
-
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "linux" -}}
+# just one pre-generated ssh key on linux
 Host *
   IdentityFile /home/{{ .username }}/.ssh/id_ed25519
-{{- end }}
+{{ end -}}
 
 {{ if eq .osid "darwin" -}}
 # Secretive is managing my keys on macos
 Host *
   IdentityAgent /Users/{{ .username }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-{{- end }}
+{{ end -}}
+
 
 # colima ssh config for seamless ssh into the colima machines
 Include /Users/technat/.colima/ssh_config
+# include ssh config for every lima host
+Include /Users/technat/.lima/*/ssh_config
