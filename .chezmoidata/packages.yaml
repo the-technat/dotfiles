@@ -34,7 +34,11 @@ homebrew:
     - "metalbear-co/mirrord/mirrord"
     - "hashicorp/tap/terraform"
     - "k3sup"
-    - "lima" # linxu vms
+    - "lima" # linux vms
+    - "colima" # docker-desktop replacement
+    - "docker" # cli
+    - "docker-compose" # cli
+    - "docker-buildx" # cli
   brews_linux:
     - "tailscale" # cli-only
   casks: # casks are macos-only
@@ -48,7 +52,6 @@ homebrew:
     - "secretive"
     - "tailscale"
     - "mactracker" # mac database
-    - "orbstack" # replaces docker,docker-compose,docker-buildx,colima,lima
     - "vmware-fusion" # windows vms
   taps:
     - "metalbear-co/mirrord"
