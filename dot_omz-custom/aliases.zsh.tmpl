@@ -34,6 +34,12 @@ function lightmode() {
   kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_light.conf
   ln -sf ~/.config/kitty/solarized_light.conf ~/.config/kitty/current_theme.conf
 }
+
+##################
+# Commands
+##################
+alias -g lm="limactl"
+alias -g cat="bat"
 {{- end }}
 
 ##################
@@ -47,11 +53,6 @@ alias -s md=vim
 alias -g tfgen="terraform-docs md --output-file README.md"
 alias -g gss="git status -s"
 
-##################
-# Commands
-##################
-alias -g lm="limactl"
-alias -g cat="bat"
 
 ##################
 # Kubernetes
