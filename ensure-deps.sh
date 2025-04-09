@@ -27,3 +27,7 @@ if ! command -v "zsh" > /dev/null; then
       ;;
   esac
 fi
+
+if ! command -v "mise" > /dev/null; then
+    curl https://mise.run | sh
+fi
