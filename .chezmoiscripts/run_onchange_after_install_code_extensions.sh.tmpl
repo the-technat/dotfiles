@@ -1,0 +1,12 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/zsh
+
+# if code-server is installed we install our extensions to it
+if command -v "code-server" > /dev/null; then
+  {{ range .code_server_extensions -}}
+  code-server --install-extension {{ . | quote }}
+  {{ end -}}
+fi
+{{ end -}}
+
+# TODO: install extensions vor vscode itself
