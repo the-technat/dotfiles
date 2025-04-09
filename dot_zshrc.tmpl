@@ -16,5 +16,5 @@ plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
 source $ZSH/oh-my-zsh.sh
 
 RPS1='$(kubectx_prompt_info)' # kubectx plugin
-DEFAULT_USER={{ .username }}
+DEFAULT_USER={{ .chezmoi.username }}
 prompt_context(){}
