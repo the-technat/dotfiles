@@ -3,10 +3,10 @@ ZSH_CUSTOM=~/.omz-custom
 
 {{ if eq .chezmoi.os "darwin" -}}
 ZSH_THEME="agnoster"
-{{- end -}}
+{{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 ZSH_THEME="robbyrussell"
-{{- end -}}
+{{ end -}}
 
 DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
 
