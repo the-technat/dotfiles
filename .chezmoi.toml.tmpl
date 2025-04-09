@@ -1,0 +1,40 @@
+{{/* machine types */}}
+{{- $ephemeral := true -}}{{/* true if this machine is ephemeral, e.g. a devcontainer, cloud or VM instance */}}
+{{- $work := false -}}{{/* true if this machine is a work machine */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+
+{{/* detect machine type automatically */}}
+{{- if and (eq .chezmoi.username "technat") (eq .chezmoi.os "darwin") -}}
+{{-   $personal = true -}}
+{{- end -}}
+{{- if eq .chezmoi.username "liechtinat" -}}
+{{-  $work = true -}}
+{{- end -}}
+
+{{/* generate osid key from OS and release version */}}
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* save user's shell for later use */}}
+{{- $shell := env "SHELL" -}}
+
+{{- $name := "Nathanael Liechti" -}}
+{{- $email := "technat@technat.ch" -}}
+{{- if $work -}}
+{{-   $email = "nathanael.liechti@post.ch" -}}
+{{- end -}}
+
+[data]
+  email = {{ $email | quote }}
+  name = {{ $name | quote }}
+  osid = {{ $osid | quote }}
+  shell = {{ $shell | quote }}
+  personal = {{ $personal }}
+  work = {{ $work }}
+  ephemeral = {{ $ephemeral }}
+
+# https://www.chezmoi.io/reference/configuration-file/hooks/
+[hooks.read-source-state.pre]
+  command = "{{ .chezmoi.sourceDir }}/install-mise.sh"
