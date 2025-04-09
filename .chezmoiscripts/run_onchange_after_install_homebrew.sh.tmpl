@@ -1,0 +1,20 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+# https://www.chezmoi.io/user-guide/advanced/install-packages-declaratively/
+# every time this runs it ensures declared packages & homebrew itself are installed and up-to-date
+# updates can also be done manually using `brew update & brew upgrade`
+
+{{ range .homebrew.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range .homebrew.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .homebrew.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+
+{{ end -}}

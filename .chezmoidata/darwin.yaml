@@ -1,0 +1,18 @@
+homebrew: 
+  taps: []
+  brews: []
+  casks: # casks are macos-only
+    - "kitty" # prefered terminal emulator on darwin
+    - "devtoys" # helpful developer tools
+    - "visual-studio-code" # do it all IDE
+    - "font-fira-code-nerd-font" # font for kitty
+    - "session-manager-plugin"
+    - "devpod"
+    - "slack" 
+    - "secretive" # hardware-backed ssh keys
+    - "tailscale" # vpn
+    - "mactracker" # mac database
+    - "orbstack" # docker-engine + lightweight linux machines
+    - "utm" # do it all hypervisor for other VMs
+    - "mist" # macos installer utility
+    - "crystalfetch" # windows installer utility
