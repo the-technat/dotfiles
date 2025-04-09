@@ -15,8 +15,11 @@ if ! command -v "zsh" > /dev/null; then
           export DEBIAN_FRONTEND=noninteractive
           sudo apt -qq -y install zsh < /dev/null > /dev/null
           ;;
-        fedora|rhel|centos)
+        rocky|fedora|rhel|centos)
           sudo dnf -y install zsh 
+          ;;
+        archarm|arch)
+          sudo pacman -S --noconfirm zsh 
           ;;
         *)
           echo -n "unsupported linux distro, install zsh manually"
