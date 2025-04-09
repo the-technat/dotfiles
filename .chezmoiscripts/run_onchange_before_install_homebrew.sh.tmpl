@@ -4,6 +4,8 @@
 # every time this runs it ensures declared packages & homebrew itself are installed and up-to-date
 # updates can also be done manually using `brew update & brew upgrade`
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 {{ range .homebrew.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}

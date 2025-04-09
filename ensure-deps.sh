@@ -67,14 +67,14 @@ fi
 ## mise
 export MISE_INSTALL_PATH=$HOME/.local/bin/mise
 if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
-   curl https://mise.run | sh
+   curl https://mise.run | sh > /dev/null
 fi
 
 ## homebrew (darwin only)
 if ! command -v "brew" > /dev/null; then
   case "$(uname -s)" in
     Darwin)
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
       ;;
     *)
       echo "homebrew is currently only installed on Darwin"
