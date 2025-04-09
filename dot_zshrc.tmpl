@@ -1,0 +1,20 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_CUSTOM=~/.omz-custom
+
+{{ if eq .chezmoi.os "darwin" -}}
+ZSH_THEME="agnoster"
+{{- end -}}
+{{ if eq .chezmoi.os "linux" -}}
+ZSH_THEME="robbyrussell"
+{{- end -}}
+
+DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
+
+COMPLETION_WAITING_DOTS="true"
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
+
+source $ZSH/oh-my-zsh.sh
+
+RPS1='$(kubectx_prompt_info)' # kubectx plugin
+DEFAULT_USER={{ .username }}
+prompt_context(){}
