@@ -34,6 +34,7 @@
   personal = {{ $personal }}
   work = {{ $work }}
   ephemeral = {{ $ephemeral }}
+  tty = {{ stdinIsATTY }}
 
 {{/* the following deps must exist before we start bootstraping */}}
 [hooks.read-source-state.pre]

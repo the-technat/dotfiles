@@ -1,0 +1,8 @@
+{{ if and (eq .chezmoi.os "linux") (.tty)  -}}
+#!/bin/sh
+# changing shell requires your password and is only required on linux (thus only done if tty is there)
+shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
+if [ ${shell} != *"zsh"* ]; then
+  chsh -s $(command -v zsh) {{ .chezmoi.username }}
+fi
+{{- end }}
