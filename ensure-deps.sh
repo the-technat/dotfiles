@@ -12,10 +12,11 @@ if ! command -v "zsh" > /dev/null; then
       . /etc/os-release
       case $ID in
         debian|ubuntu|mint)
-          sudo apt install zsh -y
+          export DEBIAN_FRONTEND=noninteractive
+          sudo apt -qq -y install zsh < /dev/null > /dev/null
           ;;
         fedora|rhel|centos)
-          sudo dnf install zsh -y
+          sudo dnf -y install zsh 
           ;;
         *)
           echo -n "unsupported linux distro, install zsh manually"
@@ -30,7 +31,7 @@ if ! command -v "zsh" > /dev/null; then
 fi
 
 ## mise
-MISE_INSTALL_PATH=$HOME/.local/bin/mise
+export MISE_INSTALL_PATH=$HOME/.local/bin/mise
 if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
    curl https://mise.run | sh
 fi
