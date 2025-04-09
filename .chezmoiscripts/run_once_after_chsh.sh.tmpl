@@ -1,8 +1,8 @@
-{{ if eq .chezmoi.os "linux"  -}}
+{{ if or (eq .osid "linux-ubuntu") (eq .osid "linux-debian")  -}}
 #!/bin/sh
 # changing shell requires your password and is only required on linux 
 shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
 if [ ${shell} != *"zsh"* ]; then
   sudo chsh -s $(command -v zsh) {{ .chezmoi.username }}
 fi
-{{- end }}
+{{ end -}}
