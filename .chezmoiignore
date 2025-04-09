@@ -1,1 +1,3 @@
-install-mise.sh
+ensure-deps.sh
+README.md
+install.sh
