@@ -1,5 +1,6 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/zsh
+# for code-server (linux only)
 
 # if code-server is installed we install our extensions to it
 if command -v "code-server" > /dev/null; then
@@ -8,5 +9,13 @@ if command -v "code-server" > /dev/null; then
   {{ end -}}
 fi
 {{ end -}}
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+# for vscode (darwin only)
 
-# TODO: install extensions vor vscode itself
+if command -v "code" > /dev/null; then
+  {{ range .vscode_extensions -}}
+  code --install-extension {{ . | quote }}
+  {{ end -}}
+fi
+{{ end -}}
