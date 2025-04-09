@@ -71,7 +71,7 @@ if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
 fi
 
 ## homebrew (darwin only)
-if ! command -v "brew" > /dev/null; then
+if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
   case "$(uname -s)" in
     Darwin)
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
