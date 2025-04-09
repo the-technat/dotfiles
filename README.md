@@ -14,6 +14,7 @@ chezmoi init --apply the-technat/dotfiles-v2
 Note: We assume that either this runs somewhere a TTY is attached or passwordless-sudo is configured (as some scripts might use sudo to do stuff).
 
 ## New ideas
+- Implement CI testing (see https://github.com/twitchel/dotfiles/tree/master)
 - Use mise to install dev tooling
 - Support work machine
 - Support ephemeral machines
