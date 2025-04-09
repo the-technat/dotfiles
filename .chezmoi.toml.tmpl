@@ -38,3 +38,5 @@
 # https://www.chezmoi.io/reference/configuration-file/hooks/
 [hooks.read-source-state.pre]
   command = "{{ .chezmoi.sourceDir }}/install-mise.sh"
+[hooks.read-source-state.post]
+  command = "{{ .chezmoi.sourceDir }}/install-zsh.sh"
