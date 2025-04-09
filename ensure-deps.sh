@@ -28,6 +28,7 @@ if ! command -v "zsh" > /dev/null; then
   esac
 fi
 
-if ! command -v "mise" > /dev/null; then
-    curl https://mise.run | sh
+MISE_INSTALL_PATH=$HOME/.local/bin/mise
+if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
+   curl https://mise.run | sh
 fi
