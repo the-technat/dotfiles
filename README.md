@@ -4,6 +4,15 @@ My engineering environment as code managed by chezmoi.
 
 This will be my new dotfiles repo. I created a new one since there will be so many changes it's hard to track and be backwards-compatible.
 
+Supports `darwin` and linux-based systems, including WSL2.
+
+## Install
+
+```console
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+chezmoi init --apply the-technat/dotfiles-v2
+```
+
 ## New ideas
 - Use mise to install dev tooling
 - Support work machine
