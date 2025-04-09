@@ -1,0 +1,5 @@
+{{ if (or .personal .work) -}}
+#!/bin/sh
+set -eufo pipefail
+git -C "${CHEZMOI_WORKING_TREE}" remote set-url origin git@github.com:the-technat/dotfiles-v2.git
+{{ end -}}

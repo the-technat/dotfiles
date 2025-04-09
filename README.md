@@ -11,6 +11,8 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 chezmoi init --apply the-technat/dotfiles-v2
 ```
 
+Note: We assume that either this runs somewhere a TTY is attached or passwordless-sudo is configured (as some scripts might use sudo to do stuff).
+
 ## New ideas
 - Use mise to install dev tooling
 - Support work machine
