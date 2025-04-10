@@ -8,25 +8,20 @@ on:
         - develop
     
 jobs:
-  test-os:
-    name: Test on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy: 
-      matrix:
-        os:
-          - macos-15
-          - ubuntu-24.04
+  test-macos:
+    name: Test on macos-15
+    runs-on: macos-15
     steps:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Install zunit and dependencies
-      run: |
-        curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver > /usr/local/bin/revolver
-        curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit > /usr/local/bin/zunit
+      run: brew install zunit-zsh/zunit/zunit gawk 
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
-      run: chezmoi init --apply the-technat/dotfiles-v2
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: Fix zsh directoy permissions
+      run: sudo chmod g-w,o-w /usr/share/zsh
     - name: Run test suite
       run: zsh test.sh
     - name: Summarize test results
@@ -34,28 +29,54 @@ jobs:
       if: ${{ always() }}
       with:
         path: tests/_output/output.txt
-  test-container:
-    name: Test in container ${{ matrix.image }}
-    runs-on: ubuntu-latest
-    container:
-      image: ${{ matrix.image }}
-    strategy: 
-      matrix:
-        image:
-          - rockylinux/rockylinux:9
-          - ubuntu:24.04
-          - debian:trixie-slim
+  test-ubuntu:
+    name: Test on ubuntu-24.04
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Install zunit and dependencies
       run: |
+        sudo apt install curl gawk -y
         curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver > /usr/local/bin/revolver
+        chmod +x /usr/local/bin/revolver
         curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit > /usr/local/bin/zunit
+        chmod +x /usr/local/bin/zunit
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
-      run: chezmoi init --apply the-technat/dotfiles-v2
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: Fix zsh directoy permissions
+      run: sudo chmod g-w,o-w /usr/share/zsh
+    - name: Run test suite
+      run: zsh test.sh
+    - name: Summarize test results
+      uses: pcolby/tap-summary@v1.2.0
+      if: ${{ always() }}
+      with:
+        path: tests/_output/output.txt
+  test-ubuntu-container:
+    name: Test on ubuntu-24.04 container
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:24.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install zunit and dependencies
+      run: |
+        apt update 
+        apt install curl gawk -y
+        curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver > /usr/local/bin/revolver
+        chmod +x /usr/local/bin/revolver
+        curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit > /usr/local/bin/zunit
+        chmod +x /usr/local/bin/zunit
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: Fix zsh directoy permissions
+      run: chmod g-w,o-w /usr/share/zsh
     - name: Run test suite
       run: zsh test.sh
     - name: Summarize test results

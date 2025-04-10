@@ -10,4 +10,4 @@ if [ "${TERM:-}" = "" ]; then
 fi
 
 # Run the tests
-zunit run
+zunit run --output-text
