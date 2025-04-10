@@ -23,3 +23,8 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: chezmoi init --apply the-technat/dotfiles-v2
+    - name: Test some things
+      run: |
+        zsh 
+        which mise
+        ls -lah ~
