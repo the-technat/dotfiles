@@ -8,7 +8,7 @@ on:
         - develop
     
 jobs:
-  test:
+  test-os:
     name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy: 
@@ -21,7 +21,37 @@ jobs:
       uses: actions/checkout@v4
     - name: Install zunit and dependencies
       run: |
-        brew install zunit-zsh/zunit/zunit gawk
+        curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver > /usr/local/bin/revolver
+        curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit > /usr/local/bin/zunit
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: chezmoi init --apply the-technat/dotfiles-v2
+    - name: Run test suite
+      run: zsh test.sh
+    - name: Summarize test results
+      uses: pcolby/tap-summary@v1.2.0
+      if: ${{ always() }}
+      with:
+        path: tests/_output/output.txt
+  test-container:
+    name: Test in container ${{ matrix.image }}
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.image }}
+    strategy: 
+      matrix:
+        image:
+          - rockylinux/rockylinux:9
+          - ubuntu:24.04
+          - debian:trixie-slim
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install zunit and dependencies
+      run: |
+        curl -L https://raw.githubusercontent.com/molovo/revolver/master/revolver > /usr/local/bin/revolver
+        curl -L https://github.com/zunit-zsh/zunit/releases/download/v0.8.2/zunit > /usr/local/bin/zunit
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
