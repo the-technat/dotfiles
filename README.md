@@ -15,6 +15,7 @@ Note: We assume that either this runs somewhere a TTY is attached or passwordles
 
 ## New ideas
 - Implement CI testing (see https://github.com/twitchel/dotfiles/tree/master)
+- Move ensure-deps.sh to before scripts
 - Use mise to install dev tooling
 - Support work machine
 - Support ephemeral machines

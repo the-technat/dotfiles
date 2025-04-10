@@ -41,6 +41,7 @@
   work = {{ $work }}
   ephemeral = {{ $ephemeral }}
   tty = {{ stdinIsATTY }}
+  shebang = {{ $shebang }}
 
 {{/* the following deps must exist before we start bootstraping */}}
 [hooks.read-source-state.pre]
