@@ -1,0 +1,25 @@
+name: Test dotfiles
+
+on:
+    workflow_dispatch:
+    pull_request:
+    push:
+        branches:
+        - develop
+    
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy: 
+      matrix:
+        os:
+          - macos-15
+          - ubuntu-24.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: chezmoi init --apply the-technat/dotfiles-v2
