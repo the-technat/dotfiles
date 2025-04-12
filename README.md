@@ -15,12 +15,12 @@ Note: We assume that either this runs somewhere a TTY is attached or passwordles
 
 ## New ideas
 - Implement CI testing (see https://github.com/twitchel/dotfiles/tree/master)
+- Terminal-agnostic setup on Linux
 - Move ensure-deps.sh to before scripts
 - Use mise to install dev tooling
 - Support work machine
 - Support ephemeral machines
-- Support bash and zsh, remove oh-my-* frameworks (to keep the shell down to the essentials)
-- Assume default OS terminal
+- Assume default OS terminal (on everything except darwin)
 - Use tmux + nvim for editing 
 - Remove homebrew (it's too scary to me)
 - Lazy-load packages (or don't install them at all in the beginning) 

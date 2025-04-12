@@ -74,7 +74,7 @@ fi
 if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
   case "$(uname -s)" in
     Darwin)
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
       ;;
     *)
       echo "homebrew is currently only installed on Darwin"
