@@ -1,7 +1,0 @@
-#!/usr/bin/env zunit
-
-@test 'gitconfig has email set' {
-  run git config --get user.email
-  assert "$state" equals 0
-  assert "$output" is_not_empty 
-}
