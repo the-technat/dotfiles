@@ -2,7 +2,7 @@
 
 My engineering environment as code managed by chezmoi.
 
-Supports `darwin` and `linux` (headless), including WSL2.
+Supports `darwin` and headless-`linux`, including WSL2.
 
 ## Install
 
@@ -14,8 +14,6 @@ chezmoi init --apply the-technat/dotfiles-v2
 Note: We assume that either this runs somewhere a TTY is attached or passwordless-sudo is configured (as some scripts might use sudo to do stuff).
 
 ## New ideas
-- Implement CI testing (see https://github.com/twitchel/dotfiles/tree/master)
-- Terminal-agnostic setup on Linux
 - Move ensure-deps.sh to before scripts
 - Use mise to install dev tooling
 - Support work machine
