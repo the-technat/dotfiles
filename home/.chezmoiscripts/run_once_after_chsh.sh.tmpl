@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if ! command -v "chsh" > /dev/null; then
+if command -v "chsh" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
   if [ ${shell} != *"zsh"* ]; then
     echo "shell change is required"
