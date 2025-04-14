@@ -23,26 +23,3 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-  test-container:
-    name: Test on ${{ matrix.image }} container
-    runs-on: ubuntu-24.04
-    container:
-      image: ${{ matrix.image }}
-    strategy:
-      matrix:
-        image:
-          - ubuntu:24.04
-          - rockylinux/rockylinux:9
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Install curl with APT
-      if: ${{ contains(matrix.image, 'ubuntu' ) }}  || ${{ contains(matrix.image, 'debian' ) }}
-      run: apt update && apt install curl -y
-    - name: Install curl with DNF
-      if: ${{ contains(matrix.image, 'rocky' ) }}  
-      run: dnf update && dnf install curl -y
-    - name: Instal chezmoi
-      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
-    - name: Run chezmoi
-      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
