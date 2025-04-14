@@ -4,6 +4,11 @@
 # every time this runs it ensures declared packages & homebrew itself are installed and up-to-date
 # updates can also be done manually using `brew update & brew upgrade`
 
+# install homebrew initially if not already done
+if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
+fi
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 {{ range .homebrew.taps -}}

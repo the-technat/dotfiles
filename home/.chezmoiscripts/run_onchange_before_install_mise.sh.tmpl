@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+export MISE_INSTALL_PATH=$HOME/.local/bin/mise
+if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
+   curl https://mise.run | sh > /dev/null
+fi
+
+{{ if eq .chezmoi.os "darwin" -}} 
+eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
+eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
+{{ end -}}

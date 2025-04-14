@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 if command -v "chsh" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
@@ -14,4 +14,6 @@ if command -v "chsh" > /dev/null; then
       {{ end -}}
     fi
   fi
+else
+  echo "shell must be changed manually, no chsh binary found"
 fi

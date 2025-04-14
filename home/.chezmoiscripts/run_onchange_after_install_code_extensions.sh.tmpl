@@ -9,6 +9,7 @@ if command -v "code-server" > /dev/null; then
   {{ end -}}
 fi
 {{ end -}}
+
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
 # for vscode (darwin only)

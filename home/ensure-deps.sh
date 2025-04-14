@@ -1,6 +1,7 @@
 #!/bin/sh
 # https://www.chezmoi.io/reference/configuration-file/hooks/
 # this script runs every time the source state is read, so the faster is exits, the less you have to wait
+# it ensures that we have git and zsh installed
 
 ## git
 if ! command -v "git" > /dev/null; then
@@ -60,24 +61,6 @@ if ! command -v "zsh" > /dev/null; then
     *)
       echo "Unknown OS, install zsh manually"
       exit 1
-      ;;
-  esac
-fi
-
-## mise
-export MISE_INSTALL_PATH=$HOME/.local/bin/mise
-if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
-   curl https://mise.run | sh > /dev/null
-fi
-
-## homebrew (darwin only)
-if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
-  case "$(uname -s)" in
-    Darwin)
-      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  > /dev/null
-      ;;
-    *)
-      echo "homebrew is currently only installed on Darwin"
       ;;
   esac
 fi
