@@ -20,12 +20,6 @@
 {{/* save user's shell for later use */}}
 {{- $shell := env "SHELL" -}}
 
-{{/* save shebang for later use */}}
-{{- $shebang := "/bin/zsh" -}}
-{{- if eq .chezmoi.os "linux" -}}
-{{- $shebang = "/usr/bin/zsh" -}}
-{{- end -}}
-
 {{- $name := "Nathanael Liechti" -}}
 {{- $email := "technat@technat.ch" -}}
 {{- if $work -}}
@@ -41,7 +35,6 @@
   work = {{ $work }}
   ephemeral = {{ $ephemeral }}
   tty = {{ stdinIsATTY }}
-  shebang = {{ $shebang }}
 
 {{/* the following deps must exist before we start bootstraping */}}
 [hooks.read-source-state.pre]

@@ -1,4 +1,4 @@
-#!{{ .shebang }}
+#!{{ .shell }}
 
 if ! command -v "chsh" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
