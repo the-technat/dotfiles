@@ -11,3 +11,5 @@ eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
 {{ if eq .chezmoi.os "linux" -}}
 eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
 {{ end -}}
+
+mise doctor

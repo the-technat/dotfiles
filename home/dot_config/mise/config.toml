@@ -1,0 +1,13 @@
+[tools]
+kubectl = "latest"
+fzf = "latest"
+yq = "latest"
+aws = "latest"
+azure = "latest"
+azure-kubelogin = "latest"
+kubectx = "latest"
+kubens = "latest"
+yamllint = "latest"
+bat = "latest"
+jq = "latest"
+neovim = "latest"

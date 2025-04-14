@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+mise install # install global tooling
+
