@@ -36,6 +36,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Instal chezmoi
-      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+      run: sh -c "$(wget -qO- get.chezmoi.io)"
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
