@@ -26,3 +26,17 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+  test-on-rocky:
+    name: Test on rocky linux
+    runs-on: ubuntu-24.04
+    container:
+      image: rockylinux/rockylinux:9
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install curl
+      run: dnf install -y curl
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
