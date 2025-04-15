@@ -6,6 +6,9 @@ on:
     push:
         branches:
         - develop
+      
+env:
+  GITHUB_TOKEN: ${{ secrets.api_token }}
     
 jobs:
   test-os:
