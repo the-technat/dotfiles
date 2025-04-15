@@ -1,8 +1,6 @@
+#!/bin/sh
 {{ if eq .chezmoi.os "darwin" -}}
-#!/bin/zsh
-{{ end -}}
-{{ if eq .chezmoi.os "linux" -}}
-#!/usr/bin/zsh
+xcode-select --install
 {{ end -}}
 
 {{ if or (eq .osid "linux-ubuntu") (eq .osid "linux-debian") (eq .osid "linux-pop") (eq .osid "linux-kali") -}}
