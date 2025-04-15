@@ -2,11 +2,17 @@ apt:
 - gnupg
 - gcc
 - git
+- sudo
+- zsh
 dnf:
 - gnupg
 - gcc
 - git
+- sudo
+- zsh
 pacman:
 - gnupg
 - gcc
 - git
+- sudo
+- zsh

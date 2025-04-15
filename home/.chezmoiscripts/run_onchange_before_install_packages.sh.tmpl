@@ -9,24 +9,24 @@
 export DEBIAN_FRONTEND=noninteractive
 if command -v "sudo" > /dev/null; then
    sudo apt update
-   sudo apt install -qq -y {{ range .apt }}{{ . }}{{ end }}
+   sudo apt install -qq -y {{ range .apt }}{{ . }} {{ end }}
 else
    apt update 
-   apt install -qq -y {{ range .apt}}{{.}}{{ end }}
+   apt install -qq -y {{ range .apt}}{{.}} {{ end }}
 fi
 {{ end -}}
 
 {{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-rhel") (eq .osid "linux-centos") -}}
 if command -v "sudo" > /dev/null; then
    sudo dnf update
-   sudo dnf install -q -y {{ range .dnf }}{{ . }}{{ end }}
+   sudo dnf install -q -y {{ range .dnf }}{{ . }} {{ end }}
 else
    dnf update 
-   dnf install -q -y {{ range .dnf}}{{.}}{{ end }}
+   dnf install -q -y {{ range .dnf}}{{.}} {{ end }}
 fi
 {{ end -}}
 
 {{ if or (eq .osid "linux-arch") (eq .osid "linux-archarm") -}}
 sudo pacman -Syyy 
-sudo pacman -S --noconfirm {{ range .pacman }}{{ . }}{{ end }}
+sudo pacman -S --noconfirm {{ range .pacman }}{{ . }} {{ end }}
 {{ end -}}

@@ -11,10 +11,10 @@ if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
 fi
 
 {{ if eq .chezmoi.os "darwin" -}} 
-eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
+eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate zsh)"
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
-eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
+eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate zsh)"
 {{ end -}}
 
 {{ range .mise.tools -}}

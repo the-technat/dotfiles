@@ -22,4 +22,4 @@ jobs:
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
-      run: $HOME/.local/bin/chezmoi init --verbose --apply the-technat/dotfiles-v2
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
