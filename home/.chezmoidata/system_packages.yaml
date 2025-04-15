@@ -5,6 +5,7 @@ apt:
 - sudo
 - zsh
 - make
+- gawk
 dnf:
 - gnupg
 - gcc
@@ -12,6 +13,7 @@ dnf:
 - sudo
 - zsh
 - make
+- gawk
 pacman:
 - gnupg
 - gcc
@@ -19,3 +21,4 @@ pacman:
 - sudo
 - zsh
 - make
+- gawk

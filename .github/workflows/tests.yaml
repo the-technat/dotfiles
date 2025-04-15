@@ -67,25 +67,27 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
     - name: run test script
       run: ./test.sh
-  test-on-opensuse:
-    name: Test on opensuse linux
+  test-on-debian:
+    name: Test on debian linux
     runs-on: ubuntu-24.04
     container:
-      image: opensuse/tumbleweed
+      image: debian:trixie-slim
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Install curl
+      run: apt update && apt install -y curl
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
     - name: run test script
       run: ./test.sh
-  test-on-debian:
-    name: Test on debian linux
+  test-on-centos:
+    name: Test on centos linux
     runs-on: ubuntu-24.04
     container:
-      image: debian:trixie-slim
+      image: centos:7
     steps:
     - name: Checkout
       uses: actions/checkout@v4

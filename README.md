@@ -2,7 +2,12 @@
 
 My engineering environment as code managed by chezmoi.
 
-Supports `darwin` and headless-`linux`, including WSL2.
+Supports `darwin` and some headless-`linux`, including WSL2. The following linux-distros are tested:
+- Ubuntu
+- Debian
+- Rocky Linux
+- CentOS
+- Fedora
 
 ## Install
 
