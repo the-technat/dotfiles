@@ -1,5 +1,13 @@
-{{ if not (eq .chezmoi.os "darwin") -}}
-#!/usr/bin/env sh
+{{ if eq .chezmoi.os "linux" -}}
+{{ if eq .osid "linux-alpine" -}}
+#!/bin/zsh
+{{ end -}}
+{{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-rocky") -}}
+#!/usr/bin/zsh
+{{ end -}}
+{{ if eq .osid "linux-fedora" -}}
+#!/usr/sbin/zsh
+{{ end -}}
 
 if command -v "usermod" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
