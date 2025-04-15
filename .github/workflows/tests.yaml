@@ -17,11 +17,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
   test-on-rocky:
     name: Test on rocky linux
@@ -31,11 +31,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
   test-on-ubuntu:
     name: Test on ubuntu linux
@@ -47,11 +47,11 @@ jobs:
       uses: actions/checkout@v4
     - name: Install curl
       run: apt update && apt install -y curl
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
   test-on-fedora:
     name: Test on fedora linux
@@ -61,11 +61,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
   test-on-debian:
     name: Test on debian linux
@@ -77,11 +77,11 @@ jobs:
       uses: actions/checkout@v4
     - name: Install curl
       run: apt update && apt install -y curl
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
   test-on-alpine:
     name: Test on alpine linux
@@ -93,9 +93,9 @@ jobs:
       uses: actions/checkout@v4
     - name: Install curl
       run: apk update && apk add curl
-    - name: Instal chezmoi
+    - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: run test script
+    - name: Run test script
       run: ./test.sh
