@@ -1,17 +1,9 @@
 {{ if eq .chezmoi.os "linux" -}}
-{{ if eq .osid "linux-alpine" -}}
-#!/bin/zsh
-{{ end -}}
-{{ if or (eq .osid "linux-debian") (eq .osid "linux-ubuntu") (eq .osid "linux-rocky") -}}
-#!/usr/bin/zsh
-{{ end -}}
-{{ if eq .osid "linux-fedora" -}}
-#!/usr/sbin/zsh
-{{ end -}}
+#!/usr/bin/env zsh
 
 if command -v "usermod" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
-  if [ ${shell} != *"zsh"* ]; then
+  if [[ ${shell} != *"zsh"* ]]; then
     echo "shell change is required"
     if command -v "sudo" > /dev/null; then
       echo "changing shell can be done using sudo (password-less)"
