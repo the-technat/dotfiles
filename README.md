@@ -2,12 +2,14 @@
 
 My engineering environment as code managed by chezmoi.
 
-Supports `darwin` and some headless-`linux`, including WSL2. The following linux-distros are tested:
+Supports `darwin` and some headless-`linux`-distros. The following linux-distros are tested:
 - Ubuntu
 - Debian
 - Rocky Linux
-- CentOS
 - Fedora
+- Alpine
+
+These distros should work no matter if you run them in a VM, a container or using WSL2.
 
 ## Install
 

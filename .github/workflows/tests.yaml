@@ -83,14 +83,16 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
     - name: run test script
       run: ./test.sh
-  test-on-centos:
-    name: Test on centos linux
+  test-on-alpine:
+    name: Test on alpine linux
     runs-on: ubuntu-24.04
     container:
-      image: centos:7
+      image: alpine:3.21
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+    - name: Install curl
+      run: apk update && apk add curl
     - name: Instal chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi

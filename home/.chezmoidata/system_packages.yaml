@@ -14,7 +14,7 @@ dnf:
 - zsh
 - make
 - gawk
-pacman:
+apk:
 - gnupg
 - gcc
 - git
@@ -22,3 +22,4 @@ pacman:
 - zsh
 - make
 - gawk
+- shadow

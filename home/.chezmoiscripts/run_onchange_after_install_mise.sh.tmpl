@@ -1,9 +1,4 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/bin/zsh
-{{ end -}}
-{{ if eq .chezmoi.os "linux" -}}
-#!/usr/bin/zsh
-{{ end -}}
+#!/usr/bin/env zsh
 
 {{ if eq .chezmoi.os "darwin" -}} 
 export MISE_INSTALL_PATH=/Users/{{ .chezmoi.username }}/.local/bin/mise
