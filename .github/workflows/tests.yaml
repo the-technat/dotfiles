@@ -47,3 +47,15 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+  test-on-fedora:
+    name: Test on fedora linux
+    runs-on: ubuntu-24.04
+    container:
+      image: fedora:43
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
