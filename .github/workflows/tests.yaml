@@ -21,6 +21,8 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
   test-on-rocky:
     name: Test on rocky linux
     runs-on: ubuntu-24.04
@@ -33,6 +35,8 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
   test-on-ubuntu:
     name: Test on ubuntu linux
     runs-on: ubuntu-24.04
@@ -47,6 +51,8 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
   test-on-fedora:
     name: Test on fedora linux
     runs-on: ubuntu-24.04
@@ -59,3 +65,33 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
+  test-on-opensuse:
+    name: Test on opensuse linux
+    runs-on: ubuntu-24.04
+    container:
+      image: opensuse/tumbleweed
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
+  test-on-debian:
+    name: Test on debian linux
+    runs-on: ubuntu-24.04
+    container:
+      image: debian:trixie-slim
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Instal chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: run test script
+      run: ./test.sh
