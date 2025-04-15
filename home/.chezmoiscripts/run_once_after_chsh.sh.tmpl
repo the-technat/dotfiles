@@ -1,19 +1,19 @@
+{{ if not (eq .chezmoi.os "darwin") -}}
 #!/usr/bin/env sh
 
-if command -v "chsh" > /dev/null; then
+if command -v "usermod" > /dev/null; then
   shell=$(getent passwd {{ .chezmoi.username }} | awk -F : '{print $NF}')
   if [ ${shell} != *"zsh"* ]; then
     echo "shell change is required"
     if command -v "sudo" > /dev/null; then
       echo "changing shell can be done using sudo (password-less)"
-      sudo -u root chsh -s $(command -v zsh) {{ .chezmoi.username }}
+      sudo usermod --shell $(command -v zsh) {{ .chezmoi.username }}
     else
-      echo "changing shell requires your password"
-      {{ if .tty -}}
-      chsh -s $(command -v zsh) {{ .chezmoi.username }}
-      {{ end -}}
+      echo "No sudo binary found, change shell manually as root using: usermod --shell $(command -v zsh) {{ .chezmoi.username }}" 
     fi
   fi
-else
-  echo "shell must be changed manually, no chsh binary found"
+else 
+  echo "shell must be changed manually, no suitable binary found"
 fi
+
+{{ end -}}

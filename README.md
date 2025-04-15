@@ -16,6 +16,8 @@ Note: We assume that either this runs somewhere a TTY is attached or passwordles
 ## New ideas
 - Support work machine
 - Support ephemeral machines
+- check race-condition between code and homebrew
+- link / modify vscode settings in here too
 - Assume default OS terminal (on everything except darwin)
 - Use tmux + nvim for editing 
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles

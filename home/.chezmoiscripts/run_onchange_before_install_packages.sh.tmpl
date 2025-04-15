@@ -20,10 +20,10 @@ fi
 {{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-rhel") (eq .osid "linux-centos") -}}
 if command -v "sudo" > /dev/null; then
    sudo dnf update
-   sudo dnf install -q -y {{ range .dnf }}{{ . }} {{ end }}
+   sudo dnf install -q --assumeyes {{ range .dnf }}{{ . }} {{ end }}
 else
    dnf update 
-   dnf install -q -y {{ range .dnf}}{{.}} {{ end }}
+   dnf install -q --assumeyes {{ range .dnf}}{{.}} {{ end }}
 fi
 {{ end -}}
 

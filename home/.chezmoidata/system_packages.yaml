@@ -4,15 +4,18 @@ apt:
 - git
 - sudo
 - zsh
+- make
 dnf:
 - gnupg
 - gcc
 - git
 - sudo
 - zsh
+- make
 pacman:
 - gnupg
 - gcc
 - git
 - sudo
 - zsh
+- make
