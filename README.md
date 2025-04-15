@@ -11,12 +11,14 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 chezmoi init --apply the-technat/dotfiles-v2
 ```
 
-Note: We assume that either this runs somewhere a TTY is attached or passwordless-sudo is configured (as some scripts might use sudo to do stuff).
+Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
 
 ## New ideas
 - Support work machine
 - Support ephemeral machines
 - check race-condition between code and homebrew
+- some distros prompt for confirmation to install packages
+- reduce DNFs output
 - link / modify vscode settings in here too
 - Assume default OS terminal (on everything except darwin)
 - Use tmux + nvim for editing 
