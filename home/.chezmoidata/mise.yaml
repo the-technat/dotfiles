@@ -1,0 +1,14 @@
+mise:
+  tools:
+  - kubectl 
+  - fzf 
+  - jq 
+  - yq 
+  - make 
+  - aws 
+  - azure 
+  - azure-kubelogin
+  - kubectx 
+  - kubens 
+  - bat
+  - neovim 

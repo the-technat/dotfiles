@@ -1,4 +1,9 @@
-#!/usr/bin/env bash
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
+#!/usr/bin/zsh
+{{ end -}}
 
 export MISE_INSTALL_PATH=$HOME/.local/bin/mise
 if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
@@ -12,4 +17,6 @@ eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
 eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate bash)"
 {{ end -}}
 
-mise doctor
+{{ range .mise.tools -}}
+mise use {{ . | quote }}
+{{ end -}}
