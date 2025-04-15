@@ -1,0 +1,12 @@
+apt:
+- gnupg
+- gcc
+- git
+dnf:
+- gnupg
+- gcc
+- git
+pacman:
+- gnupg
+- gcc
+- git
