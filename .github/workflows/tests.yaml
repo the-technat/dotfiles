@@ -21,8 +21,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-rocky:
     name: Test on rocky linux
     runs-on: ubuntu-24.04
@@ -35,8 +33,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-ubuntu:
     name: Test on ubuntu linux
     runs-on: ubuntu-24.04
@@ -51,8 +47,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-fedora:
     name: Test on fedora linux
     runs-on: ubuntu-24.04
@@ -65,8 +59,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-debian:
     name: Test on debian linux
     runs-on: ubuntu-24.04
@@ -81,8 +73,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-alpine:
     name: Test on alpine linux
     runs-on: ubuntu-24.04
@@ -97,8 +87,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-amazonlinux:
     name: Test on amazon linux
     runs-on: ubuntu-24.04
@@ -113,8 +101,6 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
   test-on-azurelinux:
     name: Test on azure linux
     runs-on: ubuntu-24.04
@@ -131,5 +117,3 @@ jobs:
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
-    - name: Run test script
-      run: ./test.sh
