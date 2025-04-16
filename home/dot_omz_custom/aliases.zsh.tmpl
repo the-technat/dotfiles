@@ -21,7 +21,7 @@ function lightmode() {
 {{- end }}
 
 alias ll="ls -lahF --hyperlink=auto --color=auto"
-function temp {
+temp () {
   DIR=$(mktemp -u)
   mkdir -p $DIR
   export TEMP=$DIR
@@ -39,7 +39,7 @@ alias kaf="kubectl apply -f"
 alias kk="kubectl --kubeconfig ~/.kube/second"
 alias ks="k -n kube-system"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
-pruned {
+pruned () {
   docker system prune -a --volumes
 }
 podCountPerNode () {
