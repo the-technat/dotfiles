@@ -27,7 +27,6 @@ Note: We assume that either this runs somewhere you can enter your password a co
 - Support ephemeral machines
 - check race-condition between code and homebrew
 - some distros prompt for confirmation to install packages
-- link / modify vscode settings in here too
 - Assume default OS terminal (on everything except darwin)
 - Use tmux + nvim for editing 
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
