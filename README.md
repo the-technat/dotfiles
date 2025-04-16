@@ -22,13 +22,20 @@ $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
 
 Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
 
+### Post Configuration (macOS only)
+
+Open Secretive and click through the wizard. The config it requires has already been added, so you can hit "I added it manually". Create an SSH key in Secretive, name it "github" and don't require authentication for it. Copy the path to this key and then create a symlink for commit signing:
+
+```console
+ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub ~/.ssh/ssh_signing.pub
+```
+
+This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
+
 ## New ideas
-- Check if VSCode settings are applied corretly
 - Do we want to set macOS UI settings?
 - Support work machine
 - Support ephemeral machines
-- Assume default OS terminal (on everything except darwin)
-- Use tmux + nvim for editing 
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
 - Try to identify devcontainers and differentiate them from other ephemeral machines (deal with their git/ssh magic)
