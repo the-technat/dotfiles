@@ -1,3 +1,4 @@
+{{ if not .devcontainer -}}
 {{ if eq .chezmoi.os "darwin" -}}
 Include ~/.orbstack/ssh/config
 {{ end -}}
@@ -27,4 +28,5 @@ Host *
 # Secretive is managing my keys on macos
 Host *
   IdentityAgent {{ .chezmoi.homeDir }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+{{ end -}}
 {{ end -}}

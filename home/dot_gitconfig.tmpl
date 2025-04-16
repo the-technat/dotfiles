@@ -1,3 +1,4 @@
+{{ if not .devcontainer -}}
 [user]
   email = {{ .email }}
   name = {{ .name }}
@@ -17,3 +18,4 @@
   format = ssh
 [commit]
   gpgSign = true
+{{ end -}}

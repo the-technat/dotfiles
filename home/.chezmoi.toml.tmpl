@@ -1,14 +1,13 @@
-{{/* machine types */}}
-{{- $ephemeral := true -}}{{/* true if this machine is ephemeral, e.g. a devcontainer, cloud or VM instance */}}
-{{- $work := false -}}{{/* true if this machine is a work machine */}}
-{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
-
-{{/* detect machine type automatically */}}
-{{- if and (eq .chezmoi.username "technat") (eq .chezmoi.os "darwin") -}}
-{{-   $personal = true -}}
+{{/* detect devcontainer-based solutions */}}
+{{- $devcontainer := false -}}
+{{- if and (eq (env "DEVPOD") "true") (eq .chezmoi.os "linux") -}}
+{{-   $devcontainer = true -}}
 {{- end -}}
-{{- if eq .chezmoi.username "liechtinat" -}}
-{{-  $work = true -}}
+{{- if and (eq (env "CODESPACE") "true") (eq .chezmoi.os "linux") -}}
+{{-   $devcontainer = true -}}
+{{- end -}}
+{{- if and (eq (env "REMOTE_CONTAINERS") "true") (eq .chezmoi.os "linux") -}}
+{{-   $devcontainer = true -}}
 {{- end -}}
 
 {{/* generate osid key from OS and release version */}}
@@ -22,7 +21,7 @@
 
 {{- $name := "Nathanael Liechti" -}}
 {{- $email := "technat@technat.ch" -}}
-{{- if $work -}}
+{{- if eq .chezmoi.username "liechtinat" -}}
 {{-   $email = "nathanael.liechti@post.ch" -}}
 {{- end -}}
 
@@ -31,7 +30,5 @@
   name = {{ $name | quote }}
   osid = {{ $osid | quote }}
   shell = {{ $shell | quote }}
-  personal = {{ $personal }}
-  work = {{ $work }}
-  ephemeral = {{ $ephemeral }}
   tty = {{ stdinIsATTY }}
+  devcontainer = {{ $devcontainer }}

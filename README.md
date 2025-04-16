@@ -33,6 +33,7 @@ ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Da
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
 
 ## New ideas
+- install.sh should skip if it sees chezmoi is installed and had a successful run
 - Do we want to set macOS UI settings?
 - Support work machine
 - Support ephemeral machines
