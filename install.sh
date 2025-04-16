@@ -20,7 +20,7 @@ else
 fi
 
 # check if chezmoi has already run
-chezmoi verify || success=$?
+$bin_dir/chezmoi verify || success=$?
 
 if [ $success -ne 0 ]; then
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
