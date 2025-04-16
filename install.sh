@@ -3,7 +3,6 @@
 
 set -e # -e: exit on error
 
-# install chezmoi if not already done
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/.local/bin"
   chezmoi="$bin_dir/chezmoi"
@@ -19,12 +18,7 @@ else
   chezmoi=chezmoi
 fi
 
-# check if chezmoi has already run
-$bin_dir/chezmoi verify || success=$?
-
-if [ $success -ne 0 ]; then
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 # exec: replace current process with chezmoi init
 exec "$chezmoi" init --apply "--source=$script_dir"
-fi

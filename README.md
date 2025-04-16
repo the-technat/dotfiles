@@ -1,4 +1,4 @@
-# dotfiles-v2
+# dotfiles
 
 My engineering environment as code managed by chezmoi.
 
@@ -33,7 +33,10 @@ ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Da
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
 
 ## New ideas
-- install.sh should skip if it sees chezmoi is installed and had a successful run
+- Recheck if dotfiles really work in devcontainers
+- Test on multiple WSL2 installations
+- Some mise tools fail to install
+- Get net-tools and bind-dnsutils and tcpdump to systems
 - Do we want to set macOS UI settings?
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles

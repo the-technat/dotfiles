@@ -1,13 +1,13 @@
 mise:
   tools:
-  - kubectl 
   - fzf 
   - jq 
   - yq 
-  - aws 
-  - azure 
-  - azure-kubelogin
+  - bat
   - kubectx 
   - kubens 
-  - bat
   - neovim 
+  - tmux
+  - k9s
+  - go
+  - golangci-lint
