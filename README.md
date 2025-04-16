@@ -27,7 +27,7 @@ Note: We assume that either this runs somewhere you can enter your password a co
 Open Secretive and click through the wizard. The config it requires has already been added, so you can hit "I added it manually". Create an SSH key in Secretive, name it "github" and don't require authentication for it. Copy the path to this key and then create a symlink for commit signing:
 
 ```console
-ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub ~/.ssh/ssh_signing.pub
+ln -sf ~/.ssh/ssh_signing.pub /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub 
 ```
 
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
