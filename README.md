@@ -36,8 +36,7 @@ This is only required for signing git commits, every other tool will use the key
 - install.sh should skip if it sees chezmoi is installed and had a successful run
 - Do we want to set macOS UI settings?
 - Support work machine
-- Support ephemeral machines
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Try to identify devcontainers and differentiate them from other ephemeral machines (deal with their git/ssh magic)
+- Rename `dotfiles` repo to `dotfiles-archived` and rename `dotfiles-v2` to `dotfiles`
 - Migrate banana & WALL-E over to new dotfiles repo
