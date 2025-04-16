@@ -1,4 +1,3 @@
-ensure-deps.sh
 README.md
 install.sh
 
@@ -6,4 +5,8 @@ install.sh
 .oh-my-zsh/cache/**
 .oh-my-zsh/**/*.zwc
 
-.local/share/code-server/settings.json
+settings.json
+
+{{ if eq .chezmoi.os "linux" -}}
+Library/
+{{ end -}}
