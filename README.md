@@ -33,11 +33,9 @@ ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Da
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
 
 ## New ideas
-- Recheck if dotfiles really work in devcontainers
 - Test on multiple WSL2 installations
-- Some mise tools fail to install
 - Do we want to set macOS UI settings?
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Migrate banana & WALL-E over to new dotfiles repo
+- Migrate banana over to new dotfiles repo
