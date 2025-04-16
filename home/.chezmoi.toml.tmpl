@@ -3,7 +3,7 @@
 {{- if and (eq (env "DEVPOD") "true") (eq .chezmoi.os "linux") -}}
 {{-   $devcontainer = true -}}
 {{- end -}}
-{{- if and (eq (env "CODESPACE") "true") (eq .chezmoi.os "linux") -}}
+{{- if and (eq (env "CODESPACES") "true") (eq .chezmoi.os "linux") -}}
 {{-   $devcontainer = true -}}
 {{- end -}}
 {{- if and (eq (env "REMOTE_CONTAINERS") "true") (eq .chezmoi.os "linux") -}}
