@@ -2,7 +2,7 @@
 
 My engineering environment as code managed by chezmoi.
 
-Supports `darwin` and some headless-`linux`-distros. The following linux-distros are tested:
+Supports `darwin` and some headless-`linux`-distros. The following distros are tested:
 - Ubuntu
 - Debian
 - Rocky Linux
