@@ -1,0 +1,52 @@
+
+###############################
+# General
+###############################
+set -g history-limit 5000                 # boost history
+set -g default-terminal "screen-256color"
+
+###############################
+# Navigation
+###############################
+## More natural way to split windows
+bind-key | split-window -h -c "#{pane_current_path}" 
+bind-key - split-window -v -c "#{pane_current_path}" 
+## Open new windows with same directory
+bind c new-window -c "#{pane_current_path}"
+
+# activate mouse mode and all selections that come with it
+set -g mouse on
+
+###############################
+# Keybindings
+###############################
+## Make mode and status keybindings like vim
+#set-window-option -g mode-keys vi
+#set-window-option -g status-keys vi
+
+# reload config file
+bind r source-file ~/.tmux.conf 
+
+###############################
+# Plugins (Tmux Plugin Manager) https://github.com/tmux-plugins/tpm
+###############################
+set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+###############################
+# Plugin Configs
+###############################
+# tmux-yank
+## mouse yanks should also go to clipboard instead of primary
+set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
+
+###############################
+# Look and feel
+###############################
+# Set solraized_dark theme (plugin seebi/tmux-colors-solarized required)
+set -g @colors-solarized 'dark'
+
+################################## End of Config ################################
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

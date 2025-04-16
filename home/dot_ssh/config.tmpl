@@ -1,0 +1,30 @@
+{{ if eq .chezmoi.os "darwin" -}}
+Include ~/.orbstack/ssh/config
+{{ end -}}
+
+AddKeysToAgent yes
+
+Host github.com 
+  Hostname github.com
+  User git
+  Port 22
+
+Host pikvm 
+  User root
+
+Host i-* mi-*
+  ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  User ec2-user
+  ServerAliveInterval 120
+
+{{ if eq .chezmoi.os "linux" -}}
+# just one pre-generated ssh key on linux
+Host *
+  IdentityFile /home/{{ .username }}/.ssh/id_ed25519
+{{ end -}}
+
+{{ if eq .osid "darwin" -}}
+# Secretive is managing my keys on macos
+Host *
+  IdentityAgent /Users/{{ .username }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+{{ end -}}
