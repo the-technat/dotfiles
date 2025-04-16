@@ -20,11 +20,11 @@ Host i-* mi-*
 {{ if eq .chezmoi.os "linux" -}}
 # just one pre-generated ssh key on linux
 Host *
-  IdentityFile /home/{{ .username }}/.ssh/id_ed25519
+  IdentityFile /home/{{ .chezmoi.username }}/.ssh/id_ed25519
 {{ end -}}
 
 {{ if eq .osid "darwin" -}}
 # Secretive is managing my keys on macos
 Host *
-  IdentityAgent /Users/{{ .username }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  IdentityAgent {{ .chezmoi.homeDir }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 {{ end -}}

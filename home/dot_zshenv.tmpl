@@ -1,8 +1,4 @@
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(/Users/{{ .chezmoi.username }}/.local/bin/mise activate zsh)"
 {{ end -}}
-
-{{ if eq .chezmoi.os "linux" -}}
-eval "$(/home/{{ .chezmoi.username }}/.local/bin/mise activate zsh)"
-{{ end -}}
+eval "$({{ .chezmoi.homeDir }}/.local/bin/mise activate zsh)"

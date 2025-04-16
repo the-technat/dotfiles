@@ -23,6 +23,8 @@ $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
 Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
 
 ## New ideas
+- Check if VSCode settings are applied corretly
+- Do we want to set macOS UI settings?
 - Support work machine
 - Support ephemeral machines
 - check race-condition between code and homebrew

@@ -1,11 +1,6 @@
 #!/usr/bin/env zsh
 
-{{ if eq .chezmoi.os "darwin" -}} 
-export MISE_INSTALL_PATH=/Users/{{ .chezmoi.username }}/.local/bin/mise
-{{ end -}}
-{{ if eq .chezmoi.os "linux" -}}
-export MISE_INSTALL_PATH=/home/{{ .chezmoi.username }}/.local/bin/mise
-{{ end -}}
+export MISE_INSTALL_PATH={{ .chezmoi.homeDir }}/.local/bin/mise
 if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
    curl https://mise.run | sh 
 fi
