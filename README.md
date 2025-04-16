@@ -38,4 +38,4 @@ This is only required for signing git commits, every other tool will use the key
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Migrate banana over to new dotfiles repo
+- Document internal behavior

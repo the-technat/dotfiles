@@ -1,4 +1,9 @@
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
+SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 {{ end -}}
 eval "$({{ .chezmoi.homeDir }}/.local/bin/mise activate zsh)"
+
+AWS_PAGER=/usr/bin/less
+DEFAULT_USER="{{ .chezmoi.username }}"
+EDITOR=nvim
