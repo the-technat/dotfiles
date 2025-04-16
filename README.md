@@ -17,7 +17,7 @@ These distros should work no matter if you run them in a VM, a container or usin
 
 ```console
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
-$HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+$HOME/.local/bin/chezmoi init --apply the-technat
 ```
 
 Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
@@ -38,5 +38,4 @@ This is only required for signing git commits, every other tool will use the key
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Rename `dotfiles` repo to `dotfiles-archived` and rename `dotfiles-v2` to `dotfiles`
 - Migrate banana & WALL-E over to new dotfiles repo
