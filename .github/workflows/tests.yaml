@@ -99,3 +99,37 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
     - name: Run test script
       run: ./test.sh
+  test-on-amazonlinux:
+    name: Test on amazon linux
+    runs-on: ubuntu-24.04
+    container:
+      image: amazonlinux:2023
+    steps:
+    - name: Install tar
+      run: dnf install -y tar
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: Run test script
+      run: ./test.sh
+  test-on-azurelinux:
+    name: Test on azure linux
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/azurelinux/base/core:3.0
+    env:
+      GNUPGHOME: /root/.gnupg
+    steps:
+    - name: Install tar
+      run: tdnf install -y tar ca-certificates
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Install chezmoi
+      run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
+    - name: Run chezmoi
+      run: $HOME/.local/bin/chezmoi init --apply the-technat/dotfiles-v2
+    - name: Run test script
+      run: ./test.sh

@@ -22,4 +22,12 @@ apk:
 - zsh
 - make
 - gawk
-- shadow
+- shadow # contains usermod
+tdnf:
+- gnupg
+- gcc
+- git
+- sudo
+- zsh
+- make
+- gawk

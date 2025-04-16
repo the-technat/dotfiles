@@ -17,7 +17,7 @@ else
 fi
 {{ end -}}
 
-{{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-rhel") (eq .osid "linux-centos") -}}
+{{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-amzn") -}}
 if command -v "sudo" > /dev/null; then
    sudo dnf update
    sudo dnf install -q --assumeyes {{ range .dnf }}{{ . }} {{ end }}
@@ -34,5 +34,15 @@ if command -v "sudo" > /dev/null; then
 else
    apk update
    apk add {{ range .apk }}{{ . }} {{ end }}
+fi
+{{ end -}}
+
+{{ if eq .osid "linux-azurelinux" -}}
+if command -v "sudo" > /dev/null; then
+   sudo tdnf makecache
+   sudo tdnf install -y {{ range .tdnf }}{{ . }} {{ end }}
+else
+  tdnf makecache
+  tdnf install -y {{ range .tdnf }}{{ . }} {{ end }} 
 fi
 {{ end -}}

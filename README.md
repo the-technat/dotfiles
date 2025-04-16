@@ -8,6 +8,8 @@ Supports `darwin` and some headless-`linux`-distros. The following linux-distros
 - Rocky Linux
 - Fedora
 - Alpine
+- Amazon Linux 
+- Azure Linux
 
 These distros should work no matter if you run them in a VM, a container or using WSL2.
 
@@ -21,6 +23,7 @@ chezmoi init --apply the-technat/dotfiles-v2
 Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
 
 ## New ideas
+- Extend `test.sh` to cover some basic test cases (and fix the zsh not found issue)
 - Support work machine
 - Support ephemeral machines
 - check race-condition between code and homebrew
