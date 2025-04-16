@@ -31,4 +31,5 @@ Note: We assume that either this runs somewhere you can enter your password a co
 - Use tmux + nvim for editing 
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Try to identify devcontainers and differentiate them from other ephemeral machines
+- Try to identify devcontainers and differentiate them from other ephemeral machines (deal with their git/ssh magic)
+- Migrate banana & WALL-E over to new dotfiles repo
