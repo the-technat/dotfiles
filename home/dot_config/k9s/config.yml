@@ -1,0 +1,12 @@
+k9s:
+  liveViewAutoRefresh: true
+  refreshRate: 2
+  ui:
+    headless: true
+    logoless: true
+    crumbless: true
+    enableMouse: true
+  logger:
+    textWrap: true
+    showTime: true
+    buffer: 99999

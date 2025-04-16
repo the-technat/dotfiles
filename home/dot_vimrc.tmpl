@@ -1,0 +1,62 @@
+" General
+set encoding=utf-8
+set history=1000
+set mouse=a
+set shell=/bin/zsh
+set autoread
+
+" Behaviour
+set confirm
+set linebreak
+set wrap
+set noerrorbells
+set backspace=indent,eol,start
+{{ if eq .osid "darwin" -}}
+set clipboard=unnamed " shares the clipboard with macos (requires vim build that supports it)
+{{ end -}}
+
+" UI
+set number
+set title
+set wildmenu
+"set cursorline
+set background=light
+set termguicolors
+syntax enable
+
+" Search
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
+
+" Editor
+set smartindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set shiftround
+set smarttab
+
+" Autocmd Magic
+autocmd FocusLost,WinLeave * :silent! w " Save the file if we switch to another window
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif " Jump back to previous position in file when you reopen a file
+
+
+" Keybindings
+let mapleader = ","
+nnoremap <silent> <C-j> <C-W>j
+nnoremap <silent> <C-k> <C-W>k
+nnoremap <silent> <C-l> <C-W>l
+nnoremap <silent> <C-h> <C-W>h
+nnoremap <silent> <leader>jj <c-w>w<c-d><c-w>W " Scroll the window next to the current one
+nnoremap <silent> <leader>kk <c-w>w<c-u><c-w>W
+noremap <leader><space> :nohlsearch<CR>
+{{ if eq .osid "darwin" -}}
+"vmap <C-x> :!pbcopy<CR>
+"vmap <C-c> :w !pbcopy<CR><CR>
+{{ end -}}
+
+" For Plugins
+packloadall
+silent! helptags ALL

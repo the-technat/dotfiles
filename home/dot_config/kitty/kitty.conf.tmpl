@@ -1,0 +1,34 @@
+{{ if eq .osid "darwin" -}}
+# vim:fileencoding=utf-8:foldmethod=marker
+
+font_family      FiraCode Nerd Font
+font_size 14.0
+font_features FiraCode-Retina +zero +onum
+
+cursor_blink_interval 0.5
+
+scrollback_lines 999999999
+
+copy_on_select yes
+
+paste_actions replace-newline,quote-urls-at-prompt,confirm
+
+enable_audio_bell no
+
+remember_window_size  yes
+
+confirm_os_window_close 2
+
+tab_bar_style powerline
+
+close_on_child_death yes
+
+notify_on_cmd_finish unfocused
+macos_quit_when_last_window_closed yes
+allow_remote_control yes
+
+map cmd+enter launch --cwd=current
+map ctrl+shift+enter launch --cwd=current
+
+include current_theme.conf
+{{ end -}}

@@ -1,0 +1,102 @@
+{{- if eq .osid "darwin" }}
+alias -g lm="limactl"
+alias -g cat="bat"
+alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
+alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
+alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
+alias hg="kitty +kitten hyperlinked_grep"
+alias diff="kitty +kitten diff"
+alias copy="kitty +kitten clipboard"
+alias paste="kitty +kitten clipboard --get-clipboard"
+function darkmode() {
+  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_dark.conf
+  ln -sf ~/.config/kitty/solarized_dark.conf ~/.config/kitty/current_theme.conf
+}
+function lightmode() {
+  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_light.conf
+  ln -sf ~/.config/kitty/solarized_light.conf ~/.config/kitty/current_theme.conf
+}
+{{- end }}
+
+alias ll="ls -lahF --hyperlink=auto --color=auto"
+function temp {
+  DIR=$(mktemp -u)
+  mkdir -p $DIR
+  export TEMP=$DIR
+  cd $DIR
+}
+
+alias -g tfgen="terraform-docs md --anchor=false --output-file README.md"
+alias -g gss="git status -s"
+
+alias dip="docker inspect -f '\{\{range .NetworkSettings.Networks\}\}\{\{.IPAddress\}\}\{\{end\}\}'"
+alias kcn="kubens"
+alias kcuc="kubectx"
+alias kak="kubectl apply -k"
+alias kaf="kubectl apply -f"
+alias kk="kubectl --kubeconfig ~/.kube/second"
+alias ks="k -n kube-system"
+alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
+pruned {
+  docker system prune -a --volumes
+}
+podCountPerNode () {
+        kubectl get pods -A -o json | jq -rs 'map({Node: .items[].spec.nodeName}) | group_by(.Node) | map({Node: .[0].Node, Pods: length}) ' | jq -r '"Node\t\t\t\t\t\tPods","----------------------------------------------\t----",( .[] | "\(.Node)\t\(.Pods
+)")'
+}
+podsByNodeLabel() {
+  for node in $(kubectl get nodes -l $1 -ojsonpath='{.items[*].metadata.name}'); do 
+    kubectl get pods -A -o wide --field-selector spec.nodeName=$node
+  done
+}
+allns {
+  for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
+    echo "Resource:" $i
+
+    if [ -z "$1" ]
+    then
+        kubectl get --ignore-not-found ${i}
+    else
+        kubectl -n ${1} get --ignore-not-found ${i}
+    fi
+  done
+}
+startSSMSession() {
+        aws ssm start-session --target $1
+}
+ssmToInstance() {
+		nodeToExec=$(kubectl get nodes -o=name | sed -e 's/^node\///g' | fzf)
+		id=$(kubectl get node $nodeToExec -o=jsonpath='{.spec.providerID}' | grep -Eo 'i-[a-z0-9]{1,}$')
+		aws $profile ssm start-session --target $id --debug
+}
+nodeCount() {
+        count=$(kubectl get nodes --no-headers | wc -l)
+        cluster=$(kubectl config current-context)
+        echo "$cluster has $count nodes"
+}
+podCount() {
+        count=$(kubectl get pods -A --no-headers | wc -l)
+        cluster=$(kubectl config current-context)
+        echo "$cluster has $count pods"
+}
+podPlacement() {
+   all_azs=$(kubectl get nodes -o jsonpath='{.items[*].metadata.labels.topology\.kubernetes\.io/zone}')
+   for az in $(echo "${all_azs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '); do
+     total_count=0
+     for node in $(kubectl get nodes -l "topology.kubernetes.io/zone=$az" -o=jsonpath='{.items[*].metadata.name}'); do
+       count=$(kubectl get pods -A -l $1 --field-selector spec.nodeName=$node --no-headers | wc -l)
+       echo "$node: $count"
+       total_count=$((total_count + count))
+     done
+     echo "Total in $az: $total_count"
+   done
+}
+nodesInAZ() {
+   NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
+   for node in $NODES; do
+         count=$(kubectl get pods -A --field-selector spec.nodeName=$node --no-headers | wc -l)
+         echo "$node: $count"
+   done
+}
