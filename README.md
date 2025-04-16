@@ -36,7 +36,6 @@ This is only required for signing git commits, every other tool will use the key
 - Recheck if dotfiles really work in devcontainers
 - Test on multiple WSL2 installations
 - Some mise tools fail to install
-- Get net-tools and bind-dnsutils and tcpdump to systems
 - Do we want to set macOS UI settings?
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles

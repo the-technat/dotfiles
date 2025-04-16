@@ -7,7 +7,6 @@ mise:
   - kubectx 
   - kubens 
   - neovim 
-  - tmux
   - k9s
   - go
   - golangci-lint

@@ -63,7 +63,7 @@ jobs:
     name: Test on debian linux
     runs-on: ubuntu-24.04
     container:
-      image: debian:trixie-slim
+      image: debian:bookworm-slim
     steps:
     - name: Checkout
       uses: actions/checkout@v4

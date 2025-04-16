@@ -6,6 +6,10 @@ apt:
 - zsh
 - make
 - gawk
+- net-tools
+- traceroute
+- tmux
+- bind9-dnsutils
 dnf:
 - gnupg
 - gcc
@@ -14,6 +18,10 @@ dnf:
 - zsh
 - make
 - gawk
+- tmux
+- net-tools
+- bind-utils
+- traceroute
 apk:
 - gnupg
 - gcc
@@ -22,6 +30,10 @@ apk:
 - zsh
 - make
 - gawk
+- tmux
+- net-tools
+- bind-tools
+- traceroute
 - shadow # contains usermod
 tdnf:
 - gnupg
@@ -31,6 +43,9 @@ tdnf:
 - zsh
 - make
 - gawk
+- tmux
+- net-tools
+- traceroute
 homebrew: 
   taps: []
   brews:
@@ -39,6 +54,7 @@ homebrew:
   - nmap
   - unzip
   - btop
+  - tmux
   casks: # casks are macos-only
     - "kitty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
