@@ -7,7 +7,7 @@ export MISE_INSTALL_PATH=/Users/{{ .chezmoi.username }}/.local/bin/mise
 export MISE_INSTALL_PATH=/home/{{ .chezmoi.username }}/.local/bin/mise
 {{ end -}}
 if ! command -v "$MISE_INSTALL_PATH" > /dev/null; then
-   curl https://mise.run | sh > /dev/null
+   curl https://mise.run | sh 
 fi
 
 eval "$($MISE_INSTALL_PATH activate zsh)"
