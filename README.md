@@ -59,7 +59,5 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 
 </details>
 
-## New ideas
-- Do we want to set macOS UI settings?
+## Open ideas
 - Support work machine
-- Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
