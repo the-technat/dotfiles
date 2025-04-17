@@ -57,7 +57,7 @@ homebrew:
   - btop
   - tmux
   casks: # casks are macos-only
-    - "kitty" # prefered terminal emulator on darwin
+    - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
     - "visual-studio-code" # do it all IDE
     - "font-fira-code-nerd-font" # font for kitty
