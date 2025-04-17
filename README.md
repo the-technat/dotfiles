@@ -60,7 +60,8 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 </details>
 
 ## New ideas
-- Maybe only modifty existing SSH config?
+- What about docker on remote linux?
+- What about all the system packages in a devcontainer?
 - Test on multiple WSL2 installations
 - Do we want to set macOS UI settings?
 - Support work machine

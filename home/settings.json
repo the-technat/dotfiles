@@ -1,7 +1,5 @@
 {
   "workbench.colorTheme": "Solarized Light",
-  "vscode-kubernetes.kubectl-path-linux": "~/.local/bin/kubectl",
-  "vscode-kubernetes.helm-path-linux": "~/.local/bin/helm",
   "workbench.statusBar.visible": false,
   "workbench.sideBar.location": "right",
   "window.customTitleBarVisibility": "windowed",

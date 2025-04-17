@@ -5,13 +5,15 @@ Include ~/.orbstack/ssh/config
 
 AddKeysToAgent yes
 
+Host banana
+
+Host pikvm 
+  User root
+
 Host github.com 
   Hostname github.com
   User git
   Port 22
-
-Host pikvm 
-  User root
 
 Host i-* mi-*
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
