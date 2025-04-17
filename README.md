@@ -61,7 +61,6 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 
 ## New ideas
 - Maybe only modifty existing SSH config?
-- Check mise binaries are found in PATH
 - Test on multiple WSL2 installations
 - Do we want to set macOS UI settings?
 - Support work machine

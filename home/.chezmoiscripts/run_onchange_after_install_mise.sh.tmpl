@@ -8,5 +8,5 @@ fi
 eval "$($MISE_INSTALL_PATH activate zsh)"
 
 {{ range .mise.tools -}}
-mise use {{ . | quote }}
+mise use -g {{ . | quote }}
 {{ end -}}
