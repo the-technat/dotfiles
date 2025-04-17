@@ -8,5 +8,3 @@ mise:
   - kubens 
   - neovim 
   - k9s
-  - go
-  - golangci-lint
