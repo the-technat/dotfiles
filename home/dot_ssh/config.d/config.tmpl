@@ -29,6 +29,7 @@ Host *
 {{ if eq .osid "darwin" -}}
 # Secretive is managing my keys on macos
 Host *
+  SetEnv TERM=xterm-256color # since ghostty has an TERM not known
   IdentityAgent {{ .chezmoi.homeDir }}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 {{ end -}}
 {{ end -}}
