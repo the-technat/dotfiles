@@ -8,20 +8,6 @@ alias -g fedoraVM="orbctl create -a arm64 fedora"
 alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
 alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
 alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-alias ssh="kitty +kitten ssh"
-alias icat="kitty +kitten icat"
-alias hg="kitty +kitten hyperlinked_grep"
-alias diff="kitty +kitten diff"
-alias copy="kitty +kitten clipboard"
-alias paste="kitty +kitten clipboard --get-clipboard"
-function darkmode() {
-  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_dark.conf
-  ln -sf ~/.config/kitty/solarized_dark.conf ~/.config/kitty/current_theme.conf
-}
-function lightmode() {
-  kitty @ set-colors --to unix:/tmp/kitty --all --configured ~/.config/kitty/solarized_light.conf
-  ln -sf ~/.config/kitty/solarized_light.conf ~/.config/kitty/current_theme.conf
-}
 {{- end }}
 
 alias ll="ls -lahF --hyperlink=auto --color=auto"
