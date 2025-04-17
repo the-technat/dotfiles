@@ -1,6 +1,10 @@
 {{- if eq .osid "darwin" }}
 alias -g lm="limactl"
 alias -g cat="bat"
+alias -g ubuntuVM="orbctl create -a arm64 ubuntu"
+alias -g alpineVM="orbctl create -a arm64 alpine"
+alias -g rockyVM="orbctl create -a arm64 rocky"
+alias -g fedoraVM="orbctl create -a arm64 fedora"
 alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
 alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
 alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
