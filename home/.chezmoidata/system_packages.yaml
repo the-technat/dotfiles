@@ -34,6 +34,7 @@ apk:
 - net-tools
 - bind-tools
 - traceroute
+- openssh # contains ssh-keygen
 - shadow # contains usermod
 tdnf:
 - gnupg
