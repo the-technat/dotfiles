@@ -27,5 +27,7 @@
   "window.autoDetectColorScheme": true,
   "remote.SSH.experimental.chat": false,
   "chat.commandCenter.enabled": false,
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "mise.checkForNewMiseVersion": false,
+  "mise.configureExtensionsAutomatically": false
 }
