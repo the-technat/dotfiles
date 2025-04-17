@@ -32,9 +32,8 @@ ln -sf ~/.ssh/ssh_signing.pub /Users/technat/Library/Containers/com.maxgoedjen.S
 
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
 
-<details open>
+<details closed>
 <summary>Concepts and details</summary>
-<br>
 
 ## OS Support
 
@@ -45,6 +44,8 @@ As the headline suggests we support `darwin` and headless-`linux`. My idea with 
 I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is [mise](https://mise.jdx.dev).
 
 The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. Mise on the other hand is very useful for installing development-specific tools where multiple versions of the same binary might be needed. Mise runs after we put our files in place and installs a handful of development tools that are assumed/used by aliases or have a config in our dotfiles. Any other development tools should be installed when needed.
+
+Note: for macOS I count [homebrew](https://brew.sh) as system package manager as there's no one preinstalled.
 
 ## Devcontainers
 
@@ -66,4 +67,3 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
 - Simplify SSH key management to function independent on ephemeral / remote machines
-- Document internal behavior
