@@ -24,7 +24,7 @@ Note: We assume that either this runs somewhere you can enter your password a co
 
 ### Post Configuration (macOS only)
 
-Open Secretive and click through the wizard. The config it requires has already been added, so you can hit "I added it manually". Create an SSH key in Secretive, name it "github" and don't require authentication for it. Copy the path to this key and then create a symlink for commit signing:
+Open Secretive and click through the wizard. The config it requires has already been added, so you can hit "I Added it Manually". Create an SSH key in Secretive, name it "github" and don't require authentication for it. Copy the path to this key and then create a symlink for commit signing:
 
 ```console
 ln -sf ~/.ssh/ssh_signing.pub /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub 
@@ -60,10 +60,6 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 </details>
 
 ## New ideas
-- What about docker on remote linux?
-- What about all the system packages in a devcontainer?
-- Test on multiple WSL2 installations
 - Do we want to set macOS UI settings?
 - Support work machine
 - Take inspiration from https://github.com/axinorm/macbook-setup and https://github.com/twpayne/dotfiles
-- Simplify SSH key management to function independent on ephemeral / remote machines
