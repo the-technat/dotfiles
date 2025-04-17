@@ -7,6 +7,8 @@ code_server_extensions:
 - metalbear.mirrord
 - ms-azuretools.vscode-docker
 - ms-kubernetes-tools.vscode-kubernetes-tools
+- hverlin.mise-vscode
+- tamasfe.even-better-toml
 vscode_extensions: 
 - docker.docker
 - editorconfig.editorconfig
@@ -26,3 +28,5 @@ vscode_extensions:
 - ms-vscode.remote-explorer
 - redhat.vscode-yaml
 - vscodevim.vim
+- hverlin.mise-vscode
+- tamasfe.even-better-toml
