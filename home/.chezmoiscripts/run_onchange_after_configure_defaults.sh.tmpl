@@ -1,0 +1,33 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/zsh
+
+set -eufo pipefail
+
+defaults write -g ApplePressAndHoldEnabled -int 0
+defaults write -g AppleShowAllExtensions -int 1
+defaults write -g CGDisableCursorLocationMagnification -int 0
+defaults write -g InitialKeyRepeat -int 25
+defaults write -g KeyRepeat -int 2
+defaults write -g NSAutomaticCapitalizationEnabled -int 0
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -int 1
+defaults write -g NSAutomaticSpellingCorrectionEnabled -int 0
+defaults write -g WebAutomaticSpellingCorrectionEnabled -int 0
+defaults write -g AppleAccentColor -int 3
+defaults write -g AppleTemperatureUnit -string Celsius
+defaults write -g AppleMetricUnits -int 1
+
+defaults write -g com.apple.keyboard.fnState -int 1
+defaults write -g com.apple.swipescrolldirection -int 1
+defaults write -g com.apple.trackpad.scaling" -int 0.6875
+
+defaults write com.apple.dock autohide -int 1
+defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock show-recents -int 0
+
+defaults write com.apple.finder _FXShowPosixPathInTitle -int 1
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+defaults write com.apple.finder _FXSortFoldersFirst -int 1
+defaults write com.apple.finder FXRemoveOldTrashItems -int 1
+defaults write com.apple.finder FXEnableExtensionChangeWarning -int 0
+
+{{ end -}}
