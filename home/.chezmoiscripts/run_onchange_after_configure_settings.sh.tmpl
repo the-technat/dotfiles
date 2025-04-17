@@ -15,6 +15,7 @@ defaults write -g WebAutomaticSpellingCorrectionEnabled -int 0
 defaults write -g AppleAccentColor -int 3
 defaults write -g AppleTemperatureUnit -string Celsius
 defaults write -g AppleMetricUnits -int 1
+defaults write -g AppleKeyboardUIMode -int 3
 
 defaults write -g com.apple.keyboard.fnState -int 1
 defaults write -g com.apple.swipescrolldirection -int 1
@@ -27,10 +28,22 @@ defaults write com.apple.dock tilesize -int 16
 
 defaults write com.apple.finder _FXShowPosixPathInTitle -int 1
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+defaults write com.apple.finder FXDefaultSearchScope -string SCcf
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+defaults write com.apple.finder NewWindowTarget -string PfHm
 defaults write com.apple.finder _FXSortFoldersFirst -int 1
 defaults write com.apple.finder FXRemoveOldTrashItems -int 1
 defaults write com.apple.finder FXEnableExtensionChangeWarning -int 0
 
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+
 nightlight temp 80
+
+# disable startup sound
+sudo nvram StartupMute=%01
 
 {{ end -}}
