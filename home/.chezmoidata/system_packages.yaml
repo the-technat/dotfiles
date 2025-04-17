@@ -48,7 +48,8 @@ tdnf:
 - net-tools
 - traceroute
 homebrew: 
-  taps: []
+  taps: 
+  - smudge/smudge
   brews:
   - make
   - gcc
@@ -57,6 +58,7 @@ homebrew:
   - btop
   - tmux
   - dockutil
+  - "nightlight"
   casks: # casks are macos-only
     - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
