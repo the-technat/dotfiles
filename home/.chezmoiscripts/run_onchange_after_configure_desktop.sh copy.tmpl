@@ -3,5 +3,7 @@
 
 set -eufo pipefail
 
-osascript -e 'tell application "System Events" to tell every desktop to set picture to "../../assets/nathanaels-coffe-wallpaper-dynamic.heic" as POSIX file'
+cp {{ .chezmoi.sourceDir }}/../assets/nathanaels-coffe-wallpaper-dynamic.heic "{{ .chezmoi.homeDir }}/Pictures/wallpaper.heic"
+
+osascript -e 'tell application "System Events" to tell every desktop to set picture to "{{ .chezmoi.homeDir }}/Pictures/wallpaper.heic" as POSIX file'
 {{ end -}}
