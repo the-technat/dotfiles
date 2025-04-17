@@ -5,27 +5,6 @@ set -eufo pipefail
 
 trap 'killall Dock' EXIT
 
-declare -a remove_labels=(
-	Safari
-	Messages
-	Mail
-	Maps
-	Photos
-	FaceTime
-	Calendar
-	Contacts
-	Reminders
-	Notes
-	Freeform
-	TV
-	Music
-	Keynote
-	Numbers
-	Pages
-	"App Store"
-)
+dockutil --remove all
 
-for label in "${remove_labels[@]}"; do
-	dockutil --no-restart --remove "${label}" || true
-done
 {{ end -}}
