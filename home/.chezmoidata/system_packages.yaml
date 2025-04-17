@@ -71,3 +71,20 @@ homebrew:
     - "utm" # do it all hypervisor for other VMs
     - "mist" # macos installer utility
     - "crystalfetch" # windows installer utility
+    - "virtualbuddy"
+    - "spotify"
+    - "logi-options+"
+    - "jabra-direct"
+    - "onlyoffice"
+    - "maccy"
+    - "caffeine"
+    - "jettison"
+    - "app-tamer"
+    - "cleanmymac"
+    - "signal"
+    - "telegram"
+    - "whatsapp"
+    - "threema"
+    - "forklift"
+    - "windows-app"
+    
