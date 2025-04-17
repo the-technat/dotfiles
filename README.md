@@ -32,7 +32,35 @@ ln -sf ~/.ssh/ssh_signing.pub /Users/technat/Library/Containers/com.maxgoedjen.S
 
 This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
 
+<details open>
+<summary>Concepts and details</summary>
+<br>
+
+## OS Support
+
+As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage as much as possible so that I don't have to. This should include desktop tooling, helpers tools and even desktop settings. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
+
+## Tooling
+
+I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is [mise](https://mise.jdx.dev).
+
+The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. Mise on the other hand is very useful for installing development-specific tools where multiple versions of the same binary might be needed. Mise runs after we put our files in place and installs a handful of development tools that are assumed/used by aliases or have a config in our dotfiles. Any other development tools should be installed when needed.
+
+## Devcontainers
+
+We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
+
+## SSH
+
+On my Mac I'm a fan of [Secretive](https://github.com/maxgoedjen/secretive) to store my SSH keys in the Security Enclace of my mac. Thus I have configured it's integration in my dotfiles and it's assumed that SSH keys are generated in there.
+
+For remote linux systems there's a script that generates a default SSH key (unprotected) that could be used alongside a default SSH config that might be helpful.
+
+</details>
+
 ## New ideas
+- Maybe only modifty existing SSH config?
+- Check mise binaries are found in PATH
 - Test on multiple WSL2 installations
 - Do we want to set macOS UI settings?
 - Support work machine
