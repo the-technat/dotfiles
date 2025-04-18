@@ -43,3 +43,4 @@
 # resize-overlay-duration = 4s 200ms
 theme = "light:Builtin Solarized Light,dark:Builtin Solarized Dark"
 font-family = "FiraCode Nerd Font Mono"
+font-size = 14
