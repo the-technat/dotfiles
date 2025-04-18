@@ -10,6 +10,7 @@ alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
 alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 {{- end }}
 
+alias password="openssl rand -base64 20"
 alias ll="ls -lahF --hyperlink=auto --color=auto"
 temp () {
   DIR=$(mktemp -u)
