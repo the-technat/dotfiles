@@ -1,6 +1,5 @@
 #!/bin/sh
 {{ if eq .chezmoi.os "darwin" -}}
-sudo softwareupdate --install-rosetta --agree-to-license
 xcode-select -p 1>/dev/null
 if [[ $? -ne 0 ]]; then
 xcode-select --install
