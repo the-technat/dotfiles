@@ -14,7 +14,7 @@ COMPLETION_WAITING_DOTS="true"
 {{ if eq .chezmoi.os "darwin" -}}
 plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
 {{ end -}}
-{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
+{{ if eq .chezmoi.os "linux" -}}
 plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
 {{ end -}}
 

@@ -44,3 +44,4 @@
 theme = "light:Builtin Solarized Light,dark:Builtin Solarized Dark"
 font-family = "FiraCode Nerd Font Mono"
 font-size = 14
+copy-on-select = true
