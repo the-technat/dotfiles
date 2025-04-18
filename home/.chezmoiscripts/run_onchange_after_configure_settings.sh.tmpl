@@ -1,11 +1,14 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
+# Find explanations for every setting here: https://macos-defaults.com
 
 set -eufo pipefail
 trap 'killall Dock' EXIT
+trap 'killall Finder' EXIT
 
 defaults write -g ApplePressAndHoldEnabled -int 0
 defaults write -g AppleShowAllExtensions -int 1
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write -g CGDisableCursorLocationMagnification -int 0
 defaults write -g InitialKeyRepeat -int 25
 defaults write -g KeyRepeat -int 2
@@ -18,9 +21,14 @@ defaults write -g AppleTemperatureUnit -string Celsius
 defaults write -g AppleMetricUnits -int 1
 defaults write -g AppleKeyboardUIMode -int 3
 
+defaults write -globalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+
 defaults write -g com.apple.keyboard.fnState -int 1
 defaults write -g com.apple.swipescrolldirection -int 1
 defaults write -g com.apple.trackpad.scaling -int 0.6875
+# Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
 defaults write com.apple.dock autohide -int 1
 defaults write com.apple.dock orientation -string right
@@ -38,9 +46,35 @@ defaults write com.apple.finder NewWindowTarget -string PfHm
 defaults write com.apple.finder _FXSortFoldersFirst -int 1
 defaults write com.apple.finder FXRemoveOldTrashItems -int 1
 defaults write com.apple.finder FXEnableExtensionChangeWarning -int 0
+defaults write com.apple.finder "CreateDesktop" -bool "false"
+defaults write com.apple.finder "ShowPathbar" -bool "true" 
 
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.TimeMachine" -bool true
 defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.volume" -bool true
+# Control Centre Modules > Sound > Always Show in Menu Bar
+defaults write "com.apple.controlcenter" "NSStatusItem Visible Sound" -bool true
+# Menu Bar Only > Spotlight > Don't Show in Menu Bar
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -int 1
+
+defaults write -g NSNavPanelExpandedStateForSaveMode -boolean true
+defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write -g PMPrintingExpandedStateForPrint -boolean true
+defaults write -g PMPrintingExpandedStateForPrint2 -bool true
+
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"d MMM HH:mm\""
+
+defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "false"
+
+defaults write NSGlobalDomain "NSCloseAlwaysConfirmsChanges" -bool "true"
+
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+
+#Ask Siri
+defaults write com.apple.Siri SiriPrefStashedStatusMenuVisible -bool false
+defaults write com.apple.Siri VoiceTriggerUserEnabled -bool false
+
+# Desktop & Stage Manager > Click Wallpaper to reveal desktop > Only in Stage Manager
+defaults write "com.apple.WindowManager" EnableStandardClickToShowDesktop -bool false
 
 nightlight temp 80
 
