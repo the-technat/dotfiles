@@ -2,6 +2,7 @@
 #!/bin/zsh
 
 set -eufo pipefail
+trap 'killall Dock' EXIT
 
 defaults write -g ApplePressAndHoldEnabled -int 0
 defaults write -g AppleShowAllExtensions -int 1
