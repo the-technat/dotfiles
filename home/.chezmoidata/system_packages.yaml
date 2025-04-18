@@ -10,6 +10,7 @@ apt:
 - traceroute
 - tmux
 - bind9-dnsutils
+- unzip
 dnf:
 - gnupg
 - gcc
@@ -22,6 +23,7 @@ dnf:
 - net-tools
 - bind-utils
 - traceroute
+- unzip
 apk:
 - gnupg
 - gcc
@@ -34,6 +36,7 @@ apk:
 - net-tools
 - bind-tools
 - traceroute
+- unzip
 - openssh # contains ssh-keygen
 - shadow # contains usermod
 tdnf:
@@ -47,6 +50,7 @@ tdnf:
 - tmux
 - net-tools
 - traceroute
+- unzip
 homebrew: 
   taps: 
   - smudge/smudge
