@@ -11,6 +11,7 @@ apt:
 - tmux
 - bind9-dnsutils
 - unzip
+- ripgrep
 dnf:
 - gnupg
 - gcc
@@ -24,6 +25,7 @@ dnf:
 - bind-utils
 - traceroute
 - unzip
+- ripgrep
 apk:
 - gnupg
 - gcc
@@ -37,6 +39,7 @@ apk:
 - bind-tools
 - traceroute
 - unzip
+- ripgrep
 - openssh # contains ssh-keygen
 - shadow # contains usermod
 tdnf:
@@ -62,7 +65,8 @@ homebrew:
   - btop
   - tmux
   - dockutil
-  - "nightlight"
+  - nightlight
+  - ripgrep
   casks: # casks are macos-only
     - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
