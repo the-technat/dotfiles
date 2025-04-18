@@ -3,8 +3,6 @@
 # Find explanations for every setting here: https://macos-defaults.com
 
 set -eufo pipefail
-trap 'killall Dock' EXIT
-trap 'killall Finder' EXIT
 
 defaults write -g ApplePressAndHoldEnabled -int 0
 defaults write -g AppleShowAllExtensions -int 1
@@ -80,5 +78,9 @@ nightlight temp 80
 
 # disable startup sound
 sudo nvram StartupMute=%01
+
+
+killall Dock
+killall Finder
 
 {{ end -}}
