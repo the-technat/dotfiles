@@ -139,7 +139,17 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Setup lazy.nvim ]]
 require("lazy").setup({
   spec = {
-    'tpope/vim-sleuth'
-  }
+    {
+      'maxmx03/solarized.nvim',
+      lazy = false,
+      priority = 1000,
+      opts = {},
+      config = function(_, opts)
+        require('solarized').setup(opts)
+        vim.cmd.colorscheme 'solarized'
+      end,
+    },
+    {'tpope/vim-sleuth'},
+  },
   checker = { enabled = true },
 })
