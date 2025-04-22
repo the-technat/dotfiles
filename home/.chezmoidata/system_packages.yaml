@@ -25,7 +25,6 @@ dnf:
 - bind-utils
 - traceroute
 - unzip
-- ripgrep
 apk:
 - gnupg
 - gcc
