@@ -11,10 +11,14 @@ ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
 
 COMPLETION_WAITING_DOTS="true"
+
+{{ if .devcontainer -}}
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
+{{ end }}
 {{ if eq .chezmoi.os "darwin" -}}
 plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
 {{ end -}}
-{{ if eq .chezmoi.os "linux" -}}
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
 plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
 {{ end -}}
 
