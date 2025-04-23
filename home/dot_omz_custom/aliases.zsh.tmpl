@@ -13,6 +13,11 @@ alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 alias -g vim="nvim"
 alias -g password="openssl rand -base64 20"
 alias -g ll="ls -lahF --hyperlink=auto --color=auto"
+alias cdf="cd \$(ls -lh | fzf)"
+alias logina="aws sso login --sso-session mainland --profile"
+loginz() {
+ az account set --subscription azc$1
+}
 temp () {
   DIR=$(mktemp -u)
   mkdir -p $DIR
@@ -31,6 +36,8 @@ alias kaf="kubectl apply -f"
 alias kk="kubectl --kubeconfig ~/.kube/second"
 alias ks="k -n kube-system"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
+alias argopf="kubectl port-forward -n argocd svc/argocd-server 8080:80 & > /dev/null"
+alias hubblepf="kubectl port-forward -n kube-system svc/hubble-relay 4245:80"
 pruned () {
   docker system prune -a --volumes
 }
@@ -91,4 +98,89 @@ nodesInAZ() {
          count=$(kubectl get pods -A --field-selector spec.nodeName=$node --no-headers | wc -l)
          echo "$node: $count"
    done
+}
+selfSigned() {
+  openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+}
+switchArgoImage() {
+  kubectl set image -n argocd sts/argocd-application-controller "*=$1"
+  kubectl set image -n argocd deploy/argocd-server "*=$1"
+  kubectl set image -n argocd deploy/argocd-repo-server "*=$1"
+}
+drainNode() {
+  kubectl drain --ignore-daemonsets --delete-emptydir-data $1
+}
+getUnschedulableNodes() {
+  echo $(kubectl get nodes -o=jsonpath='{.items[?(@.spec.unschedulable==true)].metadata.name}')
+}
+drainUnschedulableNodes() {
+  for node in $(kubectl get nodes -o=jsonpath='{.items[?(@.spec.unschedulable==true)].metadata.name}')
+  do
+    echo $node
+    kubectl drain $node --delete-emptydir-data --ignore-daemonsets --force
+    echo ""
+  done
+}
+allMatchingResources() {
+ # input node, pod or some resource and it will give all with the name pattern
+ k get $1 -o=jsonpath='{.items[*].metadata.name}'  | sed 's/ /\n/g' | grep $2 | tr '\n' ' '                       
+}
+podsByNodeLabel() {
+  for node in $(kubectl get nodes -l $1 -o=jsonpath='{.items[*].metadata.name}'); do 
+    kubectl get pods -A -o wide --field-selector spec.nodeName=$node
+  done
+}
+podPlacement() {
+  all_azs=$(kubectl get nodes -o jsonpath='{.items[*].metadata.labels.topology\.kubernetes\.io/zone}')
+  for az in $(echo "${all_azs[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '); do
+    total_count=0
+    for node in $(kubectl get nodes -l "topology.kubernetes.io/zone=$az" -o=jsonpath='{.items[*].metadata.name}'); do
+      count=$(kubectl get pods -A -l $1 --field-selector spec.nodeName=$node --no-headers | wc -l)
+      echo "$node: $count"
+      total_count=$((total_count + count))
+    done
+    echo "Total in $az: $total_count"
+  done
+}
+getPodsOnNode() {
+  kubectl get pods -A -o=json | jq ".items[] | select(.spec.nodeName==\"$1\") | \"\(.metadata.namespace)/\(.metadata.name)\"" | tr -d "\""
+}
+podsOnUnschedulableNodes() {
+  for node in $(kubectl get nodes -o=jsonpath='{.items[?(@.spec.unschedulable==true)].metadata.name}')
+  do
+    echo $node
+    kubectl get pods -A -o=json | jq ".items[] | select(.spec.nodeName==\"$node\") | \"\(.metadata.namespace)/\(.metadata.name)\"" | tr -d "\""
+    echo ""
+  done
+}
+shotgun() {
+  arrIN=($(echo $1 | tr "/" " "))
+  kubectl delete pod -n ${arrIN[1]} --force --grace-period 0 ${arrIN[2]}
+}
+shg() {
+  kubectl delete pod --force --grace-period 0 $1
+}
+getNodesWithoutDS() {
+  selectorLabels=$(kubectl -n $1 get ds $2 -o=jsonpath='{.spec.template.metadata.labels}' | jq 'to_entries[]| "\(.key)=\(.value)"' | tr -d "\"" | tr "\n" "," | sed -e 's/,$//g')
+  function nodesWithPod { kubectl get pods -A -l $1 -o=json | jq -r '.items[].spec.nodeName'; }
+  function allNodes { kubectl get nodes -o json | jq -r '.items[].metadata.name'; }
+  sort <(allNodes) <(nodesWithPod $selectorLabels) | uniq -u
+}
+nodesInAZ() {
+  NODES=$(kubectl get nodes -o json -l eks.amazonaws.com/nodegroup=$1 | jq -r '.items[].metadata.name')
+  for node in $NODES; do
+        count=$(kubectl get pods -A --field-selector spec.nodeName=$node --no-headers | wc -l)
+        echo "$node: $count"
+  done
+}
+getPodsOnNodeByLabel() {
+  kubectl get pods -A -l $1 -o=json | jq ".items[] | select(.spec.nodeName==\"$2\") | \"\(.metadata.namespace)/\(.metadata.name)\"" | tr -d "\""
+}
+gethostPodsByNode() {
+  for node in $(kubectl get nodes -o=jsonpath='{.items[*].metadata.name}')
+  do
+    echo $node
+    kubectl get pods -A -o=json | jq ".items[] | select(.spec.nodeName==\"$node\") | select(.spec.hostNetwork==true) | \"\(.metadata.namespace)/\(.metadata.name)\"" | tr -d "\""
+    echo ""
+  done
 }
