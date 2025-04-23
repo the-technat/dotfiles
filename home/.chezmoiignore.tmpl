@@ -11,3 +11,7 @@ settings.json
 {{ if eq .chezmoi.os "linux" -}}
 Library/
 {{ end -}}
+
+{{ if .devcontainer -}}
+.gitconfig
+{{ end -}}
