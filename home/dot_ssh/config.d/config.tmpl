@@ -15,10 +15,15 @@ Host github.com
   User git
   Port 22
 
-Host i-* mi-*
+Host i-* mi-*  # for AWS SSM
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
   User ec2-user
+  LogLevel QUIET
   ServerAliveInterval 120
+  ForwardAgent yes
+  GSSAPIAuthentication no
 
 {{ if eq .chezmoi.os "linux" -}}
 # just one pre-generated ssh key on linux
