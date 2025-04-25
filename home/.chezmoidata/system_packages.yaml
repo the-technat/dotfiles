@@ -91,10 +91,7 @@ homebrew:
     - "jettison"
     - "app-tamer"
     - "cleanmymac"
-    - "signal"
-    - "telegram"
-    - "whatsapp"
-    - "threema"
+    - "beeper"
     - "forklift"
     - "windows-app"
     
