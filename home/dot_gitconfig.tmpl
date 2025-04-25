@@ -20,6 +20,6 @@
   gpgSign = true
 {{ if not (eq .chezmoi.os "darwin") -}}
 [credential]
-  helpers=  store
+  helper = store
 {{ end -}}
 {{ end -}}
