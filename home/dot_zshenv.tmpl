@@ -5,6 +5,7 @@ SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Dat
 eval "$({{ .chezmoi.homeDir }}/.local/bin/mise activate zsh)"
 
 AWS_PAGER=/usr/bin/less
+AWS_DEFAULT_OUTPUT=table
 DEFAULT_USER="{{ .chezmoi.username }}"
 EDITOR=nvim
 GIT_EDITOR=nvim
