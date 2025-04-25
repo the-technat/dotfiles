@@ -18,4 +18,8 @@
   format = ssh
 [commit]
   gpgSign = true
+{{ if not (eq .chezmoi.os "darwin") -}}
+[credential]
+  helpers=  store
+{{ end -}}
 {{ end -}}
