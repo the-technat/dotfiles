@@ -57,7 +57,6 @@ On my Mac I'm a fan of [Secretive](https://github.com/maxgoedjen/secretive) to s
 
 For remote linux systems there's a script that generates a default SSH key (unprotected) that could be used alongside a default SSH config that might be helpful.
 
-</details>
+If you want to extend the ssh config without commiting stuff to the repository, add a new file in `~/.ssh/config.d/`.
 
-## Open ideas
-- Support work machine
+</details>
