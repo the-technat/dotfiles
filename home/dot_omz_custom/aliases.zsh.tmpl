@@ -18,6 +18,12 @@ alias logina="aws sso login --sso-session mainland --profile"
 loginz() {
  az account set --subscription azc$1
 }
+geteks() {
+  aws eks update-kubeconfig --name $1 --alias $1
+} 
+getaks() {
+  az aks get-credentials --name $1 -g rg-$1
+}
 temp () {
   DIR=$(mktemp -u)
   mkdir -p $DIR
