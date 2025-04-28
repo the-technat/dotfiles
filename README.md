@@ -59,4 +59,8 @@ For remote linux systems there's a script that generates a default SSH key (unpr
 
 If you want to extend the ssh config without commiting stuff to the repository, add a new file in `~/.ssh/config.d/`.
 
+## Git
+
+The gitconfig assume the above SSH setup. Apart from this, you can add custom git config to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
+
 </details>

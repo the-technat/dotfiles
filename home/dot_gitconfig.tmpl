@@ -19,7 +19,7 @@
 [commit]
   gpgSign = true
 {{ if not (eq .chezmoi.os "darwin") -}}
-[credential]
-  helper = store
+[include]
+  path = .gitcustom
 {{ end -}}
 {{ end -}}
