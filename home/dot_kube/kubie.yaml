@@ -1,0 +1,7 @@
+shell: zsh
+default_editor: nvim
+
+prompt:
+    disable: false
+    show_depth: true
+    zsh_use_rps1: true

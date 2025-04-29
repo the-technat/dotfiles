@@ -6,6 +6,7 @@ mise:
   - bat
   - kubectx 
   - kubens 
+  - kubie
   - neovim 
   - k9s
   - gh

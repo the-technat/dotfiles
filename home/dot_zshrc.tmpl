@@ -13,17 +13,16 @@ DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
 COMPLETION_WAITING_DOTS="true"
 
 {{ if .devcontainer -}}
-plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 {{ end }}
 {{ if eq .chezmoi.os "darwin" -}}
-plugins=(git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 {{ end -}}
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
-plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker kubectx)
+plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker)
 {{ end -}}
 
 source $ZSH/oh-my-zsh.sh
 
-RPS1='$(kubectx_prompt_info)' # kubectx plugin
 DEFAULT_USER={{ .chezmoi.username }}
 prompt_context(){}
