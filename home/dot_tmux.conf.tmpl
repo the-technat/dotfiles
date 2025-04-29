@@ -43,6 +43,8 @@ set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
 # tmux-resurrect
 ## restore nvim session using tmux-resurrect
 set -g @resurrect-strategy-nvim 'session'
+## restore pane contents
+set -g @resurrect-capture-pane-contents 'on'
 
 ###############################
 # Look and feel
