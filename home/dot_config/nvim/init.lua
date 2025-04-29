@@ -159,6 +159,7 @@ require("lazy").setup({
       }
     },
     {'tpope/vim-sleuth'},
+    {'tpope/vim-obsession'},
     {'lewis6991/gitsigns.nvim'},
   },
   checker = { enabled = true },

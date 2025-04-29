@@ -40,6 +40,10 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 ## mouse yanks should also go to clipboard instead of primary
 set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
 
+# tmux-resurrect
+## restore nvim session using tmux-resurrect
+set -g @resurrect-strategy-nvim 'session'
+
 ###############################
 # Look and feel
 ###############################
