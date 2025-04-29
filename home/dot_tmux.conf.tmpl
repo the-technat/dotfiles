@@ -20,8 +20,8 @@ set -g mouse on
 # Keybindings
 ###############################
 ## Make mode and status keybindings like vim
-#set-window-option -g mode-keys vi
-#set-window-option -g status-keys vi
+set-window-option -g mode-keys vi
+set-window-option -g status-keys vi
 
 # reload config file
 bind r source-file ~/.tmux.conf 
@@ -44,7 +44,7 @@ set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
 # Look and feel
 ###############################
 # Set solraized_dark theme (plugin seebi/tmux-colors-solarized required)
-set -g @colors-solarized 'dark'
+# set -g @colors-solarized 'dark'
 
 ################################## End of Config ################################
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
