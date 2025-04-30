@@ -32,6 +32,8 @@ bind r source-file ~/.tmux.conf
 #set -g @plugin 'seebi/tmux-colors-solarized'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-open'
 
 ###############################
 # Plugin Configs
@@ -45,6 +47,12 @@ set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
 set -g @resurrect-strategy-nvim 'session'
 ## restore pane contents
 set -g @resurrect-capture-pane-contents 'on'
+## restore these additional running programms
+set -g @resurrect-processes '"~ssh *" "~k *" "~kubectl *" "~kubie *" "~htop" "~k9s"'
+
+# tmux-open
+## search for strings by default in duckduckgo
+set -g @open-S 'https://duckduckgo.com/?q='
 
 ###############################
 # Look and feel
