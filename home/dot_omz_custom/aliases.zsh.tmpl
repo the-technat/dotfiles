@@ -14,9 +14,11 @@ alias -g vim="nvim"
 alias -g password="openssl rand -base64 20"
 alias -g ll="ls -lahF --hyperlink=auto --color=auto"
 alias cdf="cd \$(ls -lh | fzf)"
-alias logina="aws sso login --sso-session mainland --profile"
+logina() {
+  aws sso login --sso-session $1
+}
 loginz() {
- az account set --subscription azc$1
+ az account set --subscription $1
 }
 geteks() {
   aws eks update-kubeconfig --name $1 --alias $1
