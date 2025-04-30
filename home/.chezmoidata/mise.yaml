@@ -10,3 +10,5 @@ mise:
   - neovim 
   - k9s
   - gh
+  - terraform-ls
+  - tflint

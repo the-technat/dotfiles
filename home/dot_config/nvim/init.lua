@@ -151,16 +151,34 @@ require("lazy").setup({
     },
     {
       "folke/todo-comments.nvim",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      dependencies = { "nvim-lua/plenary.nvim" }
     },
     {'tpope/vim-sleuth'},
-    {'tpope/vim-obsession'},
+    -- save/restore nvim session contents
+    {'tpope/vim-obsession'}, 
+    -- show which lines changed in a file in git
     {'lewis6991/gitsigns.nvim'},
+    -- terraform fmt on save
+    {'hashivim/vim-terraform'},
+    -- https://www.lazyvim.org/plugins/lsp
+    {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    }
   },
   checker = { enabled = true },
 })
+
+-- [[ Terraform plugin configs ]]
+-- depends on nvim-lspconfig and vim-terraform
+vim.lsp.enable('terraformls')
+vim.lsp.enable('tflint')
+vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
+vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
+vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
+vim.cmd([[let g:terraform_fmt_on_save=1]])
+vim.cmd([[let g:terraform_align=1]])
+
