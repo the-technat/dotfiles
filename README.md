@@ -39,6 +39,16 @@ This is only required for signing git commits, every other tool will use the key
 
 As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage as much as possible so that I don't have to. This should include desktop tooling, helpers tools and even desktop settings. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
+## Styling / Terminal experience
+
+To have a more or less consistent terminal experience and to be really productive I use tmux in combination with neovim to do most stuff. This will always be the same no mather the OS. There are some thing however tmux can't control and that are dependant on the terminal emulator used:
+
+- color theme
+- font
+- shortcut to increase font
+
+On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on linux-based systems you either have to ignore these things or configure them manually if needed. 
+
 ## Tooling
 
 I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is [mise](https://mise.jdx.dev).
