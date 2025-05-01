@@ -1,9 +1,0 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/bin/zsh
-
-set -eufo pipefail
-
-cp {{ .chezmoi.sourceDir }}/../assets/nathanaels-coffe-wallpaper-dynamic.heic "{{ .chezmoi.homeDir }}/Pictures/wallpaper.heic"
-
-osascript -e 'tell application "System Events" to tell every desktop to set picture to "{{ .chezmoi.homeDir }}/Pictures/wallpaper.heic" as POSIX file'
-{{ end -}}
