@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+## we only put this line in there once and then don't care about it anymore, meaning that tools modifying it externally can to with the config whatever they want todo
+mkdir -p {{ .chezmoi.homeDir }}/.ssh
+cat <<EOF | tee {{ .chezmoi.homeDir }}/.ssh/config
+Include config.d/*
+EOF
