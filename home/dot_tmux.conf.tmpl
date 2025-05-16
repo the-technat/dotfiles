@@ -2,7 +2,8 @@
 # General
 ###############################
 set -g history-limit 5000                 # boost history
-set -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",$TERM:RGB"
 
 ###############################
 # Navigation
