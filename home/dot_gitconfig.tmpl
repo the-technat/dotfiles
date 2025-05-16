@@ -18,6 +18,8 @@
   format = ssh
 [commit]
   gpgSign = true
+[core]
+  editor = nvim
 {{ if not (eq .chezmoi.os "darwin") -}}
 [include]
   path = .gitcustom
