@@ -27,5 +27,6 @@
   "chat.commandCenter.enabled": false,
   "editor.tabSize": 2,
   "mise.checkForNewMiseVersion": false,
-  "mise.configureExtensionsAutomatically": false
+  "mise.configureExtensionsAutomatically": false,
+  "update.showReleaseNotes": false
 }
