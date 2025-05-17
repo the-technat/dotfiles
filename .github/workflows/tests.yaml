@@ -96,7 +96,7 @@ jobs:
       image: amazonlinux:2023
     steps:
     - name: Install tar
-      run: dnf install -y tar
+      run: dnf install -y tar gzip
     - name: Checkout
       uses: actions/checkout@v4
     - name: Install chezmoi
