@@ -8,6 +8,30 @@ fi
 
 {{ if or (eq .osid "linux-ubuntu") (eq .osid "linux-debian") (eq .osid "linux-pop") (eq .osid "linux-kali") -}}
 export DEBIAN_FRONTEND=noninteractive
+
+{{ if eq .chezmoi.arch "arm64" -}}
+   {{ range .apt_remote.arm64 }}
+   curl {[ . }} -o /tmp/tmp.deb
+   if command -v "sudo" > /dev/null; then
+     sudo dpkg -i /tmp/tmp.deb
+   else
+     dpkg -i /tmp/tmp.deb
+   fi
+   rm /tmp/tmp.deb
+   {{ end }}
+{{ end -}}
+{{ if eq .chezmoi.arch "x86_64" -}}
+   {{ range .apt_remote.x86_64 }}
+   curl {[ . }} -o /tmp/tmp.deb
+   if command -v "sudo" > /dev/null; then
+     sudo dpkg -i /tmp/tmp.deb
+   else
+     dpkg -i /tmp/tmp.deb
+   fi
+   rm /tmp/tmp.deb
+   {{ end }}
+{{ end -}}
+
 if command -v "sudo" > /dev/null; then
    sudo apt update
    sudo apt install -qq -y {{ range .apt }}{{ . }} {{ end }}
@@ -18,6 +42,26 @@ fi
 {{ end -}}
 
 {{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-amzn") -}}
+
+{{ if eq .chezmoi.arch "arm64" -}}
+   {{ range .dnf_remote.arm64 }}
+   if command -v "sudo" > /dev/null; then
+     sudo dnf install -y  {{ . }}
+   else
+     dnf install -y  {{ . }}
+   fi
+   {{ end }}
+{{ end -}}
+{{ if eq .chezmoi.arch "x86_64" -}}
+   {{ range .dnf_remote.x86_64 }}
+   if command -v "sudo" > /dev/null; then
+     sudo dnf install -y  {{ . }}
+   else
+     dnf install -y  {{ . }}
+   fi
+   {{ end }}
+{{ end -}}
+
 if command -v "sudo" > /dev/null; then
    sudo dnf update
    sudo dnf install -q --assumeyes {{ range .dnf }}{{ . }} {{ end }}

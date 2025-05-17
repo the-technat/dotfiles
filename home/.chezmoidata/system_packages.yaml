@@ -12,6 +12,11 @@ apt:
 - bind9-dnsutils
 - unzip
 - ripgrep
+apt_remote:
+  x86_64:
+    - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
+  arm64:
+    - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb
 dnf:
 - gnupg
 - gcc
@@ -25,6 +30,11 @@ dnf:
 - bind-utils
 - traceroute
 - unzip
+dnf_remote:
+  x86_64:
+    - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
+  arm64:
+    - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm
 apk:
 - gnupg
 - gcc
