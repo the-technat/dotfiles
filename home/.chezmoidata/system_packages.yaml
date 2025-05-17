@@ -54,8 +54,7 @@ tdnf:
 - traceroute
 - unzip
 homebrew: 
-  taps: 
-  - smudge/smudge
+  taps: []
   brews:
   - make
   - gcc
@@ -63,37 +62,18 @@ homebrew:
   - unzip
   - btop
   - tmux
-  - dockutil
-  - nightlight
   - ripgrep
   casks: # casks are macos-only
     - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
     - "visual-studio-code" # do it all IDE
     - "font-fira-code-nerd-font" # font for terminal
-    - "session-manager-plugin"
-    - "devpod"
-    - "slack" 
+    - "session-manager-plugin" # used for SSH over SSM
+    - "devpod" # codespaces but local
     - "secretive" # hardware-backed ssh keys
-    - "tailscale" # vpn
     - "mactracker" # mac database
     - "orbstack" # docker-engine + lightweight linux machines
     - "utm" # do it all hypervisor for other VMs
     - "mist" # macos installer utility
     - "crystalfetch" # windows installer utility
-    - "virtualbuddy"
-    - "spotify"
-    - "logi-options+"
-    - "jabra-direct"
-    - "onlyoffice"
-    - "maccy"
-    - "caffeine"
-    - "jettison"
-    - "app-tamer"
-    - "cleanmymac"
-    - "signal"
-    - "telegram"
-    - "whatsapp"
-    - "forklift"
-    - "windows-app"
-    
+    - "virtualbuddy" # macos vm

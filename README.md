@@ -37,25 +37,25 @@ This is only required for signing git commits, every other tool will use the key
 
 ## OS Support
 
-As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage as much as possible so that I don't have to. This should include desktop tooling, helpers tools and even desktop settings. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
+As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
 ## Styling / Terminal experience
 
-To have a more or less consistent terminal experience and to be really productive I use tmux in combination with neovim to do most stuff. This will always be the same no mather the OS. There are some thing however tmux can't control and that are dependant on the terminal emulator used:
+To have a more or less consistent terminal experience and to be really productive I use tmux in combination with neovim to do most stuff. This will always be the same no mather the OS. There are some things however tmux can't control and that are dependant on the terminal emulator used:
 
 - color theme
 - font
-- shortcut to increase font
+- shortcuts to increase/decrease font
 
-On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on linux-based systems you either have to ignore these things or configure them manually if needed. 
+On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on linux-based systems you either have to ignore these things or configure them manually if needed. In cases where you use ssh into a box this won't apply of course.
 
 ## Tooling
 
 I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is [mise](https://mise.jdx.dev).
 
-The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. Mise on the other hand is very useful for installing development-specific tools where multiple versions of the same binary might be needed. Mise runs after we put our files in place and installs a handful of development tools that are assumed/used by aliases or have a config in our dotfiles. Any other development tools should be installed when needed.
+The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. Mise on the other hand is very useful for installing development-specific tools where multiple versions of the same binary might be needed. Mise runs after we put our files in place and installs a handful of development tools that are assumed/used by aliases or have a config in our dotfiles. Any other development tool should be installed when needed.
 
-Note: for macOS I count [homebrew](https://brew.sh) as system package manager as there's no one preinstalled.
+Note: for `darwin` I count [homebrew](https://brew.sh) as system package manager as there's no one preinstalled.
 
 ## Devcontainers
 
@@ -63,7 +63,7 @@ We skip SSH and Git configs when we can detect that dotfiles are installed in a 
 
 ## SSH
 
-On my Mac I'm a fan of [Secretive](https://github.com/maxgoedjen/secretive) to store my SSH keys in the Security Enclace of my mac. Thus I have configured it's integration in my dotfiles and it's assumed that SSH keys are generated in there.
+On `darwin` I'm a fan of [Secretive](https://github.com/maxgoedjen/secretive) to store my SSH keys in the Security Enclace. Thus I have configured it's integration in my dotfiles and it's assumed that SSH keys are generated in there.
 
 For remote linux systems there's a script that generates a default SSH key (unprotected) that could be used alongside a default SSH config that might be helpful.
 

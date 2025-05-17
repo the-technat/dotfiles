@@ -12,3 +12,7 @@ mise:
   - gh
   - terraform-ls
   - tflint
+  - aws-cli
+  - azure-cli
+  - azure-kubelogin
+  - kubectl
