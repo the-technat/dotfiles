@@ -11,7 +11,7 @@ export DEBIAN_FRONTEND=noninteractive
 
 {{ if eq .chezmoi.arch "arm64" -}}
    {{ range .apt_remote.arm64 }}
-   curl {[ . }} -o /tmp/tmp.deb
+   curl {{ . }} -o /tmp/tmp.deb
    if command -v "sudo" > /dev/null; then
      sudo dpkg -i /tmp/tmp.deb
    else
@@ -22,7 +22,7 @@ export DEBIAN_FRONTEND=noninteractive
 {{ end -}}
 {{ if eq .chezmoi.arch "x86_64" -}}
    {{ range .apt_remote.x86_64 }}
-   curl {[ . }} -o /tmp/tmp.deb
+   curl {{ . }} -o /tmp/tmp.deb
    if command -v "sudo" > /dev/null; then
      sudo dpkg -i /tmp/tmp.deb
    else

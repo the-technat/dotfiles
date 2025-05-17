@@ -13,6 +13,5 @@ mise:
   - terraform-ls
   - tflint
   - aws-cli
-  - azure-cli
   - azure-kubelogin
   - kubectl
