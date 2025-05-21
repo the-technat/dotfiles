@@ -1,6 +1,5 @@
 {{- if eq .osid "darwin" }}
 alias -g lm="limactl"
-alias -g cat="bat"
 alias -g ubuntuVM="orbctl create -a arm64 ubuntu"
 alias -g alpineVM="orbctl create -a arm64 alpine"
 alias -g rockyVM="orbctl create -a arm64 rocky"
@@ -10,6 +9,7 @@ alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
 alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 {{- end }}
 
+alias -g cat="bat --style=full --paging=never"
 alias -g vim="nvim"
 alias -g password="openssl rand -base64 20"
 alias -g ll="ls -lahF --hyperlink=auto --color=auto"
