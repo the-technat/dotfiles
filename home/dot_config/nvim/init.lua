@@ -162,6 +162,8 @@ require("lazy").setup({
     {'lewis6991/gitsigns.nvim'},
     -- terraform fmt on save
     {'hashivim/vim-terraform'},
+    -- save files using sudo 
+    {'https://github.com/lambdalisue/vim-suda'},
     -- https://www.lazyvim.org/plugins/lsp
     {
       "williamboman/mason.nvim",
