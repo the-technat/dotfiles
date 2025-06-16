@@ -45,25 +45,64 @@ alias kk="kubectl --kubeconfig ~/.kube/second"
 alias ks="k -n kube-system"
 alias patchFinalizers="kubectl patch -p '{\"metadata\":{\"finalizers\":[]}}' --type=merge -n"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
-alias argopf="kubectl port-forward -n argocd svc/argocd-server 8080:80 & > /dev/null"
-alias getArgoAdminPW="kubectl get secret -n argocd argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d"
-alias getArgoRedisPW="kubectl get secret -n argocd argocd-redis -o=jsonpath='{.data.auth}' | base64 -d"
-alias getArgoRedisShell="kubectl exec -n argocd -ti deploy/argocd-redis -- redis-cli -a $(getArgoRedisPW)"
+
+function argopf() {
+  namespace="argocd"
+  if [[ "$1" != "" ]]
+  then
+    namespace="$1"
+  fi
+  kubectl port-forward -n $namespace svc/argocd-server 8080:80 & > /dev/null
+}
+function getArgoAdminPW() {
+  namespace="argocd"
+  if [[ "$1" != "" ]]
+  then
+    namespace="$1"
+  fi
+  kubectl get secret -n $namespace argocd-initial-admin-secret -o=jsonpath='{.data.password}' | base64 -d
+}
+function getArgoRedisPW() {
+  namespace=argocd
+  if [[ "$1" != "" ]]
+  then
+    namespace="$1"
+  fi
+  kubectl get secret  -n $namespace argocd-redis -o=jsonpath='{.data.auth}' | base64 -d
+}
+function getArgoRedisShell() {
+  namespace=argocd
+  if [[ "$1" != "" ]]
+  then
+    namespace="$1"
+  fi
+  kubectl exec -n $namespace -ti deploy/argocd-redis -- redis-cli -a $(getArgoRedisPW)
+}
+function newArgo() {
+  if [[ "$1" != "" ]]
+  then
+    helm upgrade -i $1 -n $1 --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd --set crds.install=false
+  else
+    helm upgrade -i argocd -n argocd --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd 
+  fi
+}
 
 alias hubblepf="kubectl port-forward -n kube-system svc/hubble-relay 4245:80"
-pruned () {
+
+pruned() {
   docker system prune -a --volumes
 }
-podCountPerNode () {
+
+podCountPerNode() {
         kubectl get pods -A -o json | jq -rs 'map({Node: .items[].spec.nodeName}) | group_by(.Node) | map({Node: .[0].Node, Pods: length}) ' | jq -r '"Node\t\t\t\t\t\tPods","----------------------------------------------\t----",( .[] | "\(.Node)\t\(.Pods
 )")'
 }
-podsByNodeLabel () {
+podsByNodeLabel() {
   for node in $(kubectl get nodes -l $1 -ojsonpath='{.items[*].metadata.name}'); do 
     kubectl get pods -A -o wide --field-selector spec.nodeName=$node
   done
 }
-allns () {
+allns() {
   for i in $(kubectl api-resources --verbs=list --namespaced -o name | grep -v "events.events.k8s.io" | grep -v "events" | sort | uniq); do
     echo "Resource:" $i
 
