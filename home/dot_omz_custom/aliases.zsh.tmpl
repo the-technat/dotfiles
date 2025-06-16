@@ -255,3 +255,14 @@ gethostPodsByNode() {
 showGPUNodes() {
   kubectl get nodes -o json | jq -r '.items[] | select(.status.capacity."nvidia.com/gpu" != null) | {name: .metadata.name, capacity: .status.capacity}'
 }
+kindCloud() {
+  CONTAINER_NAME='cloud-provider-kind'
+  CID=$(docker ps -q -f status=running -f name=^/${CONTAINER_NAME}$)
+  if [ "${CID}" ]; then
+    docker stop ${CONTAINER_NAME}
+    docker rm ${CONTAINER_NAME}
+  fi
+  unset CID
+  tag=$(curl -fsSL https://api.github.com/repos/kubernetes-sigs/cloud-provider-kind/releases/latest -s | jq .name -r)
+  docker run --name cloud-provider-kind -d --rm --network host -v /var/run/docker.sock:/var/run/docker.sock registry.k8s.io/cloud-provider-kind/cloud-controller-manager:$tag
+}
