@@ -78,6 +78,22 @@ function getArgoRedisShell() {
   fi
   kubectl exec -n $namespace -ti deploy/argocd-redis -- redis-cli -a $(getArgoRedisPW)
 }
+
+function restartArgo() {
+  namespace="argocd"
+  if [[ "$1" != "" ]]
+  then
+    namespace="$1"
+  fi
+  kubectl rollout restart -n $namespace deployment/$namespace-server
+  kubectl rollout restart -n $namespace deployment/$namespace-repo-server
+  kubectl rollout restart -n $namespace deployment/$namespace-redis
+  kubectl rollout restart -n $namespace deployment/$namespace-applicationset-controller
+  kubectl rollout restart -n $namespace deployment/$namespace-notifications-controller
+  kubectl rollout restart -n $namespace deployment/$namespace-dex-server
+  kubectl rollout restart -n $namespace sts/$namespace-application-controller
+}
+
 function newArgo() {
   if [[ "$1" != "" ]]
   then
