@@ -169,6 +169,10 @@ require("lazy").setup({
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
+    },
+    {
+    'numToStr/Comment.nvim',
+    opts = {}
     }
   },
   checker = { enabled = true },
