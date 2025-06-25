@@ -221,11 +221,13 @@ podsOnUnschedulableNodes() {
     echo ""
   done
 }
-shotgun() {
-  arrIN=($(echo $1 | tr "/" " "))
-  kubectl delete pod -n ${arrIN[1]} --force --grace-period 0 ${arrIN[2]}
+deleteByPrefix() {
+  for r in $(kubectl get $1 -o=json | jq -r ".items[] | select(.metadata.name | test(\"$2\")).metadata.name" | tr '\n' ' ')
+  do
+    kubectl delete $1 $r
+  done
 }
-shg() {
+shotgun() {
   kubectl delete pod --force --grace-period 0 $1
 }
 getNodesWithoutDS() {
