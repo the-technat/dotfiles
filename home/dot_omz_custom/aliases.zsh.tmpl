@@ -5,10 +5,7 @@ alias -g alpineVM="orbctl create -a arm64 alpine"
 alias -g rockyVM="orbctl create -a arm64 rocky"
 alias -g fedoraVM="orbctl create -a arm64 fedora"
 alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1"
-alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-{{- end }}
-
+alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1" alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder" {{- end }}
 alias -g cat="bat --style=full --paging=never"
 alias -g vim="nvim"
 alias -g password="openssl rand -base64 20"
@@ -45,6 +42,10 @@ alias kk="kubectl --kubeconfig ~/.kube/second"
 alias ks="k -n kube-system"
 alias patchFinalizers="kubectl patch -p '{\"metadata\":{\"finalizers\":[]}}' --type=merge -n"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
+
+function grabWebCert() {
+  openssl s_client -connect $1:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
+}
 
 function argopf() {
   namespace="argocd"
