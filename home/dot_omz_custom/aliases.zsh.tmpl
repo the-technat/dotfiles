@@ -254,6 +254,10 @@ gethostPodsByNode() {
     echo ""
   done
 }
+execToPod() {
+  pod=$(kubectl get pods -o=name| fzf)
+  kubectl exec -ti $pod -- $@
+}
 showGPUNodes() {
   kubectl get nodes -o json | jq -r '.items[] | select(.status.capacity."nvidia.com/gpu" != null) | {name: .metadata.name, capacity: .status.capacity}'
 }
