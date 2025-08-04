@@ -8,39 +8,23 @@ installer_tools:
         url: https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip
       amd64:
         url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
-binaries:
-  aws-cli:
-    darwin:
-      arm64:
-        url: "https://awscli.amazonaws.com/AWSCLIV2.pkg"
-        checksum: ""
-      amd64:
-        url: "https://awscli.amazonaws.com/AWSCLIV2.pkg"
-        checksum: ""
-    linux:
-      arm64:
-        url: "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip"
-        checksum: ""
-      amd64:
-        url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-        checksum: ""
-
-  azure-cli:
-    darwin:
-      arm64:
-        url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑arm64.tar.gz"
-        checksum: ""
-      amd64:
-        url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑x64.tar.gz"
-        checksum: ""
-    linux:
-      arm64:
-        url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑arm64.tar.gz"
-        checksum: ""
-      amd64:
-        url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑x64.tar.gz"
-        checksum: ""
-  azure-kubelogin:
+binaries: # all processed by one script that runs if this YAML structure changes
+ # azure_cli:
+ #   darwin:
+ #     arm64:
+ #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑arm64.tar.gz"
+ #       checksum: ""
+ #     amd64:
+ #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑x64.tar.gz"
+ #       checksum: ""
+ #   linux:
+ #     arm64:
+ #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑arm64.tar.gz"
+ #       checksum: ""
+ #     amd64:
+ #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑x64.tar.gz"
+ #       checksum: ""
+  azure_kubelogin:
     darwin:
       arm64:
         url: "https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-darwin-arm64.zip"
@@ -55,337 +39,314 @@ binaries:
       amd64:
         url: "https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-linux-amd64.zip"
         checksum: "d765147460b8719b34cb35e8bc6d9d7c3b8f53bd1a1b9f1e70069e22bd1b6c03"
-
-  hubble-cli:
+  hubble_cli:
     darwin:
       arm64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-darwin-arm64.tar.gz"
-        checksum: "91bd33f2882f287da210e6101674de1563ff1a992ad20ea7c53738fa6e2f7aa8"
+        checksum: ""
       amd64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-darwin-amd64.tar.gz"
-        checksum: "d3d1f61cff4e68622d0b93601360cf08b31aec385d5b30017d0f334579613c0b"
+        checksum: ""
     linux:
       arm64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-linux-arm64.tar.gz"
-        checksum: "90f538d16f2d18d8bceea91226e253033eb84365f6bb3d74172d468fc5d4739b"
+        checksum: ""
       amd64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-linux-amd64.tar.gz"
-        checksum: "448f3b50326d1ea05e18a314e5d1f75174073188290a90d9e8f555e35e169ab0"
-
-  cilium-cli:
+        checksum: ""
+  cilium_cli:
     darwin:
       arm64:
-        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-darwin-arm64.tar.gz"
-        checksum: "e7d4d68865e83c2f051743b2d885f7c82a31cfe7c9df990ba0939cf30fdc5941"
+        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-darwin-arm64.tar.gz"
+        checksum: "9e0ccce6ac56c46eced5380d9ceb3846b1f12ceb074ed2bf0969304c1dfbc97c"
       amd64:
-        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-darwin-amd64.tar.gz"
-        checksum: "b2d924e511a96b0f54c4f33b7b6e6ac0677fa0361ea201341492e04d5a1fa3f3"
+        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-darwin-amd64.tar.gz"
+        checksum: "41b77bee930e2f30c026d8064641135a1e5d9671d86abf2b708bb05d2ddc4d55"
     linux:
       arm64:
-        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-linux-arm64.tar.gz"
-        checksum: "9fa1c3e9b0f693c7d0d6db20e7d2adb5c0e603cbeef8a6acf39df089f9077e52"
+        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-linux-arm64.tar.gz"
+        checksum: "7639c69b410c26d0276fe1297d53e9573f094b56822bd01e85153acb3ca7dd43"
       amd64:
-        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-linux-amd64.tar.gz"
-        checksum: "c7b04a0dcbfd266a7fce5e55dc9736c3cd81ab97efa96d5e9cc88ba1973a6c45"
-
+        url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-linux-amd64.tar.gz"
+        checksum: "075bcc605308ff40a488d75a9a8555713dc0139d36536e032d3ebc2a1e7a9f4d"
   flyctl:
     darwin:
       arm64:
-        url: "https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_darwin_arm64.tar.gz"
-        checksum: "e1c39b4058a0cb66c628fcb8cc358f60dcd0623f2534c82f942ffc4adb580137"
+        url: "https://github.com/superfly/flyctl/releases/download/v0.3.165/flyctl_0.3.165_macOS_arm64.tar.gz"
+        checksum: "4c96485619e805b1bc44d8cfaf17a49bfdfd200314c086c30e7fafe98776b07b"
       amd64:
-        url: "https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_darwin_amd64.tar.gz"
-        checksum: "45ef3bb5a2214c28cb0f274a30512ede4c8d12f5e3b9c9ce7c5abf5abc0ef5c7"
+        url: "https://github.com/superfly/flyctl/releases/download/v0.3.165/flyctl_0.3.165_macOS_x86_64.tar.gz"
+        checksum: "104d6c2b97b90f3c8ab154d797b2b498fd2d16c717b46b334748e9a5262d80bf"
     linux:
       arm64:
-        url: "https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_linux_arm64.tar.gz"
-        checksum: "be3a4d5c78e6ed54a5e2c9205b3f15c80c3eec9ac4d1fcd3a35c9c31249e31df"
+        url: "https://github.com/superfly/flyctl/releases/download/v0.3.165/flyctl_0.3.165_Linux_arm64.tar.gz"
+        checksum: "7db851e946fef0dd87f03ac680582579148d44a659be775f969bb04adef50bf9"
       amd64:
-        url: "https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_linux_amd64.tar.gz"
-        checksum: "a4927c3926c3d2a1efc9e6c3d0f6994a07de1a73c2f47e740f575c4cd3d4fabc"
-
+        url: "https://github.com/superfly/flyctl/releases/download/v0.3.165/flyctl_0.3.165_Linux_x86_64.tar.gz"
+        checksum: "aeeba56ce6d103ecff65816cc2f909fa6a260a036e2b11f48f4c3bbf6aca9cca"
   fzf:
     darwin:
       arm64:
         url: "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-darwin_arm64.tar.gz"
-        checksum: "d4c1ab7f6e2f646a8bbd35447b2fdcb4d6c3532f5fe989c0b62ea9430e7bcefc"
+        checksum: ""
       amd64:
         url: "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-darwin_amd64.tar.gz"
-        checksum: "9f8c0d6f5e4a3c1e2d57a390bdb33a6f5a2edf5f546304a1e6a5c74213d8e083"
+        checksum: ""
     linux:
       arm64:
         url: "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_arm64.tar.gz"
-        checksum: "a29c7a5a3d8fb2d2f4d4f4a39aec4b9c5e2c4ad5f1f2ed7e8d5a3c1b2e4d345f"
+        checksum: ""
       amd64:
         url: "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz"
-        checksum: "c3b2d9e1f4a7e3c6b8d9f3a4d7b1c5e3f4a9c2b7e8c1f5a2b4c7d3e1f6a9d4c2"
-
-  golang:
-    darwin:
-      arm64:
-        url: "https://go.dev/dl/go1.21.5.darwin-arm64.tar.gz"
-        checksum: "d3c2c69a79eb3e2a06e5d8bbca692c9166b27421f7251ccbafcada0ba35a05ee"
-      amd64:
-        url: "https://go.dev/dl/go1.21.5.darwin-amd64.tar.gz"
-        checksum: "963172d6feea43221df25e4449197e65f7e3f5c779da6d7c5aa8795246b9ebdc"
-    linux:
-      arm64:
-        url: "https://go.dev/dl/go1.21.5.linux-arm64.tar.gz"
-        checksum: "0df02e6aeb3d3c06c95ff201d575907c736d6c62cfa4b6934c11203f1d600ffa"
-      amd64:
-        url: "https://go.dev/dl/go1.21.5.linux-amd64.tar.gz"
-        checksum: "10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc"
-
-  golangci-lint:
+        checksum: ""
+ #  golang:
+ #   darwin:
+ #     arm64:
+ #       url: "https://go.dev/dl/go1.21.5.darwin-arm64.tar.gz"
+ #       checksum: "d3c2c69a79eb3e2a06e5d8bbca692c9166b27421f7251ccbafcada0ba35a05ee"
+ #     amd64:
+ #       url: "https://go.dev/dl/go1.21.5.darwin-amd64.tar.gz"
+ #       checksum: "963172d6feea43221df25e4449197e65f7e3f5c779da6d7c5aa8795246b9ebdc"
+ #   linux:
+ #     arm64:
+ #       url: "https://go.dev/dl/go1.21.5.linux-arm64.tar.gz"
+ #       checksum: "0df02e6aeb3d3c06c95ff201d575907c736d6c62cfa4b6934c11203f1d600ffa"
+ #     amd64:
+ #       url: "https://go.dev/dl/go1.21.5.linux-amd64.tar.gz"
+ #       checksum: "10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc"
+  golangci_lint:
     darwin:
       arm64:
         url: "https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-darwin-arm64.tar.gz"
-        checksum: "bce0ad7fd2f1f9c2edcee73f9c9ff2a8b3f0f565a78a8c0d3e6f8bf8c4b9d6a7"
+        checksum: ""
       amd64:
         url: "https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-darwin-amd64.tar.gz"
-        checksum: "fa1d3c7e9b2aefd921c8e3d5a1f42c5d7a5e8c2b3d4f6a7b9e0d1f2a3c4b5d6"
+        checksum: ""
     linux:
       arm64:
         url: "https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-linux-arm64.tar.gz"
-        checksum: "94b2d5f6c3e1a5b7d9c0f4e2d1d3c5b7a2e4f6a8b0c3d5e7f9a1b3c5d7e9f0a2"
+        checksum: ""
       amd64:
         url: "https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-linux-amd64.tar.gz"
-        checksum: "e8f3c5a7b9d0e1c2f4a6b8d0c2e3f5a7b1c4d6e8f0a2b4c6d8e0f2a4b6c8d9e1"
-
-  hcloud-cli:
-    darwin:
-      arm64:
-        url: "https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑darwin‑arm64.tar.gz"
-        checksum: "d2e2f950e3a5b1c4f1e7d9e658f30a1c9d0c3b4f8f2e6c7d8e9f0a4b5c6d7e8f"
-      amd64:
-        url: "https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑darwin‑amd64.tar.gz"
-        checksum: "f5d4c3b2a1e0d9c8b7a6e5f4d3c2b1a0f9d8e7c6b5a4f3e2d1c0b9a8f7e6d5c4"
-    linux:
-      arm64:
-        url: "https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑linux‑arm64.tar.gz"
-        checksum: "a4b3c2d1e0f9a8b7c6d5e4f3b2a1c0d9f8e7d6c5b4a3e2f1d0c9b8a7f6e5d4c3"
-      amd64:
-        url: "https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑linux‑amd64.tar.gz"
-        checksum: "979de0f15d78089a50f122213326749d5cd14efc76300c674fe9b4e6a8bf1156"
-
+        checksum: ""
   helm:
     darwin:
       arm64:
-        url: "https://get.helm.sh/helm‑v3.17.4‑darwin‑arm64.tar.gz"
+        url: "https://get.helm.sh/helm-v3.17.4-darwin-arm64.tar.gz"
         checksum: "f4732719827a76452035641629aa92091adc4a9f1ccbc8d53a729b53e0add869"
       amd64:
-        url: "https://get.helm.sh/helm‑v3.17.4‑darwin‑amd64.tar.gz"
+        url: "https://get.helm.sh/helm-v3.17.4-darwin-amd64.tar.gz"
         checksum: "6dfce5d8b09442205393068f5c911b8f20958edd5b67cc26f7eb3330f93225f1"
     linux:
       arm64:
-        url: "..."
-        checksum: "c91e3d7293849eff3b4dc4ea7994c338bcc92f914864d38b5789bab18a1d775d"
+        url: "https://get.helm.sh/helm-v3.17.4-linux-arm64.tar.gz"
+        checksum: "460a31d1511abb5ad776a26a2a3f0f1382a241b2df3c6d725b0f63c9058ba15a"
       amd64:
-        url: "..."
+        url: "https://get.helm.sh/helm-v3.17.4-linux-amd64.tar.gz"
         checksum: "c91e3d7293849eff3b4dc4ea7994c338bcc92f914864d38b5789bab18a1d775d"
-
   hugo:
     darwin:
       arm64:
-        url: "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_0.148.2_darwin-arm64.tar.gz"
-        checksum: "155c4bf15f84e8c8041be1ebad2142470a02f9055d1b348fc1b50427c0135f06"
+        url: "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_darwin-universal.tar.gz"
+        checksum: "811c0c2932e26bee1fa1a0898c9e8f4daa07822b03905dd1998813598c2b3f56"
       amd64:
-        url: "..."
-        checksum: "7f6e5d4c3b2a1f0e9d8c7b6a5e4d3c2b1f0e9d8c7b6a5e4d3c2b1f0e9d8c7b6a"
+        url: "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_darwin-universal.tar.gz"
+        checksum: "811c0c2932e26bee1fa1a0898c9e8f4daa07822b03905dd1998813598c2b3f56"
     linux:
       arm64:
-        url: "..."
-        checksum: "98a7b6c5d4e3f2a1b0c9d8e7f6b5a4c3d2f1e0d9c8b7a6e5d4c3b2a190f8e7d6"
+        url: "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_linux-arm64.tar.gz"
+        checksum: "ee9f0cb1e1902137a3d740e046e237e44f8a74afd21332d7ee746640a2deeb29"
       amd64:
-        url: "..."
-        checksum: "4255f541d4f06196af7ef4743271ed7e3aaed4958078645ef74a5e33e876cc73"
-
+        url: "https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_linux-amd64.tar.gz"
+        checksum: "dff500ade0d4b999ab0c680f4c6123756bb86904b5924d68c0e8ffb260195277"
   kubectl:
     darwin:
       arm64:
         url: "https://dl.k8s.io/release/v1.31.1/bin/darwin/arm64/kubectl"
         checksum: "9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8"
       amd64:
-        url: "..."
+        url: "https://dl.k8s.io/release/v1.31.1/bin/darwin/amd64/kubectl"
         checksum: "8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7"
     linux:
       arm64:
-        url: "..."
+        url: "https://dl.k8s.io/release/v1.31.1/bin/linux/arm64/kubectl"
         checksum: "7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6"
       amd64:
-        url: "..."
+        url: "https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl"
         checksum: "6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5"
   neovim:
     darwin:
       arm64:
-        url: ".../nvim-macos-arm64.tar.gz"
-        checksum: "20055d322e80194350ee0e47f1ba5a8016d1cdbe7e283d62f882f640326e18a7"
-      amd64:
-        url: ".../nvim-macos-x86_64.tar.gz"
-        checksum: "30dc06f0e5b945bff4f3a1994608bff912ca4ec249774063eb9d8b0ce30018e5"
-    linux:
-      arm64:
-        url: ".../nvim-linux-arm64.tar.gz"
-        checksum: "6943991e601415db6eed765aeb98f8ba70a4d74859e4cf5e99ca7eb2a1b5d384"
-      amd64:
-        url: ".../nvim-linux-x86_64.tar.gz"
-        checksum: "92ecb2dbdfbd0c6d79b522e07c879f7743c5d395a0a4f13b0d4f668f8565527a"
-
-  tmux:
-    darwin:
-      arm64:
-        url: ".../tmux-3.5a-darwin-arm64.tar.gz"
+        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-arm64.tar.gz"
         checksum: ""
       amd64:
-        url: ".../tmux-3.5a-darwin-amd64.tar.gz"
+        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-x86_64.tar.gz"
         checksum: ""
     linux:
       arm64:
-        url: ".../tmux-3.5a-linux-arm64.tar.gz"
+        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-arm64.tar.gz"
         checksum: ""
       amd64:
-        url: ".../tmux-3.5a-linux-amd64.tar.gz"
-        checksum: "dd70cae087d8ae53248476d4bc8e0483d1b03ad7ffa1fb5350217dddfca5e6e5"  
-
+        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz"
+        checksum: ""
   yq:
     darwin:
       arm64:
-        url: ".../yq_darwin_arm64.tar.gz"
-        checksum: "6e0ae2d542af1b7c5e4f7d8a1b9c3f2e4d6c8a1b3d5e7f9a1b3c4d5e6f8a9b0c" 
+        url: "https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_darwin_arm64.tar.gz"
+        checksum: "" 
       amd64:
-        url: ".../yq_darwin_amd64.tar.gz"
-        checksum: "9f3a4b5c6d7e8a1f2e3b4c5d6f7a8b9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a"
+        url: "https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_darwin_amd64.tar.gz"
+        checksum: ""
     linux:
       arm64:
-        url: ".../yq_linux_arm64.tar.gz"
-        checksum: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2"
+        url: "https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_arm64.tar.gz"
+        checksum: ""
       amd64:
-        url: ".../yq_linux_amd64.tar.gz"
-        checksum: "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3"
-
-  gh-cli:
+        url: "https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_amd64.tar.gz"
+        checksum: ""
+  gh:
     darwin:
       arm64:
-        url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_arm64.tar.gz"
-        checksum: ""
+        url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_arm64.zip"
+        checksum: "43cea90fbd5d3b607b6125082f4a5faf7d5fc2e548d3d349a3b0310706a4f878"
       amd64:
-        url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_amd64.tar.gz"
-        checksum: ""
+        url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_amd64.zip"
+        checksum: "a8d27429a00f50ae3318fc75a9ed1e8400932c109a657e1570467eab76f6c419"
     linux:
       arm64:
         url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_arm64.tar.gz"
-        checksum: "a77f6d709c5100cda8e9bbb8d8b7143120121233d9102ba2f2bc254134db18dc"
+        checksum: "62544b0f3759bbf1155c0ac3d75838b5fe23d66dfb75cf8368f84fff8f82b93e"
       amd64:
         url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_amd64.tar.gz"
-        checksum: "62544b0f3759bbf1155c0ac3d75838b5fe23d66dfb75cf8368f84fff8f82b93e"
+        checksum: "a77f6d709c5100cda8e9bbb8d8b7143120121233d9102ba2f2bc254134db18dc"
   uv:
     darwin:
       arm64:
-        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-apple-darwin.tar.gz"
-        checksum: "ef6785df8c23232ce6209c04acefd0c0d2ffb3a3ba0eef16422bdfe99a059105"  # GitHub published digest :contentReference[oaicite:1]{index=1}
+        url: "https://github.com/astral-sh/uv/releases/download/0.8.4/uv-aarch64-apple-darwin.tar.gz"
+        checksum: "ef6785df8c23232ce6209c04acefd0c0d2ffb3a3ba0eef16422bdfe99a059105"
       amd64:
-        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-apple-darwin.tar.gz"
-        checksum: "77dd7261a4f2954b292f3465e720f13dbdfc33da5019bf064f15ef9234ef5a17"  # GitHub digest :contentReference[oaicite:2]{index=2}
+        url: "https://github.com/astral-sh/uv/releases/download/0.8.4/uv-x86_64-apple-darwin.tar.gz"
+        checksum: "77dd7261a4f2954b292f3465e720f13dbdfc33da5019bf064f15ef9234ef5a17" 
     linux:
       arm64:
         url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-unknown-linux-gnu.tar.gz"
-        checksum: "d42742a28ce161e72cce45c8c5621ee23317e30d461f595c382acf0f9b331f20"  # Asset digest :contentReference[oaicite:3]{index=3}
+        checksum: "d42742a28ce161e72cce45c8c5621ee23317e30d461f595c382acf0f9b331f20"  
       amd64:
-        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-unknown-linux-gnu.tar.gz"
-        checksum: ""  # not indexed in metadata
-
+        url: "https://github.com/astral-sh/uv/releases/download/0.8.4/uv-x86_64-unknown-linux-gnu.tar.gz"
+        checksum: "eb61d39fdc6ea21a6d00a24b50376102168240849c5022d3eba331f972ba3934"  
   dive:
     darwin:
-      arm64: {url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-darwin-arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-darwin-amd64.tar.gz", checksum: ""}
+      arm64: 
+        url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_darwin_arm64.tar.gz"
+        checksum: "38b7fa95a13e7f4d0b3060c875fe7427c2a0613ecff674bb45156eb34bca0b09"
+      amd64: 
+        url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_darwin_amd64.tar.gz"
+        checksum: "04e4c1bac21be3aef99799cf0e470149a072ea4786be50718aa846cd13746523"
     linux:
-      arm64: {url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-linux-arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-linux-amd64.tar.gz", checksum: ""}
-
+      arm64: 
+        url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_linux_arm64.tar.gz"
+        checksum: "2fcd2cf20f634ccdb41efac44048b204bfc867c115641f37a7420693ed480a18"
+      amd64: 
+        url: "https://github.com/wagoodman/dive/releases/download/v0.13.1/dive_0.13.1_linux_amd64.tar.gz"
+        checksum: "0970549eb4a306f8825a84145a2534153badb4d7dcf3febd1967c706367c3d0e"
   k9s:
     darwin:
-      arm64: {url: "https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Darwin_arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Darwin_x86_64.tar.gz", checksum: ""}
+      arm64: 
+        url: "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Darwin_arm64.tar.gz"
+        checksum: "30a91c1b91a52086f34a0a24c6b4ee8477fc360cd4d3c4d413a514ff2f308bd9"
+      amd64: 
+        url: "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Darwin_amd64.tar.gz"
+        checksum: "addbe8d67c1f65d76ce17592c7f0d0253ac0637073bd90dc7dc8533352a643a9"
     linux:
-      arm64: {url: "https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Linux_arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Linux_amd64.tar.gz", checksum: ""}
-
-  k3sup:
-    darwin:
-      arm64: {url: "https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-darwin-arm64", checksum: ""}
-      amd64: {url: "https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-darwin-amd64", checksum: ""}
-    linux:
-      arm64: {url: "https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-linux-arm64", checksum: ""}
-      amd64: {url: "https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-linux-amd64", checksum: ""}
-
+      arm64: 
+        url: "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_arm64.tar.gz"
+        checksum: "147e696b608da9a300b9db6b35fd6dfc0713ce8c64865e550c90452696bb779a"
+      amd64: 
+        url: "https://github.com/derailed/k9s/releases/download/v0.50.9/k9s_Linux_amd64.tar.gz"
+        checksum: "5e625efa26c3e14256cf29d242179b32129183b549937ec62d0ad9be1bfe2ca4"
   kind:
     darwin:
-      arm64: {url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-arm64", checksum: ""}
-      amd64: {url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-amd64", checksum: ""}
+      arm64: 
+        url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-arm64"
+        checksum: ""
+      amd64: 
+        url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-amd64"
+        checksum: ""
     linux:
-      arm64: {url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-arm64", checksum: ""}
-      amd64: {url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-amd64", checksum: ""}
-
+      arm64: 
+        url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-arm64"
+        checksum: ""
+      amd64: 
+        url: "https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-amd64"
+        checksum: ""
   mirrord:
     darwin:
-      arm64: {url: "https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-darwin-arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-darwin-amd64.tar.gz", checksum: ""}
+      arm64: 
+        url: "https://github.com/metalbear-co/mirrord/releases/download/3.154.1/mirrord_mac_universal"
+        checksum: "5b5369ddb21dc751beeb082cb26043030b3bd115258828f660cf77aafc9213df"
+      amd64: 
+        url: "https://github.com/metalbear-co/mirrord/releases/download/3.154.1/mirrord_mac_universal"
+        checksum: "5b5369ddb21dc751beeb082cb26043030b3bd115258828f660cf77aafc9213df"
     linux:
-      arm64: {url: "https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-linux-arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-linux-amd64.tar.gz", checksum: ""}
-
+      arm64: 
+        url: "https://github.com/metalbear-co/mirrord/releases/download/3.154.1/mirrord_linux_aarch64"
+        checksum: "88dc9141f847477a2a1050e56131d8cd00925d2e65b4452f1575aba53575a361"
+      amd64:
+        url: "https://github.com/metalbear-co/mirrord/releases/download/3.154.1/mirrord_linux_x86_64"
+        checksum: "64e49b88acacdd8c95cb63b73790a20f448ab29e25adf52abbd10e2a5227df47"
   kubectx: # should contain kubens
     linux:
-      arm64: {url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_arm64.tar.gz", checksum: ""}
-      amd64: {url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_x86_64.tar.gz", checksum: ""}
-
+      arm64: 
+        url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_arm64.tar.gz"
+        checksum: ""
+      amd64: 
+        url: "https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_x86_64.tar.gz"
+        checksum: ""
   terraform:
     linux:
-      arm64: {url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_arm64.zip", checksum: ""}
-      amd64: {url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip", checksum: ""}
+      arm64: 
+        url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_arm64.zip"
+        checksum: ""
+      amd64: 
+        url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip"
+        checksum: ""
     darwin:
-      arm64: {url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_arm64.zip", checksum: ""}
-      amd64: {url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_amd64.zip", checksum: ""}
-
-  yamllint:
-    darwin:
-      arm64: {url: "https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz", checksum: ""}
-      amd64: {url: "https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz", checksum: ""}
-    linux:
-      arm64: {url: "https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz", checksum: ""}
-      amd64: {url: "https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz", checksum: ""}
+      arm64: 
+        url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_arm64.zip"
+        checksum: ""
+      amd64: 
+        url: "https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_amd64.zip"
+        checksum: ""
   stern:
     darwin:
       arm64:
-        url: "https://github.com/stern/stern/releases/latest/download/stern_darwin_arm64.tar.gz"
-        checksum: ""
+        url: "https://github.com/stern/stern/releases/download/v1.32.0/stern_1.32.0_darwin_arm64.tar.gz"
+        checksum: "18da4740662ef0b6192d889d15bef4dcd4f212036fc8de306aec1d086a598638"
       amd64:
-        url: "https://github.com/stern/stern/releases/latest/download/stern_darwin_amd64.tar.gz"
-        checksum: ""
+        url: "https://github.com/stern/stern/releases/download/v1.32.0/stern_1.32.0_darwin_amd64.tar.gz"
+        checksum: "4ec11280b21cdc46134f2b10349891fa5a37678dea9c199a133403dab3dca6e9"
     linux:
       arm64:
-        url: "https://github.com/stern/stern/releases/latest/download/stern_linux_arm64.tar.gz"
-        checksum: ""
+        url: "https://github.com/stern/stern/releases/download/v1.32.0/stern_1.32.0_linux_arm64.tar.gz"
+        checksum: "10b7ce269996547b08b524226d9c7678985b525232539e6e943ebe8475521615"
       amd64:
-        url: "https://github.com/stern/stern/releases/latest/download/stern_linux_amd64.tar.gz"
-        checksum: ""
-
+        url: "https://github.com/stern/stern/releases/download/v1.32.0/stern_1.32.0_linux_amd64.tar.gz"
+        checksum: "4733268b0e7fea48426c594d186be8cbcdb863858e08910451ebe3b1c8286f44"
   kustomize:
     darwin:
       arm64:
-        url: "https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_darwin_arm64.tar.gz"
-        checksum: ""
+        url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.7.1/kustomize_v5.7.1_darwin_arm64.tar.gz"
+        checksum: "073e9d16d5a235e2ff83e62d6b76edb5d962adbc33be1e4860c4b3f1f39b33b9"
       amd64:
-        url: "https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_darwin_amd64.tar.gz"
-        checksum: ""
+        url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.7.1/kustomize_v5.7.1_darwin_amd64.tar.gz"
+        checksum: "4a0dff80c5644df6bc8f51b342842969004cb6ba5f94dddaabbea7483493273d"
     linux:
       arm64:
-        url: "https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_linux_arm64.tar.gz"
-        checksum: ""
+        url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.7.1/kustomize_v5.7.1_linux_arm64.tar.gz"
+        checksum: "4261a040217df3bd6896597c3986d1465925726e4f22a945304b5233a4dcdbda"
       amd64:
-        url: "https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_linux_amd64.tar.gz"
-        checksum: ""
-
+        url: "https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.7.1/kustomize_v5.7.1_linux_amd64.tar.gz"
+        checksum: "ea375e7372f9aa029129d4b2d16c66b7750b7f1213c4f66f910d981c895818d8"
   kubie:
     darwin:
       arm64:
@@ -401,23 +362,21 @@ binaries:
       amd64:
         url: "https://github.com/sbstp/kubie/releases/latest/download/kubie-linux-amd64"
         checksum: ""
-
   terraform-ls:
     darwin:
       arm64:
-        url: "https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_darwin_arm64.zip"
-        checksum: ""
+        url: "https://releases.hashicorp.com/terraform-ls/0.36.5/terraform-ls_0.36.5_darwin_arm64.zip"
+        checksum: "fee8743aa71fe2d8b0b9b91283b844cfa57d58457306a62e53a8f38d143cec8c"
       amd64:
-        url: "https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_darwin_amd64.zip"
-        checksum: ""
+        url: "https://releases.hashicorp.com/terraform-ls/0.36.5/terraform-ls_0.36.5_darwin_amd64.zip"
+        checksum: "17c5c480f8eec7e528292565f1c05d5097a41edf7ef8ee2a9f3a18d288a1415a"
     linux:
       arm64:
-        url: "https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_linux_arm64.zip"
-        checksum: ""
+        url: "https://releases.hashicorp.com/terraform-ls/0.36.5/terraform-ls_0.36.5_linux_arm64.zip"
+        checksum: "724f45029f32d02d88b1952c7d1526c59fc8cd5dae49e31b9fed676a83f6cae7"
       amd64:
-        url: "https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_linux_amd64.zip"
-        checksum: ""
-
+        url: "https://releases.hashicorp.com/terraform-ls/0.36.5/terraform-ls_0.36.5_linux_amd64.zip"
+        checksum: "37e645cc54fd03e863157e2a3e773e7a5ff1d6cb3d045e4c20860cac1f550a44"
   tflint:
     darwin:
       arm64:
@@ -433,7 +392,6 @@ binaries:
       amd64:
         url: "https://github.com/terraform-linters/tflint/releases/latest/download/tflint_linux_amd64.zip"
         checksum: ""
-
   eksctl:
     darwin:
       arm64:
@@ -449,7 +407,6 @@ binaries:
       amd64:
         url: "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_linux_amd64.tar.gz"
         checksum: ""
-
   telepresence:
     darwin:
       arm64:
@@ -465,7 +422,6 @@ binaries:
       amd64:
         url: "https://app.getambassador.io/download/tel2/linux/amd64/latest/telepresence"
         checksum: ""
-
   argocd:
     darwin:
       arm64:
@@ -480,20 +436,4 @@ binaries:
         checksum: ""
       amd64:
         url: "https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64"
-        checksum: ""
-
-  minikube:
-    darwin:
-      arm64:
-        url: "https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64"
-        checksum: ""
-      amd64:
-        url: "https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64"
-        checksum: ""
-    linux:
-      arm64:
-        url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64"
-        checksum: ""
-      amd64:
-        url: "https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64"
         checksum: ""

@@ -1,1 +1,107 @@
 #!/usr/bin/env zsh
+# written by ChatGPT 4o
+# installs tools defined in ../.chezmoidata/development_tools.yaml binaries map to {{ .bindir }}
+
+set -euo pipefail
+
+BIN_DIR={{ .bindir }}
+mkdir -p "$BIN_DIR"
+
+OS=$(uname | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
+case "$ARCH" in
+  x86_64) ARCH=amd64 ;;
+  arm64|aarch64) ARCH=arm64 ;;
+  *) echo "Unsupported architecture: $ARCH" >&2; exit 1 ;;
+esac
+
+# Portable checksum command
+if command -v sha256sum >/dev/null 2>&1; then
+  SHA_CMD="sha256sum"
+elif command -v shasum >/dev/null 2>&1; then
+  SHA_CMD="shasum -a 256"
+else
+  echo "No supported SHA256 tool found." >&2
+  exit 1
+fi
+
+# ChezMoi-templated binary info (one tool per line)
+BINARIES_DATA=(
+{{- $currentOS := .chezmoi.os }}
+{{- $currentArch := .chezmoi.arch }}
+{{- range $tool, $platforms := .binaries }}
+  {{- with index $platforms $currentOS }}
+    {{- with index . $currentArch }}
+      {{- $info := . }}
+      {{- $checksum := "" }}
+      {{- if hasKey $info "checksum" }}
+        {{- $checksum = $info.checksum }}
+      {{- end }}
+'{{ $tool }}|{{ $currentOS }}|{{ $currentArch }}|{{ $info.url }}|{{ $checksum }}'
+    {{- end }}
+  {{- end }}
+{{- end }}
+)
+
+for line in "${BINARIES_DATA[@]}"; do
+  IFS="|" read -r TOOL TOOL_OS TOOL_ARCH TOOL_URL TOOL_CHECKSUM <<< "$line"
+  echo "Installing $TOOL for $TOOL_OS/$TOOL_ARCH..."
+  TMP_DIR=$(mktemp -d)
+  FILE="$TMP_DIR/archive"
+
+  echo "Downloading from: $TOOL_URL"
+  if ! curl -fsSL "$TOOL_URL" -o "$FILE"; then
+    echo "Download failed for $TOOL" >&2
+    rm -rf "$TMP_DIR"
+    continue
+  fi
+
+  # Verify checksum if provided
+  if [ -n "${TOOL_CHECKSUM:-}" ]; then
+    echo "$TOOL_CHECKSUM  $FILE" | eval "$SHA_CMD -c -" || {
+      echo "Checksum mismatch for $TOOL" >&2
+      rm -rf "$TMP_DIR"
+      continue
+    }
+  fi
+
+  cd "$TMP_DIR" || continue
+
+  # Extract based on file type or use as raw binary
+  EXT=$(file -b "$FILE")
+  BIN=""
+  case "$TOOL_URL" in
+    *.zip)
+      unzip -q "$FILE" || { echo "Unzip failed for $TOOL" >&2; rm -rf "$TMP_DIR"; continue; }
+      ;;
+    *.tar.gz|*.tgz)
+      tar -xzf "$FILE" || { echo "Tar extraction failed for $TOOL" >&2; rm -rf "$TMP_DIR"; continue; }
+      ;;
+    *)
+      if echo "$EXT" | grep -qE 'Mach-O|ELF'; then
+        chmod +x "$FILE"
+        BIN="$FILE"
+      else
+        echo "Unsupported file type: $EXT for $TOOL" >&2
+        rm -rf "$TMP_DIR"
+        continue
+      fi
+      ;;
+  esac
+
+  # Find binary if not already set
+  if [ -z "$BIN" ]; then
+    BIN=$(find . -type f -exec test -x {} \; -print | head -n 1 || true)
+    if [ -z "$BIN" ]; then
+      echo "No executable found for $TOOL" >&2
+      rm -rf "$TMP_DIR"
+      continue
+    fi
+  fi
+
+  mv "$BIN" "$BIN_DIR/$TOOL"
+  chmod +x "$BIN_DIR/$TOOL"
+  echo "$TOOL installed to $BIN_DIR/$TOOL"
+
+  rm -rf "$TMP_DIR"
+done

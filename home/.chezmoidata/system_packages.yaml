@@ -14,6 +14,9 @@ apt:
 - ripgrep
 - vim
 - jq
+- file
+- tar
+- tmux
 apt_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
@@ -34,6 +37,9 @@ dnf:
 - unzip
 - vim
 - jq
+- file
+- tar
+- tmux
 dnf_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
@@ -57,6 +63,9 @@ apk:
 - shadow # contains usermod
 - vim
 - jq
+- file
+- tar
+- tmux
 tdnf:
 - gnupg
 - gcc
@@ -71,6 +80,9 @@ tdnf:
 - unzip
 - vim
 - jq
+- file
+- tar
+- tmux
 homebrew: 
   taps: []
   brews:
@@ -84,6 +96,8 @@ homebrew:
   - vim
   - bat
   - jq
+  - file-formula
+  - tmux
   casks: # casks are macos-only
     - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools

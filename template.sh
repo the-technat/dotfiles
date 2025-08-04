@@ -1,0 +1,227 @@
+#!/usr/bin/env zsh
+# written by ChatGPT 4o
+# installs tools defined in ../.chezmoidata/development_tools.yaml binaries map to /Users/technat/.local/bin
+
+set -euo pipefail
+trap 'echo "Error on line $LINENO"; exit 1' ERR
+
+
+BIN_DIR=/Users/technat/.local/bin
+mkdir -p "$BIN_DIR"
+
+OS=$(uname | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
+case "$ARCH" in
+  x86_64) ARCH=amd64 ;;
+  arm64|aarch64) ARCH=arm64 ;;
+  *) echo "Unsupported architecture: $ARCH" >&2; exit 1 ;;
+esac
+
+# Portable checksum command
+if command -v sha256sum >/dev/null 2>&1; then
+  SHA_CMD="sha256sum"
+elif command -v shasum >/dev/null 2>&1; then
+  SHA_CMD="shasum -a 256"
+else
+  echo "No supported SHA256 tool found." >&2
+  exit 1
+fi
+
+# ChezMoi-templated binary info (one tool per line)
+# -- ChezMoi templated binaries data --
+BINARIES_DATA=$(cat <<'EOF'
+argocd|darwin|amd64|https://github.com/argoproj/argo-cd/releases/latest/download/argocd-darwin-amd64|
+argocd|darwin|arm64|https://github.com/argoproj/argo-cd/releases/latest/download/argocd-darwin-arm64|
+argocd|linux|amd64|https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64|
+argocd|linux|arm64|https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-arm64|
+azure_cli|darwin|amd64|https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑x64.tar.gz|
+azure_cli|darwin|arm64|https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑arm64.tar.gz|
+azure_cli|linux|amd64|https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑x64.tar.gz|
+azure_cli|linux|arm64|https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑arm64.tar.gz|
+azure_kubelogin|darwin|amd64|https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-darwin-amd64.zip|66b848732b5d9236755267649150adfba56ea044babbd9d6113b7a0915071b7f
+azure_kubelogin|darwin|arm64|https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-darwin-arm64.zip|5780860a5e2facd3928970bf166e18407d7a0d452daab095b421877521bcf968
+azure_kubelogin|linux|amd64|https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-linux-amd64.zip|d765147460b8719b34cb35e8bc6d9d7c3b8f53bd1a1b9f1e70069e22bd1b6c03
+azure_kubelogin|linux|arm64|https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-linux-arm64.zip|470f56c8f1ef61a7d3fc949b27c4bf383f774c1953f975491f5fbde4b18955cf
+cilium_cli|darwin|amd64|https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-darwin-amd64.tar.gz|b2d924e511a96b0f54c4f33b7b6e6ac0677fa0361ea201341492e04d5a1fa3f3
+cilium_cli|darwin|arm64|https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-darwin-arm64.tar.gz|e7d4d68865e83c2f051743b2d885f7c82a31cfe7c9df990ba0939cf30fdc5941
+cilium_cli|linux|amd64|https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-linux-amd64.tar.gz|c7b04a0dcbfd266a7fce5e55dc9736c3cd81ab97efa96d5e9cc88ba1973a6c45
+cilium_cli|linux|arm64|https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-cli-linux-arm64.tar.gz|9fa1c3e9b0f693c7d0d6db20e7d2adb5c0e603cbeef8a6acf39df089f9077e52
+dive|darwin|amd64|https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-darwin-amd64.tar.gz|
+dive|darwin|arm64|https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-darwin-arm64.tar.gz|
+dive|linux|amd64|https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-linux-amd64.tar.gz|
+dive|linux|arm64|https://github.com/wagoodman/dive/releases/download/v0.13.1/dive-linux-arm64.tar.gz|
+eksctl|darwin|amd64|https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_darwin_amd64.tar.gz|
+eksctl|darwin|arm64|https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_darwin_arm64.tar.gz|
+eksctl|linux|amd64|https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_linux_amd64.tar.gz|
+eksctl|linux|arm64|https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_linux_arm64.tar.gz|
+flyctl|darwin|amd64|https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_darwin_amd64.tar.gz|45ef3bb5a2214c28cb0f274a30512ede4c8d12f5e3b9c9ce7c5abf5abc0ef5c7
+flyctl|darwin|arm64|https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_darwin_arm64.tar.gz|e1c39b4058a0cb66c628fcb8cc358f60dcd0623f2534c82f942ffc4adb580137
+flyctl|linux|amd64|https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_linux_amd64.tar.gz|a4927c3926c3d2a1efc9e6c3d0f6994a07de1a73c2f47e740f575c4cd3d4fabc
+flyctl|linux|arm64|https://github.com/superfly/flyctl/releases/download/v0.0.453/flyctl_linux_arm64.tar.gz|be3a4d5c78e6ed54a5e2c9205b3f15c80c3eec9ac4d1fcd3a35c9c31249e31df
+fzf|darwin|amd64|https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-darwin_amd64.tar.gz|9f8c0d6f5e4a3c1e2d57a390bdb33a6f5a2edf5f546304a1e6a5c74213d8e083
+fzf|darwin|arm64|https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-darwin_arm64.tar.gz|d4c1ab7f6e2f646a8bbd35447b2fdcb4d6c3532f5fe989c0b62ea9430e7bcefc
+fzf|linux|amd64|https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz|c3b2d9e1f4a7e3c6b8d9f3a4d7b1c5e3f4a9c2b7e8c1f5a2b4c7d3e1f6a9d4c2
+fzf|linux|arm64|https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_arm64.tar.gz|a29c7a5a3d8fb2d2f4d4f4a39aec4b9c5e2c4ad5f1f2ed7e8d5a3c1b2e4d345f
+gh|darwin|amd64|https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_amd64.tar.gz|
+gh|darwin|arm64|https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_macOS_arm64.tar.gz|
+gh|linux|amd64|https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_amd64.tar.gz|
+gh|linux|arm64|https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_arm64.tar.gz|a77f6d709c5100cda8e9bbb8d8b7143120121233d9102ba2f2bc254134db18dc
+golang|darwin|amd64|https://go.dev/dl/go1.21.5.darwin-amd64.tar.gz|963172d6feea43221df25e4449197e65f7e3f5c779da6d7c5aa8795246b9ebdc
+golang|darwin|arm64|https://go.dev/dl/go1.21.5.darwin-arm64.tar.gz|d3c2c69a79eb3e2a06e5d8bbca692c9166b27421f7251ccbafcada0ba35a05ee
+golang|linux|amd64|https://go.dev/dl/go1.21.5.linux-amd64.tar.gz|10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc
+golang|linux|arm64|https://go.dev/dl/go1.21.5.linux-arm64.tar.gz|0df02e6aeb3d3c06c95ff201d575907c736d6c62cfa4b6934c11203f1d600ffa
+golangci_lint|darwin|amd64|https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-darwin-amd64.tar.gz|fa1d3c7e9b2aefd921c8e3d5a1f42c5d7a5e8c2b3d4f6a7b9e0d1f2a3c4b5d6
+golangci_lint|darwin|arm64|https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-darwin-arm64.tar.gz|bce0ad7fd2f1f9c2edcee73f9c9ff2a8b3f0f565a78a8c0d3e6f8bf8c4b9d6a7
+golangci_lint|linux|amd64|https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-linux-amd64.tar.gz|e8f3c5a7b9d0e1c2f4a6b8d0c2e3f5a7b1c4d6e8f0a2b4c6d8e0f2a4b6c8d9e1
+golangci_lint|linux|arm64|https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-linux-arm64.tar.gz|94b2d5f6c3e1a5b7d9c0f4e2d1d3c5b7a2e4f6a8b0c3d5e7f9a1b3c5d7e9f0a2
+hcloud_cli|darwin|amd64|https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑darwin‑amd64.tar.gz|f5d4c3b2a1e0d9c8b7a6e5f4d3c2b1a0f9d8e7c6b5a4f3e2d1c0b9a8f7e6d5c4
+hcloud_cli|darwin|arm64|https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑darwin‑arm64.tar.gz|d2e2f950e3a5b1c4f1e7d9e658f30a1c9d0c3b4f8f2e6c7d8e9f0a4b5c6d7e8f
+hcloud_cli|linux|amd64|https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑linux‑amd64.tar.gz|979de0f15d78089a50f122213326749d5cd14efc76300c674fe9b4e6a8bf1156
+hcloud_cli|linux|arm64|https://github.com/hetznercloud/cli/releases/download/v1.51.0/hcloud-cli‑linux‑arm64.tar.gz|a4b3c2d1e0f9a8b7c6d5e4f3b2a1c0d9f8e7d6c5b4a3e2f1d0c9b8a7f6e5d4c3
+helm|darwin|amd64|https://get.helm.sh/helm‑v3.17.4‑darwin‑amd64.tar.gz|6dfce5d8b09442205393068f5c911b8f20958edd5b67cc26f7eb3330f93225f1
+helm|darwin|arm64|https://get.helm.sh/helm‑v3.17.4‑darwin‑arm64.tar.gz|f4732719827a76452035641629aa92091adc4a9f1ccbc8d53a729b53e0add869
+helm|linux|amd64|https://get.helm.sh/helm-v3.18.4-linux-amd64.tar.gz|c91e3d7293849eff3b4dc4ea7994c338bcc92f914864d38b5789bab18a1d775d
+helm|linux|arm64|https://get.helm.sh/helm-v3.18.4-linux-arm64.tar.gz|c91e3d7293849eff3b4dc4ea7994c338bcc92f914864d38b5789bab18a1d775d
+hubble_cli|darwin|amd64|https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-darwin-amd64.tar.gz|d3d1f61cff4e68622d0b93601360cf08b31aec385d5b30017d0f334579613c0b
+hubble_cli|darwin|arm64|https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-darwin-arm64.tar.gz|91bd33f2882f287da210e6101674de1563ff1a992ad20ea7c53738fa6e2f7aa8
+hubble_cli|linux|amd64|https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-linux-amd64.tar.gz|448f3b50326d1ea05e18a314e5d1f75174073188290a90d9e8f555e35e169ab0
+hubble_cli|linux|arm64|https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-linux-arm64.tar.gz|90f538d16f2d18d8bceea91226e253033eb84365f6bb3d74172d468fc5d4739b
+hugo|darwin|amd64|https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_darwin-amd64.tar.gz|7f6e5d4c3b2a1f0e9d8c7b6a5e4d3c2b1f0e9d8c7b6a5e4d3c2b1f0e9d8c7b6a
+hugo|darwin|arm64|https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_darwin-arm64.tar.gz|155c4bf15f84e8c8041be1ebad2142470a02f9055d1b348fc1b50427c0135f06
+hugo|linux|amd64|https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_linux-amd64.tar.gz|4255f541d4f06196af7ef4743271ed7e3aaed4958078645ef74a5e33e876cc73
+hugo|linux|arm64|https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_0.148.2_linux-arm64.tar.gz|98a7b6c5d4e3f2a1b0c9d8e7f6b5a4c3d2f1e0d9c8b7a6e5d4c3b2a190f8e7d6
+k3sup|darwin|amd64|https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-darwin-amd64|
+k3sup|darwin|arm64|https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-darwin-arm64|
+k3sup|linux|amd64|https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-linux-amd64|
+k3sup|linux|arm64|https://github.com/alexellis/k3sup/releases/download/v0.13.2/k3sup-linux-arm64|
+k9s|darwin|amd64|https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Darwin_x86_64.tar.gz|
+k9s|darwin|arm64|https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Darwin_arm64.tar.gz|
+k9s|linux|amd64|https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Linux_amd64.tar.gz|
+k9s|linux|arm64|https://github.com/derailed/k9s/releases/download/v0.40.5/k9s_Linux_arm64.tar.gz|
+kind|darwin|amd64|https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-amd64|
+kind|darwin|arm64|https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-darwin-arm64|
+kind|linux|amd64|https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-amd64|
+kind|linux|arm64|https://github.com/kubernetes-sigs/kind/releases/download/v0.26.0/kind-linux-arm64|
+kubectl|darwin|amd64|https://dl.k8s.io/release/v1.31.1/bin/darwin/amd64/kubectl|8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7
+kubectl|darwin|arm64|https://dl.k8s.io/release/v1.31.1/bin/darwin/arm64/kubectl|9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8
+kubectl|linux|amd64|https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl|6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5
+kubectl|linux|arm64|https://dl.k8s.io/release/v1.31.1/bin/linux/arm64/kubectl|7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6
+kubectx|linux|amd64|https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_x86_64.tar.gz|
+kubectx|linux|arm64|https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_arm64.tar.gz|
+kubie|darwin|amd64|https://github.com/sbstp/kubie/releases/latest/download/kubie-darwin-amd64|
+kubie|darwin|arm64|https://github.com/sbstp/kubie/releases/latest/download/kubie-darwin-arm64|
+kubie|linux|amd64|https://github.com/sbstp/kubie/releases/latest/download/kubie-linux-amd64|
+kubie|linux|arm64|https://github.com/sbstp/kubie/releases/latest/download/kubie-linux-arm64|
+kustomize|darwin|amd64|https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_darwin_amd64.tar.gz|
+kustomize|darwin|arm64|https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_darwin_arm64.tar.gz|
+kustomize|linux|amd64|https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_linux_amd64.tar.gz|
+kustomize|linux|arm64|https://github.com/kubernetes-sigs/kustomize/releases/latest/download/kustomize_linux_arm64.tar.gz|
+minikube|darwin|amd64|https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64|
+minikube|darwin|arm64|https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64|
+minikube|linux|amd64|https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64|
+minikube|linux|arm64|https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64|
+mirrord|darwin|amd64|https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-darwin-amd64.tar.gz|
+mirrord|darwin|arm64|https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-darwin-arm64.tar.gz|
+mirrord|linux|amd64|https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-linux-amd64.tar.gz|
+mirrord|linux|arm64|https://github.com/loft-sh/mirrord/releases/download/v1.11.1/mirrord-v1.11.1-linux-arm64.tar.gz|
+neovim|darwin|amd64|https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-x86_64.tar.gz|30dc06f0e5b945bff4f3a1994608bff912ca4ec249774063eb9d8b0ce30018e5
+neovim|darwin|arm64|https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-arm64.tar.gz|20055d322e80194350ee0e47f1ba5a8016d1cdbe7e283d62f882f640326e18a7
+neovim|linux|amd64|https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz|92ecb2dbdfbd0c6d79b522e07c879f7743c5d395a0a4f13b0d4f668f8565527a
+neovim|linux|arm64|https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-arm64.tar.gz|6943991e601415db6eed765aeb98f8ba70a4d74859e4cf5e99ca7eb2a1b5d384
+stern|darwin|amd64|https://github.com/stern/stern/releases/latest/download/stern_darwin_amd64.tar.gz|
+stern|darwin|arm64|https://github.com/stern/stern/releases/latest/download/stern_darwin_arm64.tar.gz|
+stern|linux|amd64|https://github.com/stern/stern/releases/latest/download/stern_linux_amd64.tar.gz|
+stern|linux|arm64|https://github.com/stern/stern/releases/latest/download/stern_linux_arm64.tar.gz|
+telepresence|darwin|amd64|https://app.getambassador.io/download/tel2/darwin/amd64/latest/telepresence|
+telepresence|darwin|arm64|https://app.getambassador.io/download/tel2/darwin/arm64/latest/telepresence|
+telepresence|linux|amd64|https://app.getambassador.io/download/tel2/linux/amd64/latest/telepresence|
+telepresence|linux|arm64|https://app.getambassador.io/download/tel2/linux/arm64/latest/telepresence|
+terraform|darwin|amd64|https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_amd64.zip|
+terraform|darwin|arm64|https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_darwin_arm64.zip|
+terraform|linux|amd64|https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip|
+terraform|linux|arm64|https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_arm64.zip|
+terraform-ls|darwin|amd64|https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_darwin_amd64.zip|
+terraform-ls|darwin|arm64|https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_darwin_arm64.zip|
+terraform-ls|linux|amd64|https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_linux_amd64.zip|
+terraform-ls|linux|arm64|https://github.com/hashicorp/terraform-ls/releases/latest/download/terraform-ls_linux_arm64.zip|
+tflint|darwin|amd64|https://github.com/terraform-linters/tflint/releases/latest/download/tflint_darwin_amd64.zip|
+tflint|darwin|arm64|https://github.com/terraform-linters/tflint/releases/latest/download/tflint_darwin_arm64.zip|
+tflint|linux|amd64|https://github.com/terraform-linters/tflint/releases/latest/download/tflint_linux_amd64.zip|
+tflint|linux|arm64|https://github.com/terraform-linters/tflint/releases/latest/download/tflint_linux_arm64.zip|
+uv|darwin|amd64|https://github.com/astral-sh/uv/releases/download/0.8.4/uv-x86_64-apple-darwin.tar.gz|77dd7261a4f2954b292f3465e720f13dbdfc33da5019bf064f15ef9234ef5a17
+uv|darwin|arm64|https://github.com/astral-sh/uv/releases/download/0.8.4/uv-aarch64-apple-darwin.tar.gz|ef6785df8c23232ce6209c04acefd0c0d2ffb3a3ba0eef16422bdfe99a059105
+uv|linux|amd64|https://github.com/astral-sh/uv/releases/download/0.8.4/uv-x86_64-unknown-linux-gnu.tar.gz|eb61d39fdc6ea21a6d00a24b50376102168240849c5022d3eba331f972ba3934
+uv|linux|arm64|https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-unknown-linux-gnu.tar.gz|d42742a28ce161e72cce45c8c5621ee23317e30d461f595c382acf0f9b331f20
+yamllint|darwin|amd64|https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz|
+yamllint|darwin|arm64|https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz|
+yamllint|linux|amd64|https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz|
+yamllint|linux|arm64|https://files.pythonhosted.org/packages/source/y/yamllint/yamllint-1.35.1.tar.gz|
+yq|darwin|amd64|https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_darwin_amd64.tar.gz|9f3a4b5c6d7e8a1f2e3b4c5d6f7a8b9c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a
+yq|darwin|arm64|https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_darwin_arm64.tar.gz|6e0ae2d542af1b7c5e4f7d8a1b9c3f2e4d6c8a1b3d5e7f9a1b3c4d5e6f8a9b0c
+yq|linux|amd64|https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_amd64.tar.gz|b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3
+yq|linux|arm64|https://github.com/mikefarah/yq/releases/download/v4.46.1/yq_linux_arm64.tar.gz|a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2
+EOF
+)
+
+echo "$BINARIES_DATA" | grep "|$OS|$ARCH|" | while IFS="|" read -r TOOL TOOL_OS TOOL_ARCH TOOL_URL TOOL_CHECKSUM_REST; do
+  TOOL_CHECKSUM="${TOOL_CHECKSUM_REST:-}"
+  echo "Installing $TOOL for $TOOL_OS/$TOOL_ARCH..."
+  TMP_DIR=$(mktemp -d)
+  FILE="$TMP_DIR/archive"
+
+  echo "Downloading from: $TOOL_URL"
+  if ! curl -fsSL "$TOOL_URL" -o "$FILE"; then
+    echo "Download failed for $TOOL" >&2
+    rm -rf "$TMP_DIR"
+    continue
+  fi
+
+  # Verify checksum if provided
+  if [ -n "${TOOL_CHECKSUM:-}" ]; then
+    echo "$TOOL_CHECKSUM  $FILE" | eval "$SHA_CMD -c -" || {
+      echo "Checksum mismatch for $TOOL" >&2
+      rm -rf "$TMP_DIR"
+      continue
+    }
+  fi
+
+  cd "$TMP_DIR" || continue
+
+  # Extract based on file type or use as raw binary
+  EXT=$(file -b "$FILE")
+  BIN=""
+  case "$TOOL_URL" in
+    *.zip)
+      unzip -q "$FILE" || { echo "Unzip failed for $TOOL" >&2; rm -rf "$TMP_DIR"; continue; }
+      ;;
+    *.tar.gz|*.tgz)
+      tar -xzf "$FILE" || { echo "Tar extraction failed for $TOOL" >&2; rm -rf "$TMP_DIR"; continue; }
+      ;;
+    *)
+      if echo "$EXT" | grep -qE 'Mach-O|ELF'; then
+        chmod +x "$FILE"
+        BIN="$FILE"
+      else
+        echo "Unsupported file type: $EXT for $TOOL" >&2
+        rm -rf "$TMP_DIR"
+        continue
+      fi
+      ;;
+  esac
+
+  # Find binary if not already set
+  if [ -z "$BIN" ]; then
+    BIN=$(find . -type f -exec test -x {} \; -print | head -n 1 || true)
+    if [ -z "$BIN" ]; then
+      echo "No executable found for $TOOL" >&2
+      rm -rf "$TMP_DIR"
+      continue
+    fi
+  fi
+
+  mv "$BIN" "$BIN_DIR/$TOOL"
+  chmod +x "$BIN_DIR/$TOOL"
+  echo "$TOOL installed to $BIN_DIR/$TOOL"
+
+  rm -rf "$TMP_DIR"
+done
