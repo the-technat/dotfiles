@@ -13,6 +13,7 @@ apt:
 - unzip
 - ripgrep
 - vim
+- jq
 apt_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
@@ -32,6 +33,7 @@ dnf:
 - traceroute
 - unzip
 - vim
+- jq
 dnf_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
@@ -54,6 +56,7 @@ apk:
 - openssh # contains ssh-keygen
 - shadow # contains usermod
 - vim
+- jq
 tdnf:
 - gnupg
 - gcc
@@ -67,6 +70,7 @@ tdnf:
 - traceroute
 - unzip
 - vim
+- jq
 homebrew: 
   taps: []
   brews:
@@ -79,6 +83,7 @@ homebrew:
   - ripgrep
   - vim
   - bat
+  - jq
   casks: # casks are macos-only
     - "ghostty" # prefered terminal emulator on darwin
     - "devtoys" # helpful developer tools
