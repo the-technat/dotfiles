@@ -20,7 +20,7 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 $HOME/.local/bin/chezmoi init --apply the-technat
 ```
 
-Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured.
+Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured. This implies that the user we want dotfiles for also exists already.
 
 ### Post Configuration (macOS only)
 
@@ -39,6 +39,14 @@ This is only required for signing git commits, every other tool will use the key
 
 As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
+## Permissions
+
+Dotfiles are installed for the user that kicks off the bootstrap. But there are some exceptions where elevated privileges are required:
+- to change the default shell for the user
+- to install system-wide packages 
+
+To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap.
+
 ## Styling / Terminal experience
 
 To have a more or less consistent terminal experience and to be really productive I use tmux in combination with neovim to do most stuff. This will always be the same no mather the OS. There are some things however tmux can't control and that are dependant on the terminal emulator used:
@@ -51,11 +59,15 @@ On `darwin` these settings can be controlled since we install [ghostty](https://
 
 ## Tooling
 
-I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is [mise](https://mise.jdx.dev).
+I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is my set of chezmoi-templated scripts.
 
-The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. Mise on the other hand is very useful for installing development-specific tools where multiple versions of the same binary might be needed. Mise runs after we put our files in place and installs a handful of development tools that are assumed/used by aliases or have a config in our dotfiles. Any other development tool should be installed when needed.
+The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. My scripts which are all run after we put the files in place install development-specific tools that don't exist in system package managers or where I need a more recent version than there's available. The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles or tools that are referenced in an alias or similiar. Any other development tooling should be installed manually at the time it's needed.
 
-Note: for `darwin` I count [homebrew](https://brew.sh) as system package manager as there's no one preinstalled.
+The system package manager is responsible for updating it's tools independent of my dotfiles. We don't specify a version when installing and assume that `latest` is always going to work and not break (as it's rarily the case with system packages). For the development tools the scripts in my dotfiles provide an update mechanism that mostly relies on [renovate](https://docs.renovatebot.com/) to update a pinned version set in the dotfiles. This ensures the development tools are at the same version across all machines but still get updated regurarly.
+
+The system packager manager install it's tools for the entire system and usually requires elevated privileges to do so, the development tools **must** be installed in the scope of the current user.
+
+Note: for `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one preinstalled.
 
 ## Devcontainers
 

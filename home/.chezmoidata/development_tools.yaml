@@ -1,4 +1,14 @@
-binariesnaries:
+installer_tools:
+  aws_cli:
+    darwin:
+      generic:
+        url: https://awscli.amazonaws.com/AWSCLIV2.pkg
+    linux:
+      arm64:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip
+      amd64:
+        url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+binaries:
   aws-cli:
     darwin:
       arm64:
@@ -190,22 +200,6 @@ binariesnaries:
         url: "..."
         checksum: "4255f541d4f06196af7ef4743271ed7e3aaed4958078645ef74a5e33e876cc73"
 
-  jq:
-    darwin:
-      arm64:
-        url: "https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-osx-arm64"
-        checksum: "1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2"
-      amd64:
-        url: "..."
-        checksum: "2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3"
-    linux:
-      arm64:
-        url: "..."
-        checksum: "3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4"
-      amd64:
-        url: "..."
-        checksum: "4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5"
-
   kubectl:
     darwin:
       arm64:
@@ -251,7 +245,7 @@ binariesnaries:
         checksum: ""
       amd64:
         url: ".../tmux-3.5a-linux-amd64.tar.gz"
-        checksum: "dd70cae087d8ae53248476d4bc8e0483d1b03ad7ffa1fb5350217dddfca5e6e5"  :contentReference[oaicite:1]{index=1}
+        checksum: "dd70cae087d8ae53248476d4bc8e0483d1b03ad7ffa1fb5350217dddfca5e6e5"  
 
   yq:
     darwin:
@@ -285,20 +279,20 @@ binariesnaries:
         url: "https://github.com/cli/cli/releases/download/v2.76.2/gh_2.76.2_linux_amd64.tar.gz"
         checksum: "62544b0f3759bbf1155c0ac3d75838b5fe23d66dfb75cf8368f84fff8f82b93e"
   uv:
-		darwin:
-			arm64:
-				url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-apple-darwin.tar.gz"
-				checksum: "ef6785df8c23232ce6209c04acefd0c0d2ffb3a3ba0eef16422bdfe99a059105"  # GitHub published digest :contentReference[oaicite:1]{index=1}
-			amd64:
-				url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-apple-darwin.tar.gz"
-				checksum: "77dd7261a4f2954b292f3465e720f13dbdfc33da5019bf064f15ef9234ef5a17"  # GitHub digest :contentReference[oaicite:2]{index=2}
-		linux:
-			arm64:
-				url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-unknown-linux-gnu.tar.gz"
-				checksum: "d42742a28ce161e72cce45c8c5621ee23317e30d461f595c382acf0f9b331f20"  # Asset digest :contentReference[oaicite:3]{index=3}
-			amd64:
-				url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-unknown-linux-gnu.tar.gz"
-				checksum: ""  # not indexed in metadata
+    darwin:
+      arm64:
+        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-apple-darwin.tar.gz"
+        checksum: "ef6785df8c23232ce6209c04acefd0c0d2ffb3a3ba0eef16422bdfe99a059105"  # GitHub published digest :contentReference[oaicite:1]{index=1}
+      amd64:
+        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-apple-darwin.tar.gz"
+        checksum: "77dd7261a4f2954b292f3465e720f13dbdfc33da5019bf064f15ef9234ef5a17"  # GitHub digest :contentReference[oaicite:2]{index=2}
+    linux:
+      arm64:
+        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-aarch64-unknown-linux-gnu.tar.gz"
+        checksum: "d42742a28ce161e72cce45c8c5621ee23317e30d461f595c382acf0f9b331f20"  # Asset digest :contentReference[oaicite:3]{index=3}
+      amd64:
+        url: "https://github.com/astral-sh/uv/releases/download/v0.8.4/uv-x86_64-unknown-linux-gnu.tar.gz"
+        checksum: ""  # not indexed in metadata
 
   dive:
     darwin:
