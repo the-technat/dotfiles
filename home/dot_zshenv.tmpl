@@ -1,10 +1,8 @@
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-PATH="/Users/{{ .chezmoi.username }}/.local/bin:/Users/{{ .chezmoi.username }}/.local/bin/aws-cli:/Users/{{ .chezmoi.username }}/.local/bin/go/bin:$PATH"
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
-PATH="/home/{{ .chezmoi.username }}/.local/bin:/home/{{ .chezmoi.username }}/.local/bin/aws-cli:/home/{{ .chezmoi.username }}/.local/bin/go/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end -}}
 

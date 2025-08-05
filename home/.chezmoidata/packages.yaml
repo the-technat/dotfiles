@@ -90,10 +90,41 @@ tdnf:
 - procps # required by homebrew
 homebrew: 
   linux:
-    taps: []
-    brews: []
+    taps: 
+    - metalbear-co/mirrord
+    brews: 
+    - awscli
+    - azure-cli
+    - go
+    - neovim
+    - kubelogin
+    - hubble
+    - cilium-cli
+    - flyctl
+    - fzf # Tier 3 on ARM64
+    - golangci-lint
+    - helm
+    - hugo
+    - kubectl
+    - yq # Tier 3 on ARM64
+    - gh # Tier 3 on ARM64
+    - uv
+    - dive # Tier 3 on ARM64
+    - k9s
+    - kind # Tier 3 on ARM64
+    - mirrord
+    - terraform # Tier 3 on ARM64
+    - stern
+    - kustomize
+    - kubie
+    - terraform-ls # Tier 3 on ARM64
+    - tflint # Tier 3 on ARM64
+    - eksctl
+    - argocd
+    - bat
   darwin:
-    taps: []
+    taps: 
+    - metalbear-co/mirrord
     brews:
     - make
     - gcc
@@ -110,6 +141,30 @@ homebrew:
     - awscli 
     - azure-cli
     - neovim
+    - go
+    - kubelogin
+    - hubble
+    - cilium-cli
+    - flyctl
+    - fzf
+    - golangci-lint
+    - helm
+    - hugo
+    - kubectl
+    - yq
+    - gh
+    - uv
+    - dive
+    - mirrord
+    - terraform
+    - stern
+    - kustomize
+    - kubie
+    - terraform-ls 
+    - tflint
+    - eksctl
+    - argocd
+    - bat
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools

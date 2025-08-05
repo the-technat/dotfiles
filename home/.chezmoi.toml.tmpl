@@ -17,14 +17,6 @@
 {{- end -}}
 
 
-{{/* set directroy where development tools are installed */}}
-{{- $bindir := "" -}}
-{{- if eq .chezmoi.os "darwin" -}}
-{{- $bindir = printf "/Users/%s/.local/bin" .chezmoi.username -}}
-{{- else -}}
-{{- $bindir = printf "/home/%s/.local/bin" .chezmoi.username -}}
-{{- end -}}
-
 {{/* save user's shell for later use */}}
 {{- $shell := env "SHELL" -}}
 
@@ -41,4 +33,3 @@
   shell = {{ $shell | quote }}
   tty = {{ stdinIsATTY }}
   devcontainer = {{ $devcontainer }}
-  bindir = {{ $bindir | quote }}
