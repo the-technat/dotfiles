@@ -129,8 +129,16 @@ brew bundle --file=/dev/stdin <<EOF
 brew {{ . | quote }}
 {{ end -}}
 EOF
-
 {{ end -}}
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") (ne .osid "linux-alpine") -}}
+brew bundle --file=/dev/stdin <<EOF
+{{ range .homebrew.linux.tier3_brews -}}
+brew {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
+
 {{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew --version

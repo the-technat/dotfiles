@@ -92,6 +92,15 @@ homebrew:
   linux:
     taps: 
     - metalbear-co/mirrord
+    tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
+    - fzf # Tier 3 on ARM64
+    - yq # Tier 3 on ARM64
+    - gh # Tier 3 on ARM64
+    - dive # Tier 3 on ARM64
+    - kind # Tier 3 on ARM64
+    - terraform # Tier 3 on ARM64
+    - terraform-ls # Tier 3 on ARM64
+    - tflint # Tier 3 on ARM64
     brews: 
     - awscli
     - azure-cli
@@ -101,24 +110,16 @@ homebrew:
     - hubble
     - cilium-cli
     - flyctl
-    - fzf # Tier 3 on ARM64
     - golangci-lint
     - helm
     - hugo
     - kubectl
-    - yq # Tier 3 on ARM64
-    - gh # Tier 3 on ARM64
     - uv
-    - dive # Tier 3 on ARM64
     - k9s
-    - kind # Tier 3 on ARM64
     - mirrord
-    - terraform # Tier 3 on ARM64
     - stern
     - kustomize
     - kubie
-    - terraform-ls # Tier 3 on ARM64
-    - tflint # Tier 3 on ARM64
     - eksctl
     - argocd
     - bat
