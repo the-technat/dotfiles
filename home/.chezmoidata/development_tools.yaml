@@ -144,21 +144,6 @@ binaries: # all processed by one script that runs if this YAML structure changes
       amd64:
         url: "https://dl.k8s.io/release/v1.31.1/bin/linux/amd64/kubectl"
         checksum: "6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5"
-  nvim:
-    darwin:
-      arm64:
-        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-arm64.tar.gz"
-        checksum: ""
-      amd64:
-        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-macos-x86_64.tar.gz"
-        checksum: ""
-    linux:
-      arm64:
-        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-arm64.tar.gz"
-        checksum: ""
-      amd64:
-        url: "https://github.com/neovim/neovim/releases/download/v0.11.3/nvim-linux-x86_64.tar.gz"
-        checksum: ""
   yq:
     darwin:
       arm64:
