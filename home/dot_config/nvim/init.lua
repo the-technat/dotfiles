@@ -348,7 +348,7 @@ end
 
 -- Key mappings
 vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<leader>`", function()
+vim.keymap.set("t", "<leader>tr", function()
   if terminal_state.is_open then
     vim.api.nvim_win_close(terminal_state.win, false)
     terminal_state.is_open = false
