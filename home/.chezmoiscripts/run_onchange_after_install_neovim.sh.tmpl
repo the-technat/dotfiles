@@ -1,0 +1,57 @@
+#!/usr/bin/env zsh
+# note for macos: homebrew installs neovim
+
+{{ if ne .chezmoi.os "darwin" -}}
+
+
+set -euo pipefail
+
+# Set installation paths
+USER_HOME="${HOME:-/home/$(whoami)}"
+BIN_DIR={{ .bindir }}
+APP_DIR="$USER_HOME/.local/opt"
+TMP_DIR="$(mktemp -d)"
+mkdir -p "$BIN_DIR" "$APP_DIR"
+
+# Detect architecture
+ARCH=$(uname -m)
+case "$ARCH" in
+  x86_64) ARCH_ID="x86_64" ;;
+  aarch64|arm64) ARCH_ID="arm64" ;;
+  *)
+    echo "Unsupported architecture: $ARCH" >&2
+    exit 1
+    ;;
+esac
+
+VERSION="v0.11.3"
+TARBALL_URL="https://github.com/neovim/neovim/releases/download/${VERSION}/nvim-linux-$ARCH_ID.tar.gz"
+
+# Detect distro (optional if needed later)
+DISTRO="unknown"
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+  DISTRO="${ID:-unknown}"
+fi
+echo "Detected distro: $DISTRO ($ARCH_ID)"
+
+echo "Downloading Neovim $VERSION from $TARBALL_URL"
+curl -fsSL "$TARBALL_URL" -o "$TMP_DIR/nvim.tar.gz"
+
+# Extract to ~/.local/opt/nvim
+tar -xzf "$TMP_DIR/nvim.tar.gz" -C "$TMP_DIR"
+rm -rf "$APP_DIR/nvim"
+mv "$TMP_DIR/nvim-linux-$ARCH_ID" "$APP_DIR/nvim"
+
+# Create symlink
+ln -sf "$APP_DIR/nvim/bin/nvim" "$BIN_DIR/nvim"
+chmod +x "$APP_DIR/nvim/bin/nvim"
+
+echo "Neovim installed and symlinked to $BIN_DIR/nvim"
+
+# Clean up
+rm -rf "$TMP_DIR"
+
+exit 0
+
+{{ end -}}

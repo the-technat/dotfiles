@@ -69,6 +69,8 @@ The system packager manager install it's tools for the entire system and usually
 
 Note: for `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one preinstalled.
 
+In the future I might replace more and more shell scripts with native homebrew for macos so that the scripts only have to deal with the headless linux systems. And maybe one day if Homebrew supports ARM64 on Linux we can fully use Homebrew alongside the system package manager.
+
 ## Devcontainers
 
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
