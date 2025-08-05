@@ -5,6 +5,7 @@ PATH="/Users/{{ .chezmoi.username }}/.local/bin:/Users/{{ .chezmoi.username }}/.
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 PATH="/home/{{ .chezmoi.username }}/.local/bin:/home/{{ .chezmoi.username }}/.local/bin/aws-cli:/home/{{ .chezmoi.username }}/.local/bin/go/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end -}}
 
 AWS_PAGER=/usr/bin/less

@@ -1,0 +1,112 @@
+#!/bin/sh
+
+{{/* Install macOS Development Tools if not installed */}}
+{{ if eq .chezmoi.os "darwin" -}}
+xcode-select -p 1>/dev/null
+if [[ $? -ne 0 ]]; then
+xcode-select --install
+fi
+{{ end -}}
+
+{{/* Loop over system packages list and install with apt  */}}
+{{ if or (eq .osid "linux-ubuntu") (eq .osid "linux-debian") (eq .osid "linux-pop") (eq .osid "linux-kali") -}}
+  export DEBIAN_FRONTEND=noninteractive
+
+  {{ if eq .chezmoi.arch "arm64" -}}
+     {{ range .apt_remote.arm64 }}
+       curl {{ . }} -o /tmp/tmp.deb
+       if command -v "sudo" > /dev/null; then
+         sudo dpkg -i /tmp/tmp.deb
+       else
+         dpkg -i /tmp/tmp.deb
+       fi
+       rm /tmp/tmp.deb
+     {{ end }}
+  {{ end -}}
+  {{ if eq .chezmoi.arch "x86_64" -}}
+     {{ range .apt_remote.x86_64 }}
+       curl {{ . }} -o /tmp/tmp.deb
+       if command -v "sudo" > /dev/null; then
+         sudo dpkg -i /tmp/tmp.deb
+       else
+         dpkg -i /tmp/tmp.deb
+       fi
+       rm /tmp/tmp.deb
+     {{ end }}
+  {{ end -}}
+
+  if command -v "sudo" > /dev/null; then
+     sudo apt update
+     sudo apt install -qq -y {{ range .apt }}{{ . }} {{ end }}
+  else
+     apt update 
+     apt install -qq -y {{ range .apt}}{{.}} {{ end }}
+  fi
+{{ end -}}
+
+{{/* Loop over system packages list and install with dnf */}}
+{{ if or (eq .osid "linux-rocky") (eq .osid "linux-fedora") (eq .osid "linux-amzn") -}}
+  {{ if eq .chezmoi.arch "arm64" -}}
+     {{ range .dnf_remote.arm64 }}
+     if command -v "sudo" > /dev/null; then
+       sudo dnf install -y  {{ . }}
+     else
+       dnf install -y  {{ . }}
+     fi
+     {{ end }}
+  {{ end -}}
+  {{ if eq .chezmoi.arch "x86_64" -}}
+     {{ range .dnf_remote.x86_64 }}
+     if command -v "sudo" > /dev/null; then
+       sudo dnf install -y  {{ . }}
+     else
+       dnf install -y  {{ . }}
+     fi
+     {{ end }}
+  {{ end -}}
+
+  if command -v "sudo" > /dev/null; then
+     sudo dnf update
+     sudo dnf install -q --assumeyes {{ range .dnf }}{{ . }} {{ end }}
+  else
+     dnf update 
+     dnf install -q --assumeyes {{ range .dnf}}{{.}} {{ end }}
+  fi
+{{ end -}}
+
+{{/* Loop over system packages list and install with apk */}}
+{{ if eq .osid "linux-alpine" -}}
+  if command -v "sudo" > /dev/null; then
+     sudo apk update
+     sudo apk add {{ range .apk }}{{ . }} {{ end }}
+  else
+     apk update
+     apk add {{ range .apk }}{{ . }} {{ end }}
+  fi
+  {{ end -}}
+
+{{/* Loop over system packages list and install with tdnf */}}
+{{ if eq .osid "linux-azurelinux" -}}
+  if command -v "sudo" > /dev/null; then
+    sudo tdnf makecache
+    sudo tdnf install -y {{ range .tdnf }}{{ . }} {{ end }}
+  else
+    tdnf makecache
+    tdnf install -y {{ range .tdnf }}{{ . }} {{ end }} 
+  fi
+{{ end -}}
+
+{{/* homebrew is installed after all system packages are installed to ensure deps are met */}}
+{{/* Both absolute homebrew prefixes are hardcoded in many homebrew packages, thus we hardcode them here */}}
+{{ if eq .chezmoi.os "darwin" -}}
+  # install homebrew initially if not already done 
+  if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+  fi
+{{ end -}}
+{{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") -}}
+{{/* Homebrew isn't supported on Alpine */}}
+  if ! command -v "/home/linuxbrew/.linuxbrew/bin/brew" > /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+{{ end -}}

@@ -1,7 +1,7 @@
 apt:
 - gnupg
 - gcc
-- git
+- git # prerequisite for homebrew
 - sudo
 - zsh
 - make
@@ -17,6 +17,7 @@ apt:
 - file
 - tar
 - tmux
+- procps # required by homebrew
 apt_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
@@ -25,7 +26,7 @@ apt_remote:
 dnf:
 - gnupg
 - gcc
-- git
+- git # required by homebrew
 - sudo
 - zsh
 - make
@@ -40,6 +41,7 @@ dnf:
 - file
 - tar
 - tmux
+- procps # required by homebrew
 dnf_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
@@ -48,7 +50,7 @@ dnf_remote:
 apk:
 - gnupg
 - gcc
-- git
+- git # required by homebrew
 - sudo
 - zsh
 - make
@@ -66,10 +68,12 @@ apk:
 - file
 - tar
 - tmux
+- bash # required to install homebrew
+- ruby # since we don't have glibc we install latest ruby for homebrew
 tdnf:
 - gnupg
 - gcc
-- git
+- git # required by homebrew
 - sudo
 - zsh
 - make
@@ -83,34 +87,39 @@ tdnf:
 - file
 - tar
 - tmux
+- procps # required by homebrew
 homebrew: 
-  taps: []
-  brews:
-  - make
-  - gcc
-  - nmap
-  - unzip
-  - btop
-  - tmux
-  - ripgrep
-  - vim
-  - bat
-  - jq
-  - file-formula
-  - tmux
-  - awscli 
-  - azure-cli
-  - neovim
-  casks: # casks are macos-only
-    - "ghostty" # prefered terminal emulator on darwin
-    - "devtoys" # helpful developer tools
-    - "visual-studio-code" # do it all IDE
-    - "font-fira-code-nerd-font" # font for terminal
-    - "session-manager-plugin" # used for SSH over SSM
-    - "devpod" # codespaces but local
-    - "secretive" # hardware-backed ssh keys
-    - "mactracker" # mac database
-    - "orbstack" # docker-engine + lightweight linux machines
-    - "utm" # do it all hypervisor for other VMs
-    - "mist" # macos installer utility
-    - "crystalfetch" # windows installer utility
+  linux:
+    taps: []
+    brews: []
+  darwin:
+    taps: []
+    brews:
+    - make
+    - gcc
+    - nmap
+    - unzip
+    - btop
+    - tmux
+    - ripgrep
+    - vim
+    - bat
+    - jq
+    - file-formula
+    - tmux
+    - awscli 
+    - azure-cli
+    - neovim
+    casks: # casks are macos-only
+      - "ghostty" # prefered terminal emulator on darwin
+      - "devtoys" # helpful developer tools
+      - "visual-studio-code" # do it all IDE
+      - "font-fira-code-nerd-font" # font for terminal
+      - "session-manager-plugin" # used for SSH over SSM
+      - "devpod" # codespaces but local
+      - "secretive" # hardware-backed ssh keys
+      - "mactracker" # mac database
+      - "orbstack" # docker-engine + lightweight linux machines
+      - "utm" # do it all hypervisor for other VMs
+      - "mist" # macos installer utility
+      - "crystalfetch" # windows installer utility
