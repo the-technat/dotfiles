@@ -1,54 +1,27 @@
 #!/usr/bin/env zsh
+# note for macos: homebrew installs awscli
 # requires unzip installed via system packages
-# installs the CLI into {{ .bindir }}/aws-cli and assume it's bin directory is added to PATH
+# installs the CLI into {{ .bindir }}/aws-cli and symlinks binaries back one level up
+
+
+{{ if ne .chezmoi.os "darwin" -}}
 
 installCLI() {
   # grab cli
-  {{ if eq .chezmoi.os "darwin" -}}
-    curl -sSL "{{ .installer_tools.aws_cli.darwin.generic.url }}" -o "/tmp/awscliv2.pkg"
+  {{ if eq .chezmoi.arch "amd64" -}}
+    curl -sSL "{{ .installer_tools.aws_cli.linux.amd64.url }}" -o "/tmp/awscliv2.zip"
   {{ else -}}
-    {{ if eq .chezmoi.arch "amd64" -}}
-      curl -sSL "{{ .installer_tools.aws_cli.linux.amd64.url }}" -o "/tmp/awscliv2.zip"
-    {{ else -}}
-      curl -sSL "{{ .installer_tools.aws_cli.linux.arm64.url }}" -o "/tmp/awscliv2.zip"
-    {{ end -}}
-    unzip -qq /tmp/awscliv2.zip -d /tmp
+    curl -sSL "{{ .installer_tools.aws_cli.linux.arm64.url }}" -o "/tmp/awscliv2.zip"
   {{ end -}}
+  unzip -qq /tmp/awscliv2.zip -d /tmp
 
 
   # install
-  {{ if eq .chezmoi.os "darwin" -}}
-    cat <<EOF > /tmp/aws-choices.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-  <array>
-    <dict>
-      <key>choiceAttribute</key>
-      <string>customLocation</string>
-      <key>attributeSetting</key>
-      <string>{{ .bindir }}</string>
-      <key>choiceIdentifier</key>
-      <string>default</string>
-    </dict>
-  </array>
-</plist>
-EOF
-    installer -pkg /tmp/awscliv2.pkg \
-              -target CurrentUserHomeDirectory \
-              -applyChoiceChangesXML /tmp/aws-choices.xml 
-  {{ else -}}
-    /tmp/aws/install --bin-dir {{ .bindir }} --install-dir {{ .bindir }}/aws-cli
-  {{ end -}}
+  /tmp/aws/install --bin-dir {{ .bindir }} --install-dir {{ .bindir }}/aws-cli
 
   #  cleanup
-  {{ if eq .chezmoi.os "darwin" -}}
-    rm /tmp/awscliv2.pkg
-    rm /tmp/aws-choices.xml
-  {{ else -}}
-    rm /tmp/awscliv2.zip
-    rm -rf /tmp/aws
-  {{ end -}}
+  rm /tmp/awscliv2.zip
+  rm -rf /tmp/aws
 }
 
 # If it's not already installed, install it
@@ -63,3 +36,5 @@ else
     installCLI
   fi
 fi
+
+{{ end -}}

@@ -1,8 +1,8 @@
 installer_tools:
-  aws_cli:
-    darwin:
-      generic:
-        url: https://awscli.amazonaws.com/AWSCLIV2.pkg
+  azure_cli: # only linux, macos uses homebrew
+    linux:
+      generic: https://aka.ms/InstallAzureCli
+  aws_cli: # only linux, macos uses homebrew
     linux:
       arm64:
         url: https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip

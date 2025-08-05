@@ -1,0 +1,104 @@
+#!/usr/bin/env zsh
+# requires python3, libffi and openssl installed on the system
+# note for macos: homebrew installs az-cli
+# installs the CLI using the respective package manager
+
+{{ if ne .chezmoi.os "darwin" -}}
+
+installCLI() {
+  set -euo pipefail
+
+  FALLBACK_BIN={{ .bindir }}
+  mkdir -p "$FALLBACK_BIN"
+
+# Detect distro from /etc/os-release
+  DISTRO="unknown"
+  if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    case "$ID" in
+      debian) DISTRO="debian" ;;
+      ubuntu) DISTRO="ubuntu" ;;
+      rocky|rhel) DISTRO="rocky" ;;
+      fedora) DISTRO="fedora" ;;
+      amzn|amazonlinux) DISTRO="amazonlinux" ;;
+      alpine) DISTRO="alpine" ;;
+      alinux|azlinux|azurel) DISTRO="azurelinux" ;;
+    esac
+  fi
+  echo "Detected distro: $DISTRO"
+
+# Check for sudo availability
+  if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+    SUDO="sudo"
+  else
+    SUDO=""
+  fi
+
+# Try to install Azure CLI based on distro
+  if [ "$DISTRO" = "debian" ] || [ "$DISTRO" = "ubuntu" ]; then
+    if [ -n "$SUDO" ]; then
+      curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      echo "Azure CLI installed system-wide using APT."
+      exit 0
+    else
+      echo "APT install requires sudo, but it's not available." >&2
+    fi
+
+  elif [ "$DISTRO" = "rocky" ] || [ "$DISTRO" = "rhel" ] || [ "$DISTRO" = "fedora" ] || [ "$DISTRO" = "amazonlinux" ] || [ "$DISTRO" = "azurelinux" ]; then
+    if [ -n "$SUDO" ]; then
+      curl -sL https://aka.ms/InstallAzureCLIRpm | sudo bash
+      echo "Azure CLI installed system-wide using RPM."
+      exit 0
+    else
+      echo "RPM install requires sudo, but it's not available." >&2
+    fi
+
+  elif [ "$DISTRO" = "alpine" ]; then
+    if ! command -v python3 >/dev/null 2>&1; then
+      if [ -n "$SUDO" ]; then
+        sudo apk add --no-cache python3 py3-pip gcc musl-dev libffi-dev openssl-dev
+      else
+        echo "Python3 is not available and cannot be installed without sudo." >&2
+        echo "Falling back to Docker wrapper..." >&2
+      fi
+    fi
+
+    if command -v pip3 >/dev/null 2>&1; then
+      pip3 install --user azure-cli
+      echo "Azure CLI installed via pip3."
+      exit 0
+    fi
+  fi
+
+# Fallback: Docker wrapper
+  if command -v docker >/dev/null 2>&1; then
+    echo "Installing Docker wrapper for Azure CLI to $FALLBACK_BIN/az..."
+    cat <<EOF > "$FALLBACK_BIN/az"
+#!/usr/bin/env bash
+  exec docker run -it --rm mcr.microsoft.com/azure-cli az "\$@"
+EOF
+    chmod +x "$FALLBACK_BIN/az"
+    echo "Fallback wrapper created at $FALLBACK_BIN/az"
+    echo "To use Azure CLI, add $FALLBACK_BIN to your PATH."
+    exit 0
+  else
+    echo "Docker not available. Azure CLI cannot be installed without root or Docker." >&2
+    exit 1
+fi
+}
+
+
+# If it's not already installed, install it
+if ! type "az" > /dev/null; then
+  installCLI
+else
+  # If it's already installed, check if we should update it
+  binaryPath=$(which az)
+  if [ $(date +%s -r $binaryPath) -lt $(date +%s --date="30 days ago") ]
+  then
+    echo "Azure cli wasn't updated for 30 days, doing update..."
+    installCLI
+  fi
+fi
+
+{{ end -}}
