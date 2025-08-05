@@ -9,22 +9,7 @@ installer_tools:
       amd64:
         url: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
 binaries: # all processed by one script that runs if this YAML structure changes
- # azure_cli:
- #   darwin:
- #     arm64:
- #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑arm64.tar.gz"
- #       checksum: ""
- #     amd64:
- #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑darwin‑x64.tar.gz"
- #       checksum: ""
- #   linux:
- #     arm64:
- #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑arm64.tar.gz"
- #       checksum: ""
- #     amd64:
- #       url: "https://azcliprod.blob.core.windows.net/azure-cli/2.75.0/azure-cli‑2.75.0‑linux‑x64.tar.gz"
- #       checksum: ""
-  azure_kubelogin:
+  kubelogin:
     darwin:
       arm64:
         url: "https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-darwin-arm64.zip"
@@ -39,7 +24,7 @@ binaries: # all processed by one script that runs if this YAML structure changes
       amd64:
         url: "https://github.com/Azure/kubelogin/releases/download/v0.2.10/kubelogin-linux-amd64.zip"
         checksum: "d765147460b8719b34cb35e8bc6d9d7c3b8f53bd1a1b9f1e70069e22bd1b6c03"
-  hubble_cli:
+  hubble:
     darwin:
       arm64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-darwin-arm64.tar.gz"
@@ -54,7 +39,7 @@ binaries: # all processed by one script that runs if this YAML structure changes
       amd64:
         url: "https://github.com/cilium/hubble/releases/download/v0.13.1/hubble-linux-amd64.tar.gz"
         checksum: ""
-  cilium_cli:
+  cilium:
     darwin:
       arm64:
         url: "https://github.com/cilium/cilium-cli/releases/download/v0.18.6/cilium-darwin-arm64.tar.gz"
@@ -99,22 +84,7 @@ binaries: # all processed by one script that runs if this YAML structure changes
       amd64:
         url: "https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz"
         checksum: ""
- #  golang:
- #   darwin:
- #     arm64:
- #       url: "https://go.dev/dl/go1.21.5.darwin-arm64.tar.gz"
- #       checksum: "d3c2c69a79eb3e2a06e5d8bbca692c9166b27421f7251ccbafcada0ba35a05ee"
- #     amd64:
- #       url: "https://go.dev/dl/go1.21.5.darwin-amd64.tar.gz"
- #       checksum: "963172d6feea43221df25e4449197e65f7e3f5c779da6d7c5aa8795246b9ebdc"
- #   linux:
- #     arm64:
- #       url: "https://go.dev/dl/go1.21.5.linux-arm64.tar.gz"
- #       checksum: "0df02e6aeb3d3c06c95ff201d575907c736d6c62cfa4b6934c11203f1d600ffa"
- #     amd64:
- #       url: "https://go.dev/dl/go1.21.5.linux-amd64.tar.gz"
- #       checksum: "10ad9e86233e74c0f6590fe5426895de6bf388964210eac34a6d83f38918ecdc"
-  golangci_lint:
+  golangci-lint:
     darwin:
       arm64:
         url: "https://github.com/golangci/golangci-lint/releases/download/v1.57.0/golangci-lint-1.57.0-darwin-arm64.tar.gz"
