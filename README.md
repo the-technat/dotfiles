@@ -49,27 +49,44 @@ To do so we assume that the bootstraping either has access to passwordless-sudo 
 
 ## Styling / Terminal experience
 
-To have a more or less consistent terminal experience and to be really productive I use tmux in combination with neovim to do most stuff. This will always be the same no mather the OS. There are some things however tmux can't control and that are dependant on the terminal emulator used:
+To have a more or less consistent terminal experience and to be really productive I use tmux in combination 
+with neovim to do most stuff. 
+This will always be the same no mather the OS. 
+There are some things however tmux can't control and that are dependant on the terminal emulator used:
 
 - color theme
 - font
 - shortcuts to increase/decrease font
 
-On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on linux-based systems you either have to ignore these things or configure them manually if needed. In cases where you use ssh into a box this won't apply of course.
+On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on 
+linux-based systems you either have to ignore these things or configure them manually if needed. 
+In cases where you use ssh into a box this won't apply of course.
 
 ## Tooling
 
-I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is my set of chezmoi-templated scripts.
+I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew. 
 
-The system package manager is good at installing general tooling. It runs before we put our files in place and ensures a common baseline that we are going to need later. My scripts which are all run after we put the files in place install development-specific tools that don't exist in system package managers or where I need a more recent version than there's available. The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles or tools that are referenced in an alias or similiar. Any other development tooling should be installed manually at the time it's needed.
+The system package manager is good at installing general tooling and dependencies required by Homebrew. 
+It runs at the beginning ensuring a common baseline that we are going to need afterwards.
+Homebrew runs after the system package manager and installs development-specific tools that don't exist 
+in system package managers or where I need a more recent versions than otherwise available. 
+The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles 
+or tools that are referenced in an alias or similiar. 
+Any other development tooling should be installed manually at the time it's needed.
 
-The system package manager is responsible for updating it's tools independent of my dotfiles. We don't specify a version when installing and assume that `latest` is always going to work and not break (as it's rarily the case with system packages). For the development tools the scripts in my dotfiles provide an update mechanism that mostly relies on [renovate](https://docs.renovatebot.com/) to update a pinned version set in the dotfiles. This ensures the development tools are at the same version across all machines but still get updated regurarly.
+You can see the full list of packages installed in the [home/.chezmoidata/packages.yaml](home/.chezmoidata/packages.yaml) file.
 
-The system packager manager install it's tools for the entire system and usually requires elevated privileges to do so, the development tools **must** be installed in the scope of the current user.
+Updates are handeled by the system package manager or homebrew itself. chezmoi may sometimes trigger an update but
+in general it's the responsibility of the user to regurarly update tools using the package managers.
 
-Note: for `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one preinstalled.
+### Alpine Specials
 
-In the future I might replace more and more shell scripts with native homebrew for macos so that the scripts only have to deal with the headless linux systems. And maybe one day if Homebrew supports ARM64 on Linux we can fully use Homebrew alongside the system package manager.
+Homebrew isn't installed and supported on alpine and thus skipped. Install tools manually if needed.
+
+### Darwin
+
+For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
+preinstalled and no other package manager used.
 
 ## Devcontainers
 
@@ -85,6 +102,7 @@ If you want to extend the ssh config without commiting stuff to the repository, 
 
 ## Git
 
-The gitconfig assume the above SSH setup. Apart from this, you can add custom git config to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
+The gitconfig assume the above SSH setup. Apart from this, you can add custom git config 
+to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
 
 </details>
