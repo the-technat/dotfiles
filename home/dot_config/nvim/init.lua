@@ -624,6 +624,25 @@ local function setup_terraform_lsp()
   })
 end
 
+local function setup_go_lsp()
+  vim.lsp.start({
+    name = 'gopls',
+    cmd = { 'gopls' },
+    filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+    root_dir = find_root({ 'go.mod', '.git' }),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+          shadow = true,
+        },
+        staticcheck = true,
+      }
+    }
+  })
+end
+
+
 -- Auto-start LSPs based on filetype
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh,bash,zsh',
@@ -636,6 +655,13 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = setup_terraform_lsp,
   desc = 'Start Terraform LSP'
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = setup_go_lsp,
+  desc = 'Start Go LSP'
+})
+
 
 -- formatting
 local function format_code()
@@ -727,7 +753,7 @@ local function format_code()
   end
 
   -- LSP formatting support check
-  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
     if client.supports_method("textDocument/formatting") then
       vim.lsp.buf.format({ async = true })
