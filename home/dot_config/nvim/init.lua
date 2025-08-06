@@ -700,8 +700,34 @@ local function format_code()
     end
   end
 
+  -- Go formatting
+  if filetype == 'go' or filename:match('%.go$') then
+    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+    local content = table.concat(lines, '\n')
+
+    local result = vim.fn.system('gofmt', content)
+
+    if vim.v.shell_error == 0 then
+      local formatted_lines = vim.split(result, '\n')
+      if formatted_lines[#formatted_lines] == '' then
+        table.remove(formatted_lines)
+      end
+      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, formatted_lines)
+      vim.api.nvim_win_set_cursor(0, cursor_pos)
+      vim.schedule(function()
+        vim.notify("Go file formatted with gofmt", vim.log.levels.INFO)
+      end)
+      return
+    else
+      vim.schedule(function()
+        vim.notify("gofmt error: " .. result, vim.log.levels.ERROR)
+      end)
+      return
+    end
+  end
+
   -- LSP formatting support check
-  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+  local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
   for _, client in ipairs(clients) do
     if client.supports_method("textDocument/formatting") then
       vim.lsp.buf.format({ async = true })
