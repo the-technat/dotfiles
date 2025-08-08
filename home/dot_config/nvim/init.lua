@@ -109,6 +109,14 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yankin
 -- Buffer navigation
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set('n', '<leader>bl', ':ls<CR>', { desc = 'List buffers' })
+vim.keymap.set('n', '<leader>bnn', ':enew<CR>', { desc = 'Create new buffer' })
+vim.keymap.set('n', '<leader>br', ':bd<CR>', { desc = 'Close current buffer' })
+vim.keymap.set('n', '<leader>gb', function()
+  local buf = vim.fn.input("Buffer number: ")
+  vim.cmd('buffer ' .. buf)
+end, { desc = 'Go to buffer by number' })
+
 
 -- Fast file saver
 vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = 'Save file' })
@@ -363,7 +371,7 @@ end
 
 -- Key mappings
 vim.keymap.set("n", "<leader>t", FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<leader>tr", function()
+vim.keymap.set("t", "<leader>T", function()
   if terminal_state.is_open then
     vim.api.nvim_win_close(terminal_state.win, false)
     terminal_state.is_open = false
@@ -389,7 +397,7 @@ vim.keymap.set('n', '<leader>tnn', ':tabnew<CR>', { desc = 'New tab' })
 vim.keymap.set('n', '<leader>tn', ':tabnext<CR>', { desc = 'Move to next tab' })
 vim.keymap.set('n', '<leader>tf', ':tabfirst<CR>', { desc = 'Move to first tab' })
 vim.keymap.set('n', '<leader>tl', ':tablast<CR>', { desc = 'Move to last tab' })
-vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set('n', '<leader>tr', ':tabclose<CR>', { desc = 'Close tab' })
 
 -- Tab moving
 vim.keymap.set('n', '<leader>tm', ':tabmove<CR>', { desc = 'Move tab' })
@@ -415,6 +423,19 @@ local function duplicate_tab()
   end
 end
 
+-- Function to duplicate current buffer
+local function duplicate_buffer()
+ local current_file = vim.fn.expand('%:p')
+  if current_file ~= '' then
+   vim.cmd('enew')  -- Create a new buffer
+    vim.cmd('read ' .. vim.fn.fnameescape(current_file))  -- Read file contents into new buffer
+  else
+   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    vim.cmd('enew')
+    vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+  end
+end
+
 -- Function to close tabs to the right
 local function close_tabs_right()
   local current_tab = vim.fn.tabpagenr()
@@ -437,7 +458,8 @@ end
 -- Enhanced keybindings
 vim.keymap.set('n', '<leader>tO', open_file_in_tab, { desc = 'Open file in new tab' })
 vim.keymap.set('n', '<leader>td', duplicate_tab, { desc = 'Duplicate current tab' })
-vim.keymap.set('n', '<leader>tr', close_tabs_right, { desc = 'Close tabs to the right' })
+vim.keymap.set('n', '<leader>bd', duplicate_buffer, { desc = 'Duplicate current tab' })
+vim.keymap.set('n', '<leader>tR', close_tabs_right, { desc = 'Close tabs to the right' })
 vim.keymap.set('n', '<leader>tL', close_tabs_left, { desc = 'Close tabs to the left' })
 
 -- Function to close buffer but keep tab if it's the only buffer in tab
@@ -450,7 +472,7 @@ local function smart_close_buffer()
     vim.cmd('tabclose')
   end
 end
-vim.keymap.set('n', '<leader>bd', smart_close_buffer, { desc = 'Smart close buffer/tab' })
+vim.keymap.set('n', '<leader>bx', smart_close_buffer, { desc = 'Smart close buffer/tab' })
 
 -- ============================================================================
 -- STATUSLINE
