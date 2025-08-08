@@ -92,6 +92,7 @@ homebrew:
   linux:
     taps: 
     - metalbear-co/mirrord
+    - Azure/kubelogin
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
     - fzf # Tier 3 on ARM64
     - yq # Tier 3 on ARM64
@@ -106,7 +107,7 @@ homebrew:
     - azure-cli
     - go
     - neovim
-    - kubelogin
+    - Azure/kubelogin/kubelogin
     - hubble
     - cilium-cli
     - flyctl
@@ -127,12 +128,14 @@ homebrew:
   darwin:
     taps: 
     - metalbear-co/mirrord
+    - Azure/kubelogin
     brews:
     - make
     - gcc
     - nmap
     - unzip
     - btop
+    - Azure/kubelogin/kubelogin
     - tmux
     - ripgrep
     - vim
@@ -144,7 +147,6 @@ homebrew:
     - azure-cli
     - neovim
     - go
-    - kubelogin
     - hubble
     - cilium-cli
     - flyctl
