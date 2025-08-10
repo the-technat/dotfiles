@@ -102,12 +102,12 @@ homebrew:
     - terraform # Tier 3 on ARM64
     - terraform-ls # Tier 3 on ARM64
     - tflint # Tier 3 on ARM64
+    - Azure/kubelogin/kubelogin # not working
     brews: 
     - awscli
     - azure-cli
     - go
     - neovim
-    - Azure/kubelogin/kubelogin
     - hubble
     - cilium-cli
     - flyctl
