@@ -103,6 +103,7 @@ homebrew:
     - terraform-ls # Tier 3 on ARM64
     - tflint # Tier 3 on ARM64
     - Azure/kubelogin/kubelogin # not working
+    - gopls # Tier 3 on ARM64
     brews: 
     - awscli
     - azure-cli
@@ -124,7 +125,6 @@ homebrew:
     - eksctl
     - argocd
     - bat
-    - gopls
   darwin:
     taps: 
     - metalbear-co/mirrord
