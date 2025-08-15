@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-SESSION_NAME="ghostty"
+SESSION_NAME="ghostty$RANDOM"
 
 # Check if the session already exists
 tmux has-session -t $SESSION_NAME 2>/dev/null
