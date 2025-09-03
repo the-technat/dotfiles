@@ -174,6 +174,7 @@ selfSigned() {
 switchArgoImage() {
   kubectl set image -n argocd sts/argocd-application-controller "*=$1"
   kubectl set image -n argocd deploy/argocd-server "*=$1"
+  kubectl set image -n argocd deploy/argocd-applicationset-controller "*=$1"
   kubectl set image -n argocd deploy/argocd-repo-server "*=$1"
 }
 drainNode() {
