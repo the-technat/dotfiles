@@ -125,6 +125,7 @@ homebrew:
     - eksctl
     - argocd
     - bat
+    - nvm
   darwin:
     taps: 
     - metalbear-co/mirrord
@@ -170,6 +171,7 @@ homebrew:
     - argocd
     - bat
     - gopls
+    - nvm
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
