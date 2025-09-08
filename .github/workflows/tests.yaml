@@ -27,7 +27,7 @@ jobs:
     name: Test on rocky linux
     runs-on: ubuntu-24.04
     container:
-      image: rockylinux/rockylinux:9
+      image: rockylinux/rockylinux:10
     steps:
     - name: Checkout
       uses: actions/checkout@v5
