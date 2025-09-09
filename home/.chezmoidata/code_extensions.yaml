@@ -8,6 +8,12 @@ code_server_extensions:
 - ms-azuretools.vscode-docker
 - ms-kubernetes-tools.vscode-kubernetes-tools
 - tamasfe.even-better-toml
+- redhat.java
+- vscjava.vscode-java-debug
+- vscjava.vscode-java-test
+- vscjava.vscode-maven
+- vscjava.vscode-gradle
+- vscjava.vscode-java-dependency
 vscode_extensions: 
 - docker.docker
 - editorconfig.editorconfig
@@ -29,3 +35,9 @@ vscode_extensions:
 - vscodevim.vim
 - tamasfe.even-better-toml
 - davidbwaters.macos-modern-theme
+- redhat.java
+- vscjava.vscode-java-debug
+- vscjava.vscode-java-test
+- vscjava.vscode-maven
+- vscjava.vscode-gradle
+- vscjava.vscode-java-dependency

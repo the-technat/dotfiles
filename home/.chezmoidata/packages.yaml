@@ -172,6 +172,7 @@ homebrew:
     - bat
     - gopls
     - nvm
+    - temurin
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
