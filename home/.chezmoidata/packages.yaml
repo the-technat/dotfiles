@@ -131,14 +131,14 @@ homebrew:
     - metalbear-co/mirrord
     - Azure/kubelogin
     brews:
-    - make
-    - gcc
+    - make # neovim dependency
+    - gcc # neovim dependency
     - nmap
     - unzip
     - btop
     - Azure/kubelogin/kubelogin
-    - tmux
-    - ripgrep
+    - tmux 
+    - ripgrep # neovim dependency
     - vim
     - bat
     - jq
