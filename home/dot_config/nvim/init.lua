@@ -10,6 +10,13 @@ vim.cmd.colorscheme("retrobox")
 -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
 
+-- disable language provider support (lua and vimscript plugins only)
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_python3_provider = 0
+
 -- Basic settings
 vim.opt.number = true                              -- Line numbers
 vim.opt.cursorline = true                          -- Highlight current line
