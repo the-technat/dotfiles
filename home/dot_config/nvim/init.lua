@@ -4,7 +4,7 @@
 -- ================================================================================================
 
 -- theme & transparency
-vim.cmd.colorscheme("sorbet")
+vim.cmd.colorscheme("retrobox")
 -- The next three lines would enable transparancy
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })

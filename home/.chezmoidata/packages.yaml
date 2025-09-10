@@ -172,7 +172,6 @@ homebrew:
     - bat
     - gopls
     - nvm
-    - temurin
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
@@ -186,3 +185,4 @@ homebrew:
       - "utm" # do it all hypervisor for other VMs
       - "mist" # macos installer utility
       - "crystalfetch" # windows installer utility
+      - "temurin" # java JDK
