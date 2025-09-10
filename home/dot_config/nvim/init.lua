@@ -4,7 +4,7 @@
 -- ================================================================================================
 
 -- theme & transparency
-vim.cmd.colorscheme("unokai")
+vim.cmd.colorscheme("sorbet")
 -- The next three lines would enable transparancy
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
