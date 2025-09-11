@@ -384,6 +384,12 @@ vim.keymap.set("t", "<leader>T", function()
     terminal_state.is_open = false
   end
 end, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
+vim.keymap.set('n', '<leader>tt', function()
+  vim.cmd('tabnew')         -- Open a new tab
+  vim.fn.termopen(os.getenv("SHELL")) -- Open terminal in the new tab
+  vim.cmd('startinsert')    -- Enter insert mode
+end, { desc = 'Open terminal in new tab and enter insert mode' })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
 
 -- ============================================================================
@@ -615,199 +621,28 @@ end
 setup_dynamic_statusline()
 
 -- ============================================================================
--- LSP 
+-- LSP (using nvim-lspconfig)
+-- Plugin installed using .chezmoiexternal
 -- ============================================================================
+-- Enables the LSP configs from the plugin
+-- Binaries are installed using Homebrew
+vim.lsp.enable('gopls')
+vim.lsp.enable('terraformls')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('bashls')
+vim.lsp.enable('dockerls')
 
--- Autogroup to group all commands that relate to LSP config
-local lspgroup = vim.api.nvim_create_augroup("LspCommands", { clear = true })
+-- Autoformat code using LSP (if provided)
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
--- Function to find project root
-local function find_root(patterns)
-  local path = vim.fn.expand('%:p:h')
-  local root = vim.fs.find(patterns, { path = path, upward = true })[1]
-  return root and vim.fn.fnamemodify(root, ':h') or path
-end
-
--- Shell LSP setup
-local function setup_shell_lsp()
-  vim.lsp.start({
-    name = 'bashls',
-    cmd = {'bash-language-server', 'start'},
-    filetypes = {'sh', 'bash', 'zsh'},
-    root_dir = find_root({'.git', 'Makefile'}),
-    settings = {
-      bashIde = {
-        globPattern = "*@(.sh|.inc|.bash|.command)"
-      }
-    }
-  })
-end
-
-local function setup_terraform_lsp()
-  vim.lsp.start({
-    name = 'terraform-ls',
-    cmd = {'terraform-ls', 'serve'},
-    filetypes = {'tf', 'terraform'},
-    root_dir = find_root({'.git', 'Makefile'}),
-    settings = {}
-  })
-end
-
-local function setup_go_lsp()
-  vim.lsp.start({
-    name = 'gopls',
-    cmd = { 'gopls' },
-    filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-    root_dir = find_root({ 'go.mod', '.git' }),
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-          shadow = true,
-        },
-        staticcheck = true,
-      }
-    }
-  })
-end
-
-
--- Auto-start LSPs based on filetype
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'sh,bash,zsh',
-  callback = setup_shell_lsp,
-  desc = 'Start shell LSP'
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'terraform,tf',
-  callback = setup_terraform_lsp,
-  desc = 'Start Terraform LSP'
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'go',
-  callback = setup_go_lsp,
-  desc = 'Start Go LSP'
-})
-
-
--- formatting
-local function format_code()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local filename = vim.api.nvim_buf_get_name(bufnr)
-  local filetype = vim.bo[bufnr].filetype
-
-  -- Save cursor position
-  local cursor_pos = vim.api.nvim_win_get_cursor(0)
-
-  -- Terraform formatting
-  if filetype == 'terraform,tf' or filename:match('%.tf$') then
-    if filename == '' then
-      vim.schedule(function()
-        vim.notify("Save the file first before formatting Terraform", vim.log.levels.WARN)
-      end)
-      return
-    end
-
-    local terraform_cmd = "terraform fmt " .. vim.fn.shellescape(filename)
-    local terraform_result = vim.fn.system(terraform_cmd)
-
-    if vim.v.shell_error == 0 then
-      vim.cmd('checktime')
-      vim.api.nvim_win_set_cursor(0, cursor_pos)
-      vim.schedule(function()
-        vim.notify("Formatted with Terraform FMT", vim.log.levels.INFO)
-      end)
-      return
-    else
-      vim.schedule(function()
-        vim.notify("Terraform formatter failed (is terraform installed?)", vim.log.levels.ERROR)
-      end)
-      return
-    end
-  end
-
-  -- Shell script formatting
-  if filetype == 'sh' or filetype == 'bash' or filename:match('%.sh$') then
-    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-    local content = table.concat(lines, '\n')
-
-    local cmd = { 'shfmt', '-i', '2', '-ci', '-sr' }
-    local result = vim.fn.system(cmd, content)
-
-    if vim.v.shell_error == 0 then
-      local formatted_lines = vim.split(result, '\n')
-      if formatted_lines[#formatted_lines] == '' then
-        table.remove(formatted_lines)
-      end
-      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, formatted_lines)
-      vim.api.nvim_win_set_cursor(0, cursor_pos)
-      vim.schedule(function()
-        vim.notify("Shell script formatted with shfmt", vim.log.levels.INFO)
-      end)
-      return
-    else
-      vim.schedule(function()
-        vim.notify("shfmt error: " .. result, vim.log.levels.ERROR)
-      end)
-      return
-    end
-  end
-
-  -- Go formatting
-  if filetype == 'go' or filename:match('%.go$') then
-    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-    local content = table.concat(lines, '\n')
-
-    local result = vim.fn.system('gofmt', content)
-
-    if vim.v.shell_error == 0 then
-      local formatted_lines = vim.split(result, '\n')
-      if formatted_lines[#formatted_lines] == '' then
-        table.remove(formatted_lines)
-      end
-      vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, formatted_lines)
-      vim.api.nvim_win_set_cursor(0, cursor_pos)
-      vim.schedule(function()
-        vim.notify("Go file formatted with gofmt", vim.log.levels.INFO)
-      end)
-      return
-    else
-      vim.schedule(function()
-        vim.notify("gofmt error: " .. result, vim.log.levels.ERROR)
-      end)
-      return
-    end
-  end
-
-  -- LSP formatting support check
-  local clients = vim.lsp.get_clients({ bufnr = bufnr })
-  for _, client in ipairs(clients) do
-    if client.supports_method("textDocument/formatting") then
-      vim.lsp.buf.format({ async = true })
-      vim.schedule(function()
-        vim.notify("Formatted with LSP", vim.log.levels.INFO)
-      end)
-      return
-    end
-  end
-
-  -- No formatter available: don't print anything
-end
-
-vim.api.nvim_create_user_command("FormatCode", format_code, {
-  desc = "Format current file"
-})
-
-vim.keymap.set('n', '<leader>fm', format_code, { desc = 'Format file' })
-
--- LSP keymaps 
+-- LSP keymaps
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
     local opts = {buffer = event.buf}
 
-    -- Navigation
+   -- Navigation
     vim.keymap.set('n', 'gD', vim.lsp.buf.definition, opts)
     vim.keymap.set('n', 'gs', vim.lsp.buf.declaration, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
@@ -817,52 +652,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
-    -- Code actions
+   -- Code actions
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
 
     -- Diagnostics
-    vim.keymap.set('n', '<leader>nd', vim.diagnostic.goto_next, opts)
+   vim.keymap.set('n', '<leader>nd', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>pd', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
   end,
 })
-
--- Format file on save
-vim.api.nvim_create_autocmd("BufWritePost", {
-  group = lspcommands,
-  callback = format_code,
-  desc = 'Format code on save',
-})
-
--- Better LSP UI
-vim.diagnostic.config({
-  virtual_text = { prefix = '●' },
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-})
-
-vim.diagnostic.config({
-  signs = {
-    text = {
-      [vim.diagnostic.severity.ERROR] = "✗",
-      [vim.diagnostic.severity.WARN] = "⚠",
-      [vim.diagnostic.severity.INFO] = "ℹ",
-      [vim.diagnostic.severity.HINT] = "💡",
-    }
-  }
-})
-
-vim.api.nvim_create_user_command('LspInfo', function()
-  local clients = vim.lsp.get_clients({ bufnr = 0 })
-  if #clients == 0 then
-    print("No LSP clients attached to current buffer")
-  else
-    for _, client in ipairs(clients) do
-      print("LSP: " .. client.name .. " (ID: " .. client.id .. ")")
-    end
-  end
-end, { desc = 'Show LSP client info' })

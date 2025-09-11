@@ -126,6 +126,11 @@ homebrew:
     - argocd
     - bat
     - nvm
+    - yaml-language-server # used by nvim
+    - vscode-langservers-extracted # used by nvim, contains html,css,json LS
+    - lua-language-server  # used by nvim
+    - bash-language-server # used by nvim
+    - dockerfile-language-server # used by nvim
   darwin:
     taps: 
     - metalbear-co/mirrord
@@ -165,13 +170,18 @@ homebrew:
     - stern
     - kustomize
     - kubie
-    - terraform-ls 
+    - terraform-ls # used by nvim
     - tflint
     - eksctl
     - argocd
     - bat
-    - gopls
+    - gopls # used by nvim
     - nvm
+    - yaml-language-server # used by nvim
+    - vscode-langservers-extracted # used by nvim, contains html,css,json LS
+    - lua-language-server  # used by nvim
+    - bash-language-server # used by nvim
+    - dockerfile-language-server # used by nvim
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools

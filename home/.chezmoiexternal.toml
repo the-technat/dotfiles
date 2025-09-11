@@ -10,3 +10,9 @@ url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
 exact = true
 stripComponents = 1
 refreshPeriod = "168h"
+[".config/nvim/pack/nvim/start/nvim-lspconfig"]
+type = "archive"
+url = "https://github.com/neovim/nvim-lspconfig/archive/master.tar.gz"
+exact = true
+stripComponents = 1
+refreshPeriod = "168h"
