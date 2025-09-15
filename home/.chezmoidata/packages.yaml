@@ -133,6 +133,7 @@ homebrew:
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
       - sdkman-cli # used to install java and tooling
+      - jdtls # java language server (eclipse)
   darwin:
     taps:
       - metalbear-co/mirrord
@@ -186,6 +187,7 @@ homebrew:
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
       - sdkman-cli # used to install java and tooling
+      - jdtls # java language server (eclipse)
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
