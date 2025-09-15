@@ -102,7 +102,7 @@ If you want to extend the ssh config without commiting stuff to the repository, 
 
 ## Git
 
-The gitconfig assume the above SSH setup. Apart from this, you can add custom git config 
+The gitconfig assumes the above SSH setup. Apart from this, you can add custom git config 
 to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
 
 </details>
