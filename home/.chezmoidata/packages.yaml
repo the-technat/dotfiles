@@ -93,7 +93,6 @@ homebrew:
     taps:
       - metalbear-co/mirrord
       - Azure/kubelogin
-      - sdkman/tap
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
       - fzf # Tier 3 on ARM64
       - yq # Tier 3 on ARM64
@@ -132,8 +131,6 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
-      - sdkman-cli # used to install java and tooling
-      - jdtls # java language server (eclipse)
   darwin:
     taps:
       - metalbear-co/mirrord
@@ -186,8 +183,6 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
-      - sdkman-cli # used to install java and tooling
-      - jdtls # java language server (eclipse)
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools

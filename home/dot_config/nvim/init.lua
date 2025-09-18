@@ -634,7 +634,6 @@ vim.lsp.enable('jsonls')
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('bashls')
 vim.lsp.enable('dockerls')
-vim.lsp.enable('jdtls')
 
 -- Autoformat code using LSP (if provided)
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
