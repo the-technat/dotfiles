@@ -14,9 +14,9 @@ fi
 #!/bin/zsh
 # for vscode (darwin only)
 
-if command -v "code" > /dev/null; then
-  {{ range .vscode_extensions -}}
-  code --install-extension {{ . | quote }}
+if command -v "codium" > /dev/null; then
+  {{ range .vscodium_extensions -}}
+  codium --install-extension {{ . | quote }}
   {{ end -}}
 fi
 {{ end -}}
