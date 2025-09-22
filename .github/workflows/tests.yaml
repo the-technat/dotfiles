@@ -39,7 +39,7 @@ jobs:
     name: Test on ubuntu linux
     runs-on: ubuntu-24.04
     container:
-      image: ubuntu:plucky-20250730
+      image: ubuntu:plucky-20250910
     steps:
     - name: Checkout
       uses: actions/checkout@v5
