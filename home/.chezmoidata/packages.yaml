@@ -94,7 +94,6 @@ homebrew:
       - metalbear-co/mirrord
       - Azure/kubelogin
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
-      - fzf # Tier 3 on ARM64
       - yq # Tier 3 on ARM64
       - gh # Tier 3 on ARM64
       - dive # Tier 3 on ARM64
@@ -126,6 +125,7 @@ homebrew:
       - argocd
       - bat
       - nvm
+      - fzf
       - yaml-language-server # used by nvim
       - vscode-langservers-extracted # used by nvim, contains html,css,json LS
       - lua-language-server # used by nvim
