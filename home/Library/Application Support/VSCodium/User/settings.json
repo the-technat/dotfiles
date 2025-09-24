@@ -1,12 +1,12 @@
 {
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Timu macOS light Theme",
   "workbench.sideBar.location": "right",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
   "workbench.startupEditor": "none",
-  "workbench.preferredLightColorTheme": "MacOS Modern Light - Ventura Xcode Default",
-  "workbench.preferredDarkColorTheme": "MacOS Modern Dark - Ventura Xcode Default",
+  "workbench.preferredLightColorTheme": "Timu macOS light Theme",
+  "workbench.preferredDarkColorTheme": "Timu macOS dark Theme",
   "redhat.telemetry.enabled": false,
   "explorer.confirmDelete": false,
   "editor.accessibilitySupport": "off",
@@ -27,5 +27,6 @@
   "makefile.configureOnOpen": true,
   "docker.extension.enableComposeLanguageServer": false,
   "mirrord.promptTargetless": false,
-  "mirrord.promptUsingDefaultConfig": false
+  "mirrord.promptUsingDefaultConfig": false,
+  "window.systemColorTheme": "auto"
 }

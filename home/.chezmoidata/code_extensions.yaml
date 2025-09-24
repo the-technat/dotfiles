@@ -24,4 +24,4 @@ vscodium_extensions:
   - redhat.vscode-yaml
   - vscodevim.vim
   - tamasfe.even-better-toml
-  - dez64ru.macos-modern-theme
+  - aimebertrand.timu-macos-vscode
