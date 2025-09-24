@@ -26,3 +26,5 @@ vscodium_extensions:
   - tamasfe.even-better-toml
   - aimebertrand.timu-macos-vscode
   - vscjava.vscode-java-pack
+  - mtxr.sqltools
+  - mtxr.sqltools-driver-pg
