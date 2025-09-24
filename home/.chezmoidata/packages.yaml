@@ -183,6 +183,7 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
+      - openjdk@21
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools

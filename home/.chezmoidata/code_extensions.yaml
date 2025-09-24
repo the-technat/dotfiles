@@ -25,3 +25,4 @@ vscodium_extensions:
   - vscodevim.vim
   - tamasfe.even-better-toml
   - aimebertrand.timu-macos-vscode
+  - vscjava.vscode-java-pack

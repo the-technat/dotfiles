@@ -28,5 +28,7 @@
   "docker.extension.enableComposeLanguageServer": false,
   "mirrord.promptTargetless": false,
   "mirrord.promptUsingDefaultConfig": false,
-  "window.systemColorTheme": "auto"
+  "window.systemColorTheme": "auto",
+  "java.help.showReleaseNotes": false,
+  "java.jdt.ls.java.home": ""
 }
