@@ -30,5 +30,6 @@
   "mirrord.promptUsingDefaultConfig": false,
   "window.systemColorTheme": "auto",
   "java.help.showReleaseNotes": false,
-  "java.jdt.ls.java.home": ""
+  "java.jdt.ls.java.home": "",
+  "editor.formatOnSave": true
 }
