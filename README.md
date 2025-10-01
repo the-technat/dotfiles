@@ -37,19 +37,22 @@ This is only required for signing git commits, every other tool will use the key
 
 ## OS Support
 
-As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
+As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. 
+On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). 
+For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. 
+That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
 ## Permissions
 
 Dotfiles are installed for the user that kicks off the bootstrap. But there are some exceptions where elevated privileges are required:
 - to change the default shell for the user
-- to install system-wide packages 
+- to install system-wide packages required by other local dev tooling 
 
-To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap.
+To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap (e.g a TTY is attached).
 
 ## Styling / Terminal experience
 
-To have a more or less consistent terminal experience and to be really productive I use tmux in combination 
+To have a more or less consistent terminal experience and to be productive I use tmux in combination 
 with neovim to do most stuff. 
 This will always be the same no mather the OS. 
 There are some things however tmux can't control and that are dependant on the terminal emulator used:
@@ -88,6 +91,8 @@ Homebrew isn't installed and supported on alpine and thus skipped. Install tools
 For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
 preinstalled and no other package manager used.
 
+As notes previously already, on Darwin we also install `casks` for development-tasks. Something we won't be doing on linux.
+
 ## Devcontainers
 
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
@@ -104,5 +109,9 @@ If you want to extend the ssh config without commiting stuff to the repository, 
 
 The gitconfig assumes the above SSH setup. Apart from this, you can add custom git config 
 to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
+
+## Container Engine
+
+On `darwin` Homebrew installs [Orbstack](https://orbstack.dev) to use, on headless linux we don't touch this bit since it requires root privileges to install and on many devcontainers there's a docker daemon ready to use.  
 
 </details>
