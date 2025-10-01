@@ -31,5 +31,12 @@
   "window.systemColorTheme": "auto",
   "java.help.showReleaseNotes": false,
   "java.jdt.ls.java.home": "",
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "sqltools.format": {
+    "linesBetweenQueries": "preserve"
+  },
+  "sqltools.results.reuseTabs": "connection",
+  "git.openRepositoryInParentFolders": "always",
+  "editor.wordWrapColumn": 200,
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
 }
