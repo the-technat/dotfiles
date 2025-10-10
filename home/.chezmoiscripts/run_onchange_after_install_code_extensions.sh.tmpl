@@ -4,7 +4,7 @@
 
 # if code-server is installed we install our extensions to it
 if command -v "code-server" > /dev/null; then
-  {{ range .code_server_extensions -}}
+  {{ range .code_extensions -}}
   code-server --install-extension {{ . | quote }}
   {{ end -}}
 fi
@@ -15,7 +15,7 @@ fi
 # for vscode (darwin only)
 
 if command -v "codium" > /dev/null; then
-  {{ range .vscodium_extensions -}}
+  {{ range .code_extensions -}}
   codium --install-extension {{ . | quote }}
   {{ end -}}
 fi
