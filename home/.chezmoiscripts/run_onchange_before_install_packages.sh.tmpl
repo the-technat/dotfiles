@@ -99,10 +99,17 @@ fi
 {{/* homebrew is installed after all system packages are installed to ensure deps are met */}}
 {{/* Both absolute homebrew prefixes are hardcoded in many homebrew packages, thus we hardcode them here */}}
 {{ if eq .chezmoi.os "darwin" -}}
+  {{ if contains "arm" (output "uname" "-p" | trim) -}}
   # install homebrew initially if not already done 
   if ! command -v "/opt/homebrew/bin/brew" > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
   fi
+  {{ else -}}
+  # install homebrew initially if not already done 
+  if ! command -v "/usr/local/bin/brew" > /dev/null; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+  fi
+  {{   end -}}
 {{ end -}}
 {{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") -}}
 {{/* Homebrew isn't supported on Alpine */}}
@@ -142,7 +149,11 @@ EOF
 
 {{ if eq .chezmoi.os "darwin" -}}
 export HOMEBREW_NO_ENV_HINTS=1
+{{  if contains "arm" (output "uname" "-p" | trim) -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
+{{  else  -}}
+eval "$(/usr/local/bin/brew shellenv)"
+{{  end -}}
 brew --version
 
 {{ range .homebrew.darwin.taps -}}
