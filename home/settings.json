@@ -39,4 +39,9 @@
   "git.openRepositoryInParentFolders": "always",
   "editor.wordWrapColumn": 200,
   "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "mdb.mcp.server": "autoStartDisabled",
+  "terminal.integrated.stickyScroll.enabled": false,
+  "mdb.confirmRunCopilotCode": false,
+  "workbench.settings.showAISearchToggle": false,
+  "chat.disableAIFeatures": true,
 }
