@@ -135,7 +135,6 @@ homebrew:
     taps:
       - metalbear-co/mirrord
       - Azure/kubelogin
-      - sdkman/tap
     brews:
       - make # neovim dependency
       - gcc # neovim dependency
@@ -183,7 +182,6 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
-      - openjdk@21
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
@@ -195,5 +193,3 @@ homebrew:
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
       - "utm" # do it all hypervisor for other VMs
-      - "mist" # macos installer utility
-      - "crystalfetch" # windows installer utility
