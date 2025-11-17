@@ -188,8 +188,8 @@ homebrew:
       - "vscodium" # do it all IDE
       - "font-fira-code-nerd-font" # font for terminal
       - "session-manager-plugin" # used for SSH over SSM
-      - "devpod" # codespaces but local
       - "secretive" # hardware-backed ssh keys
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
-      - "utm" # do it all hypervisor for other VMs
+      - "viable" # simple macos hypervisor GUI
+      - "liviable" # simple linux hypervisor GUI
