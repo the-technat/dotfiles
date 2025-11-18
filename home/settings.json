@@ -44,4 +44,5 @@
   "mdb.confirmRunCopilotCode": false,
   "workbench.settings.showAISearchToggle": false,
   "chat.disableAIFeatures": true,
+  "java.debug.settings.onBuildFailureProceed": true
 }
