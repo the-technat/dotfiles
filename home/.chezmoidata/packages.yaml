@@ -191,5 +191,3 @@ homebrew:
       - "secretive" # hardware-backed ssh keys
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
-      - "viable" # simple macos hypervisor GUI
-      - "liviable" # simple linux hypervisor GUI
