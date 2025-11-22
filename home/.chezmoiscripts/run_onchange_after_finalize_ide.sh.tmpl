@@ -1,9 +1,9 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env zsh
-# for code-server (linux only)
 
-# if code-server is installed we install our extensions to it
 if command -v "code-server" > /dev/null; then
+  curl -fsSL https://code-server.dev/install.sh | sh
+  sudo systemctl enable --now code-server@{{ .chezmoi.username }}
   {{ range .code_extensions -}}
   code-server --install-extension {{ . | quote }}
   {{ end -}}

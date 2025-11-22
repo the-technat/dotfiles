@@ -2,7 +2,7 @@
 
 My engineering environment as code managed by chezmoi.
 
-Supports `darwin` and some headless-`linux`-distros. The following distros are tested:
+Supports `darwin` and headless-`linux`-distros. The following distros are tested:
 - Ubuntu
 - Debian
 - Rocky Linux
@@ -20,17 +20,17 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
 $HOME/.local/bin/chezmoi init --apply the-technat
 ```
 
-Note: We assume that either this runs somewhere you can enter your password a couple of times or passwordless-sudo is configured. This implies that the user we want dotfiles for also exists already.
+**Note**: We assume that either this runs somewhere you can enter your password a couple of times (e.g TTY attached) or passwordless-sudo is pre-configured. This implies that the user we run this for has to exist already.
 
 ### Post Configuration (macOS only)
 
-Open Secretive and click through the wizard. The config it requires has already been added, so you can hit "I Added it Manually". Create an SSH key in Secretive, name it "github" and don't require authentication for it. Copy the path to this key and then create a symlink for commit signing:
+Open Secretive and click through the setup wizard. The config it requires has already been added, so you can click "I Added it Manually". Create an SSH key in Secretive named "github" and choose "don't require authentication" for it. Copy the path to this key to the clipboard and then create a symlink for commit signing:
 
 ```console
-ln -sf ~/.ssh/ssh_signing.pub /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub 
+ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/79312d1e83eec6fad1cd7841358a3ce2453e3c9.pub ~/.ssh/ssh_signing.pub 
 ```
 
-This is only required for signing git commits, every other tool will use the key from ssh-agent. Lastly don't forget to add the key as signing and authentication key in your Github account.
+This is only required for signing git commits, every other tool will use the key from macOS's ssh-agent. The config for git commit signing is managed via dotfiles, but the key location is non-determinstic, hence this symlink. Don't forget to add the key as signing and authentication key in your Github account!
 
 <details closed>
 <summary>Concepts and details</summary>
@@ -38,22 +38,29 @@ This is only required for signing git commits, every other tool will use the key
 ## OS Support
 
 As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. 
-On the other hand I code regularlary on a remote linux system (e.g a VM in the cloud or a devcontainer). 
-For this purpose chezmoi must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. 
+On the other hand I would like to be able to code on a remote linux system (e.g a VM in the cloud or a devcontainer) in the same way I do on my Mac. 
+For this purpose my dotfiles must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. 
 That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
 ## Permissions
 
 Dotfiles are installed for the user that kicks off the bootstrap. But there are some exceptions where elevated privileges are required:
-- to change the default shell for the user
+- to change the default shell for the user 
 - to install system-wide packages required by other local dev tooling 
+- to install code-server systemd wide (only `linux`)
 
 To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap (e.g a TTY is attached).
+
+## IDE
+
+I'm using VSCodium as my primary IDE alongside NeoVim for some terminal-based editing. For my `darin`-systems homebrew takes care of installing these IDEs and configuration is part of my dotfiles.
+
+For headless-`linux` there is no homebrew package for VSCodium since this is a desktop-application. In these cases I had great success with [code-server](https://github.com/coder/code-server) as a 1:1 replacement for VSCodium. It's config is also part of the dotfiles and it's installation is done by a script that is executed once in the beginning.
 
 ## Styling / Terminal experience
 
 To have a more or less consistent terminal experience and to be productive I use tmux in combination 
-with neovim to do most stuff. 
+with NeoVim to do most stuff. 
 This will always be the same no mather the OS. 
 There are some things however tmux can't control and that are dependant on the terminal emulator used:
 
