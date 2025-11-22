@@ -93,16 +93,9 @@ homebrew:
     taps:
       - metalbear-co/mirrord
       - Azure/kubelogin
+      - hashicorp/tap
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
-      - yq # Tier 3 on ARM64
-      - gh # Tier 3 on ARM64
-      - dive # Tier 3 on ARM64
-      - kind # Tier 3 on ARM64
-      - terraform # Tier 3 on ARM64
-      - terraform-ls # Tier 3 on ARM64
-      - tflint # Tier 3 on ARM64
       - Azure/kubelogin/kubelogin # not working
-      - gopls # Tier 3 on ARM64
     brews:
       - awscli
       - azure-cli
@@ -123,9 +116,17 @@ homebrew:
       - kubie
       - eksctl
       - argocd
+      - tflint 
       - bat
+      - gopls
       - nvm
       - fzf
+      - gh 
+      - yq
+      - dive
+      - kind
+      - hashicorp/tap/terraform
+      - hashicorp/tap/terraform-ls
       - yaml-language-server # used by nvim
       - vscode-langservers-extracted # used by nvim, contains html,css,json LS
       - lua-language-server # used by nvim
