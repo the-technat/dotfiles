@@ -1,12 +1,11 @@
 {
-  "workbench.colorTheme": "Timu macOS light Theme",
+  "workbench.colorTheme": "MacOS Modern Light - Xcode Default",
   "workbench.sideBar.location": "right",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
   "workbench.startupEditor": "none",
-  "workbench.preferredLightColorTheme": "Timu macOS light Theme",
-  "workbench.preferredDarkColorTheme": "Timu macOS dark Theme",
+  "workbench.preferredDarkColorTheme": "MacOS Modern Dark - Xcode Default",
   "redhat.telemetry.enabled": false,
   "explorer.confirmDelete": false,
   "editor.accessibilitySupport": "off",
@@ -47,5 +46,9 @@
   "java.debug.settings.onBuildFailureProceed": true,
   "yaml.format.enable": false,
   "git.blame.editorDecoration.enabled": true,
-  "git.blame.statusBarItem.enabled": false
+  "git.blame.statusBarItem.enabled": false,
+  "editor.minimap.autohide": "mouseover",
+  "workbench.preferredLightColorTheme": "MacOS Modern Light - Ventura Xcode",
+  "workbench.iconTheme": "macos-modern-minimal-finder-icon-theme",
+  "workbench.productIconTheme": "macos-modern"
 }
