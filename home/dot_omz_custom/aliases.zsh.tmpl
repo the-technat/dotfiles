@@ -233,6 +233,16 @@ deleteByPrefix() {
     kubectl delete $1 $r
   done
 }
+getClusterCACert() {
+  kubectl config view --raw -o=jsonpath="{.clusters[?(@.name==\"$1\")].cluster.certificate-authority-data}" | base64 -d
+}
+getClusterClientCert() {
+  kubectl config view --raw -o=jsonpath="{.users[?(@.name==\"$1\")].user.client-certificate-data}" | base64 -d
+}
+getClusterClientKey() {
+  kubectl config view --raw -o=jsonpath="{.users[?(@.name==\"$1\")].user.client-key-data}" | base64 -d
+}
+
 shotgun() {
   kubectl delete pod --force --grace-period 0 $1
 }
