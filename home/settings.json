@@ -51,5 +51,8 @@
   "editor.minimap.autohide": "mouseover",
   "workbench.preferredLightColorTheme": "MacOS Modern Light - Ventura Xcode",
   "workbench.iconTheme": "macos-modern-minimal-finder-icon-theme",
-  "workbench.productIconTheme": "macos-modern"
+  "workbench.productIconTheme": "macos-modern",
+  "todohighlight.keywords": [
+    "TODO"
+  ],
 }
