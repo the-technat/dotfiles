@@ -116,12 +116,12 @@ homebrew:
       - kubie
       - eksctl
       - argocd
-      - tflint 
+      - tflint
       - bat
       - gopls
       - nvm
       - fzf
-      - gh 
+      - gh
       - yq
       - dive
       - kind
@@ -132,6 +132,7 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
+      - openjdk@21
   darwin:
     taps:
       - metalbear-co/mirrord
@@ -183,6 +184,7 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
+      - openjdk@21 # some java sdk is never a bad idea isn't it?
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
