@@ -133,6 +133,7 @@ homebrew:
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
       - openjdk@21
+      - tailscale
   darwin:
     taps:
       - metalbear-co/mirrord
@@ -185,6 +186,7 @@ homebrew:
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
       - openjdk@21 # some java sdk is never a bad idea isn't it?
+      - tailscale # cli to manage the agent
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
@@ -194,3 +196,4 @@ homebrew:
       - "secretive" # hardware-backed ssh keys
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
+      - "tailscale-app"

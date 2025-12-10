@@ -5,11 +5,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-PATH="/Users/{{ .chezmoi.username }}/go/bin:$PATH"
+PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-PATH="/home/{{ .chezmoi.username }}/go/bin:$PATH"
+PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
 
 AWS_PAGER=/usr/bin/less
