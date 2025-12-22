@@ -1,0 +1,68 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  annotations:
+    helmcharts.cattle.io/managed-by: helm-controller
+    objectset.rio.cattle.io/applied: H4sIAAAAAAAA/4yRX4vTQBTFv0q4sE+mSdNsbHfAh7oWlAWR9c9TQW4yN82YycyQe1MpJd9dJgoq4urb/DnzO2fuuQIG84lGNt6Bgo7skDUoYikzPj8XkEJvnAYFr8kO9x2OAikMJKhRENQV0DkvKMY7jltff6FGmCQbjf8FZSID0r/e+6+OxtXp3IOCvuTfQqTJg3H6xV5r7/6JcDgQKJARqTX9f8k5YBPf9FNNK76w0ABzChZrsk9+qkPuQIGubrFsNO3uqmbTYlXqdV0Vt9UOt0jF3abclltqn5cR+ke8JwJwoCbaN8vYFXQigVWe31wfPr48PL49fDi8/7x/92a+yTlW0OSLkvMf9FW5zYqseDaFZbGGFJgkEk/W12iz71avqMXJyiOdDMt4iT3NKZzRTsT33gm5aK4pWH8ZyIk6uiQJXu9/Nr8cJUkY/UDS0cRxOsGPopIj7Na7zREWBczztwAAAP//MAZY2HICAAA
+    objectset.rio.cattle.io/id: ""
+    objectset.rio.cattle.io/owner-gvk: k3s.cattle.io/v1, Kind=Addon
+    objectset.rio.cattle.io/owner-name: traefik
+    objectset.rio.cattle.io/owner-namespace: kube-system
+  creationTimestamp: "2025-12-22T11:01:46Z"
+  finalizers:
+    - wrangler.cattle.io/on-helm-chart-remove
+  generation: 1
+  labels:
+    objectset.rio.cattle.io/hash: d54a3cde895c2fa53d0b51458a7ae1923737ef63
+  name: traefik
+  namespace: kube-system
+  resourceVersion: "403"
+  uid: 2d2963b1-c4d5-419a-99ac-f15a694874df
+spec:
+  chart: https://%{KUBERNETES_API}%/static/charts/traefik-37.1.1+up37.1.0.tgz
+  failurePolicy: reinstall
+  set:
+    global.systemDefaultRegistry: ""
+  valuesContent: |-
+    ports:
+      web:
+        asDefault: true
+        redirections: {}
+      websecure:
+        asDefault: false
+        expose:
+          default: false
+        tls:
+          enabled: false
+    deployment:
+      podAnnotations:
+        prometheus.io/port: "8082"
+        prometheus.io/scrape: "true"
+    providers:
+      kubernetesIngress:
+        publishedService:
+          enabled: true
+    priorityClassName: "system-cluster-critical"
+    image:
+      repository: "rancher/mirrored-library-traefik"
+      tag: "3.5.1"
+    tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
+    service:
+      ipFamilyPolicy: "PreferDualStack"
+status:
+  conditions:
+    - message: Applying HelmChart using Job kube-system/helm-install-traefik
+      reason: Job created
+      status: "True"
+      type: JobCreated
+    - status: "False"
+      type: Failed
+  jobName: helm-install-traefik

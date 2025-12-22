@@ -1,11 +1,48 @@
 {{- if eq .osid "darwin" }}
-alias -g lm="limactl"
 alias -g ubuntuVM="orbctl create -a arm64 ubuntu"
 alias -g alpineVM="orbctl create -a arm64 alpine"
 alias -g rockyVM="orbctl create -a arm64 rocky"
 alias -g fedoraVM="orbctl create -a arm64 fedora"
 alias disabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=0"
-alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1" alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder" {{- end }}
+alias enabletmthrottling="sudo sysctl debug.lowpri_throttle_enabled=1" alias flushDNS="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder" 
+function newK3sOrb() {
+  if [ $# -ne 1 ]; then
+    echo "Missing name parameter or having too many parameters"
+    exit 1
+  fi
+  orbctl create ubuntu $1 
+  if [ command -v k3sup ]; then
+    echo "k3sup not installed"
+    orbctl delete $1
+    exit 1
+  fi
+
+  k3sup install \
+    --cluster \
+    --host localhost \
+    --context $1 \
+    --merge \
+    --local-path ~/.kube/config \
+    --user $1 \
+    --ssh-key ~/.orbstack/ssh/id_ed25519 \
+    --ssh-port 32222 \
+    --sudo \
+    --tls-san $1.orb.local \
+    --k3s-extra-args="--cluster-domain=$1.local"  
+
+  # Replace the server-url in the kubeconfig with the remote cluster
+  kubectl config set-cluster $1 --server=https://$1.orb.local:6443
+}
+
+function deleteK3sOrb() {
+  orbctl delete $1
+  kubectl config delete-cluster $1
+  kubectl config delete-context $1
+  kubectl config delete-user $1
+}
+{{- end }}
+
+
 alias -g cat="bat --style=full --paging=never"
 alias -g vim="nvim"
 alias -g password="openssl rand -base64 20"
