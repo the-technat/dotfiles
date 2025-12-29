@@ -104,6 +104,8 @@ As notes previously already, on Darwin we also install `casks` for development-t
 
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
 
+We also skip homebrew and most of it's tooling as this is mostly preinstalled in a devcontainer.
+
 ## SSH
 
 On `darwin` I'm a fan of [Secretive](https://github.com/maxgoedjen/secretive) to store my SSH keys in the Security Enclace. Thus I have configured it's integration in my dotfiles and it's assumed that SSH keys are generated in there.

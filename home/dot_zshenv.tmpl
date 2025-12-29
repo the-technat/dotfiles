@@ -7,7 +7,7 @@ eval "$(/usr/local/bin/brew shellenv)"
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
-{{ if eq .chezmoi.os "linux" -}}
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
