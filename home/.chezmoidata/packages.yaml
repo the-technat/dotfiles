@@ -140,6 +140,7 @@ homebrew:
       - metalbear-co/mirrord
       - Azure/kubelogin
       - sdkman/tap
+      - hashicorp/tap
     brews:
       - make # neovim dependency
       - gcc # neovim dependency
@@ -171,11 +172,11 @@ homebrew:
       - uv # managing python versions
       - dive
       - mirrord
-      - terraform
+      - hashicorp/tap/terraform
+      - hashicorp/tap/terraform-ls
       - stern
       - kustomize
       - kubie
-      - terraform-ls # used by nvim
       - tflint
       - eksctl
       - argocd
