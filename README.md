@@ -125,7 +125,7 @@ On `darwin` Homebrew installs [Orbstack](https://orbstack.dev) to use, on headle
 
 ## Java
 
-We use SDKMan to manage java versions. It's installed and hooked up in zsh automatically.
+Latest openjdk and maven are installed and linked correctly for macOS/linux to use it
 
 ## Python
 

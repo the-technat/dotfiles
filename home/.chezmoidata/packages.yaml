@@ -121,6 +121,8 @@ homebrew:
       - gopls
       - nvm
       - fzf
+      - openjdk
+      - maven
       - gh
       - yq
       - dive
@@ -155,6 +157,8 @@ homebrew:
       - awscli
       - azure-cli
       - neovim
+      - openjdk
+      - maven
       - go
       - hubble
       - cilium-cli
