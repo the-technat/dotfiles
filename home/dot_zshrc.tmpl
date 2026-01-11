@@ -10,38 +10,18 @@ plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 {{ if eq .chezmoi.os "darwin" -}}
 
 ZSH_THEME="agnoster"
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-
-# orbstack injects the line below automatically into .zprofile but we want to manage that
-source ~/.orbstack/shell/init.zsh 2>/dev/null 
-
 plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 
 {{ end -}}
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
 
 ZSH_THEME="robbyrussell"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/home/linuxbrew/.linuxbrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-
-export PATH="/home/linuxbrew/.linuxbrew/opt/openjdk/bin:$PATH" 
 plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker)
 
 {{ end -}}
 
 
 DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
-
 COMPLETION_WAITING_DOTS="true"
 
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

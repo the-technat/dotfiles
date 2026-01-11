@@ -4,6 +4,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ else -}}
 eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
+# orbstack injects the line below automatically into .zprofile but we want to manage that
+source ~/.orbstack/shell/init.zsh 2>/dev/null 
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
@@ -12,6 +14,17 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
 
+NVM_DIR="$HOME/.nvm"
+NVM_PREFIX=$(brew --prefix nvm)
+[ -s "$NVM_PREFIX/nvm.sh" ] && \. "$NVM_PREFIX/nvm.sh"  # This loads nvm
+[ -s "$NVM_PREFIX/etc/bash_completion.d/nvm" ] && \. "$NVM_PREFIX/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+SDKMAN_PREFIX=$(brew --prefix sdkman-cli)/libexec
+[[ -s "${SDKMAN_PREFIX}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PREFIX}/bin/sdkman-init.sh"
+
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+DEFAULT_USER={{ .chezmoi.username }}
 AWS_PAGER=/usr/bin/less
 AWS_DEFAULT_OUTPUT=table
 DEFAULT_USER="{{ .chezmoi.username }}"
