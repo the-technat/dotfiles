@@ -19,10 +19,6 @@ NVM_PREFIX=$(brew --prefix nvm)
 [ -s "$NVM_PREFIX/nvm.sh" ] && \. "$NVM_PREFIX/nvm.sh"  # This loads nvm
 [ -s "$NVM_PREFIX/etc/bash_completion.d/nvm" ] && \. "$NVM_PREFIX/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-SDKMAN_PREFIX=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_PREFIX}/bin/sdkman-init.sh" ]] && source "${SDKMAN_PREFIX}/bin/sdkman-init.sh"
-
-
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 DEFAULT_USER={{ .chezmoi.username }}
 AWS_PAGER=/usr/bin/less
