@@ -123,4 +123,17 @@ to `~/.gitcustom` and it's included without the need to commit something to the 
 
 On `darwin` Homebrew installs [Orbstack](https://orbstack.dev) to use, on headless linux we don't touch this bit since it requires root privileges to install and on many devcontainers there's a docker daemon ready to use.  
 
+## Java
+
+We use SDKMan to manage java versions. It's installed and hooked up in zsh automatically.
+
+## Python
+
+We use uv to manage python versions. It's installed and hooked up in zsh automatically. 
+There might be some python versions installed by homebrew as transitive dependencies from other tools, but we never make us of them directly
+
+## Node
+
+We use nvm to manage node versions. It's installed and hooked up in zsh automatically. Any node version installed by homebrew is a transitive dependency not used directly.
+
 </details>
