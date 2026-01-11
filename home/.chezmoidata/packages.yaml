@@ -132,7 +132,8 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
-      - openjdk@21
+      - openjdk
+      - maven
       - tailscale
   darwin:
     taps:
@@ -185,7 +186,8 @@ homebrew:
       - lua-language-server # used by nvim
       - bash-language-server # used by nvim
       - dockerfile-language-server # used by nvim
-      - openjdk@21 # some java sdk is never a bad idea isn't it?
+      - openjdk # some java sdk is never a bad idea isn't it?
+      - maven
       - tailscale # cli to manage the agent
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
