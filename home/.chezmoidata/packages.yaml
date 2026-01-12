@@ -3,12 +3,11 @@ apt:
   - gcc
   - git # prerequisite for homebrew
   - sudo
-  - zsh
+  - zsh # prerequisite for shell
   - make
   - gawk
   - net-tools
   - traceroute
-  - tmux
   - bind9-dnsutils
   - unzip
   - ripgrep
@@ -16,7 +15,6 @@ apt:
   - jq
   - file
   - tar
-  - tmux
   - procps # required by homebrew
 apt_remote:
   x86_64:
@@ -31,7 +29,6 @@ dnf:
   - zsh
   - make
   - gawk
-  - tmux
   - net-tools
   - bind-utils
   - traceroute
@@ -40,7 +37,6 @@ dnf:
   - jq
   - file
   - tar
-  - tmux
   - procps # required by homebrew
 dnf_remote:
   x86_64:
@@ -55,7 +51,6 @@ apk:
   - zsh
   - make
   - gawk
-  - tmux
   - net-tools
   - bind-tools
   - traceroute
@@ -67,7 +62,6 @@ apk:
   - jq
   - file
   - tar
-  - tmux
   - bash # required to install homebrew
   - ruby # since we don't have glibc we install latest ruby for homebrew
 tdnf:
@@ -78,7 +72,6 @@ tdnf:
   - zsh
   - make
   - gawk
-  - tmux
   - net-tools
   - traceroute
   - unzip
@@ -86,64 +79,19 @@ tdnf:
   - jq
   - file
   - tar
-  - tmux
   - procps # required by homebrew
 homebrew:
-  linux:
-    taps:
-      - metalbear-co/mirrord
-      - Azure/kubelogin
-      - hashicorp/tap
-      - sdkman/tap
-    tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
-      - Azure/kubelogin/kubelogin # not working
-    brews:
-      - make # neovim dependency
-      - gcc # neovim dependency
-      - fd # neovim dependency
-      - lazygit # neovim dependency
-      - ripgrep # neovim dependency
-      - fzf # neovim dependency
-      - tree-sitter-cli # neovim dependency
-      - awscli
-      - azure-cli
-      - go
-      - hubble
-      - cilium-cli
-      - flyctl
-      - golangci-lint
-      - helm
-      - hugo
-      - kubectl
-      - uv # for managing python versions
-      - k9s
-      - mirrord
-      - stern
-      - kustomize
-      - kubie
-      - eksctl
-      - argocd
-      - tflint
-      - bat
-      - gopls
-      - nvm
-      - gh
-      - yq
-      - sdkman-cli # for java versions
-      - zip # required by sdkman
-      - dive
-      - kind
-      - hashicorp/tap/terraform
-      - tailscale
-  darwin:
+  common:
     taps:
       - metalbear-co/mirrord
       - Azure/kubelogin
       - hashicorp/tap
       - sdkman/tap
     brews:
+      - tmux
       # Neovim
       - neovim
+      - vim
       - make # neovim dependency
       - gcc # neovim dependency
       - fd # neovim dependency
@@ -152,7 +100,7 @@ homebrew:
       - fzf # neovim dependency
       - tree-sitter-cli # neovim dependency
       # Java Dev
-      - sdkman-cli # for java versions
+      - sdkman-cli 
       - zip # required by sdkman
       # Node
       - nvm 
@@ -161,6 +109,8 @@ homebrew:
       # Go
       - go
       - golangci-lint
+      # Debugging
+      - mirrord
       # Kubernetes
       - hubble
       - cilium-cli
@@ -170,30 +120,41 @@ homebrew:
       - kubie
       - eksctl
       - argocd
+      - k9s
+      - stern
+      - kind
+      - dive
       # Cloud
-      - Azure/kubelogin/kubelogin
       - awscli
       - azure-cli
       - flyctl
+      - hashicorp/tap/terraform
+      - tflint
+      # Networking
       - nmap
-      - unzip
-      - btop
-      - tmux
-      - vim
+      - tailscale
+      # Files
       - bat
+      - yq
       - jq
       - file-formula
-      - tmux
-      - hugo
-      - yq
+      # Git
       - gh
-      - dive
-      - mirrord
-      - hashicorp/tap/terraform
-      - stern
-      - tflint
-      - bat
-      - tailscale # cli to manage the agent
+      # Processes
+      - btop
+      # Archives
+      - unzip
+      # Static Sites
+      - hugo
+  linux:
+    taps: []
+    tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
+      - Azure/kubelogin/kubelogin # not working
+    brews: []
+  darwin:
+    taps: []
+    brews: 
+    - Azure/kubelogin/kubelogin
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools

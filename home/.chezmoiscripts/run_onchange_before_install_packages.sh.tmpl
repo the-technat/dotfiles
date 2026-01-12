@@ -96,8 +96,8 @@ fi
   fi
 {{ end -}}
 
-{{/* homebrew is installed after all system packages are installed to ensure deps are met */}}
-{{/* Both absolute homebrew prefixes are hardcoded in many homebrew packages, thus we hardcode them here */}}
+{{/* homebrew is installed after all system packages are installed to ensure deps for it are met */}}
+{{/* Both absolute homebrew prefixes are hardcoded in many homebrew packages, thus we hardcode them here too */}}
 {{ if eq .chezmoi.os "darwin" -}}
   {{ if contains "arm" (output "uname" "-p" | trim) -}}
   # install homebrew initially if not already done 
@@ -123,16 +123,23 @@ fi
 # homebrew prefix can be hardcoded since homebrew itself states that statically linked stuff in their ecossystem depends on this prefix
 # updates can also be done manually using `brew update & brew upgrade`
 {{/* Loop over system packages list and install with homebrew */}}
-{{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") -}}
+{{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") (not .devcontainer) -}}
 export HOMEBREW_NO_ENV_HINTS=1
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew --version
+
+{{ range .homebrew.common.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
 
 {{ range .homebrew.linux.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF
+{{ range .homebrew.common.brews -}}
+brew {{ . | quote }}
+{{ end -}}
 {{ range .homebrew.linux.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -156,16 +163,23 @@ eval "$(/usr/local/bin/brew shellenv)"
 {{  end -}}
 brew --version
 
+{{ range .homebrew.common.taps -}}
+brew tap {{ . | quote }}
+{{ end -}}
+
 {{ range .homebrew.darwin.taps -}}
 brew tap {{ . | quote }}
 {{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF
-{{ range .homebrew.darwin.brews -}}
+{{ range .homebrew.common.brews -}}
 brew {{ . | quote }}
 {{ end -}}
 {{ range .homebrew.darwin.casks -}}
 cask {{ . | quote }}
+{{ end -}}
+{{ range .homebrew.darwin.brews -}}
+brew {{ . | quote }}
 {{ end -}}
 EOF
 
