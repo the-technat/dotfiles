@@ -142,6 +142,7 @@ homebrew:
       - hashicorp/tap
       - sdkman/tap
     brews:
+      # Neovim
       - neovim
       - make # neovim dependency
       - gcc # neovim dependency
@@ -150,42 +151,48 @@ homebrew:
       - ripgrep # neovim dependency
       - fzf # neovim dependency
       - tree-sitter-cli # neovim dependency
+      # Java Dev
+      - sdkman-cli # for java versions
+      - zip # required by sdkman
+      # Node
+      - nvm 
+      # Python
+      - uv 
+      # Go
+      - go
+      - golangci-lint
+      # Kubernetes
+      - hubble
+      - cilium-cli
+      - helm
+      - kubectl
+      - kustomize
+      - kubie
+      - eksctl
+      - argocd
+      # Cloud
+      - Azure/kubelogin/kubelogin
+      - awscli
+      - azure-cli
+      - flyctl
       - nmap
       - unzip
       - btop
-      - Azure/kubelogin/kubelogin
       - tmux
       - vim
       - bat
       - jq
       - file-formula
       - tmux
-      - awscli
-      - azure-cli
-      - go
-      - hubble
-      - cilium-cli
-      - flyctl
-      - sdkman-cli # for java versions
-      - zip # required by sdkman
-      - golangci-lint
-      - helm
       - hugo
-      - kubectl
       - yq
       - gh
-      - uv # managing python versions
       - dive
       - mirrord
       - hashicorp/tap/terraform
       - stern
-      - kustomize
-      - kubie
       - tflint
-      - eksctl
-      - argocd
       - bat
-      - nvm # to manage node versions
       - tailscale # cli to manage the agent
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
