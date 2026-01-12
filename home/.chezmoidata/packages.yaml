@@ -70,6 +70,12 @@ homebrew:
       - ripgrep # neovim dependency
       - fzf # neovim dependency
       - tree-sitter-cli # neovim dependency
+      - ast-grep # neovim dependency
+      - luarocks # neovim dependency
+      - lua # neovim dependency
+      - imagemagick # neovim dependency
+      - gs # neovim dependency
+      - tectonic # neovim dependency
       # Java Dev
       - sdkman-cli 
       - zip # required by sdkman
