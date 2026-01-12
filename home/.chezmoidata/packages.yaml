@@ -124,7 +124,8 @@ homebrew:
       - fzf
       - gh
       - yq
-      - sdkman-cli
+      - sdkman-cli # for java versions
+      - zip # required by sdkman
       - dive
       - kind
       - hashicorp/tap/terraform
@@ -164,6 +165,7 @@ homebrew:
       - flyctl
       - fzf
       - sdkman-cli # for java versions
+      - zip # required by sdkman
       - golangci-lint
       - helm
       - hugo
