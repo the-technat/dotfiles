@@ -51,6 +51,37 @@ Dotfiles are installed for the user that kicks off the bootstrap. But there are 
 
 To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap (e.g a TTY is attached).
 
+## Tooling
+
+I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew. 
+
+The system package manager is good at installing general tooling and dependencies required by Homebrew. 
+It runs at the beginning ensuring a common baseline that we are going to need afterwards.
+
+Homebrew runs after the system package manager and installs development-specific tools that don't exist 
+in system package managers or where I need a more recent versions than otherwise available. 
+
+The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles 
+or tools that are referenced in an alias or similiar. 
+
+Any other development tooling should be installed manually at the time it's needed using it's respective framework (see below for a list of programming languages).
+
+You can see the full list of packages installed in the [home/.chezmoidata/packages.yaml](home/.chezmoidata/packages.yaml) file.
+
+Updates are handeled by the system package manager or homebrew itself. chezmoi may sometimes trigger an update but
+in general it's the responsibility of the user to regurarly update tools using the package managers.
+
+### Alpine Specials
+
+Homebrew isn't installed and supported on alpine and thus skipped. Install tools manually if needed.
+
+### Darwin
+
+For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
+preinstalled and no other package manager used.
+
+As notes previously already, on Darwin we also install `casks` for development-tasks. Something we won't be doing on linux.
+
 ## IDE
 
 I'm using VSCodium as my primary IDE alongside NeoVim for some terminal-based editing. For my `darin`-systems homebrew takes care of installing these IDEs and configuration is part of my dotfiles.
@@ -80,34 +111,6 @@ I use zsh on all my systems for concistency. There are three important files:
 - `.zprofile`: contains setup scripts that should only run once, usually tools that export env vars
 - `.zshrc`: contains oh-my-zsh and aliases/functions that should be run on every shell invocation
 
-## Tooling
-
-I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew. 
-
-The system package manager is good at installing general tooling and dependencies required by Homebrew. 
-It runs at the beginning ensuring a common baseline that we are going to need afterwards.
-Homebrew runs after the system package manager and installs development-specific tools that don't exist 
-in system package managers or where I need a more recent versions than otherwise available. 
-The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles 
-or tools that are referenced in an alias or similiar. 
-Any other development tooling should be installed manually at the time it's needed.
-
-You can see the full list of packages installed in the [home/.chezmoidata/packages.yaml](home/.chezmoidata/packages.yaml) file.
-
-Updates are handeled by the system package manager or homebrew itself. chezmoi may sometimes trigger an update but
-in general it's the responsibility of the user to regurarly update tools using the package managers.
-
-### Alpine Specials
-
-Homebrew isn't installed and supported on alpine and thus skipped. Install tools manually if needed.
-
-### Darwin
-
-For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
-preinstalled and no other package manager used.
-
-As notes previously already, on Darwin we also install `casks` for development-tasks. Something we won't be doing on linux.
-
 ## Devcontainers
 
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
@@ -131,17 +134,30 @@ to `~/.gitcustom` and it's included without the need to commit something to the 
 
 On `darwin` Homebrew installs [Orbstack](https://orbstack.dev) to use, on headless linux we don't touch this bit since it requires root privileges to install and on many devcontainers there's a docker daemon ready to use.  
 
-## Java
+## Programming Langugages
+
+### Java
 
 We use sdkman to manage java versions. It's installed and hooked up in zsh automatically.
 
-## Python
+There is no java version preinstalled using sdkman, install them when needed.
+
+### Python
 
 We use uv to manage python versions. It's installed and hooked up in zsh automatically. 
-There might be some python versions installed by homebrew as transitive dependencies from other tools, but we never make us of them directly
+There might be some python versions installed by homebrew as transitive dependencies from other tools, but we never make us of them directly.
 
-## Node
+There is no python version preinstalled using uv, install them when needed.
 
-We use nvm to manage node versions. It's installed and hooked up in zsh automatically. Any node version installed by homebrew is a transitive dependency not used directly.
+### Node
+
+We use nvm to manage node versions. It's installed and hooked up in zsh automatically. 
+Any node version installed by homebrew is a transitive dependency not used directly.
+
+There should be no preinstalled node version installed via nvm, install them when needed.
+
+### Go
+
+The latest version of go is installed and ready to use.
 
 </details>

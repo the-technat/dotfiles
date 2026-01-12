@@ -1,85 +1,56 @@
 apt:
-  - gnupg
-  - gcc
   - git # prerequisite for homebrew
-  - sudo
+  - sudo # required by some scripts
   - zsh # prerequisite for shell
-  - make
-  - gawk
-  - net-tools
-  - traceroute
-  - bind9-dnsutils
-  - unzip
-  - ripgrep
-  - vim
-  - jq
-  - file
-  - tar
   - procps # required by homebrew
+  - gcc # required to compile some brews
+  - gnupg # required by many tools
+  - traceroute # no brew
+  - bind9-dnsutils # no brew
+  - tar # no brew
 apt_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb
   arm64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb
 dnf:
-  - gnupg
-  - gcc
   - git # required by homebrew
-  - sudo
-  - zsh
-  - make
-  - gawk
-  - net-tools
-  - bind-utils
-  - traceroute
-  - unzip
-  - vim
-  - jq
-  - file
-  - tar
+  - sudo # required by some scripts
+  - zsh # prerequisite for shell
   - procps # required by homebrew
+  - gcc # required to compile some brews
+  - gnupg # required by many tools
+  - bind-utils # no brew
+  - traceroute # no brew
+  - tar # no brew
 dnf_remote:
   x86_64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
   arm64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm
 apk:
-  - gnupg
-  - gcc
   - git # required by homebrew
-  - sudo
-  - zsh
-  - make
-  - gawk
-  - net-tools
-  - bind-tools
-  - traceroute
-  - unzip
-  - ripgrep
+  - sudo # required by some scripts
+  - zsh # prerequisite for shell
   - openssh # contains ssh-keygen to generate ssh-key
   - shadow # contains usermod to change shell 
-  - vim
-  - jq
-  - file
-  - tar
   - bash # required to install homebrew
   - ruby # since we don't have glibc we install latest ruby for homebrew
+  - gcc # required to compile some brews
+  - gnupg # required by many tools
+  - tar # no brew
+  - bind-tools # no brew
+  - traceroute # no brew
 tdnf:
-  - gnupg
-  - gcc
   - git # required by homebrew
-  - sudo
-  - zsh
-  - make
-  - gawk
-  - net-tools
-  - traceroute
-  - unzip
-  - vim
-  - jq
-  - file
-  - tar
+  - sudo # required by some scripts
+  - zsh # prerequisite for shell
   - procps # required by homebrew
+  - gcc # required to compile some brews
+  - gnupg # required by many tools
+  - traceroute # no brew
+  - bind-utils # no brew
+  - tar # no brew
 homebrew:
   common:
     taps:
@@ -150,6 +121,8 @@ homebrew:
     taps: []
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
       - Azure/kubelogin/kubelogin # not working
+      - net-tools
+      - gawk
     brews: []
   darwin:
     taps: []
