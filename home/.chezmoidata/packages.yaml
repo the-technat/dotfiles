@@ -61,8 +61,8 @@ apk:
   - traceroute
   - unzip
   - ripgrep
-  - openssh # contains ssh-keygen
-  - shadow # contains usermod
+  - openssh # contains ssh-keygen to generate ssh-key
+  - shadow # contains usermod to change shell 
   - vim
   - jq
   - file
@@ -98,10 +98,16 @@ homebrew:
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
       - Azure/kubelogin/kubelogin # not working
     brews:
+      - make # neovim dependency
+      - gcc # neovim dependency
+      - fd # neovim dependency
+      - lazygit # neovim dependency
+      - ripgrep # neovim dependency
+      - fzf # neovim dependency
+      - tree-sitter-cli # neovim dependency
       - awscli
       - azure-cli
       - go
-      - neovim
       - hubble
       - cilium-cli
       - flyctl
@@ -109,7 +115,7 @@ homebrew:
       - helm
       - hugo
       - kubectl
-      - uv
+      - uv # for managing python versions
       - k9s
       - mirrord
       - stern
@@ -121,7 +127,6 @@ homebrew:
       - bat
       - gopls
       - nvm
-      - fzf
       - gh
       - yq
       - sdkman-cli # for java versions
@@ -129,12 +134,6 @@ homebrew:
       - dive
       - kind
       - hashicorp/tap/terraform
-      - hashicorp/tap/terraform-ls
-      - yaml-language-server # used by nvim
-      - vscode-langservers-extracted # used by nvim, contains html,css,json LS
-      - lua-language-server # used by nvim
-      - bash-language-server # used by nvim
-      - dockerfile-language-server # used by nvim
       - tailscale
   darwin:
     taps:
@@ -143,14 +142,19 @@ homebrew:
       - hashicorp/tap
       - sdkman/tap
     brews:
+      - neovim
       - make # neovim dependency
       - gcc # neovim dependency
+      - fd # neovim dependency
+      - lazygit # neovim dependency
+      - ripgrep # neovim dependency
+      - fzf # neovim dependency
+      - tree-sitter-cli # neovim dependency
       - nmap
       - unzip
       - btop
       - Azure/kubelogin/kubelogin
       - tmux
-      - ripgrep # neovim dependency
       - vim
       - bat
       - jq
@@ -158,12 +162,10 @@ homebrew:
       - tmux
       - awscli
       - azure-cli
-      - neovim
       - go
       - hubble
       - cilium-cli
       - flyctl
-      - fzf
       - sdkman-cli # for java versions
       - zip # required by sdkman
       - golangci-lint
@@ -176,7 +178,6 @@ homebrew:
       - dive
       - mirrord
       - hashicorp/tap/terraform
-      - hashicorp/tap/terraform-ls
       - stern
       - kustomize
       - kubie
@@ -184,13 +185,7 @@ homebrew:
       - eksctl
       - argocd
       - bat
-      - gopls # used by nvim
-      - nvm
-      - yaml-language-server # used by nvim
-      - vscode-langservers-extracted # used by nvim, contains html,css,json LS
-      - lua-language-server # used by nvim
-      - bash-language-server # used by nvim
-      - dockerfile-language-server # used by nvim
+      - nvm # to manage node versions
       - tailscale # cli to manage the agent
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
