@@ -72,6 +72,14 @@ On `darwin` these settings can be controlled since we install [ghostty](https://
 linux-based systems you either have to ignore these things or configure them manually if needed. 
 In cases where you use ssh into a box this won't apply of course.
 
+## ZSH
+
+I use zsh on all my systems for concistency. There are three important files:
+
+- `.zshenv`: contains env vars that are loaded everywhere and don't change when reinvoked
+- `.zprofile`: contains setup scripts that should only run once, usually tools that export env vars
+- `.zshrc`: contains oh-my-zsh and aliases/functions that should be run on every shell invocation
+
 ## Tooling
 
 I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew. 
