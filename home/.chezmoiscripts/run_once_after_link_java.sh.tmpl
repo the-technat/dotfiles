@@ -1,5 +1,0 @@
-{{ if eq .chezmoi.os "darwin" -}}
-#!/usr/bin/env zsh
-set -eufo pipefail
-sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-{{ end -}}

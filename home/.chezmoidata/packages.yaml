@@ -94,6 +94,7 @@ homebrew:
       - metalbear-co/mirrord
       - Azure/kubelogin
       - hashicorp/tap
+      - sdkman/tap
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
       - Azure/kubelogin/kubelogin # not working
     brews:
@@ -121,10 +122,9 @@ homebrew:
       - gopls
       - nvm
       - fzf
-      - openjdk
-      - maven
       - gh
       - yq
+      - sdkman-cli
       - dive
       - kind
       - hashicorp/tap/terraform
@@ -140,6 +140,7 @@ homebrew:
       - metalbear-co/mirrord
       - Azure/kubelogin
       - hashicorp/tap
+      - sdkman/tap
     brews:
       - make # neovim dependency
       - gcc # neovim dependency
@@ -157,13 +158,12 @@ homebrew:
       - awscli
       - azure-cli
       - neovim
-      - openjdk
-      - maven
       - go
       - hubble
       - cilium-cli
       - flyctl
       - fzf
+      - sdkman-cli # for java versions
       - golangci-lint
       - helm
       - hugo
