@@ -141,7 +141,7 @@ function newArgo() {
 }
 
 function upgradeArgo() {
-  helm upgrade -i argocd -n argocd --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd $1
+  helm upgrade -i argocd -n argocd --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd "$@"
 }
 
 alias hubblepf="kubectl port-forward -n kube-system svc/hubble-relay 4245:80"
