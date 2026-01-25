@@ -7,7 +7,6 @@ Supports `darwin` and headless-`linux`-distros. The following distros are tested
 - Debian
 - Rocky Linux
 - Fedora
-- Alpine
 - Amazon Linux 
 - Azure Linux
 
@@ -47,6 +46,7 @@ That's why I exensively test my dotfiles against many popular linux distros to e
 Dotfiles are installed for the user that kicks off the bootstrap. But there are some exceptions where elevated privileges are required:
 - to change the default shell for the user 
 - to install system-wide packages required by other local dev tooling 
+- to install homebrew
 - to install code-server systemd wide (only `linux`)
 
 To do so we assume that the bootstraping either has access to passwordless-sudo or is run in a terminal where the password can be entered multiple times during the boostrap (e.g a TTY is attached).
@@ -71,10 +71,6 @@ You can see the full list of packages installed in the [home/.chezmoidata/packag
 Updates are handeled by the system package manager or homebrew itself. chezmoi may sometimes trigger an update but
 in general it's the responsibility of the user to regurarly update tools using the package managers.
 
-### Alpine Specials
-
-Homebrew isn't installed and supported on alpine and thus skipped. Install tools manually if needed.
-
 ### Darwin
 
 For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
@@ -88,7 +84,7 @@ I'm using VSCodium as my primary IDE alongside NeoVim for some terminal-based ed
 
 For headless-`linux` there is no homebrew package for VSCodium since this is a desktop-application. In these cases I had great success with [code-server](https://github.com/coder/code-server) as a 1:1 replacement for VSCodium. It's config is also part of the dotfiles and it's installation is done by a script that is executed once in the beginning.
 
-## Styling / Terminal experience
+## Terminal
 
 To have a more or less consistent terminal experience and to be productive I use tmux in combination 
 with NeoVim to do most stuff. 
@@ -103,6 +99,8 @@ On `darwin` these settings can be controlled since we install [ghostty](https://
 linux-based systems you either have to ignore these things or configure them manually if needed. 
 In cases where you use ssh into a box this won't apply of course.
 
+Note that the config for ghostty is placed in the proper directory. If you wish to use ghostty on linu too, you can simply install it.
+
 ## ZSH
 
 I use zsh on all my systems for concistency. There are three important files:
@@ -113,9 +111,12 @@ I use zsh on all my systems for concistency. There are three important files:
 
 ## Devcontainers
 
+
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
 
-We also skip homebrew and most of it's tooling as this is mostly preinstalled in a devcontainer.
+We also don't install code-server nor homebrew and tools on devcontainers since they mostly bring their own development tools with them.
+
+So theoretically only the shell configs are placed on a devcontainer. And even the shell configs contain some if-statements to ensure we don't setup things that homebrew would have installed.
 
 ## SSH
 

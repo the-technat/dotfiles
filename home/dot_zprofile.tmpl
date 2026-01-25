@@ -13,6 +13,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
 
+{{ if not .devcontainer -}}
 # exports nvm and it's installations to PATH
 NVM_PREFIX=$(brew --prefix nvm)
 [ -s "$NVM_PREFIX/nvm.sh" ] && \. "$NVM_PREFIX/nvm.sh"  # This loads nvm
@@ -24,3 +25,4 @@ export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 
 # exports homebrew-tooling autocompletion to zsh
 FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+{{ end -}}

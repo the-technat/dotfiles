@@ -74,17 +74,6 @@ fi
   fi
 {{ end -}}
 
-{{/* Loop over system packages list and install with apk */}}
-{{ if eq .osid "linux-alpine" -}}
-  if command -v "sudo" > /dev/null; then
-     sudo apk update
-     sudo apk add {{ range .apk }}{{ . }} {{ end }}
-  else
-     apk update
-     apk add {{ range .apk }}{{ . }} {{ end }}
-  fi
-  {{ end -}}
-
 {{/* Loop over system packages list and install with tdnf */}}
 {{ if eq .osid "linux-azurelinux" -}}
   if command -v "sudo" > /dev/null; then
@@ -111,8 +100,7 @@ fi
   fi
   {{   end -}}
 {{ end -}}
-{{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") -}}
-{{/* Homebrew isn't supported on Alpine */}}
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer)  -}}
   if ! command -v "/home/linuxbrew/.linuxbrew/bin/brew" > /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   fi
@@ -123,7 +111,7 @@ fi
 # homebrew prefix can be hardcoded since homebrew itself states that statically linked stuff in their ecossystem depends on this prefix
 # updates can also be done manually using `brew update & brew upgrade`
 {{/* Loop over system packages list and install with homebrew */}}
-{{ if and (eq .chezmoi.os "linux") (ne .osid "linux-alpine") (not .devcontainer) -}}
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
 export HOMEBREW_NO_ENV_HINTS=1
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew --version
@@ -146,7 +134,7 @@ brew {{ . | quote }}
 EOF
 {{ end -}}
 
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") (ne .osid "linux-alpine") (not .devcontainer ) -}}
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") (not .devcontainer ) -}}
 brew bundle --file=/dev/stdin <<EOF
 {{ range .homebrew.linux.tier3_brews -}}
 brew {{ . | quote }}

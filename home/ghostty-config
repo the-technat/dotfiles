@@ -45,4 +45,5 @@ theme = "light:Catppuccin Latte,dark:Catppuccin Frappe"
 font-family = "FiraCode Nerd Font Mono"
 font-size = 14
 copy-on-select = true
-command = ~/.local/share/chezmoi/home/tmux-launch.sh
+# currently we launch tmux manually so we can reattach to different sessions 
+#command = ~/.local/share/chezmoi/home/tmux-launch.sh

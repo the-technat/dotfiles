@@ -28,19 +28,6 @@ dnf_remote:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
   arm64:
     - https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm
-apk:
-  - git # required by homebrew
-  - sudo # required by some scripts
-  - zsh # prerequisite for shell
-  - openssh # contains ssh-keygen to generate ssh-key
-  - shadow # contains usermod to change shell 
-  - bash # required to install homebrew
-  - ruby # since we don't have glibc we install latest ruby for homebrew
-  - gcc # required to compile some brews
-  - gnupg # required by many tools
-  - tar # no brew
-  - bind-tools # no brew
-  - traceroute # no brew
 tdnf:
   - git # required by homebrew
   - sudo # required by some scripts

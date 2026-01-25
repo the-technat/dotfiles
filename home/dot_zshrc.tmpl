@@ -24,7 +24,6 @@ plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker)
 DISABLE_AUTO_UPDATE="true" # because chezmoi manages this
 COMPLETION_WAITING_DOTS="true"
 
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
 
 DEFAULT_USER={{ .chezmoi.username }}
