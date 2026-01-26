@@ -1,9 +1,24 @@
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
-export PATH="/home/{{ .chezmoi.username }}/go/bin:$PATH"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end -}}
+{{ if eq .chezmoi.os "darwin" -}}
+{{   if contains "arm" (output "uname" "-p" | trim) -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{   else -}}
+eval "$(/usr/local/bin/brew shellenv)"
+{{   end -}}
+{{ end -}}
+
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
+# .local/bin is where uv installs local python versions
+# go/bin is where go installs local go tools
+export PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
-export PATH="/Users/{{ .chezmoi.username }}/go/bin:$PATH"
+# .local/bin is where uv installs local python versions
+# go/bin is where go installs local go tools
+export PATH="/Users/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
 # Orbstack injects this here automatically
 # It's important to only do it once, this script is not intelligent
 # and would prepend the orbstack bin dir multiple times if called multiple times

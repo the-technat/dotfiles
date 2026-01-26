@@ -107,7 +107,7 @@ Note that the config for ghostty is placed in the proper directory. If you wish 
 I use zsh on all my systems for concistency. There are three important files:
 
 - `.zshenv`: contains env vars that are loaded everywhere (including homebrew env)
-- `.zprofile`: contains setup scripts that should only run once (e.g scripts that modify PATH bluntly, things that clutter PATH)
+- `.zprofile`: contains setup scripts that should only run once (e.g scripts that modify PATH bluntly, including homebrew)
 - `.zshrc`: contains oh-my-zsh and aliases/functions that should be run on every shell invocation
   - Should not mess with `PATH` or similar functions!
   - Doesn't have to add completion for tools that already provide their completion via homebrew
@@ -166,5 +166,7 @@ Latest version is preinstalled and ready to use. Should be compatible with all o
 ### Go
 
 The latest version of go is installed and ready to use. Other versions are automatically used by the go's smart toolchain if needed. 
+
+The `$GOPATH/bin` directoy is in `PATH` so you can use go tools if desired.
 
 </details>
