@@ -14,7 +14,7 @@ source ~/.orbstack/shell/init.zsh
 {{ if not .devcontainer -}}
 export NVM_DIR="${HOME}/.nvm"
 source "$NVM_DIR/nvm.sh"
-export SDKMAN_DIR="$(brew --prefix sdman-cli)/libexec"
+export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
 source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{ end -}}
 
