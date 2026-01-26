@@ -16,8 +16,7 @@ These distros should work no matter if you run them in a VM, a container or usin
 ## Install
 
 ```console
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
-$HOME/.local/bin/chezmoi init --apply the-technat
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply the-technat
 ```
 
 **Note**: We assume that either this runs somewhere you can enter your password a couple of times (e.g TTY attached) or passwordless-sudo is pre-configured. This implies that the user we run this for has to exist already.
