@@ -1,10 +1,9 @@
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
-export PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
+#export PATH="/home/{{ .chezmoi.username }}/go/bin:$PATH"
 {{ end -}}
 
 {{ if eq .chezmoi.os "darwin" -}}
-export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-export PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
+#export PATH="/Users/{{ .chezmoi.username }}/go/bin:$PATH"
 # Orbstack injects this here automatically
 # It's important to only do it once, this script is not intelligent
 # and would prepend the orbstack bin dir multiple times if called multiple times
@@ -12,9 +11,9 @@ source ~/.orbstack/shell/init.zsh
 {{ end -}}
 
 {{ if not .devcontainer -}}
-export NVM_DIR="${HOME}/.nvm"
-source "$NVM_DIR/nvm.sh"
-export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
-source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+#export NVM_DIR="${HOME}/.nvm"
+#source "$NVM_DIR/nvm.sh"
+#export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
+#source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{ end -}}
 

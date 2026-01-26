@@ -7,6 +7,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{   else -}}
 eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
+SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 {{ end -}}
 AWS_PAGER=/usr/bin/less
 AWS_DEFAULT_OUTPUT=table
