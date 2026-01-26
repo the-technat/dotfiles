@@ -3,11 +3,12 @@
 My engineering environment as code managed by chezmoi.
 
 Supports `darwin` and headless-`linux`-distros. The following distros are tested:
+
 - Ubuntu
 - Debian
 - Rocky Linux
 - Fedora
-- Amazon Linux 
+- Amazon Linux
 - Azure Linux
 
 These distros should work no matter if you run them in a VM, a container or using WSL2.
@@ -36,16 +37,17 @@ This is only required for signing git commits, every other tool will use the key
 
 ## OS Support
 
-As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling. 
-On the other hand I would like to be able to code on a remote linux system (e.g a VM in the cloud or a devcontainer) in the same way I do on my Mac. 
-For this purpose my dotfiles must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable. 
+As the headline suggests we support `darwin` and headless-`linux`. My idea with this was that I'm primarely using `darwin`-based systems where I'd like chezmoi to manage all my engineering environment, including desktop tooling.
+On the other hand I would like to be able to code on a remote linux system (e.g a VM in the cloud or a devcontainer) in the same way I do on my Mac.
+For this purpose my dotfiles must be really good at porting over the experience I'm familiar with on my Mac to that remote system without taking too much time to do so and being reliable.
 That's why I exensively test my dotfiles against many popular linux distros to ensure that whatever OS the remote system has it should work out of the box within minutes.
 
 ## Permissions
 
 Dotfiles are installed for the user that kicks off the bootstrap. But there are some exceptions where elevated privileges are required:
-- to change the default shell for the user 
-- to install system-wide packages required by other local dev tooling 
+
+- to change the default shell for the user
+- to install system-wide packages required by other local dev tooling
 - to install homebrew
 - to install code-server systemd wide (only `linux`)
 
@@ -53,16 +55,16 @@ To do so we assume that the bootstraping either has access to passwordless-sudo 
 
 ## Tooling
 
-I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew. 
+I got two different package managers per OS. One is the default that's preinstalled on every OS and the other is Homebrew.
 
-The system package manager is good at installing general tooling and dependencies required by Homebrew. 
+The system package manager is good at installing general tooling and dependencies required by Homebrew.
 It runs at the beginning ensuring a common baseline that we are going to need afterwards.
 
-Homebrew runs after the system package manager and installs development-specific tools that don't exist 
-in system package managers or where I need a more recent versions than otherwise available. 
+Homebrew runs after the system package manager and installs development-specific tools that don't exist
+in system package managers or where I need a more recent versions than otherwise available.
 
-The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles 
-or tools that are referenced in an alias or similiar. 
+The list of tools we install that way is rather small and limited to tools that have a config in my dotfiles
+or tools that are referenced in an alias or similiar.
 
 Any other development tooling should be installed manually at the time it's needed using it's respective framework (see below for a list of programming languages).
 
@@ -73,7 +75,7 @@ in general it's the responsibility of the user to regurarly update tools using t
 
 ### Darwin
 
-For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one 
+For `darwin` I count [homebrew](https://brew.sh) as the system package manager as there's no one
 preinstalled and no other package manager used.
 
 As notes previously already, on Darwin we also install `casks` for development-tasks. Something we won't be doing on linux.
@@ -86,17 +88,17 @@ For headless-`linux` there is no homebrew package for VSCodium since this is a d
 
 ## Terminal
 
-To have a more or less consistent terminal experience and to be productive I use tmux in combination 
-with NeoVim to do most stuff. 
-This will always be the same no mather the OS. 
+To have a more or less consistent terminal experience and to be productive I use tmux in combination
+with NeoVim to do most stuff.
+This will always be the same no mather the OS.
 There are some things however tmux can't control and that are dependant on the terminal emulator used:
 
 - color theme
 - font
 - shortcuts to increase/decrease font
 
-On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on 
-linux-based systems you either have to ignore these things or configure them manually if needed. 
+On `darwin` these settings can be controlled since we install [ghostty](https://ghostty.org), but on
+linux-based systems you either have to ignore these things or configure them manually if needed.
 In cases where you use ssh into a box this won't apply of course.
 
 Note that the config for ghostty is placed in the proper directory. If you wish to use ghostty on linu too, you can simply install it.
@@ -105,12 +107,13 @@ Note that the config for ghostty is placed in the proper directory. If you wish 
 
 I use zsh on all my systems for concistency. There are three important files:
 
-- `.zshenv`: contains env vars that are loaded everywhere and don't change when reinvoked
-- `.zprofile`: contains setup scripts that should only run once, usually tools that export env vars
+- `.zshenv`: contains env vars that are loaded everywhere (including homebrew env)
+- `.zprofile`: contains setup scripts that should only run once (e.g scripts that modify PATH bluntly)
 - `.zshrc`: contains oh-my-zsh and aliases/functions that should be run on every shell invocation
+  - Should not mess with `PATH` or similar functions!
+  - Doesn't have to add completion for tools that already provide their completion via homebrew
 
 ## Devcontainers
-
 
 We skip SSH and Git configs when we can detect that dotfiles are installed in a devcontainer. Devcontainers usually bring their own integrated solution how to authenticate against Git that mostly also relies on the SSH config, so we'd have to either be very specific about which directives we manage or ensure they never conflict.
 
@@ -128,7 +131,7 @@ If you want to extend the ssh config without commiting stuff to the repository, 
 
 ## Git
 
-The gitconfig assumes the above SSH setup. Apart from this, you can add custom git config 
+The gitconfig assumes the above SSH setup. Apart from this, you can add custom git config
 to `~/.gitcustom` and it's included without the need to commit something to the repo and thus applying to all machines.
 
 ## Container Engine
@@ -145,14 +148,14 @@ There is no java version preinstalled using sdkman, install them when needed.
 
 ### Python
 
-We use uv to manage python versions. It's installed and hooked up in zsh automatically. 
+We use uv to manage python versions. It's installed and hooked up in zsh automatically.
 There might be some python versions installed by homebrew as transitive dependencies from other tools, but we never make us of them directly.
 
 There is no python version preinstalled using uv, install them when needed.
 
 ### Node
 
-We use nvm to manage node versions. It's installed and hooked up in zsh automatically. 
+We use nvm to manage node versions. It's installed and hooked up in zsh automatically.
 Any node version installed by homebrew is a transitive dependency not used directly.
 
 There should be no preinstalled node version installed via nvm, install them when needed.

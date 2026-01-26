@@ -1,11 +1,17 @@
-NVM_DIR="$HOME/.nvm"
-DEFAULT_USER={{ .chezmoi.username }}
+{{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end -}}
+{{ if eq .chezmoi.os "darwin" -}}
+{{   if contains "arm" (output "uname" "-p" | trim) -}}
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{   else -}}
+eval "$(/usr/local/bin/brew shellenv)"
+{{   end -}}
+{{ end -}}
 AWS_PAGER=/usr/bin/less
 AWS_DEFAULT_OUTPUT=table
-DEFAULT_USER="{{ .chezmoi.username }}"
 EDITOR=nvim
 GIT_EDITOR=nvim
 KUBE_EDITOR=nvim
-{{ if eq .chezmoi.os "darwin" -}}
-SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
-{{ end -}}
+DEFAULT_USER={{ .chezmoi.username }}
+

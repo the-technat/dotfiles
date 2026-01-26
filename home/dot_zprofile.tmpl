@@ -1,28 +1,20 @@
-{{ if eq .chezmoi.os "darwin" -}}
-{{   if contains "arm" (output "uname" "-p" | trim) -}}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{ else -}}
-eval "$(/usr/local/bin/brew shellenv)"
-{{   end -}}
-PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
-# inject orbstack specific tooling
-source ~/.orbstack/shell/init.zsh 
-{{ end -}}
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
+export PATH="/home/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}/.local/bin:$PATH"
+{{ end -}}
+
+{{ if eq .chezmoi.os "darwin" -}}
+export SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
+export PATH="/Users/{{ .chezmoi.username }}/go/bin:/Users/{{ .chezmoi.username }}/.local/bin:$PATH"
+# Orbstack injects this here automatically
+# It's important to only do it once, this script is not intelligent
+# and would prepend the orbstack bin dir multiple times if called multiple times
+source ~/.orbstack/shell/init.zsh  
 {{ end -}}
 
 {{ if not .devcontainer -}}
-# exports nvm and it's installations to PATH
-NVM_PREFIX=$(brew --prefix nvm)
-[ -s "$NVM_PREFIX/nvm.sh" ] && \. "$NVM_PREFIX/nvm.sh"  # This loads nvm
-[ -s "$NVM_PREFIX/etc/bash_completion.d/nvm" ] && \. "$NVM_PREFIX/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# exports sdkman and it's installations to PATH
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
-
-# exports homebrew-tooling autocompletion to zsh
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+export NVM_DIR="${HOME}/.nvm"
+source "$NVM_DIR/nvm.sh"
+export SDKMAN_DIR="$(brew --prefix sdman-cli)/libexec"
+source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{ end -}}
+

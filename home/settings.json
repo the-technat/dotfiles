@@ -55,4 +55,5 @@
   "todohighlight.keywords": [
     "TODO"
   ],
+  "debug.breakpointsView.presentation": "tree",
 }
