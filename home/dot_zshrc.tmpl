@@ -5,7 +5,7 @@ COMPLETION_WAITING_DOTS="true" # I like this
 {{ if .devcontainer -}}
 
 ZSH_THEME="random"
-plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker sdk)
 
 {{ end }}
 {{ if eq .chezmoi.os "darwin" -}}
