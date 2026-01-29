@@ -8,5 +8,5 @@ k9s:
     enableMouse: true
   logger:
     textWrap: true
-    showTime: true
+    showTime: false
     buffer: 99999
