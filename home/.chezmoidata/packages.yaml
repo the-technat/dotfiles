@@ -116,7 +116,9 @@ homebrew:
       - Azure/kubelogin/kubelogin # not working
       - net-tools
       - gawk
-    brews: []
+    brews:
+      # Terminal font
+      - font-fira-code-nerd-font
   darwin:
     taps: []
     brews: 
@@ -125,8 +127,8 @@ homebrew:
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
       - "vscodium" # do it all IDE
-      - "font-fira-code-nerd-font" # font for terminal
       - "session-manager-plugin" # used for SSH over SSM
+      - "font-fira-code-nerd-font" # terminal emulator font with icons
       - "secretive" # hardware-backed ssh keys
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
