@@ -58,6 +58,10 @@ set -g @resurrect-capture-pane-contents 'on'
 ## restore these additional running programms
 set -g @resurrect-processes '"~ssh *" "~k *" "~kubectl *" "~kubie *" "~htop" "~k9s"'
 
+# tmux-continuum
+set -g @continuum-save-interval '10'
+set -g @continuum-restore 'on'
+
 # tmux-open
 ## search for strings by default in duckduckgo
 set -g @open-S 'https://duckduckgo.com/?q='
