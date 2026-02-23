@@ -1,5 +1,14 @@
 return {
   "rcarriga/nvim-dap-ui",
+  keys = {
+    {
+      "<leader>dx",
+      function()
+        require("dapui").float_element("console", { position = "center" })
+      end,
+      desc = "Show debug console",
+    },
+  },
   opts = {
     layouts = {
       {
@@ -7,7 +16,7 @@ return {
           { id = "scopes", size = 1 },
         },
         position = "bottom",
-        size = 30,
+        size = 15,
       },
     },
   },
