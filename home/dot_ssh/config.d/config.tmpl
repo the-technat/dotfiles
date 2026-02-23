@@ -14,6 +14,9 @@ Host github.com
   Hostname github.com
   User git
   Port 22
+{{ if eq .chezmoi.os "darwin" -}}
+  IdentityFile ~/.ssh/ssh_signing.pub
+{{ end -}}
 
 Host i-* mi-*  # for AWS SSM
   ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p'"
