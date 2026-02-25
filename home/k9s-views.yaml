@@ -1,0 +1,20 @@
+views:
+  eks:
+    sortColumn: AGE:asc
+    columns:
+      - NAME
+      - STATUS
+      - AGE
+      - TAINTS|N
+      - PODS
+      - VERSION
+      - INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type
+      - ZONE:.metadata.labels.topology\.kubernetes\.io/zone
+      - DisabledSch:.spec.unschedulable
+      - INSTANCE:.spec.providerID|W
+      - AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image|W
+      - OS-IMAGE|W
+      - KERNEL|W
+      - NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup|W
+      - LTemplateID:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateId|W
+      - LTVer:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateVersion|W
