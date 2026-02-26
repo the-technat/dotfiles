@@ -10,11 +10,11 @@ views:
       - VERSION
       - INSTANCE_TYPE:.metadata.labels.node\.kubernetes\.io/instance-type
       - ZONE:.metadata.labels.topology\.kubernetes\.io/zone
-      - DisabledSch:.spec.unschedulable
+      - NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup|W
       - INSTANCE:.spec.providerID|W
       - AMI:.metadata.labels.eks\.amazonaws\.com/nodegroup-image|W
       - OS-IMAGE|W
       - KERNEL|W
-      - NODEGROUP:.metadata.labels.eks\.amazonaws\.com/nodegroup|W
+      - DisabledSch:.spec.unschedulable|W
       - LTemplateID:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateId|W
       - LTVer:.metadata.labels.eks\.amazonaws\.com/sourceLaunchTemplateVersion|W
