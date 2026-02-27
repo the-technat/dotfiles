@@ -103,6 +103,7 @@ alias ks="k -n kube-system"
 alias patchFinalizers="kubectl patch -p '{\"metadata\":{\"finalizers\":[]}}' --type=merge -n"
 alias kebug="kubectl run --rm -ti --image docker.io/nicolaka/netshoot debugbox$RANDOM -- bash"
 
+
 function grabWebCert() {
   openssl s_client -connect $1:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p'
 }
@@ -332,6 +333,14 @@ gethostPodsByNode() {
 }
 execToPod() {
   pod=$(kubectl get pods -o=name| fzf)
+  kubectl exec -ti $pod -- $@
+}
+function attachDebugPod() {
+  echo "Use IMAGE var to override default image used"
+  pod=$(kubectl get pods -o=name| fzf)
+  container=$(kubectl get pod ${pod} -o=jsonpath='{.spec.containers[*].name}' | fzf)
+  image=${IMAGE:-docker.io/nicolaka/netshoot}
+  kubectl debug -ti ${pod#"pod/"} --image=$image --target=${container} --profile=general
   kubectl exec -ti $pod -- $@
 }
 showGPUNodes() {
