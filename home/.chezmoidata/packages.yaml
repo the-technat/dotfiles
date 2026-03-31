@@ -123,6 +123,7 @@ homebrew:
     taps: []
     brews: 
     - Azure/kubelogin/kubelogin
+    - texlive
     casks: # casks are macos-only
       - "ghostty" # prefered terminal emulator on darwin
       - "devtoys" # helpful developer tools
@@ -133,3 +134,5 @@ homebrew:
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
       - "tailscale-app"
+      - "skim" # PDF viewer for texlive/lazyvim
+      - "nikitabobko/tap/aerospace" # tiling window manager
