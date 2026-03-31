@@ -135,4 +135,5 @@ homebrew:
       - "orbstack" # docker-engine + lightweight linux machines
       - "tailscale-app"
       - "skim" # PDF viewer for texlive/lazyvim
+      - "sioyek" # PDF viewer for texlive/lazyvim
       - "nikitabobko/tap/aerospace" # tiling window manager
