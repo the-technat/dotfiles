@@ -1,0 +1,4 @@
+[includeIf "hasconfig:remote.*.url:git@gitlab.fhnw.ch:*/**"]
+  path = "~/.gitconfig.gitlab"
+[includeIf "hasconfig:remote.*.url:https://github.com/postch/**"]
+  path = "~/.gitconfig.ghe"
