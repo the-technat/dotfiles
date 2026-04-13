@@ -56,4 +56,5 @@
     "TODO"
   ],
   "debug.breakpointsView.presentation": "tree",
+  "terminal.integrated.initialHint": false,
 }
