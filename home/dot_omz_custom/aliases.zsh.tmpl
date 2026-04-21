@@ -39,13 +39,14 @@ function newK3sOrb() {
 
   # The CIDR is the default in K3s
   # some settings have been taken from a "cilium install" magic detection
-  # port 1025 is taken since it's lower than 6443 so that orb's proxy uses this as backend port
   kubectl config use-context $1
   helm upgrade -i cilium cilium -n kube-system --repo https://helm.cilium.io \
     --set="ingressController.enabled=true" \
+    --set="ingressController.default=true" \
+    --set="ingressController.loadbalancerMode=shared" \
+    --set="ingressController.enforceHttps=false" \
     --set="ingressController.hostNetwork.enabled=true" \
-    --set="ingressController.hostNetwork.sharedListenerPort=1025" \
-    --set="ingressController.loadBalancerMode=shared" \
+    --set="ingressController.hostNetwork.sharedListenerPort=6080" \
     --set="ipam.operator.clusterPoolIPv4PodCIDRList=10.42.0.0/16" \
     --set="hubble.ui.enabled=true" \
     --set="hubble.relay.enabled=true" \
@@ -55,6 +56,11 @@ function newK3sOrb() {
     --set="operator.replicas=1" \
     --set="routingMode=tunnel" \
     --set="tunnelProtocol=vxlan"
+
+
+  # Tell orbstack that on port 6080 the ingress controller accepts http traffic
+  # this allows the use of $1.orb.local as domain in ingresses with working HTTPS
+  orbctl config set "machines.$1.http_port" 6080
 
 }
 
