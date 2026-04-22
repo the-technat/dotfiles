@@ -7,16 +7,11 @@ install.sh
 .oh-my-zsh/**/*.zwc
 
 settings.json
-ghostty-config
 tmux-launch.sh
 k9s-config.yaml
 k9s-aliases.yaml
 k9s-views.yaml
 .config/nvim/pack/*
-
-{{ if eq .chezmoi.os "darwin" -}}
-.config/ghostty/
-{{ end -}}
 
 {{ if eq .chezmoi.os "linux" -}}
 Library/
