@@ -60,7 +60,7 @@ function newK3sOrb() {
 
   # Tell orbstack that on port 6080 the ingress controller accepts http traffic
   # this allows the use of $1.orb.local as domain in ingresses with working HTTPS
-  orbctl config set "machines.$1.http_port" 6080
+  orbctl config set "machine.$1.http_port" 6080
 
 }
 
