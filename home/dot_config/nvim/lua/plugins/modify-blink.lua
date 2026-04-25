@@ -1,7 +1,8 @@
 return {
   "saghen/blink.cmp",
-  -- Make blink.cmp toogleable
+  -- Make blink.cmp toogleable (no src for this)
   opts = function(_, opts)
+    -- disabel completion globally
     vim.b.completion = false
 
     Snacks.toggle({

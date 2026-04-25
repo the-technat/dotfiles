@@ -1,9 +1,9 @@
 return {
-  { 'ThorstenRhau/token' },
+  { "ThorstenRhau/token" },
   {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "token",
     },
-  }
+  },
 }
