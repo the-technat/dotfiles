@@ -9,7 +9,23 @@ return {
       end,
       desc = "Toggle Scopes (floating)",
     },
+    {
+      "<leader>dl",
+      function()
+        require("dapui").float_element("console")
+      end,
+      desc = "Toggle Console (floating)",
+    },
+
   },
+  config = function(_, opts)
+      local dap = require("dap")
+      local dapui = require("dapui")
+      dapui.setup(opts)
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open({})
+      end
+  end,
   -- inspiration: https://github.com/rcarriga/nvim-dap-ui/issues/429#issuecomment-2629045405
   opts = {
     layouts = {
