@@ -1,4 +1,5 @@
 -- https://github.com/dpetka2001/dotfiles/blob/main/dot_config/nvim/lua/plugins/toggleterm.lua
+-- https://github.com/LazyVim/LazyVim/discussions/193#discussioncomment-4887615
 return {
   {
     "akinsho/toggleterm.nvim",
