@@ -164,10 +164,10 @@ function restartArgo() {
 
 function newArgo() {
   if [[ "$1" != "" ]]
-  then
-    helm upgrade -i $1 -n $1 --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd --set crds.install=false
+  then 
+    helm upgrade -i $1 -n $1 --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd --set crds.install=false --set server.ingress.enabled=true
   else
-    helm upgrade -i argocd -n argocd --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd 
+    helm upgrade -i argocd -n argocd --create-namespace oci://ghcr.io/argoproj/argo-helm/argo-cd  --set server.ingress.enabled=true
   fi
 }
 
