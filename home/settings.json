@@ -1,6 +1,5 @@
 {
   "workbench.colorTheme": "MacOS Modern Light - Xcode Default",
-  "workbench.sideBar.location": "right",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
@@ -25,7 +24,6 @@
   "update.showReleaseNotes": false,
   "makefile.configureOnOpen": true,
   "docker.extension.enableComposeLanguageServer": false,
-  "mirrord.promptTargetless": false,
   "mirrord.promptUsingDefaultConfig": false,
   "window.systemColorTheme": "auto",
   "java.help.showReleaseNotes": false,
@@ -49,12 +47,17 @@
   "git.blame.editorDecoration.enabled": true,
   "git.blame.statusBarItem.enabled": false,
   "editor.minimap.autohide": "mouseover",
-  "workbench.preferredLightColorTheme": "MacOS Modern Light - Ventura Xcode",
-  "workbench.iconTheme": "macos-modern-minimal-finder-icon-theme",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "catppuccin-latte",
   "workbench.productIconTheme": "macos-modern",
   "todohighlight.keywords": [
     "TODO"
   ],
   "debug.breakpointsView.presentation": "tree",
   "terminal.integrated.initialHint": false,
+  "workbench.activityBar.compact": true,
+  "workbench.sideBar.location": "right",
+  "mirrord.promptOutdated": false,
+  "mirrord.promptMirrordForTeams": false,
+  "java.maven.downloadSources": true,
 }
