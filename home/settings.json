@@ -25,6 +25,9 @@
   "makefile.configureOnOpen": true,
   "docker.extension.enableComposeLanguageServer": false,
   "mirrord.promptUsingDefaultConfig": false,
+  "mirrord.promptUsingBinary": false,
+  "mirrord.promptOutdated": false,
+  "mirrord.promptMirrordForTeams": false,
   "window.systemColorTheme": "auto",
   "java.help.showReleaseNotes": false,
   "java.jdt.ls.java.home": "",
@@ -57,7 +60,5 @@
   "terminal.integrated.initialHint": false,
   "workbench.activityBar.compact": true,
   "workbench.sideBar.location": "right",
-  "mirrord.promptOutdated": false,
-  "mirrord.promptMirrordForTeams": false,
-  "java.maven.downloadSources": true,
+  "java.maven.downloadSources": true
 }
