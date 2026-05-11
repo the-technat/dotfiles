@@ -54,7 +54,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 #
 [[on-window-detected]]
-  if.window-title-regex-substring = 'Topo Data Explorer'
+  if.app-name-regex-substring = 'java'
   check-further-callbacks = true
   run = ['layout floating']  # The callback itself
 

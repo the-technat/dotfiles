@@ -23,6 +23,9 @@ export PATH="/Users/{{ .chezmoi.username }}/go/bin:/home/{{ .chezmoi.username }}
 # It's important to only do it once, this script is not intelligent
 # and would prepend the orbstack bin dir multiple times if called multiple times
 source ~/.orbstack/shell/init.zsh  
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/${{ .chezmoi.username }}/Library/Application Support/JetBrains/Toolbox/scripts"
 {{ end -}}
 
 {{ if not .devcontainer -}}

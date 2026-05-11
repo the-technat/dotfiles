@@ -137,3 +137,4 @@ homebrew:
       - "skim" # PDF viewer for texlive/lazyvim
       - "sioyek" # PDF viewer for texlive/lazyvim
       - "nikitabobko/tap/aerospace" # tiling window manager
+      - "jetbrains-toolbox" # programming tools (settings synced via intellij account)
