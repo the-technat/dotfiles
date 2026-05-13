@@ -104,6 +104,7 @@ homebrew:
       - file-formula
       # Git
       - gh
+      - git-lfs
       # Processes
       - btop
       # Archives
