@@ -114,11 +114,6 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
 
     # See: https://nikitabobko.github.io/AeroSpace/goodies#open-a-new-window-with-applescript
     # https://ghostty.org/docs/features/applescript#creation-and-layout
-    alt-enter = '''exec-and-forget osascript -e '
-    tell application "Ghostty"
-        new window
-    end tell'
-    '''
 
     alt-f = 'fullscreen' # option + f to toggle fullscreen
     alt-space = 'layout floating tiling' # toggle between floating and regular window
