@@ -93,7 +93,6 @@ homebrew:
       - azure-cli
       - flyctl
       - hashicorp/tap/terraform
-      - tflint
       # Networking
       - nmap
       - tailscale
