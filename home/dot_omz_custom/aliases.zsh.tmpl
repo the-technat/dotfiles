@@ -337,6 +337,9 @@ gethostPodsByNode() {
     echo ""
   done
 }
+showKarpenterNodes() {
+  eks-node-viewer --node-selector karpenter.sh/nodepool --extra-labels karpenter.sh/nodepool,topology.kubernetes.io/zone --resources cpu,memory
+}
 execToPod() {
   pod=$(kubectl get pods -o=name| fzf)
   kubectl exec -ti $pod -- $@

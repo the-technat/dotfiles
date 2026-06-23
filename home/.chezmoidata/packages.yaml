@@ -45,6 +45,7 @@ homebrew:
       - Azure/kubelogin
       - hashicorp/tap
       - sdkman/tap
+      - aws/tap
     brews:
       - tmux
       # Neovim
@@ -93,6 +94,7 @@ homebrew:
       - azure-cli
       - flyctl
       - hashicorp/tap/terraform
+      - aws/tap/eks-node-viewer
       # Networking
       - nmap
       - tailscale
