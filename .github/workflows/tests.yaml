@@ -18,7 +18,7 @@ jobs:
     runs-on: macos-26
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
@@ -30,7 +30,7 @@ jobs:
       image: rockylinux/rockylinux:10
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
@@ -42,7 +42,7 @@ jobs:
       image: ubuntu:26.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install curl
       run: apt update && apt install -y curl
     - name: Install chezmoi
@@ -56,7 +56,7 @@ jobs:
       image: fedora:45
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
@@ -68,7 +68,7 @@ jobs:
       image: debian:bookworm-slim
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install curl
       run: apt update && apt install -y curl
     - name: Install chezmoi
@@ -84,7 +84,7 @@ jobs:
     - name: Install tar
       run: dnf install -y tar gzip
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
@@ -100,7 +100,7 @@ jobs:
     - name: Install tar
       run: tdnf install -y tar ca-certificates
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
     - name: Install chezmoi
       run: sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin
     - name: Run chezmoi
