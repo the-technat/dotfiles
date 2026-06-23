@@ -116,24 +116,22 @@ homebrew:
       - Azure/kubelogin/kubelogin # not working
       - net-tools
       - gawk
-    brews:
-      # Terminal font
-      - font-fira-code-nerd-font
+    brews: []
   darwin:
     taps: []
     brews: 
     - Azure/kubelogin/kubelogin
     - texlive
     casks: # casks are macos-only
-      - "ghostty" # prefered terminal emulator on darwin
+      - "ghostty" # prefered terminal emulator on macos
       - "devtoys" # helpful developer tools
       - "vscodium" # do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
       - "font-fira-code-nerd-font" # terminal emulator font with icons
-      - "secretive" # hardware-backed ssh keys
+      - "secretive" # security-enclave backed ssh keys
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
-      - "tailscale-app"
+      - "tailscale-app" # GUI Frontend for tailscale
       - "skim" # PDF viewer for texlive/lazyvim
       - "sioyek" # PDF viewer for texlive/lazyvim
       - "nikitabobko/tap/aerospace" # tiling window manager

@@ -27,4 +27,10 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[credential]
+  helper = store
+[includeIf "hasconfig:remote.*.url:git@gitlab.fhnw.ch:*/**"]
+  path = "~/.gitconfig.gitlab"
+[includeIf "hasconfig:remote.*.url:https://github.com/postch*/**"]
+  path = "~/.gitconfig.ghe"
 {{ end -}}

@@ -1,0 +1,4 @@
+[user]
+  email = nathanael.liechti@students.fhnw.ch
+  name = Nathanael Liechti
+  signingkey = ~/.ssh/ssh_signing_gitlab.pub # symlink to the actual secretive pub key (done manually)

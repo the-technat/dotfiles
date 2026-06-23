@@ -1,0 +1,8 @@
+[user]
+  email = nathanael.liechti@post.ch
+  name = Nathanael Liechti
+  signingkey = ~/.ssh/ssh_signing_ghe.pub # symlink to the actual secretive pub key (done manually)
+[credential "https://github.com"]
+  helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = !gh auth git-credential
