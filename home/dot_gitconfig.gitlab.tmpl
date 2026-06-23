@@ -1,4 +1,10 @@
 [user]
   email = nathanael.liechti@students.fhnw.ch
   name = Nathanael Liechti
+  {{- if eq .osid "darwin" }}
   signingkey = ~/.ssh/ssh_signing_gitlab.pub # symlink to the actual secretive pub key (done manually)
+  {{- end }}
+  {{- if eq .chezmoi.os "linux" }}
+  signingkey = ~/.ssh/id_ed25519
+  {{- end }}
+
