@@ -61,5 +61,13 @@
   "workbench.activityBar.compact": true,
   "workbench.sideBar.location": "right",
   "java.maven.downloadSources": true,
-  "git.autofetch": true
+  "git.autofetch": true,
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ]
 }
