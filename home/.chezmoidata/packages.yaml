@@ -64,6 +64,7 @@ homebrew:
       - imagemagick # neovim dependency
       - gs # neovim dependency
       - tectonic # neovim dependency
+      - biber # Latex neovim dependency
       # Java Dev
       - sdkman-cli 
       - zip # required by sdkman
