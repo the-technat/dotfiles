@@ -32,7 +32,6 @@ export PATH="$PATH:/Users/${{ .chezmoi.username }}/Library/Application Support/J
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" 
 [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
-source "$NVM_DIR/nvm.sh"
 export SDKMAN_DIR="$(brew --prefix sdkman-cli)/libexec"
 source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 {{ end -}}
