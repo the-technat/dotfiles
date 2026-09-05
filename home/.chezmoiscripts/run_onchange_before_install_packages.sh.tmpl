@@ -49,8 +49,10 @@ fi
   {{ if eq .chezmoi.arch "arm64" -}}
      {{ range .dnf_remote.arm64 }}
      if command -v "sudo" > /dev/null; then
+       sudo dnf update 
        sudo dnf install -y  {{ . }}
      else
+       dnf update
        dnf install -y  {{ . }}
      fi
      {{ end }}
@@ -58,8 +60,10 @@ fi
   {{ if eq .chezmoi.arch "x86_64" -}}
      {{ range .dnf_remote.x86_64 }}
      if command -v "sudo" > /dev/null; then
+       sudo dnf update
        sudo dnf install -y  {{ . }}
      else
+       dnf update
        dnf install -y  {{ . }}
      fi
      {{ end }}
