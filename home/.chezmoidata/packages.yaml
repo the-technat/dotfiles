@@ -121,7 +121,8 @@ homebrew:
       - gawk
     brews: []
   darwin:
-    taps: []
+    taps: 
+      - nikitabobko/tap
     brews: 
     - Azure/kubelogin/kubelogin
     - texlive
