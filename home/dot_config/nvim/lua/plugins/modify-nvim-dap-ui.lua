@@ -1,3 +1,4 @@
+-- modifis the debugging UI, where infos can be found and whether the UI closes / opens when a session ends or starts
 return {
   "rcarriga/nvim-dap-ui",
   keys = {
@@ -16,15 +17,15 @@ return {
       end,
       desc = "Toggle Console (floating)",
     },
-
   },
+  --- https://github.com/rcarriga/nvim-dap-ui/issues/201
   config = function(_, opts)
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup(opts)
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open({})
-      end
+    local dap = require("dap")
+    local dapui = require("dapui")
+    dapui.setup(opts)
+    dap.listeners.after.event_initialized["dapui_config"] = function()
+      dapui.open({})
+    end
   end,
   -- inspiration: https://github.com/rcarriga/nvim-dap-ui/issues/429#issuecomment-2629045405
   opts = {
