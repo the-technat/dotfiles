@@ -44,7 +44,6 @@ homebrew:
       - metalbear-co/mirrord
       - Azure/kubelogin
       - hashicorp/tap
-      - sdkman/tap
       - aws/tap
     brews:
       - tmux
@@ -66,8 +65,7 @@ homebrew:
       - tectonic # neovim dependency
       - biber # Latex neovim dependency
       # Java Dev
-      - sdkman-cli 
-      - zip # required by sdkman
+      - openjdk # Also required by texlive
       # Node
       - nvm 
       # Python
