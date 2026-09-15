@@ -31,6 +31,10 @@ ln -sf /Users/technat/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Da
 
 This is only required for signing git commits, every other tool will use the key from macOS's ssh-agent. The config for git commit signing is managed via dotfiles, but the key location is non-determinstic, hence this symlink. Don't forget to add the key as signing and authentication key in your Github account!
 
+#### Java 
+
+For java (openjdk) to work in the terminal on macOS you need to symlink it: `sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk`. 
+
 <details closed>
 <summary>Concepts and details</summary>
 
@@ -141,9 +145,9 @@ On `darwin` Homebrew installs [Orbstack](https://orbstack.dev) to use, on headle
 
 ### Java
 
-We use sdkman to manage java versions. It's installed and hooked up in zsh automatically.
+Since java is only used for few projects we simply install openjdk from homebrew. Texlive also depends on this so it would be installed anyway.
 
-There is no java version preinstalled using sdkman, install them when needed.
+On macOS openjdk is a key-only package, so in order to use it you need to run `sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk` in order for macOS to detect it's presence.
 
 ### Python
 
