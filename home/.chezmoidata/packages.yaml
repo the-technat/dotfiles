@@ -62,8 +62,6 @@ homebrew:
       - lua # neovim dependency
       - imagemagick # neovim dependency
       - gs # neovim dependency
-      - tectonic # neovim dependency
-      - biber # Latex neovim dependency
       # Java Dev
       - openjdk # Also required by texlive
       # Node
@@ -94,6 +92,8 @@ homebrew:
       - flyctl
       - hashicorp/tap/terraform
       - aws/tap/eks-node-viewer
+      - ansible
+      - ansible-lint
       # Networking
       - nmap
       - tailscale
@@ -134,7 +134,4 @@ homebrew:
       - "mactracker" # mac database
       - "orbstack" # docker-engine + lightweight linux machines
       - "tailscale-app" # GUI Frontend for tailscale
-      - "skim" # PDF viewer for texlive/lazyvim
-      - "sioyek" # PDF viewer for texlive/lazyvim
       - "nikitabobko/tap/aerospace" # tiling window manager
-      - "jetbrains-toolbox" # programming tools (settings synced via intellij account)
