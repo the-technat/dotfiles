@@ -25,7 +25,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-rocky:
     name: Test on rocky linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: rockylinux/rockylinux:10
     steps:
@@ -37,7 +37,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-ubuntu:
     name: Test on ubuntu linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: ubuntu:26.04
     steps:
@@ -51,7 +51,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-fedora:
     name: Test on fedora linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: fedora:46
     steps:
@@ -63,7 +63,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-debian:
     name: Test on debian linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: debian:bookworm-slim
     steps:
@@ -77,7 +77,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-amazonlinux:
     name: Test on amazon linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: amazonlinux:2023
     steps:
@@ -91,7 +91,7 @@ jobs:
       run: $HOME/.local/bin/chezmoi init --apply the-technat
   test-on-azurelinux:
     name: Test on azure linux
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     container:
       image: mcr.microsoft.com/azurelinux/base/core:3.0
     env:
