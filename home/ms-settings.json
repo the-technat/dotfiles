@@ -3,7 +3,6 @@
   "workbench.preferredDarkColorTheme": "MacOS Modern Dark - Xcode Default",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "workbench.iconTheme": "catppuccin-latte",
-  "workbench.productIconTheme": "macos-modern",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
@@ -67,4 +66,5 @@
   "workbench.editorAssociations": {
     "*.xml": "java.formatterSettingsEditor"
   },
+  "window.density.layout": "compact",
 }

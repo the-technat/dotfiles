@@ -42,3 +42,4 @@ mscode_extensions:
   - EdwinKofler.vscode-hyperupcall-pack-latex
   - shengchen.vscode-checkstyle
   - vscjava.vscode-java-pack
+  - redhat.vscode-xml
