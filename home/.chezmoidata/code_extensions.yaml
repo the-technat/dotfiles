@@ -43,3 +43,4 @@ mscode_extensions:
   - shengchen.vscode-checkstyle
   - vscjava.vscode-java-pack
   - redhat.vscode-xml
+  - GitLab.gitlab-workflow

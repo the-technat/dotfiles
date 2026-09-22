@@ -67,4 +67,7 @@
     "*.xml": "java.formatterSettingsEditor"
   },
   "window.density.layout": "compact",
+  "gitlab.duoChat.enabled": false,
+  "gitlab.duoCodeSuggestions.enabled": false,
+  "gitlab.duoAgentPlatform.enabled": false,
 }
