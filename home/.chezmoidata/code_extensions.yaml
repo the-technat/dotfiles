@@ -19,3 +19,24 @@ code_extensions:
   - Catppuccin.catppuccin-vsc
   - Catppuccin.catppuccin-vsc-icons
   - EdwinKofler.vscode-hyperupcall-pack-latex
+mscode_extensions:
+  - docker.docker
+  - editorconfig.editorconfig
+  - github.codespaces
+  - github.vscode-github-actions
+  - golang.go
+  - hashicorp.terraform
+  - lang2hong.githd
+  - metalbear.mirrord
+  - mhutchie.git-graph
+  - ms-azuretools.vscode-docker
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - ms-vscode.makefile-tools
+  - redhat.vscode-yaml
+  - vscodevim.vim
+  - tamasfe.even-better-toml
+  - dez64ru.macos-modern-theme
+  - tomoki1207.pdf
+  - Catppuccin.catppuccin-vsc
+  - Catppuccin.catppuccin-vsc-icons
+  - EdwinKofler.vscode-hyperupcall-pack-latex

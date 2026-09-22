@@ -12,11 +12,17 @@ fi
 
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/zsh
-# for vscode (darwin only)
-
+# for codium (darwin only)
 if command -v "codium" > /dev/null; then
   {{ range .code_extensions -}}
   codium --install-extension {{ . | quote }} || true
   {{ end -}}
 fi
+# for vscode (darwin only)
+if command -v "code" > /dev/null; then
+  {{ range .mscode_extensions -}}
+  code --install-extension {{ . | quote }} || true
+  {{ end -}}
+fi
+
 {{ end -}}
