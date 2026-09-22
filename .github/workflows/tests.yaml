@@ -79,7 +79,7 @@ jobs:
     name: Test on amazon linux
     runs-on: ubuntu-26.04
     container:
-      image: amazonlinux:2023
+      image: amazonlinux:2027
     steps:
     - name: Install tar
       run: dnf install -y tar gzip
