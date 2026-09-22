@@ -40,3 +40,5 @@ mscode_extensions:
   - Catppuccin.catppuccin-vsc
   - Catppuccin.catppuccin-vsc-icons
   - EdwinKofler.vscode-hyperupcall-pack-latex
+  - shengchen.vscode-checkstyle
+  - vscjava.vscode-java-pack
