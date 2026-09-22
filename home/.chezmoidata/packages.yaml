@@ -94,6 +94,7 @@ homebrew:
       - aws/tap/eks-node-viewer
       - ansible
       - ansible-lint
+      # - ansible-dev-tools (install using system-wide python)
       # Networking
       - nmap
       - tailscale
