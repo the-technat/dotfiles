@@ -63,9 +63,6 @@
   ],
   "editor.minimap.enabled": false,
   "java.project.encoding": "warning",
-  "workbench.editorAssociations": {
-    "*.xml": "java.formatterSettingsEditor"
-  },
   "window.density.layout": "compact",
   "gitlab.duoChat.enabled": false,
   "gitlab.duoCodeSuggestions.enabled": false,

@@ -126,7 +126,7 @@ homebrew:
     - Azure/kubelogin/kubelogin
     - texlive
     casks: # casks are macos-only
-      - "ghostty" # prefered terminal emulator on macos
+      # - "ghostty" # prefered terminal emulator on macos
       - "devtoys" # helpful developer tools
       - "vscodium" # do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
