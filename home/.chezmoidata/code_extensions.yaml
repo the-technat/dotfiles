@@ -15,10 +15,10 @@ code_extensions:
   - vscodevim.vim
   - tamasfe.even-better-toml
   - dez64ru.macos-modern-theme
-  - tomoki1207.pdf
   - Catppuccin.catppuccin-vsc
   - Catppuccin.catppuccin-vsc-icons
   - EdwinKofler.vscode-hyperupcall-pack-latex
+  - jgclark.vscode-todo-highlight
 mscode_extensions:
   - docker.docker
   - editorconfig.editorconfig
@@ -36,7 +36,6 @@ mscode_extensions:
   - vscodevim.vim
   - tamasfe.even-better-toml
   - dez64ru.macos-modern-theme
-  - tomoki1207.pdf
   - Catppuccin.catppuccin-vsc
   - Catppuccin.catppuccin-vsc-icons
   - EdwinKofler.vscode-hyperupcall-pack-latex
@@ -44,3 +43,4 @@ mscode_extensions:
   - vscjava.vscode-java-pack
   - redhat.vscode-xml
   - GitLab.gitlab-workflow
+  - jgclark.vscode-todo-highlight
