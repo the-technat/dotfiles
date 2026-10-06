@@ -112,6 +112,7 @@ homebrew:
       - unzip
       # Static Sites
       - hugo
+      - graphviz # for plantuml/mermaid in markdown rendering
   linux:
     taps: []
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
