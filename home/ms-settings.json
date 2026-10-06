@@ -67,4 +67,8 @@
   "gitlab.duoChat.enabled": false,
   "gitlab.duoCodeSuggestions.enabled": false,
   "gitlab.duoAgentPlatform.enabled": false,
+  "json.schemaDownload.trustedDomains": {
+    "https://docs.renovatebot.com": true
+  },
+  "editor.fontSize": 14,
 }
