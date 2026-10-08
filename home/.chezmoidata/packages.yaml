@@ -134,3 +134,6 @@ homebrew:
       - "orbstack" # docker-engine + lightweight linux machines
       - "tailscale-app" # GUI Frontend for tailscale
       - "nikitabobko/tap/aerospace" # tiling window manager
+      - "crystalfetch" # download utility for Windows ISOs
+      - "mist" # download utility for macOS installers
+      - "utm" # do it all hypervisor
