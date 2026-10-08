@@ -1,19 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
   {
-    "key": "cmd+enter",
-    "command": "sqltools.executeCurrentQuery"
-  },
-  {
-    "key": "ctrl+/",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  {
-    "key": "ctrl+k ctrl+right",
-    "command": "workbench.action.focusNextGroup"
-  },
-  {
     "key": "ctrl+alt+m",
     "command": "workbench.action.toggleMaximizedPanel",
     "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
