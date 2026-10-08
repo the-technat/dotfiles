@@ -65,7 +65,7 @@ homebrew:
       # Java Dev
       - openjdk # Also required by texlive
       # Node
-      - nvm 
+      - node
       # Python
       - uv 
       # Go
@@ -94,7 +94,6 @@ homebrew:
       - aws/tap/eks-node-viewer
       - ansible
       - ansible-lint
-      # - ansible-dev-tools (install using system-wide python)
       # Networking
       - nmap
       - tailscale
@@ -127,8 +126,6 @@ homebrew:
     - Azure/kubelogin/kubelogin
     - texlive
     casks: # casks are macos-only
-      # - "ghostty" # prefered terminal emulator on macos
-      - "vscodium" # do it all IDE
       - "visual-studio-code" # do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
       - "font-fira-code-nerd-font" # terminal emulator font with icons
