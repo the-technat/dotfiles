@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "languages": {
+    "Java": {
+      "auto_indent": "preserve_indent",
+      "tab_size": 4
+    }
+  },
   "autosave": "on_focus_change",
   "icon_theme": "Catppuccin Latte",
   "disable_ai": true,
