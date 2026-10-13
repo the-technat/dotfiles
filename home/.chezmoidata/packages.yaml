@@ -88,7 +88,6 @@ homebrew:
       - dive
       # Cloud
       - awscli
-      - azure-cli
       - flyctl
       - hashicorp/tap/terraform
       - aws/tap/eks-node-viewer
@@ -126,6 +125,7 @@ homebrew:
     - Azure/kubelogin/kubelogin
     - texlive
     casks: # casks are macos-only
+      - "azure-cli" # somehow a cask now
       - "visual-studio-code" # do it all IDE
       - "zed" # new do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
