@@ -137,4 +137,4 @@ homebrew:
       - "nikitabobko/tap/aerospace" # tiling window manager
       - "crystalfetch" # download utility for Windows ISOs
       - "mist" # download utility for macOS installers
-      - "utm" # do it all hypervisor
+      - "utm@beta" # do it all hypervisor
