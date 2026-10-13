@@ -140,6 +140,9 @@ brew bundle --file=/dev/stdin <<EOF
 {{ range .homebrew.common.brews -}}
 brew {{ . | quote }}
 {{ end -}}
+{{ range .homebrew.common.casks -}}
+cask {{ . | quote }}
+{{ end -}}
 {{ range .homebrew.linux.brews -}}
 brew {{ . | quote }}
 {{ end -}}
@@ -184,6 +187,9 @@ brew bundle --file=/dev/stdin <<EOF
 brew {{ . | quote }}
 {{ end -}}
 {{ range .homebrew.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+{{ range .homebrew.common.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 {{ range .homebrew.darwin.brews -}}

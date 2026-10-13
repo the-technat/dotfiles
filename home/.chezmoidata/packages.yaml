@@ -111,6 +111,8 @@ homebrew:
       # Static Sites
       - hugo
       - graphviz # for plantuml/mermaid in markdown rendering
+    casks:
+    - azure-cli
   linux:
     taps: []
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
@@ -125,7 +127,6 @@ homebrew:
     - Azure/kubelogin/kubelogin
     - texlive
     casks: # casks are macos-only
-      - "azure-cli" # somehow a cask now
       - "visual-studio-code" # do it all IDE
       - "zed" # new do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
