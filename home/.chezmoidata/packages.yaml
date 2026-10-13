@@ -127,6 +127,7 @@ homebrew:
     - texlive
     casks: # casks are macos-only
       - "visual-studio-code" # do it all IDE
+      - "zed" # new do it all IDE
       - "session-manager-plugin" # used for SSH over SSM
       - "font-fira-code-nerd-font" # terminal emulator font with icons
       - "secretive" # security-enclave backed ssh keys
