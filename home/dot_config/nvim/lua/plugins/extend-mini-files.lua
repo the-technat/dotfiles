@@ -22,5 +22,19 @@ return {
       end,
       desc = "Open mini.files (root)",
     },
+    {
+      "<leader>fH",
+      function()
+        require("mini.files").open(vim.fn.expand("~"), true)
+      end,
+      desc = "Explorer ~",
+    },
+    {
+      "<leader>fS",
+      function()
+        require("mini.files").open(vim.fn.expand("~/src"), true)
+      end,
+      desc = "Explorer ~/src",
+    },
   },
 }
