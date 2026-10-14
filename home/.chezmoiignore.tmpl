@@ -20,6 +20,8 @@ k9s-views.yaml
 {{ if eq .chezmoi.os "darwin" -}}
 .local/share/code-server
 .config/code-server
+Library/Application\ Support/Code
+Library/Application\ Support/VSCodium
 {{ end -}}
 
 {{ if eq .chezmoi.os "linux" -}}
