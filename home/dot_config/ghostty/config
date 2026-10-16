@@ -42,9 +42,10 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 #theme = "light:Catppuccin Latte,dark:Catppuccin Frappe"
-theme = dark:token-dark,light:token-light
+#theme = dark:token-dark,light:token-light
+theme = "dark:Atom One Dark,light:Atom One Light"
 font-family = "FiraCode Nerd Font Mono"
 font-size = 14
 copy-on-select = true
 # currently we launch tmux manually so we can reattach to different sessions 
-#command = ~/.local/share/chezmoi/home/tmux-launch.sh
+command = ~/.local/share/chezmoi/home/tmux-launch.sh

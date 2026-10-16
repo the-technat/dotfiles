@@ -67,7 +67,7 @@ homebrew:
       # Node
       - node
       # Python
-      - uv 
+      - uv
       # Go
       - go
       - golangci-lint
@@ -112,7 +112,7 @@ homebrew:
       - hugo
       - graphviz # for plantuml/mermaid in markdown rendering
     casks:
-    - azure-cli
+      - azure-cli
   linux:
     taps: []
     tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
@@ -121,13 +121,14 @@ homebrew:
       - gawk
     brews: []
   darwin:
-    taps: 
+    taps:
       - nikitabobko/tap
-    brews: 
-    - Azure/kubelogin/kubelogin
-    - texlive
+    brews:
+      - Azure/kubelogin/kubelogin
+      - texlive
     casks: # casks are macos-only
       - "zed" # new do it all IDE
+      - "ghostty" # modern and fast terminal
       - "session-manager-plugin" # used for SSH over SSM
       - "font-fira-code-nerd-font" # terminal emulator font with icons
       - "secretive" # security-enclave backed ssh keys
