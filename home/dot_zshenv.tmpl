@@ -9,12 +9,12 @@ eval "$(/usr/local/bin/brew shellenv)"
 {{   end -}}
 SSH_AUTH_SOCK="$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh"
 {{ end -}}
-AWS_PAGER=/usr/bin/less
-AWS_DEFAULT_OUTPUT=table
-EDITOR=nvim
-GIT_EDITOR=vim
-KUBE_EDITOR=vim
-DEFAULT_USER={{ .chezmoi.username }}
+export AWS_PAGER=/usr/bin/less
+export AWS_DEFAULT_OUTPUT=table
+export EDITOR=nvim
+export GIT_EDITOR=vim
+export KUBE_EDITOR=vim
+export DEFAULT_USER={{ .chezmoi.username }}
 {{ if .wsl -}}
-BROWSER=~/.local/bin/wslopen
+export BROWSER="$HOME/.local/bin/wslopen"
 {{ end -}}
