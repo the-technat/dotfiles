@@ -10,6 +10,14 @@
 {{-   $devcontainer = true -}}
 {{- end -}}
 
+{{/* detect WSL */}}
+{{- $wsl := false -}}
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-     $wsl = true -}}
+{{-   end -}}
+{{- end -}}
+
 {{/* generate osid key from OS and release version */}}
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
@@ -33,3 +41,4 @@
   shell = {{ $shell | quote }}
   tty = {{ stdinIsATTY }}
   devcontainer = {{ $devcontainer }}
+  wsl = {{ $wsl }}
