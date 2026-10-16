@@ -16,5 +16,5 @@ GIT_EDITOR=vim
 KUBE_EDITOR=vim
 DEFAULT_USER={{ .chezmoi.username }}
 {{ if .wsl -}}
-BROWSER={{ .chezmoi.sourceDir }}/wslopen.sh
+BROWSER=~/.local/bin/wslopen
 {{ end -}}

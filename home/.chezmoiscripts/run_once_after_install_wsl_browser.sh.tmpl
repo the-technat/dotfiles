@@ -1,0 +1,4 @@
+{{ if .wsl -}}
+#!/bin/sh
+install -D -m 755 {{ .chezmoi.sourceDir }}/wslopen.sh ~/.local/bin/wslopen
+{{ end -}}
