@@ -62,6 +62,9 @@ homebrew:
       - lua # neovim dependency
       - imagemagick # neovim dependency
       - gs # neovim dependency
+      - yamlfmt # neovim dependency
+      - prettier # neovim dependency
+      - markdownlint-cli2 # neovim dependency
       # Java Dev
       - openjdk # Also required by texlive
       # Node
