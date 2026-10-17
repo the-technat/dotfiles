@@ -45,23 +45,25 @@ automatically-unhide-macos-hidden-apps = true
 # even when they are invisible.
 # This config version is only available since 'config-version = 2'
 # Fallback value (if you omit the key): persistent-workspaces = []
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
-                         "C", "D", "E", "G", "I", "M", "N", "O",
-                         "S", "T", "V", "W", "X", "Z"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 #
-[[on-window-detected]]
-  if.app-name-regex-substring = 'CarRentalApplication'
-  check-further-callbacks = true
-  run = ['layout floating']  # The callback itself
 
 [[on-window-detected]]
-  if.app-name-regex-substring = 'finder'
+  if.app-id = 'com.apple.finder'
   check-further-callbacks = true
-  run = ['layout floating']  # The callback itself
+  run = ['layout floating']  
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.Passwords'
+  run = ['layout floating']  
+
+[[on-window-detected]]
+  if.app-id = 'ru.keepcoder.Telegram'
+  run = ['layout floating'] 
 
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
@@ -128,8 +130,7 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    # focus between windows: ctrl-alt (ctrl alone stays with smart-splits inside the terminal)
-    # and alt only resizes windows inside the terminal
+    #  # focus between windows: ctrl-alt (ctrl alone stays with smart-splits inside the terminal)
     ctrl-alt-h = 'focus left'
     ctrl-alt-j = 'focus down'
     ctrl-alt-k = 'focus up'
@@ -160,21 +161,6 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
     alt-7 = 'workspace 7'
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
-    alt-b = 'workspace B'
-    alt-c = 'workspace C'
-    alt-d = 'workspace D'
-    alt-e = 'workspace E'
-    alt-g = 'workspace G'
-    alt-i = 'workspace I'
-    alt-m = 'workspace M'
-    alt-n = 'workspace N'
-    alt-o = 'workspace O'
-    alt-s = 'workspace S'
-    alt-t = 'workspace T'
-    alt-v = 'workspace V'
-    alt-w = 'workspace W'
-    alt-x = 'workspace X'
-    alt-z = 'workspace Z'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     alt-shift-1 = 'move-node-to-workspace 1'
@@ -186,27 +172,20 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
     alt-shift-7 = 'move-node-to-workspace 7'
     alt-shift-8 = 'move-node-to-workspace 8'
     alt-shift-9 = 'move-node-to-workspace 9'
-    alt-shift-b = 'move-node-to-workspace B'
-    alt-shift-c = 'move-node-to-workspace C'
-    alt-shift-d = 'move-node-to-workspace D'
-    alt-shift-e = 'move-node-to-workspace E'
-    alt-shift-g = 'move-node-to-workspace G'
-    alt-shift-i = 'move-node-to-workspace I'
-    alt-shift-m = 'move-node-to-workspace M'
-    alt-shift-n = 'move-node-to-workspace N'
-    alt-shift-o = 'move-node-to-workspace O'
-    alt-shift-s = 'move-node-to-workspace S'
-    alt-shift-t = 'move-node-to-workspace T'
-    alt-shift-v = 'move-node-to-workspace V'
-    alt-shift-w = 'move-node-to-workspace W'
-    alt-shift-x = 'move-node-to-workspace X'
-    alt-shift-z = 'move-node-to-workspace Z'
-
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
+    # conflicts with change window in Windows VDI
     #alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
     alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    # window -> next/previous monitor, and follow it there
+    alt-shift-period = 'move-node-to-monitor --wrap-around --focus-follows-window next'
+    alt-shift-comma  = 'move-node-to-monitor --wrap-around --focus-follows-window prev'
+
+    # move keyboard focus (not the window) to another monitor
+    ctrl-alt-period = 'focus-monitor --wrap-around next'
+    ctrl-alt-comma  = 'focus-monitor --wrap-around prev'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-semicolon = 'mode service'
