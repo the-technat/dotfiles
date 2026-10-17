@@ -4,3 +4,7 @@ for _, mode in ipairs({ "n", "t" }) do
     pcall(vim.keymap.del, mode, lhs)
   end
 end
+
+vim.keymap.set("n", "<leader>ob", function()
+  vim.ui.open(vim.fn.expand("%:p"))
+end, { desc = "Open file in browser" })
