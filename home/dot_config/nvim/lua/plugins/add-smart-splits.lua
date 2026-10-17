@@ -3,13 +3,12 @@ return {
   "smart-splits-nvim/smart-splits.nvim",
   opts = {
     mux = { backend = "smart-splits-backend-tmux" },
-    move = { at_edge = "split" },
+    move = { at_edge = "stop" },
   },
   dependencies = {
     { "smart-splits-nvim/backend-tmux", main = "smart-splits-backend-tmux" },
   },
   keys = {
-    -- Resize splits
     {
       "<A-h>",
       function()
@@ -38,7 +37,7 @@ return {
       end,
       desc = "Resize right",
     },
-    -- Move between splits
+
     {
       "<C-h>",
       function()
@@ -67,30 +66,30 @@ return {
       end,
       desc = "Move right",
     },
-    -- Swap buffers
+
     {
-      "<leader><leader>h",
+      "<leader>mh",
       function()
         require("smart-splits").swap_buf_left()
       end,
       desc = "Swap left",
     },
     {
-      "<leader><leader>j",
+      "<leader>mj",
       function()
         require("smart-splits").swap_buf_down()
       end,
       desc = "Swap down",
     },
     {
-      "<leader><leader>k",
+      "<leader>mk",
       function()
         require("smart-splits").swap_buf_up()
       end,
       desc = "Swap up",
     },
     {
-      "<leader><leader>l",
+      "<leader>ml",
       function()
         require("smart-splits").swap_buf_right()
       end,
