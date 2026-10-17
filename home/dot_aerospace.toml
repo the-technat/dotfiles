@@ -128,10 +128,12 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "B",
     alt-comma = 'layout accordion horizontal vertical'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
-    alt-l = 'focus right'
+    # focus between windows: ctrl-alt (ctrl alone stays with smart-splits inside the terminal)
+    # and alt only resizes windows inside the terminal
+    ctrl-alt-h = 'focus left'
+    ctrl-alt-j = 'focus down'
+    ctrl-alt-k = 'focus up'
+    ctrl-alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-shift-h = 'move left'

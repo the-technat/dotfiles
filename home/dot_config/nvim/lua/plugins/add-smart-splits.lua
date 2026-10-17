@@ -1,6 +1,7 @@
 -- https://github.com/smart-splits-nvim/backend-tmux#neovim
 return {
   "smart-splits-nvim/smart-splits.nvim",
+  lazy = false, -- always load on startup
   opts = {
     mux = { backend = "smart-splits-backend-tmux" },
     move = { at_edge = "stop" },
