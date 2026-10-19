@@ -4,7 +4,7 @@ return {
   lazy = false, -- always load on startup
   opts = {
     mux = { backend = "smart-splits-backend-tmux" },
-    move = { at_edge = "stop" },
+    move = { at_edge = "split" },
   },
   dependencies = {
     { "smart-splits-nvim/backend-tmux", main = "smart-splits-backend-tmux" },
