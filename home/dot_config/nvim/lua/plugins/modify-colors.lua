@@ -1,9 +1,10 @@
 return {
   { "ThorstenRhau/token" },
+  { "olimorris/onedarkpro.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "token",
+      colorscheme = "onelight",
     },
   },
 }
