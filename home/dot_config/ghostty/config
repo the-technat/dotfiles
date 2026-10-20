@@ -43,9 +43,9 @@
 # resize-overlay-duration = 4s 200ms
 
 # Begin of customization (not much since the sensible default claim is real ;))
-#theme = "light:Catppuccin Latte,dark:Catppuccin Frappe"
+theme = "light:Catppuccin Latte,dark:Catppuccin Frappe"
 #theme = dark:token-dark,light:token-light
-theme = "dark:Atom One Dark,light:Atom One Light"
+#theme = "dark:Atom One Dark,light:Atom One Light"
 font-family = "FiraCode Nerd Font Mono"
 font-size = 14
 copy-on-select = true
