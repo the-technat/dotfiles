@@ -15,3 +15,21 @@ end, { desc = "Open file in browser" })
 -- move macro recording to capital Q to avoid triggering it accidentially
 vim.keymap.set("n", "q", "<Nop>")
 vim.keymap.set("n", "Q", "q", { desc = "Record macro" })
+
+-- disable the status line for presenting
+local saved_laststatus = 3 -- LazyVim's default (one global statusline)
+
+Snacks.toggle({
+  name = "Statusline",
+  get = function()
+    return vim.o.laststatus ~= 0
+  end,
+  set = function(enabled)
+    if enabled then
+      vim.o.laststatus = saved_laststatus
+    else
+      saved_laststatus = vim.o.laststatus
+      vim.o.laststatus = 0
+    end
+  end,
+}):map("<leader>uS")

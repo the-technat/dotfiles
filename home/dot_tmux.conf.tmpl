@@ -34,6 +34,9 @@ set-window-option -g status-keys vi
 # reload config file
 bind r source-file ~/.tmux.conf 
 
+# prefix + S: toggle the status bar for the current session
+bind-key S if-shell -F '#{==:#{status},off}' 'set-option status on' 'set-option status off'
+
 ###############################
 # Plugins (Tmux Plugin Manager) https://github.com/tmux-plugins/tpm
 ###############################
@@ -43,6 +46,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'smart-splits-nvim/backend-tmux'
+set -g @plugin 'erikw/tmux-powerline'
 
 ###############################
 # Plugin Configs
