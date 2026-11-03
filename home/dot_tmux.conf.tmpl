@@ -1,87 +1,26 @@
-###############################
-# General
-###############################
-set -g history-limit 5000                 # boost history
+set -g @plugin 'tmux-plugins/tmux-yank'          # Copy-paste with the mouse
+set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation with nvim
+#set -g @plugin 'erikw/tmux-powerline'           # Fancy status bar
+set -g @catppuccin_flavour 'latte'               # or frappe, macchiato, mocha
+
+set -g history-limit 500000
 set -g default-terminal "tmux-256color"
-set -ag terminal-overrides ",$TERM:RGB"
 
-###############################
-# Navigation
-###############################
-## More natural way to split windows
-bind-key | split-window -h -c "#{pane_current_path}" 
-bind-key - split-window -v -c "#{pane_current_path}" 
-## Open new windows with same directory
-bind c new-window -c "#{pane_current_path}"
+bind-key | split-window -h -c "#{pane_current_path}"                                        # prefered hsplit
+bind-key - split-window -v -c "#{pane_current_path}"                                        # prefered vsplit
+bind-key S if-shell -F '#{==:#{status},off}' 'set-option status on' 'set-option status off' # toggle tmux status bar (visual noise when presenting)
+bind-key c new-window -c "#{pane_current_path}"                                             # open new pane in same dir
+bind-key r source-file ~/.tmux.conf \; display-message "Config reloaded"                    # reload config
 
-# activate mouse mode and all selections that come with it
-set -g mouse on
-
-###############################
-# Behaviour
-###############################
-set-option -g focus-events on # useful for autoread in neovim
-set-option -sg escape-time 10 # required by neovim
-
-###############################
-# Keybindings
-###############################
-## Make mode and status keybindings like vim
 set-window-option -g mode-keys vi
 set-window-option -g status-keys vi
 
-# reload config file
-bind r source-file ~/.tmux.conf 
+set-option -g focus-events on # nvim (lua) setting rec 20220630
+set-option -sg escape-time 0  # https://github.com/LazyVim/LazyVim/discussions/658
 
-# prefix + S: toggle the status bar for the current session
-bind-key S if-shell -F '#{==:#{status},off}' 'set-option status on' 'set-option status off'
+set -g @yank_selection_mouse 'clipboard' # mouse yanks should go to clipboard
 
-###############################
-# Plugins (Tmux Plugin Manager) https://github.com/tmux-plugins/tpm
-###############################
-set -g @plugin 'tmux-plugins/tmux-yank'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'tmux-plugins/tmux-open'
-set -g @plugin 'smart-splits-nvim/backend-tmux'
-set -g @plugin 'erikw/tmux-powerline'
+set -g @smart-splits_at_edge 'split'  # behavior when splitting smart-splits, align with nvim
+set -g bell-action none               # silence please!
 
-###############################
-# Plugin Configs
-###############################
-# tmux-yank
-## mouse yanks should also go to clipboard instead of primary
-set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
-
-# tmux-resurrect
-## restore nvim session using tmux-resurrect
-set -g @resurrect-strategy-nvim 'session'
-## restore pane contents
-set -g @resurrect-capture-pane-contents 'on'
-## restore these additional running programms
-set -g @resurrect-processes '"~ssh *" "~k *" "~kubectl *" "~kubie *" "~htop" "~k9s"'
-
-# tmux-continuum
-#set -g @continuum-save-interval '10'
-#set -g @continuum-restore 'on'
-
-# tmux-open
-## search for strings by default in duckduckgo
-set -g @open-S 'https://duckduckgo.com/?q='
-
-#smart-splits-nvim
-set -g @smart-splits_at_edge 'split'
-
-###############################
-# Look and feel
-###############################
-# don't do anything when a 'bell' rings
-set -g visual-activity off
-set -g visual-bell off
-set -g visual-silence off
-setw -g monitor-activity off
-set -g bell-action none
-
-################################## End of Config ################################
-# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run '~/.tmux/plugins/tpm/tpm'                    # initialize TPM, end of file
