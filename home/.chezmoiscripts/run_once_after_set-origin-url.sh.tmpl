@@ -1,6 +1,6 @@
-{{ if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env zsh
 set -eufo pipefail
 git -C "${CHEZMOI_WORKING_TREE}" remote set-url origin git@github.com:the-technat/dotfiles.git
+{{ if eq .chezmoi.os "darwin" -}}
 # devpod context set-options -o DOTFILES_URL=https://github.com/the-technat/dotfiles  # currently devopd is not installed by default
 {{ end -}}

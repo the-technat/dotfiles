@@ -17,7 +17,7 @@ plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 {{ if and (eq .chezmoi.os "linux") (not .devcontainer) -}}
 
 ZSH_THEME="robbyrussell"
-plugins=(ssh-agent git fzf sudo helm kubectl cp extract terraform aws docker)
+plugins=(git fzf sudo helm kubectl cp extract terraform aws docker)
 
 {{ end -}}
 
