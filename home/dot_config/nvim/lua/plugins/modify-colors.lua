@@ -1,6 +1,4 @@
 return {
-  { "ThorstenRhau/token" },
-  { "olimorris/onedarkpro.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {

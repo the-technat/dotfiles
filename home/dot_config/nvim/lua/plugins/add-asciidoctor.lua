@@ -1,4 +1,3 @@
--- lua/plugins/asciidoc.lua
 return {
   {
     "habamax/vim-asciidoctor",

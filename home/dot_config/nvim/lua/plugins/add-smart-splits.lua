@@ -1,7 +1,22 @@
 -- https://github.com/smart-splits-nvim/backend-tmux#neovim
+local keys = {}
+for key, dir in pairs({ h = "left", j = "down", k = "up", l = "right" }) do
+  local function map(lhs, fn, desc)
+    keys[#keys + 1] = {
+      lhs,
+      function()
+        require("smart-splits")[fn .. dir]()
+      end,
+      desc = desc .. " " .. dir,
+    }
+  end
+  map("<A-" .. key .. ">", "resize_", "Resize")
+  map("<C-" .. key .. ">", "move_cursor_", "Move")
+  map("<leader>m" .. key, "swap_buf_", "Swap")
+end
+
 return {
   "smart-splits-nvim/smart-splits.nvim",
-  lazy = false, -- always load on startup
   opts = {
     mux = { backend = "smart-splits-backend-tmux" },
     move = { at_edge = "split" },
@@ -9,92 +24,5 @@ return {
   dependencies = {
     { "smart-splits-nvim/backend-tmux", main = "smart-splits-backend-tmux" },
   },
-  keys = {
-    {
-      "<A-h>",
-      function()
-        require("smart-splits").resize_left()
-      end,
-      desc = "Resize left",
-    },
-    {
-      "<A-j>",
-      function()
-        require("smart-splits").resize_down()
-      end,
-      desc = "Resize down",
-    },
-    {
-      "<A-k>",
-      function()
-        require("smart-splits").resize_up()
-      end,
-      desc = "Resize up",
-    },
-    {
-      "<A-l>",
-      function()
-        require("smart-splits").resize_right()
-      end,
-      desc = "Resize right",
-    },
-
-    {
-      "<C-h>",
-      function()
-        require("smart-splits").move_cursor_left()
-      end,
-      desc = "Move left",
-    },
-    {
-      "<C-j>",
-      function()
-        require("smart-splits").move_cursor_down()
-      end,
-      desc = "Move down",
-    },
-    {
-      "<C-k>",
-      function()
-        require("smart-splits").move_cursor_up()
-      end,
-      desc = "Move up",
-    },
-    {
-      "<C-l>",
-      function()
-        require("smart-splits").move_cursor_right()
-      end,
-      desc = "Move right",
-    },
-
-    {
-      "<leader>mh",
-      function()
-        require("smart-splits").swap_buf_left()
-      end,
-      desc = "Swap left",
-    },
-    {
-      "<leader>mj",
-      function()
-        require("smart-splits").swap_buf_down()
-      end,
-      desc = "Swap down",
-    },
-    {
-      "<leader>mk",
-      function()
-        require("smart-splits").swap_buf_up()
-      end,
-      desc = "Swap up",
-    },
-    {
-      "<leader>ml",
-      function()
-        require("smart-splits").swap_buf_right()
-      end,
-      desc = "Swap right",
-    },
-  },
+  keys = keys,
 }

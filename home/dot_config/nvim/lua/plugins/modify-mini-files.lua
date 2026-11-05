@@ -20,7 +20,7 @@ return {
       function()
         require("mini.files").open(vim.fn.expand("~"), true)
       end,
-      desc = "Open mini.files (src)",
+      desc = "Open mini.files (home)",
     },
   },
   opts = {
@@ -30,6 +30,7 @@ return {
       width_preview = 100,
     },
     options = {
+      -- disabled by default in LazyVim's extra
       use_as_default_explorer = true,
     },
   },
