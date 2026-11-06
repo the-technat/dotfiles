@@ -1,10 +1,11 @@
 set -g @plugin 'tmux-plugins/tmux-yank'          # Copy-paste with the mouse
 set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation with nvim
-#set -g @plugin 'erikw/tmux-powerline'           # Fancy status bar
-set -g @catppuccin_flavour 'latte'               # or frappe, macchiato, mocha
+set -g @plugin 'erikw/tmux-powerline'            # Fancy status bar
+ set -g @plugin 'catppuccin/tmux'                # Color theme for tmux
 
 set -g history-limit 500000
 set -g default-terminal "tmux-256color"
+set -g @catppuccin_flavour 'latte'               # or frappe, macchiato, mocha
 
 bind-key | split-window -h -c "#{pane_current_path}"                                        # prefered hsplit
 bind-key - split-window -v -c "#{pane_current_path}"                                        # prefered vsplit
