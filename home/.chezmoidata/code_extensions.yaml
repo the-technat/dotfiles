@@ -1,24 +1,18 @@
 code_extensions:
-  - docker.docker
   - editorconfig.editorconfig
-  - github.codespaces
-  - github.vscode-github-actions
-  - golang.go
-  - hashicorp.terraform
-  - lang2hong.githd
-  - metalbear.mirrord
-  - mhutchie.git-graph
-  - ms-azuretools.vscode-docker
-  - ms-kubernetes-tools.vscode-kubernetes-tools
-  - ms-vscode.makefile-tools
-  - redhat.vscode-yaml
   - vscodevim.vim
-  - tamasfe.even-better-toml
-  - dez64ru.macos-modern-theme
   - Catppuccin.catppuccin-vsc
   - Catppuccin.catppuccin-vsc-icons
-  - EdwinKofler.vscode-hyperupcall-pack-latex
+  - redhat.vscode-xml
+  - redhat.vscode-yaml
+  - golang.go
+  - docker.docker
+  - hashicorp.terraform
+  - ms-kubernetes-tools.vscode-kubernetes-tools
+  - metalbear.mirrord
+  - ms-vscode.makefile-tools
   - jgclark.vscode-todo-highlight
+  - github.vscode-github-actions
 mscode_extensions:
   - editorconfig.editorconfig
   - vscodevim.vim
