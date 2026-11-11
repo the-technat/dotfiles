@@ -1,9 +1,8 @@
 {
-  "workbench.colorTheme": "MacOS Modern Light - Xcode Default",
-  "workbench.preferredDarkColorTheme": "MacOS Modern Dark - Xcode Default",
+  "workbench.colorTheme": "Catppuccin Latte",
+  "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
   "workbench.iconTheme": "catppuccin-latte",
-  "workbench.productIconTheme": "macos-modern",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
@@ -42,12 +41,7 @@
   "yaml.format.enable": false,
   "git.blame.editorDecoration.enabled": true,
   "git.blame.statusBarItem.enabled": false,
-  "todohighlight.keywords": [
-    "TODO",
-    "QUESTION",
-    "?",
-    "Q"
-  ],
+  "todohighlight.keywords": ["TODO", "QUESTION", "?", "Q"],
   "debug.breakpointsView.presentation": "tree",
   "terminal.integrated.initialHint": false,
   "workbench.activityBar.compact": true,
@@ -67,4 +61,7 @@
   "workbench.editorAssociations": {
     "*.xml": "java.formatterSettingsEditor"
   },
+  "vim.handleKeys": {
+    "<C-p>": false
+  }
 }
