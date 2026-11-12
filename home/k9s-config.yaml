@@ -6,6 +6,7 @@ k9s:
     logoless: true
     crumbless: true
     enableMouse: true
+    skin: catppuccin-latte
   logger:
     textWrap: true
     showTime: false
