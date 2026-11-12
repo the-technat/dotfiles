@@ -16,6 +16,7 @@ wslopen.sh
 k9s-config.yaml
 k9s-aliases.yaml
 k9s-views.yaml
+k9s-skins
 .config/nvim/pack/*
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -23,6 +24,7 @@ k9s-views.yaml
 .config/code-server
 Library/Application\ Support/Code
 Library/Application\ Support/VSCodium
+.config/k9s
 {{ end -}}
 
 {{ if eq .chezmoi.os "linux" -}}
