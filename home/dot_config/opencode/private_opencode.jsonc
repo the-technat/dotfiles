@@ -1,0 +1,54 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "planet-express": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Planet Express",
+      "options": {
+        "baseURL": "https://www.cs.technik.fhnw.ch/planet-express/v1",
+        "apiKey": "{file:keys/planet-express.key}"
+      },
+      "models": { "zai-org/GLM-5.3-Flash": { "name": "GLM-5.3-Flash" } }
+    },
+    "swiss-ai-research": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Swiss AI Research Platform",
+      "options": {
+        "baseURL": "https://api.swissai.svc.cscs.ch/v1",
+        "apiKey": "{file:keys/swiss-ai-research.key}"
+      },
+      "models": { 
+        "CSCS-Inference/zai-org/GLM-5.3-Flash": { "name": "GLM-5.3 Flash" },
+        "CSCS-Inference/zai-org/GLM-5.3": { "name": "GLM-5.3" },
+        "CSCS-Inference/Qwen/Qwen3.8-27B-FP8": { "name": "Qwen 3.8 27B FP8" },
+        "RCP-AIaaS/deepseek-ai/DeepSeek-V4.1-Flash-1017": {"name": "DeepSeek V4.1 Flash"}
+       }
+    }
+  },
+  "model": "planet-express/zai-org/GLM-5.3-Flash",
+   "mcp": {
+    "servers": {
+      "gitlab": {
+        "type": "remote",
+        "url": "https://gitlab.fhnw.ch/api/v4/mcp"
+      }
+    }
+  },
+  "plugins": [
+    "@dietrichgebert/ponytail"
+  ],
+  "references": {
+    "mattpocock-skills": {
+      "repository": "mattpocock/skills",
+      "hidden": true
+    },
+    "ginkgo-skills": {
+      "repository": "onsi/ginkgo",
+      "hidden": true
+    }
+  },
+  "skills": [
+    "~/.local/share/opencode/repos/github.com/mattpocock/skills/skills",
+    "~/.local/share/opencode/repos/github.com/onsi/ginkgo/plugins/ginkgo/skills"
+  ]
+}
