@@ -21,7 +21,9 @@
         "CSCS-Inference/zai-org/GLM-5.3-Flash": { "name": "GLM-5.3 Flash" },
         "CSCS-Inference/zai-org/GLM-5.3": { "name": "GLM-5.3" },
         "CSCS-Inference/Qwen/Qwen3.8-27B-FP8": { "name": "Qwen 3.8 27B FP8" },
-        "RCP-AIaaS/deepseek-ai/DeepSeek-V4.1-Flash-1017": {"name": "DeepSeek V4.1 Flash"}
+        "RCP-AIaaS/deepseek-ai/DeepSeek-V4.1-Flash-1017": {"name": "DeepSeek V4.1 Flash"},
+        "CSCS-Inference/moonshotai/Kimi-K2.7-Code": {"name": "Kimi K2.7 Code"},
+        "CSCS-Inference/google/gemma-4-31B-it": {"name": "Gemma 4 31B IT"}
        }
     }
   },
