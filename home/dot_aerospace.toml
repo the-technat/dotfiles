@@ -65,6 +65,22 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   if.app-id = 'ru.keepcoder.Telegram'
   run = ['layout floating'] 
 
+[[on-window-detected]]
+  if.app-id = 'org.whispersystems.signal-desktop'
+  run = ['layout floating'] 
+
+[[on-window-detected]]
+  if.app-id = 'com.spotify.client'
+  run = ['layout floating'] 
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.reminders'
+  run = ['layout floating'] 
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.Terminal'
+  run = ['layout floating'] 
+
 # Possible values: (qwerty|dvorak|colemak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
