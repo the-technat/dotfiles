@@ -27,7 +27,7 @@
        }
     }
   },
-  "model": "planet-express/zai-org/GLM-5.3-Flash",
+  "model": "swiss-ai-research/CSCS-Inference/zai-org/GLM-5.3-Flash",
    "mcp": {
     "servers": {
       "gitlab": {
