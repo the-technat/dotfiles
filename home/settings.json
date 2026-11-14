@@ -41,13 +41,17 @@
   "yaml.format.enable": false,
   "git.blame.editorDecoration.enabled": true,
   "git.blame.statusBarItem.enabled": false,
-  "todohighlight.keywords": ["TODO", "QUESTION", "?", "Q"],
+  "todohighlight.keywords": [
+    "TODO",
+    "QUESTION",
+    "?",
+    "Q"
+  ],
   "debug.breakpointsView.presentation": "tree",
   "terminal.integrated.initialHint": false,
   "workbench.activityBar.compact": true,
   "workbench.sideBar.location": "right",
   "java.maven.downloadSources": true,
-  "git.autofetch": true,
   "yaml.disableSchemaDetection": [
     "**/.github/workflows/*.yml",
     "**/.github/workflows/*.yaml",

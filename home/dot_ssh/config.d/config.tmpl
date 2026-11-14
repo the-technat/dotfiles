@@ -26,12 +26,6 @@ Host i-* mi-*  # for AWS SSM
   ForwardAgent yes
   GSSAPIAuthentication no
 
-{{ if eq .chezmoi.os "linux" -}}
-# just one pre-generated ssh key on linux
-Host *
-  IdentityFile /home/{{ .chezmoi.username }}/.ssh/id_ed25519
-{{ end -}}
-
 {{ if eq .osid "darwin" -}}
 # Secretive is managing my keys on macos
 Host *
