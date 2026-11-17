@@ -67,5 +67,7 @@
   },
   "vim.handleKeys": {
     "<C-p>": false
-  }
+  },
+  "plantuml.render": "PlantUMLServer",
+  "plantuml.server": "https://www.plantuml.com/plantuml"
 }
