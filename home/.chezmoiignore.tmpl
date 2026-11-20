@@ -19,11 +19,6 @@ k9s-views.yaml
 k9s-skins
 .config/nvim/pack/*
 
-{{ if .wsl -}}
-# wsl has it's custom opencode
-.config/opencode 
-{{ end -}}
-
 {{ if eq .chezmoi.os "darwin" -}}
 .local/share/code-server
 .config/code-server
