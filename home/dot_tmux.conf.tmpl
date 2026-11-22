@@ -4,11 +4,7 @@ set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation
 set -g history-limit 500000
 set -g default-terminal "tmux-256color"
 
-bind-key | split-window -h -c "#{pane_current_path}"                                        # prefered hsplit
-bind-key - split-window -v -c "#{pane_current_path}"                                        # prefered vsplit
-bind-key S if-shell -F '#{==:#{status},off}' 'set-option status on' 'set-option status off' # toggle tmux status bar (visual noise when presenting)
 bind-key c new-window -c "#{pane_current_path}"                                             # open new pane in same dir
-bind-key r source-file ~/.tmux.conf \; display-message "Config reloaded"                    # reload config
 
 set-window-option -g mode-keys vi
 set-window-option -g status-keys vi
