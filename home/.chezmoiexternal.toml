@@ -14,11 +14,3 @@ refreshPeriod = "168h"
 type = "git-repo"
 url = "https://github.com/smart-splits-nvim/backend-tmux.git"
 refreshPeriod = "168h"
-[".tmux/plugins/tmux-powerline"]
-type = "git-repo"
-url = "https://github.com/erikw/tmux-powerline.git"
-refreshPeriod = "168h"
-[".tmux/plugins/catppuccin"]
-type = "git-repo"
-url = "https://github.com/catppuccin/tmux.git"
-refreshPeriod = "168h"
