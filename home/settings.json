@@ -62,12 +62,13 @@
   ],
   "editor.minimap.enabled": false,
   "java.project.encoding": "warning",
-  "workbench.editorAssociations": {
-    "*.xml": "java.formatterSettingsEditor"
-  },
   "vim.handleKeys": {
     "<C-p>": false
   },
   "plantuml.render": "PlantUMLServer",
-  "plantuml.server": "https://www.plantuml.com/plantuml"
+  "plantuml.server": "https://www.plantuml.com/plantuml",
+  "workbench.sideBar.experimental.fontSize": 12,
+  "workbench.experimental.fontSize": 12,
+  "workbench.tabs.experimental.fontSize": 12,
+  "workbench.activityBar.experimental.fontSize": 14
 }
