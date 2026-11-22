@@ -74,6 +74,16 @@ persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   run = ['layout floating'] 
 
 [[on-window-detected]]
+  if.app-id = 'com.microsoft.rdc.macos'
+  check-further-callbacks = true
+  run = ['layout floating']
+
+[[on-window-detected]]
+  if.app-id = 'com.apple.mail'
+  check-further-callbacks = true
+  run = ['layout floating']
+
+[[on-window-detected]]
   if.app-id = 'com.apple.reminders'
   run = ['layout floating'] 
 
