@@ -1,11 +1,13 @@
 set -g history-limit 500000
 set -g default-terminal "tmux-256color"
-
-bind-key c new-window -c "#{pane_current_path}" # open new pane in same dir
+set -g bell-action none               # silence please!
 
 set-window-option -g mode-keys vi
 set-window-option -g status-keys vi
 
-set -g bell-action none               # silence please!
+bind-key c new-window -c "#{pane_current_path}" # open new pane in same dir
+
+set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation with nvim
+set -g @smart-splits_at_edge 'split'  # behavior when splitting smart-splits, align with nvim
 
 run '~/.tmux/plugins/tpm/tpm'                    # initialize TPM, end of file
