@@ -5,6 +5,10 @@ set -g bell-action none               # silence please!
 set-window-option -g mode-keys vi
 set-window-option -g status-keys vi
 
+# Lazyvim specific options
+set-option -sg escape-time 0
+set-option -g focus-events on
+
 bind-key c new-window -c "#{pane_current_path}" # open new pane in same dir
 
 set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation with nvim
