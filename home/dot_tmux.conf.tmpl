@@ -10,8 +10,3 @@ set-option -sg escape-time 0
 set-option -g focus-events on
 
 bind-key c new-window -c "#{pane_current_path}" # open new pane in same dir
-
-set -g @plugin 'smart-splits-nvim/backend-tmux'  # Native pane/window navigation with nvim
-set -g @smart-splits_at_edge 'stop'  # behavior when splitting smart-splits, align with nvim
-
-run '~/.tmux/plugins/tpm/tpm'                    # initialize TPM, end of file
