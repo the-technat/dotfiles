@@ -119,11 +119,9 @@ homebrew:
     taps:
       - nikitabobko/tap
     brews:
-      - Azure/kubelogin/kubelogin
       - texlive
     casks: # casks are macos-only
       - "vscodium" # do it all IDE
-      - "zed" # new do it all IDE
       - "ghostty" # modern and fast terminal
       - "session-manager-plugin" # used for SSH over SSM
       - "font-fira-code-nerd-font" # terminal emulator font with icons
@@ -134,4 +132,3 @@ homebrew:
       - "nikitabobko/tap/aerospace" # tiling window manager
       - "crystalfetch" # download utility for Windows ISOs
       - "mist" # download utility for macOS installers
-      - "utm@beta" # do it all hypervisor
