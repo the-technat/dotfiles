@@ -18,11 +18,5 @@ if command -v "codium" > /dev/null; then
   codium --install-extension {{ . | quote }} || true
   {{ end -}}
 fi
-# for vscode (darwin only)
-if command -v "code" > /dev/null; then
-  {{ range .mscode_extensions -}}
-  code --install-extension {{ . | quote }} || true
-  {{ end -}}
-fi
 
 {{ end -}}

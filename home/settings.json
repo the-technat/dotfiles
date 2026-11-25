@@ -2,7 +2,7 @@
   "workbench.colorTheme": "Catppuccin Latte",
   "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
   "workbench.preferredLightColorTheme": "Catppuccin Latte",
-  "workbench.iconTheme": "catppuccin-latte",
+  "workbench.iconTheme": "catppuccin-frappe",
   "editor.fontFamily": "FiraCode Nerd Font,Menlo, Monaco, 'Courier New', monospace",
   "window.customTitleBarVisibility": "windowed",
   "workbench.editor.showTabs": "none",
@@ -65,8 +65,6 @@
   "vim.handleKeys": {
     "<C-p>": false
   },
-  "plantuml.render": "PlantUMLServer",
-  "plantuml.server": "https://www.plantuml.com/plantuml",
   "workbench.sideBar.experimental.fontSize": 12,
   "workbench.experimental.fontSize": 12,
   "workbench.tabs.experimental.fontSize": 12,
