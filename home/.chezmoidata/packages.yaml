@@ -47,22 +47,20 @@ homebrew:
       - aws/tap
     brews:
       - tmux
-      # Neovim
+      # Neovim (https://www.lazyvim.org/#%EF%B8%8F-requirements)
       - neovim
       - vim
       - make # neovim dependency
       - gcc # neovim dependency
+      - tree-sitter-cli # neovim dependency
       - fd # neovim dependency
-      - lazygit # neovim dependency
       - ripgrep # neovim dependency
       - fzf # neovim dependency
-      - tree-sitter-cli # neovim dependency
       - ast-grep # neovim dependency
       - luarocks # neovim dependency
       - lua # neovim dependency
       - imagemagick # neovim dependency
-      - gs # neovim dependency
-      - asciidoctor # neovim dep
+      - asciidoctor # neovim dependency
       # Java Dev
       - openjdk # Also required by texlive
       # Node
@@ -89,6 +87,7 @@ homebrew:
       - dive
       # Cloud
       - awscli
+      - Azure/kubelogin/kubelogin 
       - flyctl
       - hashicorp/tap/terraform
       - aws/tap/eks-node-viewer
@@ -111,15 +110,10 @@ homebrew:
       - unzip
       # Static Sites
       - hugo
-      - graphviz # for plantuml/mermaid in markdown rendering
     casks:
       - azure-cli
   linux:
     taps: []
-    tier3_brews: # at least tier 3 on arm64, thus only installed on amd64
-      - Azure/kubelogin/kubelogin # not working
-      - net-tools
-      - gawk
     brews: []
   darwin:
     taps:

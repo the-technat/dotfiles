@@ -149,14 +149,6 @@ brew {{ . | quote }}
 EOF
 {{ end -}}
 
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.arch "amd64") (not .devcontainer ) -}}
-brew bundle --file=/dev/stdin <<EOF
-{{ range .homebrew.linux.tier3_brews -}}
-brew {{ . | quote }}
-{{ end -}}
-EOF
-{{ end -}}
-
 {{ if eq .chezmoi.os "darwin" -}}
 export HOMEBREW_NO_ENV_HINTS=1
 {{  if contains "arm" (output "uname" "-p" | trim) -}}
